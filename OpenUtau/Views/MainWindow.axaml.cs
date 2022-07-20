@@ -386,7 +386,7 @@ namespace OpenUtau.App.Views {
                 Filters = new List<FileDialogFilter>() {
                     new FileDialogFilter() {
                         Name = "Archive File",
-                        Extensions = new List<string>(){ "zip", "rar", "uar", "vogeon" },
+                        Extensions = new List<string>(){ "zip", "rar", "uar", "7z", "vogeon" },
                     },
                 },
                 AllowMultiple = false,
