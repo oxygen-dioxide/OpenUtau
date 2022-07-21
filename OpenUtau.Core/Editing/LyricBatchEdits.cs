@@ -2,6 +2,7 @@
 using System.Linq;
 using OpenUtau.Core.Ustx;
 using WanaKanaNet;
+using TinyPinyin;
 
 namespace OpenUtau.Core.Editing {
 
@@ -50,6 +51,16 @@ namespace OpenUtau.Core.Editing {
                 // Otherwise cannot recognize VCV, return as is.
                 return lyric;
             }
+        }
+    }
+
+    public class HanziToPinyin : SingleNoteLyricEdit {
+        public override string Name => "pianoroll.menu.lyrics.hanzitopinyin";
+        protected override string Transform(string lyric) {
+            if (lyric.Length > 0 && PinyinHelper.IsChinese(lyric[0])) {
+                return PinyinHelper.GetPinyin(lyric).ToLowerInvariant();
+            }
+            return lyric;
         }
     }
 

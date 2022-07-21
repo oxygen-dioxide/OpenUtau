@@ -146,6 +146,7 @@ namespace OpenUtau.App.ViewModels {
                 new RomajiToHiragana(),
                 new HiraganaToRomaji(),
                 new JapaneseVCVtoCV(),
+                new HanziToPinyin(),
                 new RemoveToneSuffix(),
                 new RemoveLetterSuffix(),
                 new DashToPlus(),

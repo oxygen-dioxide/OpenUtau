@@ -140,6 +140,7 @@
 
   <system:String x:Key="pianoroll.menu.lyrics">歌词</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">编辑歌词</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.hanzitopinyin">汉字转拼音</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">平假名转罗马音</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.javcvtocv">日语 VCV 转 CV</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removelettersuffix">去除字母后缀</system:String>
