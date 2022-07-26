@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -118,7 +118,7 @@ namespace OpenUtau.App.Views {
                 Filters = new List<FileDialogFilter>() {
                     new FileDialogFilter() {
                         Name = "Project Files",
-                        Extensions = new List<string>(){ "ustx", "vsqx", "ust" },
+                        Extensions = new List<string>(){ "ustx", "vsqx", "ust", "mid" },
                     },
                 },
                 AllowMultiple = true,
@@ -212,7 +212,7 @@ namespace OpenUtau.App.Views {
                 Filters = new List<FileDialogFilter>() {
                     new FileDialogFilter() {
                         Name = "Project Files",
-                        Extensions = new List<string>(){ "ustx", "vsqx", "ust" },
+                        Extensions = new List<string>(){ "ustx", "vsqx", "ust", "mid"},
                     },
                 },
                 AllowMultiple = true,
@@ -386,7 +386,7 @@ namespace OpenUtau.App.Views {
                 Filters = new List<FileDialogFilter>() {
                     new FileDialogFilter() {
                         Name = "Archive File",
-                        Extensions = new List<string>(){ "zip", "rar", "uar", "7z", "vogeon" },
+                        Extensions = new List<string>(){ "zip", "rar", "uar", "vogeon" },
                     },
                 },
                 AllowMultiple = false,
@@ -532,6 +532,17 @@ namespace OpenUtau.App.Views {
                     viewModel.OpenProject(new string[] { file });
                 } catch (Exception e) {
                     Log.Error(e, $"Failed to open file {file}");
+                    _ = await MessageBox.Show(
+                         this,
+                         e.ToString(),
+                         ThemeManager.GetString("errors.caption"),
+                         MessageBox.MessageBoxButtons.Ok);
+                }
+            }else if(ext==".mid") {
+                try {
+                    viewModel.ImportMidi(file);
+                } catch (Exception e) {
+                    Log.Error(e, "Failed to import midi");
                     _ = await MessageBox.Show(
                          this,
                          e.ToString(),
