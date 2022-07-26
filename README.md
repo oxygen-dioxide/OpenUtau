@@ -1,4 +1,13 @@
-﻿
+# OpenUtau修改版
+在[OpenUTAU](https://github.com/stakira/OpenUtau)的基础上，添加了一些功能。
+
+由于这些功能可能不符合OpenUTAU的设计理念，因此不一定会合并到官方仓库
+
+目前有以下功能：
+* 汉字转拼音转换器
+
+以下是官方版OpenUTAU的介绍。
+
 # OpenUtau
 
 OpenUtau is an open source editing environment for UTAU community with modern user experience.
