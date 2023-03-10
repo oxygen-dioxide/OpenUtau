@@ -373,6 +373,7 @@
                 </MenuItem.DataTemplates>
               </MenuItem>
               <MenuItem Height="20" Header="{DynamicResource pianoroll.menu.lyrics.edit}" Click="OnMenuEditLyrics"/>
+              <MenuItem Height="20" Header="{DynamicResource pianoroll.menu.pitchanalysis}" Click="OnMenuPitchAnalysis"/>
               <MenuItem Height="20" Header="{DynamicResource pianoroll.menu.notedefaults}" Click="OnMenuNoteDefaults"/>
             </Menu>
           </Border>

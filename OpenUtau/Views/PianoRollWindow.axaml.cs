@@ -117,6 +117,35 @@ namespace OpenUtau.App.Views {
             dialog.ShowDialog(this);
         }
 
+        void OnMenuPitchAnalysis(object sender, RoutedEventArgs args) {
+            PitchAnalysis();
+        }
+
+        void PitchAnalysis() {
+            if (ViewModel.NotesViewModel.Selection.IsEmpty) {
+                _ = MessageBox.Show(
+                    this,
+                    ThemeManager.GetString("lyrics.selectnotes"),
+                    ThemeManager.GetString("pitchanalysis.caption"),
+                    MessageBox.MessageBoxButtons.Ok);
+                return;
+            }
+            var waveParts = DocManager.Inst.Project.parts
+                .Select(part => part as UWavePart)
+                .Where(part => part != null);
+            if (waveParts.FirstOrDefault() == null) {
+                _ = MessageBox.Show(
+                    this,
+                    ThemeManager.GetString("pitchanalysis.nowavepart"),
+                    ThemeManager.GetString("pitchanalysis.caption"),
+                    MessageBox.MessageBoxButtons.Ok);
+                return;
+            }
+            new PitchAnalysisDialog() {
+                DataContext = new PitchAnalysisViewModel(ViewModel.NotesViewModel),
+            }.Show(this);
+        }
+
         void OnMenuNoteDefaults(object sender, RoutedEventArgs args) {
             EditNoteDefaults();
         }
