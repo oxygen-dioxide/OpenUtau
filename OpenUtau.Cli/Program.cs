@@ -1,13 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Resources;
+
 using CommandLine;
 using CommandLine.Text;
+using Serilog;
+using System.Text;
 
 using OpenUtau.Cli.Commands;
+using OpenUtau.Core;
 
 namespace OpenUtau.Cli {
     class Program {
         private static int Main(string[] args) {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
+                .WriteTo.Console()
+                .WriteTo.Logger(lc => lc
+                    .MinimumLevel.Information()
+                    .WriteTo.File(PathManager.Inst.LogFilePath, rollingInterval: RollingInterval.Day, encoding: Encoding.UTF8))
+                .CreateLogger();
+
             Parser myParser = new Parser(config => {
                 config.HelpWriter = null;
                 config.CaseSensitive = false;

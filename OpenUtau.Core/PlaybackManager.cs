@@ -147,46 +147,54 @@ namespace OpenUtau.Core {
 
         public void RenderMixdown(UProject project, string exportPath) {
             Task.Run(() => {
-                var task = Task.Run(() => {
-                    RenderEngine engine = new RenderEngine(project);
-                    var projectMix = engine.RenderMixdown(0,DocManager.Inst.MainScheduler, ref renderCancellation,wait:true).Item1;
-                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {exportPath}."));
-                    WaveFileWriter.CreateWaveFile16(exportPath, new ExportAdapter(projectMix).ToMono(1, 0));
-                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {exportPath}."));
-                });
-                try {
-                    task.Wait();
-                } catch (AggregateException ae) {
-                    foreach (var e in ae.Flatten().InnerExceptions) {
-                        Log.Error(e, "Failed to render.");
-                    }
-                }
+                RenderMixdownWait(project, exportPath);
             });
+        }
+
+        public void RenderMixdownWait(UProject project, string exportPath) {
+            var task = Task.Run(() => {
+                RenderEngine engine = new RenderEngine(project);
+                var projectMix = engine.RenderMixdown(0,DocManager.Inst.MainScheduler, ref renderCancellation,wait:true).Item1;
+                DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {exportPath}."));
+                WaveFileWriter.CreateWaveFile16(exportPath, new ExportAdapter(projectMix).ToMono(1, 0));
+                DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {exportPath}."));
+            });
+            try {
+                task.Wait();
+            } catch (AggregateException ae) {
+                foreach (var e in ae.Flatten().InnerExceptions) {
+                    Log.Error(e, "Failed to render.");
+                }
+            }
         }
 
         public void RenderToFiles(UProject project, string exportPath) {
             Task.Run(() => {
-                var task = Task.Run(() => {
-                    RenderEngine engine = new RenderEngine(project);
-                    var trackMixes = engine.RenderTracks(DocManager.Inst.MainScheduler, ref renderCancellation);
-                    for (int i = 0; i < trackMixes.Count; ++i) {
-                        if (trackMixes[i] == null || i >= project.tracks.Count || project.tracks[i].Mute) {
-                            continue;
-                        }
-                        var file = PathManager.Inst.GetExportPath(exportPath, i + 1);
-                        DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {file}."));
-                        WaveFileWriter.CreateWaveFile16(file, new ExportAdapter(trackMixes[i]).ToMono(1, 0));
-                        DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {file}."));
+                RenderToFilesWait(project, exportPath);
+            });
+        }
+
+        public void RenderToFilesWait(UProject project, string exportPath) {
+            var task = Task.Run(() => {
+                RenderEngine engine = new RenderEngine(project);
+                var trackMixes = engine.RenderTracks(DocManager.Inst.MainScheduler, ref renderCancellation);
+                for (int i = 0; i < trackMixes.Count; ++i) {
+                    if (trackMixes[i] == null || i >= project.tracks.Count || project.tracks[i].Mute) {
+                        continue;
                     }
-                });
-                try {
-                    task.Wait();
-                } catch (AggregateException ae) {
-                    foreach (var e in ae.Flatten().InnerExceptions) {
-                        Log.Error(e, "Failed to render.");
-                    }
+                    var file = PathManager.Inst.GetExportPath(exportPath, i + 1);
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {file}."));
+                    WaveFileWriter.CreateWaveFile16(file, new ExportAdapter(trackMixes[i]).ToMono(1, 0));
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {file}."));
                 }
             });
+            try {
+                task.Wait();
+            } catch (AggregateException ae) {
+                foreach (var e in ae.Flatten().InnerExceptions) {
+                    Log.Error(e, "Failed to render.");
+                }
+            }
         }
 
         void SchedulePreRender() {
