@@ -1,10 +1,8 @@
 ﻿using CommandLine;
+
 using OpenUtau.Core;
 using OpenUtau.Core.Format;
-using OpenUtau.Core.Render;
-using OpenUtau.Core.Ustx;
 using OpenUtau.Classic;
-using NAudio.Wave;
 
 namespace OpenUtau.Cli.Commands {
     [Verb("render", HelpText = "Render a .ustx file to audio")]
@@ -16,40 +14,50 @@ namespace OpenUtau.Cli.Commands {
         public string outputFile { get; set; }
 
         public override bool Execute() {
-            //Initialize Docmanager
+            //Initialize
             SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+
+            Console.WriteLine("Loading Singers");
+            ToolsManager.Inst.Initialize();
+            SingerManager.Inst.Initialize();
             DocManager.Inst.Initialize();
+
             DocManager.Inst.PostOnUIThread = action => { };
             //Load project
             var project = Ustx.Load(inputFile);
             if (project == null) return false;
-            DocManager.Inst.ExecuteCmd(new LoadProjectNotification(project));
             //Load Voicebanks
+            /*
             foreach(var track in project.tracks) {
                 if (track.singer == null) {
                     continue;
                 }
-                var singer = track.singer;
+                var singerId = track.singer;
+                Voicebank voicebank = null;
                 foreach(var basePath in new string[] {
                     PathManager.Inst.SingersPathOld,
                     PathManager.Inst.SingersPath,
                     PathManager.Inst.AdditionalSingersPath,
                 }) {
-                    var filePath = Path.Join(basePath, singer, VoicebankLoader.kCharTxt);
+                    var filePath = Path.Join(basePath, singerId, VoicebankLoader.kCharTxt);
                     if (File.Exists(filePath)) {
                         var loader = new VoicebankLoader(basePath);
-                        var voicebank = new Voicebank();
+                        voicebank = new Voicebank();
                         VoicebankLoader.LoadInfo(voicebank, filePath, basePath);
-                        track.Singer = voicebank.SingerType == USingerType.Enunu
+                        var Singer = voicebank.SingerType == USingerType.Enunu
                             ? new Core.Enunu.EnunuSinger(voicebank) as USinger
                             : new ClassicSinger(voicebank) as USinger;
-                        Console.WriteLine("Loaded voicebank " + singer);
+                        Console.WriteLine("Loaded voicebank " + singerId);
+                        SingerManager.Inst.Singers[singerId] = Singer;
                         break;
                     }
                 }
-            }
+            }*/
+            project = Ustx.Load(inputFile);
+            if (project == null) return false;
+            DocManager.Inst.ExecuteCmd(new LoadProjectNotification(project));
             //phonemize
-
+            Thread.Sleep(10000);
             //render
             PlaybackManager.Inst.RenderMixdownWait(project, outputFile);
             return true;

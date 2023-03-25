@@ -26,7 +26,7 @@ namespace OpenUtau.Cli {
             });
 
             var types = new Type[] {
-                typeof(ClearCacheCommand),
+                typeof(ClearCommand),
                 typeof(InstallCommand),
                 typeof(RenderCommand) };
 
