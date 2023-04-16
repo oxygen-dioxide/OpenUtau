@@ -8,7 +8,7 @@ using OpenUtau.Core.Ustx;
 
 namespace OpenUtau.Plugin.Builtin {
     [Phonemizer("Japanese presamp Phonemizer", "JA VCV & CVVC", "Maiko", language:"JA")]
-    public class JapanesePresampPhonemizer : Phonemizer {
+    public class PresampPhonemizer : Phonemizer {
 
         // JP CV, VCV, CVVCを含むすべての日本語VBをサポートする予定です。
         // 基本的な仕様はpresampに準拠します。
@@ -33,7 +33,7 @@ namespace OpenUtau.Plugin.Builtin {
 
         static readonly Dictionary<string, string> substituteLookup;
 
-        static JapanesePresampPhonemizer() {
+        static PresampPhonemizer() {
             substituteLookup = substitution.ToList()
                 .SelectMany(line => {
                     var parts = line.Split('=');
