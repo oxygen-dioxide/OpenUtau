@@ -35,6 +35,20 @@ namespace Classic {
 
         /**  
             <summary>
+                Default presamp
+            </summary>
+        */
+        public Presamp() {
+            SetVowels(defVowels);
+            SetConsonants(defConsonants);
+            Replace = defReplace;
+            Nums = defNums;
+            Appends = defAppends;
+            Pitches = defPitches;
+        }
+
+        /**  
+            <summary>
                 Load presamp.ini. If not, return default presamp.
             </summary>
         */

@@ -7,8 +7,7 @@ using OpenUtau.Api;
 using OpenUtau.Core.Ustx;
 
 namespace OpenUtau.Plugin.Builtin {
-    [Phonemizer("Japanese presamp Phonemizer", "JA VCV & CVVC", "Maiko", language:"JA")]
-    public class PresampPhonemizer : Phonemizer {
+    public abstract class PresampPhonemizer : Phonemizer {
 
         // JP CV, VCV, CVVCを含むすべての日本語VBをサポートする予定です。
         // 基本的な仕様はpresampに準拠します。
@@ -16,8 +15,8 @@ namespace OpenUtau.Plugin.Builtin {
         // 喉切り[・]はpresamp.iniに書いてなくても動くようなんとかします。
 
         // Phoneme data held by the voice bank
-        private List<string> PlainVowels = new List<string>();
-        private List<string> PlainConsonants = new List<string>();
+        protected List<string> PlainVowels = new List<string>();
+        protected List<string> PlainConsonants = new List<string>();
         static readonly string[] plainVowels = new string[] {"あ","い","う","え","お","を","ん","ン"};
         static readonly string[] plainConsonants = new string[]{"k","ky","g","gy",
                                                            "s","sh","z","j","t","ch","ty","ts",
@@ -42,8 +41,8 @@ namespace OpenUtau.Plugin.Builtin {
                 .ToDictionary(t => t.Item1, t => t.Item2);
         }
 
-        private USinger singer;
-        private Presamp presamp;
+        protected USinger singer;
+        protected Presamp presamp;
         public override void SetSinger(USinger singer) {
             if (this.singer == singer) {
                 return;
