@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using NAudio.Wave;
 using OpenUtau.Core;
+using OpenUtau.Core.ResamplerPresets;
 using OpenUtau.Core.Format;
 using OpenUtau.Core.Util;
 using Serilog;
@@ -14,8 +15,28 @@ namespace OpenUtau.Classic {
         public string Name { get; private set; }
         public string FilePath { get; private set; }
         public bool isLegalPlugin => _isLegalPlugin;
+        public ResamplerManifest Manifest { get; private set; }
         readonly string _name;
         readonly bool _isLegalPlugin = false;
+
+
+        public ResamplerManifest LoadManifest() {
+            try {
+                var ManifestPath = Path.ChangeExtension(FilePath, ".yaml");
+                if (!File.Exists(ManifestPath)) {
+                    //TODO: Write Resampler Manifests shipped by OpenUtau
+                    if (ShippedManifests.TryGet(Path.GetFileNameWithoutExtension(ManifestPath), out var ManifestBytes)) {
+                        File.WriteAllBytes(ManifestPath, ManifestBytes);
+                    } else {
+                        return new ResamplerManifest();
+                    }
+                }
+                return ResamplerManifest.Load(ManifestPath);
+            } catch (Exception ex) {
+                Log.Error($"Failed loading resampler manifest for {_name}: {ex}");
+                return new ResamplerManifest();
+            }
+        }
 
         public ExeResampler(string filePath, string basePath) {
             if (File.Exists(filePath)) {
@@ -23,6 +44,8 @@ namespace OpenUtau.Classic {
                 _name = Path.GetRelativePath(basePath, filePath);
                 _isLegalPlugin = true;
             }
+            //Load Resampler Manifest
+            Manifest = LoadManifest();
         }
 
         public float[] DoResampler(ResamplerItem args, ILogger logger) {
