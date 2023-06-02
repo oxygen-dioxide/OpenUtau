@@ -133,8 +133,7 @@ namespace OpenUtau.Core.Format {
                         bpm = 60.0 / tempo.MicrosecondsPerQuarterNote * 1000000.0
                     });
                 }
-            } else//曲速列表为空
-              {
+            } else { //if tempo list is empty
                 UTempoList.Add(new UTempo {
                     position = 0,
                     bpm = 120.0
@@ -175,41 +174,49 @@ namespace OpenUtau.Core.Format {
         }
 
         static List<UVoicePart> ParseParts(MidiFile midi, short PPQ, UProject project) {
+            return midi.GetTrackChunks()
+                .Select(trackChunk => ParsePart(trackChunk, PPQ, project))
+                .Where(part => part.notes.Count > 0)//remove empty tracks
+                .ToList(); 
+        }
+
+        static UVoicePart ParsePart(TrackChunk trackChunk, short PPQ, UProject project){
             string defaultLyric = NotePresets.Default.DefaultLyric;
-            List<UVoicePart> resultParts = new List<UVoicePart>();
-            foreach (TrackChunk trackChunk in midi.GetTrackChunks()) {
-                var midiNoteList = trackChunk.GetNotes().ToList();
-                if (midiNoteList.Count > 0) {
-                    var part = new UVoicePart();
-                    using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
-                        var events = objectsManager.Objects;
-                        foreach (Melanchall.DryWetMidi.Interaction.Note midiNote in midiNoteList) {
-                            var note = project.CreateNote(
-                                midiNote.NoteNumber,
-                                (int)(midiNote.Time * project.resolution / PPQ),
-                                (int)(midiNote.Length * project.resolution / PPQ)
-                            );
-                            //handle lyric import
-                            string lyric = events.Where(e => e.Event is LyricEvent && e.Time == midiNote.Time)
-                                                     .Select(e => ((LyricEvent)e.Event).Text)
-                                                     .FirstOrDefault();
-                            if (lyric == null) {
-                                lyric = defaultLyric;
-                            }
-                            if (lyric == "-") {
-                                lyric = "+";
-                            }
-                            note.lyric = lyric;
-                            if (NotePresets.Default.AutoVibratoToggle && note.duration >= NotePresets.Default.AutoVibratoNoteDuration) {
-                                note.vibrato.length = NotePresets.Default.DefaultVibrato.VibratoLength;
-                            }
-                            part.notes.Add(note);
-                        }
+            var part = new UVoicePart();
+            var trackNameEvent = trackChunk.Events
+                .Where(e => e is SequenceTrackNameEvent)
+                .FirstOrDefault();
+            string trackName = "New Part";
+            if(trackNameEvent!=null){
+                trackName = ((SequenceTrackNameEvent)trackNameEvent).Text;
+            }
+            part.name = trackName;
+            using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
+                var events = objectsManager.Objects;
+                foreach (var midiNote in trackChunk.GetNotes()) {
+                    var note = project.CreateNote(
+                        midiNote.NoteNumber,
+                        (int)(midiNote.Time * project.resolution / PPQ),
+                        (int)(midiNote.Length * project.resolution / PPQ)
+                    );
+                    //handle lyric import
+                    string lyric = events.Where(e => e.Event is LyricEvent && e.Time == midiNote.Time)
+                                                .Select(e => ((LyricEvent)e.Event).Text)
+                                                .FirstOrDefault();
+                    if (lyric == null) {
+                        lyric = defaultLyric;
                     }
-                    resultParts.Add(part);
+                    if (lyric == "-") {
+                        lyric = "+";
+                    }
+                    note.lyric = lyric;
+                    if (NotePresets.Default.AutoVibratoToggle && note.duration >= NotePresets.Default.AutoVibratoNoteDuration) {
+                        note.vibrato.length = NotePresets.Default.DefaultVibrato.VibratoLength;
+                    }
+                    part.notes.Add(note);
                 }
             }
-            return resultParts;
+            return part;
         }
 
         static public void Save(string filePath, UProject project) {
@@ -237,11 +244,15 @@ namespace OpenUtau.Core.Format {
                     tempoMapManager.SetTempo(uTempo.position, Tempo.FromBeatsPerMinute(uTempo.bpm));
                 }
             }
-            //Time Signature
+            //Tracks
             foreach (UTrack track in project.tracks) {
-                trackChunks.Add(new TrackChunk());
+                trackChunks.Add(
+                    new TrackChunk(
+                        new MidiEvent[]{new SequenceTrackNameEvent(track.TrackName)}
+                    )
+                );
             }
-            //voice tracks
+            //voice parts
             foreach (UPart part in project.parts) {
                 if (part is UVoicePart voicePart) {
                     var trackChunk = trackChunks[voicePart.trackNo];
