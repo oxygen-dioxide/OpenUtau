@@ -22,6 +22,7 @@ namespace OpenUtau.Core.Enunu
             "b", "ch", "d", "dh", "f", "g", "hh", "jh", "k", "l", "m", "n", 
             "ng", "p", "r", "s", "sh", "t", "th", "v", "w", "y", "z", "zh"
         };
+        
         protected override IG2p LoadG2p() {
             var g2ps = new List<IG2p>();
             // Load dictionary from plugin folder.

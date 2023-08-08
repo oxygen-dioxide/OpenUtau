@@ -1,9 +1,11 @@
-using Serilog;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using OpenUtau.Api;
-using OpenUtau.Core.G2p;
+
+//This phonemizer currently use an external dictionary file, which is not included in the repository.
+//Please download it from https://github.com/mmemim/OpenUTAU-French-Dictionary 
+//and put it into the "Dictionaries" folder
+//The french G2p will need an update before migrating to it.
 
 namespace OpenUtau.Core.Enunu
 {
