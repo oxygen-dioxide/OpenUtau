@@ -11,6 +11,8 @@ using TinyPinyin;
 namespace OpenUtau.Core.Enunu {
     [Phonemizer("Enunu Phonemizer", "ENUNU")]
     public class EnunuPhonemizer : Phonemizer {
+        //PhonemizerType is used to identify the phonemizer when hashing note groups.
+        //otherwise if the user changes the phonemizer, openutau will still read from the previous cache.
         readonly string PhonemizerType = "ENUNU";
 
         protected EnunuSinger singer;

@@ -6,6 +6,7 @@ namespace OpenUtau.Core.Enunu
     [Phonemizer("Enunu Russian Phonemizer", "ENUNU RU", "O3", language:"RU")]
     public class EnunuRussianPhonemizer: EnunuG2pPhonemizer
     {
+        readonly string PhonemizerType = "ENUNU RU";
         protected override string GetDictionaryName()=>"enudict-ru.yaml";
         protected override IG2p LoadBaseG2p() => new RussianG2p();
         protected override string[] GetBaseG2pVowels() => new string[] {

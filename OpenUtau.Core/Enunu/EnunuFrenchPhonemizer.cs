@@ -12,6 +12,7 @@ namespace OpenUtau.Core.Enunu
     [Phonemizer("Enunu French Phonemizer", "ENUNU FR", "O3", language:"FR")]
     public class EnunuFrenchPhonemizer : EnunuG2pPhonemizer
     {
+        readonly string PhonemizerType = "ENUNU FR";
         protected override string GetDictionaryName() => "enudict-fr.yaml";
 
         protected override string[] GetBaseG2pVowels() => new string[] {
@@ -64,11 +65,11 @@ namespace OpenUtau.Core.Enunu
             var filename = Path.Combine(DictionariesPath, dictionaryName);
             var dictionaryText = File.ReadAllText(filename);
             var builder = G2pDictionary.NewBuilder();
-            var vowels = "ii,ei,ai,aa,oo,au,ou,uu,ee,oe,in,en,on".Split(",");
+            var vowels = GetBaseG2pVowels();
             foreach (var vowel in vowels) {
                 builder.AddSymbol(vowel, true);
             }
-            var consonants = "bb,ch,dd,ff,gg,jj,kk,ll,mm,nn,pp,rr,ss,tt,vv,ww,yy,zz".Split(",");
+            var consonants = GetBaseG2pConsonants();
             foreach (var consonant in consonants) {
                 builder.AddSymbol(consonant, false);
             }

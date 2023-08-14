@@ -6,6 +6,7 @@ namespace OpenUtau.Core.Enunu
     [Phonemizer("Enunu Portuguese Phonemizer", "ENUNU PT", "O3", language:"PT")]
     public class EnunuPortuguesePhonemizer: EnunuG2pPhonemizer
     {
+        readonly string PhonemizerType = "ENUNU PT";
         protected override string GetDictionaryName()=>"enudict-pt.yaml";
         protected override IG2p LoadBaseG2p() => new PortugueseG2p();
         protected override string[] GetBaseG2pVowels() => new string[] {

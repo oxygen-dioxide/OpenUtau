@@ -4,17 +4,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using OpenUtau.Api;
+using OpenUtau.Core;
 using OpenUtau.Core.Ustx;
 
 namespace OpenUtau.Core.Enunu {
-    
-
     public class G2pReplacementsData{
-        public struct ReplacementData{
+        public struct Replacement{
             public string from;
             public string to;
         }
-        public ReplacementData[]? replacements;
+        public Replacement[]? replacements;
+        
+        public static G2pReplacementsData Load(string text){
+            return Yaml.DefaultDeserializer.Deserialize<G2pReplacementsData>(text);
+        }
+
         public Dictionary<string, string> toDict(){
             var dict = new Dictionary<string, string>();
             if(replacements!=null){
@@ -33,10 +37,10 @@ namespace OpenUtau.Core.Enunu {
 
         protected virtual string GetDictionaryName()=>"enudict.yaml";
 
-        protected abstract IG2p LoadBaseG2p();
+        protected virtual IG2p LoadBaseG2p()=>null;
         //vowels and consonants of BaseG2p
-        protected abstract string[] GetBaseG2pVowels();
-        protected abstract string[] GetBaseG2pConsonants();
+        protected virtual string[] GetBaseG2pVowels()=>new string[]{};
+        protected virtual string[] GetBaseG2pConsonants()=>new string[]{};
 
         protected virtual IG2p LoadG2p() {
             var dictionaryName = GetDictionaryName();
@@ -58,6 +62,7 @@ namespace OpenUtau.Core.Enunu {
                 if (File.Exists(file)) {
                     try {
                         g2ps.Add(G2pDictionary.NewBuilder().Load(File.ReadAllText(file)).Build());
+                        replacements = G2pReplacementsData.Load(File.ReadAllText(file)).toDict();
                     } catch (Exception e) {
                         Log.Error(e, $"Failed to load {file}");
                     }
@@ -66,6 +71,9 @@ namespace OpenUtau.Core.Enunu {
 
             // Load base g2p.
             var baseG2p = LoadBaseG2p();
+            if(baseG2p == null){
+                return new G2pFallbacks(g2ps.ToArray());
+            }
             var phonemeSymbols = new Dictionary<string, bool>();
             foreach(var v in GetBaseG2pVowels()){
                 phonemeSymbols[v]=true;
