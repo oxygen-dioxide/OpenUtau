@@ -93,9 +93,13 @@ namespace OpenUtau.Integrations {
                 .Where(path => Path.GetExtension(path) == ".lbp")
                 .OrderByDescending(File.GetLastWriteTimeUtc)
                 .FirstOrDefault();
+            var projectFile = existingProjectName != null
+                ? Path.Combine(singer.Location, existingProjectName)
+                : Path.Combine(PathManager.Inst.CachePath, $"vlabeler-{HashHex(singer.Id)}.lbp");
             var request = new OpenOrCreateRequest() {
-                projectFile = Path.Combine(singer.Location, existingProjectName ?? "_vlabeler.lbp"),
+                projectFile = projectFile,
                 newProjectArgs = new NewProjectArgs {
+                    sampleDirectory = singer.Location,
                     cacheDirectory = Path.Combine(PathManager.Inst.CachePath, $"vlabeler-{HashHex(singer.Id)}"),
                     labelerParams = new Dictionary<string, TypedValue> {
                         { "useRootDirectory", new TypedValue("boolean", true) }
