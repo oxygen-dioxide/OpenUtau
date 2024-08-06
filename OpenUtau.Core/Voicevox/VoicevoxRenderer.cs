@@ -225,7 +225,7 @@ namespace OpenUtau.Core.Voicevox {
         }
 
 
-        public UExpressionDescriptor[] GetSuggestedExpressions(USinger singer, URenderSettings renderSettings) {
+        public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
             return new UExpressionDescriptor[] { };
             //under development
             //var result = new List<UExpressionDescriptor> {

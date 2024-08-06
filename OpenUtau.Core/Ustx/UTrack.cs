@@ -94,6 +94,15 @@ namespace OpenUtau.Core.Ustx {
         public double Volume { set; get; }
         public double Pan { set; get; }
 
+        /// <summary>
+        /// Extra expressions provided by renderer.
+        /// Should be refreshed when changing the singer, changing the renderer, or changing the renderer settings.
+        /// </summary>
+        [YamlIgnore] public Dictionary<string, UExpressionDescriptor> expressions { get; set; } = new Dictionary<string, UExpressionDescriptor>();
+        
+        /// <summary>
+        /// Expression default value for this track, if different from the project default.
+        /// </summary>
         public List<UExpression> TrackExpressions { get; set; } = new List<UExpression>();
         [YamlIgnore] public UExpressionDescriptor VoiceColorExp { set; get; }
         public string[] VoiceColorNames { get; set; } = new string[] { "" };
@@ -114,19 +123,26 @@ namespace OpenUtau.Core.Ustx {
             TrackName = trackName;
         }
 
+        public List<UExpressionDescriptor> GetExpDescriptors(UProject project){
+            return project.expressions.Values.Concat(expressions.Values).ToList();
+        }
+
         /**  
             <summary>
                 Return false if there is no corresponding descriptor in the project
             </summary>
         */
         public bool TryGetExpDescriptor(UProject project, string abbr, out UExpressionDescriptor descriptor) {
-            if (!project.expressions.TryGetValue(abbr, out descriptor)) {
-                return false;
+            if (project.expressions.TryGetValue(abbr, out descriptor)) {
+                if (abbr == Format.Ustx.CLR && VoiceColorExp != null) {
+                    descriptor = VoiceColorExp;
+                }
+                return true;
             }
-            if (abbr == Format.Ustx.CLR && VoiceColorExp != null) {
-                descriptor = VoiceColorExp;
+            if (expressions.TryGetValue(abbr, out descriptor)) {
+                return true;
             }
-            return true;
+            return false;
         }
 
 
@@ -192,6 +208,14 @@ namespace OpenUtau.Core.Ustx {
                     VoiceColorExp.options = colors.OrderBy(c => c).ToArray();
                     VoiceColorExp.max = VoiceColorExp.options.Length - 1;
                 }
+            }
+            var renderer = RendererSettings.Renderer;
+            if(renderer == null){
+                expressions = new Dictionary<string, UExpressionDescriptor>();
+            } else {
+                expressions = renderer.GetSuggestedExpressions(Singer, RendererSettings)
+                    .Where(e => !project.expressions.ContainsKey(e.abbr))
+                    .ToDictionary(e => e.abbr, e => e);
             }
         }
 

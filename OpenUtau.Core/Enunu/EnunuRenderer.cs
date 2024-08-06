@@ -228,7 +228,7 @@ namespace OpenUtau.Core.Enunu {
             return notes.ToArray();
         }
 
-        public UExpressionDescriptor[] GetSuggestedExpressions(USinger singer, URenderSettings renderSettings) {
+        public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
             return new UExpressionDescriptor[] { };
         }
 

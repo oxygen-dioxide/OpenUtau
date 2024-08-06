@@ -147,7 +147,7 @@ namespace OpenUtau.Classic {
             return null;
         }
 
-        public UExpressionDescriptor[] GetSuggestedExpressions(USinger singer, URenderSettings renderSettings) {
+        public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
             return new UExpressionDescriptor[] { };
         }
 

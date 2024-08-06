@@ -431,7 +431,7 @@ namespace OpenUtau.Core.DiffSinger {
             }
         }
 
-        public UExpressionDescriptor[] GetSuggestedExpressions(USinger singer, URenderSettings renderSettings) {
+        public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
             var result = new List<UExpressionDescriptor> {
                 //velocity
                 new UExpressionDescriptor{
@@ -480,8 +480,6 @@ namespace OpenUtau.Core.DiffSinger {
                         isFlag=false,
                     }));
             }
-            //energy
-
             return result.ToArray();
         }
 
