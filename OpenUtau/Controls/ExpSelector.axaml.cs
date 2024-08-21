@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using OpenUtau.App.ViewModels;
+using OpenUtau.Core.Ustx;
 
 namespace OpenUtau.App.Controls {
     public partial class ExpSelector : UserControl {
@@ -10,25 +11,43 @@ namespace OpenUtau.App.Controls {
                 nameof(Index),
                 o => o.Index,
                 (o, v) => o.Index = v);
-
+        
+        public static readonly DirectProperty<ExpSelector, UVoicePart?> PartProperty =
+            AvaloniaProperty.RegisterDirect<ExpSelector, UVoicePart?>(
+                nameof(Part),
+                o => o.Part,
+                (o, v) => o.Part = v);
+        
         public int Index {
             get => index;
             set => SetAndRaise(IndexProperty, ref index, value);
         }
 
+        public UVoicePart? Part {
+            get => part;
+            set => SetAndRaise(PartProperty, ref part, value);
+        }
+
         private int index;
 
+        private UVoicePart? part;
 
         public ExpSelector() {
             InitializeComponent();
             DataContext = new ExpSelectorViewModel();
             ((ExpSelectorViewModel)DataContext!).Index = Index;
+            ((ExpSelectorViewModel)DataContext!).Part = Part;
+            ((ExpSelectorViewModel)DataContext!).RefreshDescriptors();
         }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
             base.OnPropertyChanged(change);
             if (change.Property == IndexProperty) {
                 ((ExpSelectorViewModel)DataContext!).Index = Index;
+            }
+            if (change.Property == PartProperty) {
+                ((ExpSelectorViewModel)DataContext!).Part = Part;
+                ((ExpSelectorViewModel)DataContext!).RefreshDescriptors();
             }
         }
 

@@ -207,7 +207,7 @@ namespace OpenUtau.Core.Ustx {
 
         public Tuple<string, int?, string>[] GetResamplerFlags(UProject project, UTrack track) {
             var flags = new List<Tuple<string, int?, string>>();
-            foreach (var descriptor in project.expressions.Values) {
+            foreach (var descriptor in track.GetExpDescriptors(project)) {
                 if (descriptor.type == UExpressionType.Numerical) {
                     if (!string.IsNullOrEmpty(descriptor.flag)) {
                         int value = (int)GetExpression(project, track, descriptor.abbr).Item1;

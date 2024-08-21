@@ -13,6 +13,7 @@ namespace OpenUtau.App.ViewModels {
     public class ExpSelectorViewModel : ViewModelBase, ICmdSubscriber {
         [Reactive] public int Index { get; set; }
         [Reactive] public int SelectedIndex { get; set; }
+        [Reactive] public UVoicePart? Part { get; set; }
         [Reactive] public ExpDisMode DisplayMode { get; set; }
         [Reactive] public UExpressionDescriptor? Descriptor { get; set; }
         public string Abbr {
@@ -48,7 +49,7 @@ namespace OpenUtau.App.ViewModels {
                 .Subscribe(_ => RefreshBrushes());
             TagBrush = ThemeManager.ExpNameBrush;
             Background = ThemeManager.ExpBrush;
-            OnListChange();
+            //OnListChange();
         }
 
         public bool SetExp(string abbr) {
@@ -84,19 +85,25 @@ namespace OpenUtau.App.ViewModels {
         }
 
         public void OnNext(UCommand cmd, bool isUndo) {
-            if (cmd is LoadProjectNotification ||
+            /*if (cmd is LoadProjectNotification ||
                 cmd is LoadPartNotification ||
                 cmd is ConfigureExpressionsCommand) {
                 OnListChange();
-            } else if (cmd is SelectExpressionNotification) {
+            }*/
+            if (cmd is SelectExpressionNotification) {
                 OnSelectExp((SelectExpressionNotification)cmd);
             }
         }
 
-        private void OnListChange() {
+        public void RefreshDescriptors() {
+            var project = DocManager.Inst.Project;
+            if (project == null || Part == null) {
+                return;
+            }
+            var track = project.tracks[Part.trackNo];
             var selectedIndex = SelectedIndex;
             Descriptors.Clear();
-            DocManager.Inst.Project.expressions.Values.ToList().ForEach(Descriptors.Add);
+            track.GetExpDescriptors(project).ForEach(Descriptors.Add);
             if (selectedIndex >= descriptors.Count) {
                 selectedIndex = Index;
             }

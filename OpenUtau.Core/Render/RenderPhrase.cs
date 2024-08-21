@@ -382,9 +382,10 @@ namespace OpenUtau.Core.Render {
                 }
             }
 
+            // curves
             var curves = new List<Tuple<string, float[]>>();
 
-            foreach(var descriptor in project.expressions.Values) {
+            foreach(var descriptor in track.GetExpDescriptors(project)) {
                 if(descriptor.type != UExpressionType.Curve) {
                     continue;
                 }
