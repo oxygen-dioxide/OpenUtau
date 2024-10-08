@@ -81,21 +81,25 @@ namespace OpenUtau.Core {
             return sineGen;
         }
 
-        public void PlayOrPause() {
+        public void PlayOrPause(int tick = -1, int endTick = -1, int trackNo = -1) {
             if (Playing) {
                 PausePlayback();
             } else {
-                Play(DocManager.Inst.Project, DocManager.Inst.playPosTick);
+                Play(
+                    DocManager.Inst.Project,
+                    tick: tick == -1 ? DocManager.Inst.playPosTick : tick,
+                    endTick: endTick,
+                    trackNo: trackNo);
             }
         }
 
-        public void Play(UProject project, int tick) {
+        public void Play(UProject project, int tick, int endTick = -1, int trackNo = -1) {
             if (AudioOutput.PlaybackState == PlaybackState.Paused) {
                 AudioOutput.Play();
                 return;
             }
             AudioOutput.Stop();
-            Render(project, tick);
+            Render(project, tick, endTick, trackNo);
             StartingToPlay = true;
         }
 
@@ -117,20 +121,21 @@ namespace OpenUtau.Core {
             AudioOutput.Play();
         }
 
-        private void Render(UProject project, int tick) {
+        private void Render(UProject project, int tick, int endTick, int trackNo) {
             Task.Run(() => {
-                RenderEngine engine = new RenderEngine(project, tick);
-                var result = engine.RenderProject(tick, DocManager.Inst.MainScheduler, ref renderCancellation);
-                faders = result.Item2;
-                StartingToPlay = false;
-                StartPlayback(project.timeAxis.TickPosToMsPos(tick), result.Item1);
-            }).ContinueWith((task) => {
-                if (task.IsFaulted) {
-                    Log.Error(task.Exception, "Failed to render.");
-                    DocManager.Inst.ExecuteCmd(new ErrorMessageNotification("Failed to render.", task.Exception));
-                    throw task.Exception;
+                try {
+                    RenderEngine engine = new RenderEngine(project, startTick: tick, endTick: endTick, trackNo: trackNo);
+                    var result = engine.RenderProject(DocManager.Inst.MainScheduler, ref renderCancellation);
+                    faders = result.Item2;
+                    StartingToPlay = false;
+                    StartPlayback(project.timeAxis.TickPosToMsPos(tick), result.Item1);
+                } catch (Exception e) {
+                    Log.Error(e, "Failed to render.");
+                    StopPlayback();
+                    var customEx = new MessageCustomizableException("Failed to render.", "<translate:errors.failed.render>", e);
+                    DocManager.Inst.ExecuteCmd(new ErrorMessageNotification(customEx));
                 }
-            }, CancellationToken.None, TaskContinuationOptions.OnlyOnFaulted, DocManager.Inst.MainScheduler);
+            });
         }
 
         public void UpdatePlayPos() {
@@ -145,55 +150,65 @@ namespace OpenUtau.Core {
             return (db <= -24) ? 0 : (float)MusicMath.DecibelToLinear((db < -16) ? db * 2 + 16 : db);
         }
 
-        public void RenderMixdown(UProject project, string exportPath) {
-            Task.Run(() => {
-                RenderMixdownWait(project, exportPath);
-            });
-        }
+        // Exporting mixdown
+        public async Task RenderMixdown(UProject project, string exportPath) {
+            await Task.Run(() => {
+                try {
+                    RenderEngine engine = new RenderEngine(project);
+                    var projectMix = engine.RenderMixdown(DocManager.Inst.MainScheduler, ref renderCancellation, wait: true).Item1;
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {exportPath}."));
 
-        public void RenderMixdownWait(UProject project, string exportPath) {
-            var task = Task.Run(() => {
-                RenderEngine engine = new RenderEngine(project);
-                var projectMix = engine.RenderMixdown(0,DocManager.Inst.MainScheduler, ref renderCancellation,wait:true).Item1;
-                DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {exportPath}."));
-                WaveFileWriter.CreateWaveFile16(exportPath, new ExportAdapter(projectMix).ToMono(1, 0));
-                DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {exportPath}."));
-            });
-            try {
-                task.Wait();
-            } catch (AggregateException ae) {
-                foreach (var e in ae.Flatten().InnerExceptions) {
-                    Log.Error(e, "Failed to render.");
+                    CheckFileWritable(exportPath);
+                    WaveFileWriter.CreateWaveFile16(exportPath, new ExportAdapter(projectMix).ToMono(1, 0));
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {exportPath}."));
+                } catch (IOException ioe) {
+                    var customEx = new MessageCustomizableException($"Failed to export {exportPath}.", $"<translate:errors.failed.export>: {exportPath}", ioe);
+                    DocManager.Inst.ExecuteCmd(new ErrorMessageNotification(customEx));
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Failed to export {exportPath}."));
+                } catch (Exception e) {
+                    var customEx = new MessageCustomizableException("Failed to render.", $"<translate:errors.failed.render>: {exportPath}", e);
+                    DocManager.Inst.ExecuteCmd(new ErrorMessageNotification(customEx));
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Failed to render."));
                 }
-            }
-        }
-
-        public void RenderToFiles(UProject project, string exportPath) {
-            Task.Run(() => {
-                RenderToFilesWait(project, exportPath);
             });
         }
 
-        public void RenderToFilesWait(UProject project, string exportPath) {
-            var task = Task.Run(() => {
-                RenderEngine engine = new RenderEngine(project);
-                var trackMixes = engine.RenderTracks(DocManager.Inst.MainScheduler, ref renderCancellation);
-                for (int i = 0; i < trackMixes.Count; ++i) {
-                    if (trackMixes[i] == null || i >= project.tracks.Count || project.tracks[i].Mute) {
-                        continue;
+        // Exporting each tracks
+        public async Task RenderToFiles(UProject project, string exportPath) {
+            await Task.Run(() => {
+                string file = "";
+                try {
+                    RenderEngine engine = new RenderEngine(project);
+                    var trackMixes = engine.RenderTracks(DocManager.Inst.MainScheduler, ref renderCancellation);
+                    for (int i = 0; i < trackMixes.Count; ++i) {
+                        if (trackMixes[i] == null || i >= project.tracks.Count || project.tracks[i].Muted) {
+                            continue;
+                        }
+                        file = PathManager.Inst.GetExportPath(exportPath, project.tracks[i]);
+                        DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {file}."));
+
+                        CheckFileWritable(file);
+                        WaveFileWriter.CreateWaveFile16(file, new ExportAdapter(trackMixes[i]).ToMono(1, 0));
+                        DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {file}."));
                     }
-                    var file = PathManager.Inst.GetExportPath(exportPath, i + 1);
-                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exporting to {file}."));
-                    WaveFileWriter.CreateWaveFile16(file, new ExportAdapter(trackMixes[i]).ToMono(1, 0));
-                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Exported to {file}."));
+                } catch (IOException ioe) {
+                    var customEx = new MessageCustomizableException($"Failed to export {file}.", $"<translate:errors.failed.export>: {file}", ioe);
+                    DocManager.Inst.ExecuteCmd(new ErrorMessageNotification(customEx));
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Failed to export {file}."));
+                } catch (Exception e) {
+                    var customEx = new MessageCustomizableException("Failed to render.", "<translate:errors.failed.render>", e);
+                    DocManager.Inst.ExecuteCmd(new ErrorMessageNotification(customEx));
+                    DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Failed to render."));
                 }
             });
-            try {
-                task.Wait();
-            } catch (AggregateException ae) {
-                foreach (var e in ae.Flatten().InnerExceptions) {
-                    Log.Error(e, "Failed to render.");
-                }
+        }
+
+        private void CheckFileWritable(string filePath) {
+            if (!File.Exists(filePath)) {
+                return;
+            }
+            using (FileStream fp = File.Open(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite)) {
+                return;
             }
         }
 
@@ -207,13 +222,19 @@ namespace OpenUtau.Core {
 
         public void OnNext(UCommand cmd, bool isUndo) {
             if (cmd is SeekPlayPosTickNotification) {
+                var _cmd = cmd as SeekPlayPosTickNotification;
                 StopPlayback();
-                int tick = ((SeekPlayPosTickNotification)cmd).playPosTick;
-                DocManager.Inst.ExecuteCmd(new SetPlayPosTickNotification(tick));
+                int tick = _cmd!.playPosTick;
+                DocManager.Inst.ExecuteCmd(new SetPlayPosTickNotification(tick, false, _cmd.pause));
             } else if (cmd is VolumeChangeNotification) {
                 var _cmd = cmd as VolumeChangeNotification;
                 if (faders != null && faders.Count > _cmd.TrackNo) {
                     faders[_cmd.TrackNo].Scale = DecibelToVolume(_cmd.Volume);
+                }
+            } else if (cmd is PanChangeNotification) {
+                var _cmd = cmd as PanChangeNotification;
+                if (faders != null && faders.Count > _cmd!.TrackNo) {
+                    faders[_cmd.TrackNo].Pan = (float)_cmd.Pan;
                 }
             } else if (cmd is LoadProjectNotification) {
                 StopPlayback();
