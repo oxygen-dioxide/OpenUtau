@@ -11,6 +11,8 @@ namespace OpenUtau.App.ViewModels {
         public int BeatPerBar => Project.timeSignatures[0].beatPerBar;
         public int BeatUnit => Project.timeSignatures[0].beatUnit;
         public double Bpm => Project.tempos[0].bpm;
+        public int Key => Project.key;
+        public string KeyName => MusicMath.KeysInOctave[Key].Item1;
         public int Resolution => Project.resolution;
         public int PlayPosTick => DocManager.Inst.playPosTick;
         public TimeSpan PlayPosTime => TimeSpan.FromMilliseconds((int)Project.timeAxis.TickPosToMsPos(DocManager.Inst.playPosTick));
@@ -27,11 +29,11 @@ namespace OpenUtau.App.ViewModels {
             Pause();
             DocManager.Inst.ExecuteCmd(new SeekPlayPosTickNotification(Project.EndTick));
         }
-        public void PlayOrPause() {
-            PlaybackManager.Inst.PlayOrPause();
+        public void PlayOrPause(int tick = -1, int endTick = -1, int trackNo = -1) {
+            PlaybackManager.Inst.PlayOrPause(tick: tick, endTick: endTick, trackNo: trackNo);
             var lockStartTime = Convert.ToBoolean(Preferences.Default.LockStartTime);
             if (!PlaybackManager.Inst.Playing && !PlaybackManager.Inst.StartingToPlay && lockStartTime) {
-                DocManager.Inst.ExecuteCmd(new SeekPlayPosTickNotification(PlaybackManager.Inst.StartTick));
+                DocManager.Inst.ExecuteCmd(new SeekPlayPosTickNotification(PlaybackManager.Inst.StartTick, true));
             }
         }
         public void Pause() {
@@ -61,6 +63,15 @@ namespace OpenUtau.App.ViewModels {
             DocManager.Inst.EndUndoGroup();
         }
 
+        public void SetKey(int key) {
+            if (key == DocManager.Inst.Project.key) {
+                return;
+            }
+            DocManager.Inst.StartUndoGroup();
+            DocManager.Inst.ExecuteCmd(new KeyCommand(Project, key));
+            DocManager.Inst.EndUndoGroup();
+        }
+
         public void OnNext(UCommand cmd, bool isUndo) {
             if (cmd is BpmCommand ||
                 cmd is TimeSignatureCommand ||
@@ -68,10 +79,12 @@ namespace OpenUtau.App.ViewModels {
                 cmd is DelTempoChangeCommand ||
                 cmd is AddTimeSigCommand ||
                 cmd is DelTimeSigCommand ||
+                cmd is KeyCommand ||
                 cmd is LoadProjectNotification) {
                 this.RaisePropertyChanged(nameof(BeatPerBar));
                 this.RaisePropertyChanged(nameof(BeatUnit));
                 this.RaisePropertyChanged(nameof(Bpm));
+                this.RaisePropertyChanged(nameof(KeyName));
                 MessageBus.Current.SendMessage(new TimeAxisChangedEvent());
                 if (cmd is LoadProjectNotification) {
                     DocManager.Inst.ExecuteCmd(new SetPlayPosTickNotification(0));

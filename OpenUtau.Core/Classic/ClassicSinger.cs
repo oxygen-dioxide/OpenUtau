@@ -13,6 +13,7 @@ namespace OpenUtau.Classic {
     public class ClassicSinger : USinger {
         public override string Id => voicebank.Id;
         public override string Name => voicebank.Name;
+        public override Dictionary<string, string> LocalizedNames => voicebank.LocalizedNames;
         public override USingerType SingerType => voicebank.SingerType;
         public override string BasePath => voicebank.BasePath;
         public override string Author => voicebank.Author;
@@ -26,7 +27,9 @@ namespace OpenUtau.Classic {
         public override byte[] AvatarData => avatarData;
         public override string Portrait => voicebank.Portrait == null ? null : Path.Combine(Location, voicebank.Portrait);
         public override float PortraitOpacity => voicebank.PortraitOpacity;
+        public override int PortraitHeight => voicebank.PortraitHeight;
         public override string DefaultPhonemizer => voicebank.DefaultPhonemizer;
+        public override string Sample => voicebank.Sample == null ? null : Path.Combine(Location, voicebank.Sample);
         public override Encoding TextFileEncoding => voicebank.TextFileEncoding;
         public override IList<USubbank> Subbanks => subbanks;
         public override IList<UOto> Otos => otos;
@@ -39,6 +42,9 @@ namespace OpenUtau.Classic {
         List<UOto> otos = new List<UOto>();
         Dictionary<string, UOto> otoMap = new Dictionary<string, UOto>();
         OtoWatcher otoWatcher;
+
+        public bool? UseFilenameAsAlias { get => voicebank.UseFilenameAsAlias; set => voicebank.UseFilenameAsAlias = value; }
+        public Dictionary<string, Frq> Frqs { get; set; } = new Dictionary<string, Frq>();
 
         public ClassicSinger(Voicebank voicebank) {
             this.voicebank = voicebank;
@@ -72,7 +78,7 @@ namespace OpenUtau.Classic {
         void Load() {
             if (Avatar != null && File.Exists(Avatar)) {
                 try {
-                    using (var stream = new FileStream(Avatar, FileMode.Open)) {
+                    using (var stream = new FileStream(Avatar, FileMode.Open, FileAccess.Read)) {
                         using (var memoryStream = new MemoryStream()) {
                             stream.CopyTo(memoryStream);
                             avatarData = memoryStream.ToArray();
@@ -135,7 +141,9 @@ namespace OpenUtau.Classic {
                     .ToList()
                     .ForEach(oto => {
                         oto.SearchTerms.Add(oto.Alias.ToLowerInvariant().Replace(" ", ""));
-                        oto.SearchTerms.Add(WanaKana.ToRomaji(oto.Alias).ToLowerInvariant().Replace(" ", ""));
+                        try {
+                            oto.SearchTerms.Add(WanaKana.ToRomaji(oto.Alias).ToLowerInvariant().Replace(" ", ""));
+                        } catch { }
                     });
             });
         }

@@ -140,6 +140,18 @@ namespace OpenUtau.Core {
         }
     }
 
+    public class KeyCommand : ProjectCommand{
+        public readonly int oldKey;
+        public readonly int newKey;
+        public KeyCommand(UProject project, int key) : base(project) {
+            oldKey = project.key;
+            newKey = key;
+        }
+        public override string ToString() => $"Change key from {oldKey} to {newKey}";
+        public override void Execute() => project.key = newKey;
+        public override void Unexecute() => project.key = oldKey;
+    }
+
     public class ConfigureExpressionsCommand : ProjectCommand {
         readonly UExpressionDescriptor[] oldDescriptors;
         readonly UExpressionDescriptor[] newDescriptors;
@@ -155,6 +167,7 @@ namespace OpenUtau.Core {
         public override string ToString() => "Configure expressions";
         public override void Execute() {
             project.expressions = newDescriptors.ToDictionary(descriptor => descriptor.abbr);
+            Format.Ustx.AddDefaultExpressions(project);
             project.parts
                 .Where(part => part is UVoicePart)
                 .ToList()
@@ -163,6 +176,7 @@ namespace OpenUtau.Core {
         }
         public override void Unexecute() {
             project.expressions = oldDescriptors.ToDictionary(descriptor => descriptor.abbr);
+            Format.Ustx.AddDefaultExpressions(project);
             project.parts
                 .Where(part => part is UVoicePart)
                 .ToList()

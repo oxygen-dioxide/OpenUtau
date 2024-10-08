@@ -23,7 +23,35 @@ namespace OpenUtau.Core {
             this.message = message;
             this.e = e;
         }
-        public override string ToString() => $"Error message: {message} {e}";
+        public override string ToString() {
+            if (e is MessageCustomizableException mce) {
+                if (string.IsNullOrWhiteSpace(mce.Message)) {
+                    return $"Error message: {mce.SubstanceException.Message} {mce.SubstanceException}";
+                } else {
+                    return $"Error message: {mce.Message} {mce.SubstanceException}";
+                }
+            } else {
+                return $"Error message: {message} {e}";
+            }
+        }
+    }
+
+    public class LoadingNotification : UNotification {
+        public readonly Type window;
+        public readonly bool startLoading;
+        public readonly string loadObject;
+        public LoadingNotification(Type window, bool startLoading, string loadObject) {
+            this.window = window;
+            this.startLoading = startLoading;
+            this.loadObject = loadObject;
+        }
+        public override string ToString() {
+            if (startLoading) {
+                return $"Start loading {loadObject}";
+            } else {
+                return $"Finish loading {loadObject}";
+            }
+        }
     }
 
     public class LoadPartNotification : UNotification {
@@ -75,10 +103,12 @@ namespace OpenUtau.Core {
     public class SetPlayPosTickNotification : UNotification {
         public readonly int playPosTick;
         public readonly bool waitingRendering;
+        public readonly bool pause;
         public override bool Silent => true;
-        public SetPlayPosTickNotification(int tick, bool waitingRendering = false) {
+        public SetPlayPosTickNotification(int tick, bool waitingRendering = false, bool pause = false) {
             playPosTick = tick;
             this.waitingRendering = waitingRendering;
+            this.pause = pause;
         }
         public override string ToString() => $"Set play position to tick {playPosTick}";
     }
@@ -86,9 +116,11 @@ namespace OpenUtau.Core {
     // Notification for playback manager to change play position
     public class SeekPlayPosTickNotification : UNotification {
         public int playPosTick;
+        public readonly bool pause;
         public override bool Silent => true;
-        public SeekPlayPosTickNotification(int tick) {
+        public SeekPlayPosTickNotification(int tick, bool pause = false) {
             playPosTick = tick;
+            this.pause = pause;
         }
         public override string ToString() => $"Seek play position to tick {playPosTick}";
     }
@@ -115,6 +147,17 @@ namespace OpenUtau.Core {
         public override string ToString() => $"Set track {TrackNo} volume to {Volume}";
     }
 
+    public class PanChangeNotification : UNotification {
+        public double Pan;
+        public int TrackNo;
+        public override bool Silent => true;
+        public PanChangeNotification(int trackNo, double pan) {
+            TrackNo = trackNo;
+            Pan = pan;
+        }
+        public override string ToString() => $"Set track {TrackNo} panning to {Pan}";
+    }
+
     public class SoloTrackNotification : UNotification {
         public readonly int trackNo;
         public readonly bool solo;
@@ -133,6 +176,16 @@ namespace OpenUtau.Core {
     public class SingersRefreshedNotification : UNotification {
         public SingersRefreshedNotification() { }
         public override string ToString() => "Singers refreshed.";
+    }
+
+    public class VoiceColorRemappingNotification : UNotification {
+        public int TrackNo;
+        public bool Validate;
+        public VoiceColorRemappingNotification(int trackNo, bool validate) {
+            TrackNo = trackNo;
+            Validate = validate;
+        }
+        public override string ToString() => "Voice color remapping.";
     }
 
     public class OtoChangedNotification : UNotification {
@@ -172,12 +225,19 @@ namespace OpenUtau.Core {
     }
 
     public class GotoOtoNotification : UNotification {
-        public readonly USinger singer;
-        public readonly UOto oto;
-        public GotoOtoNotification(USinger singer, UOto oto) {
+        public readonly USinger? singer;
+        public readonly UOto? oto;
+        public GotoOtoNotification(USinger? singer, UOto? oto) {
             this.singer = singer;
             this.oto = oto;
         }
         public override string ToString() => "Goto oto.";
+    }
+
+    public class NotePresetChangedNotification : UNotification {
+        public NotePresetChangedNotification() {
+
+        }
+        public override string ToString() => "Note preset changed.";
     }
 }

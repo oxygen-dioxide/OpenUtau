@@ -31,6 +31,13 @@ namespace OpenUtau.Classic {
 
         public void CheckPermissions() { }
 
+        //TODO: A list of flags supported by worldline resampler
+        public ResamplerManifest Manifest { get; } = new ResamplerManifest();
+
+        public bool SupportsFlag(string abbr) {
+            return true;
+        }
+
         public override string ToString() => name;
     }
 }

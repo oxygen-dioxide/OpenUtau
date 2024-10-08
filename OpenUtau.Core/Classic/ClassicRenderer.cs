@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using NAudio.Wave;
@@ -26,6 +25,7 @@ namespace OpenUtau.Classic {
             Ustx.ATK,
             Ustx.DEC,
             Ustx.MOD,
+            Ustx.MODP,
             Ustx.ALT,
         };
 
@@ -47,15 +47,15 @@ namespace OpenUtau.Classic {
             };
         }
 
-        public Task<RenderResult> Render(RenderPhrase phrase, Progress progress, CancellationTokenSource cancellation, bool isPreRender) {
+        public Task<RenderResult> Render(RenderPhrase phrase, Progress progress, int trackNo, CancellationTokenSource cancellation, bool isPreRender) {
             if (phrase.wavtool == SharpWavtool.nameConvergence || phrase.wavtool == SharpWavtool.nameSimple) {
-                return RenderInternal(phrase, progress, cancellation, isPreRender);
+                return RenderInternal(phrase, progress, trackNo, cancellation, isPreRender);
             } else {
-                return RenderExternal(phrase, progress, cancellation, isPreRender);
+                return RenderExternal(phrase, progress, trackNo, cancellation, isPreRender);
             }
         }
 
-        public Task<RenderResult> RenderInternal(RenderPhrase phrase, Progress progress, CancellationTokenSource cancellation, bool isPreRender) {
+        public Task<RenderResult> RenderInternal(RenderPhrase phrase, Progress progress, int trackNo, CancellationTokenSource cancellation, bool isPreRender) {
             var resamplerItems = new List<ResamplerItem>();
             foreach (var phone in phrase.phones) {
                 resamplerItems.Add(new ResamplerItem(phrase, phone));
@@ -72,13 +72,14 @@ namespace OpenUtau.Classic {
                             item.resampler.DoResamplerReturnsFile(item, Log.Logger);
                         }
                         if (!File.Exists(item.outputFile)) {
-                            throw new InvalidDataException($"{item.resampler} failed to resample \"{item.phone.phoneme}\"");
+                            DocManager.Inst.Project.timeAxis.TickPosToBarBeat(item.phrase.position + item.phone.position, out int bar, out int beat, out int tick);
+                            throw new InvalidDataException($"{item.resampler} failed to resample \"{item.phone.phoneme}\" at {bar}:{beat}.{string.Format("{0:000}", tick)}");
                         }
                         if (!(item.resampler is WorldlineResampler)) {
                             VoicebankFiles.Inst.CopyBackMetaFiles(item.inputFile, item.inputTemp);
                         }
                     }
-                    progress.Complete(1, $"{item.resampler} \"{item.phone.phoneme}\"");
+                    progress.Complete(1, $"Track {trackNo + 1}: {item.resampler} \"{item.phone.phoneme}\"");
                 });
                 var result = Layout(phrase);
                 var wavtool = new SharpWavtool(true);
@@ -91,13 +92,13 @@ namespace OpenUtau.Classic {
             return task;
         }
 
-        public Task<RenderResult> RenderExternal(RenderPhrase phrase, Progress progress, CancellationTokenSource cancellation, bool isPreRender) {
+        public Task<RenderResult> RenderExternal(RenderPhrase phrase, Progress progress, int trackNo, CancellationTokenSource cancellation, bool isPreRender) {
             var resamplerItems = new List<ResamplerItem>();
             foreach (var phone in phrase.phones) {
                 resamplerItems.Add(new ResamplerItem(phrase, phone));
             }
             var task = Task.Run(() => {
-                string progressInfo = $"{phrase.wavtool} \"{string.Join(" ", phrase.phones.Select(p => p.phoneme))}\"";
+                string progressInfo = $"Track {trackNo + 1} : {phrase.wavtool} \"{string.Join(" ", phrase.phones.Select(p => p.phoneme))}\"";
                 progress.Complete(0, progressInfo);
                 var wavPath = Path.Join(PathManager.Inst.CachePath, $"cat-{phrase.hash:x16}.wav");
                 var result = Layout(phrase);
@@ -107,7 +108,7 @@ namespace OpenUtau.Classic {
                             result.samples = Wave.GetSamples(waveStream.ToSampleProvider().ToMono(1, 0));
                         }
                     } catch (Exception e) {
-                        Log.Error(e, "Failed to render.");
+                        Log.Error(e, $"Failed to render: failed to open {wavPath}");
                     }
                 }
                 if (result.samples == null) {
@@ -134,25 +135,13 @@ namespace OpenUtau.Classic {
         }
 
         public UExpressionDescriptor[] GetSuggestedExpressions(USinger singer, URenderSettings renderSettings) {
-            var resamplerPath = renderSettings.Resampler.FilePath;
-            if (resamplerPath == null) {
+            var manifest= renderSettings.Resampler.Manifest;
+            if (manifest == null) {
                 return new UExpressionDescriptor[] { };
             }
-            var resamplerManifestPath = Path.ChangeExtension(resamplerPath, ".yaml");
-            try {
-                return Yaml.DefaultDeserializer.Deserialize<ResamplerManifest>(
-                    File.ReadAllText(resamplerManifestPath, encoding:Encoding.UTF8)
-                    ).expressions.Values.ToArray();
-            } catch (Exception ex) {
-                Log.Error($"Failed loading suggested expressions from {resamplerManifestPath}: {ex}");
-            }
-            return new UExpressionDescriptor[] { };
+            return manifest.expressions.Values.ToArray();
         }
 
         public override string ToString() => Renderers.CLASSIC;
-    }
-
-    public class ResamplerManifest {
-        public Dictionary<string,UExpressionDescriptor> expressions = new Dictionary<string, UExpressionDescriptor> { };
     }
 }

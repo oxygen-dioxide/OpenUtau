@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using OpenUtau.Core.Util;
+using SharpCompress;
 using YamlDotNet.Serialization;
 
 namespace OpenUtau.Core.Ustx {
@@ -45,10 +46,15 @@ namespace OpenUtau.Core.Ustx {
         [Obsolete("Since ustx v0.6")] public int beatUnit = 4;
 
         public Dictionary<string, UExpressionDescriptor> expressions = new Dictionary<string, UExpressionDescriptor>();
+        public string[] expSelectors = new string[] { Format.Ustx.DYN, Format.Ustx.PITD, Format.Ustx.CLR, Format.Ustx.ENG, Format.Ustx.VEL };
+        public int expPrimary = 0;
+        public int expSecondary = 1;
+        public int key = 0;//Music key of the project, 0 = C, 1 = C#, 2 = D, ..., 11 = B
         public List<UTimeSignature> timeSignatures;
         public List<UTempo> tempos;
         public List<UTrack> tracks;
         [YamlIgnore] public List<UPart> parts;
+        [YamlIgnore] public bool SoloTrackExist { get => tracks.Any(t => t.Solo); }
 
         /// <summary>
         /// Transient field used for serialization.
@@ -59,7 +65,7 @@ namespace OpenUtau.Core.Ustx {
         /// </summary>
         public List<UWavePart> waveParts;
 
-        [YamlIgnore] public string FilePath { get; set; }
+        [YamlIgnore] public string FilePath { get; set; } = string.Empty;
         [YamlIgnore] public bool Saved { get; set; } = false;
         [YamlIgnore] public int EndTick => parts.Count == 0 ? 0 : parts.Max(p => p.End);
 
@@ -68,7 +74,7 @@ namespace OpenUtau.Core.Ustx {
         public UProject() {
             timeSignatures = new List<UTimeSignature> { new UTimeSignature(0, 4, 4) };
             tempos = new List<UTempo> { new UTempo(0, 120) };
-            tracks = new List<UTrack>();
+            tracks = new List<UTrack>() { new UTrack("Track1") };
             parts = new List<UPart>();
             timeAxis.BuildSegments(this);
         }
@@ -76,6 +82,36 @@ namespace OpenUtau.Core.Ustx {
         public void RegisterExpression(UExpressionDescriptor descriptor) {
             if (!expressions.ContainsKey(descriptor.abbr)) {
                 expressions.Add(descriptor.abbr, descriptor);
+            }
+        }
+
+        public void MargeExpression(string oldAbbr, string newAbbr) {
+            if (parts != null && parts.Count > 0) {
+                parts.Where(p => p is UVoicePart)
+                    .OfType<UVoicePart>()
+                    .ForEach(p => p.notes.ForEach(n => ConvertNoteExp(n, tracks[p.trackNo])));
+            } else if (voiceParts != null && voiceParts.Count > 0) {
+                voiceParts.ForEach(p => p.notes.ForEach(n => ConvertNoteExp(n, tracks[p.trackNo])));
+            }
+            expressions.Remove(oldAbbr);
+
+            void ConvertNoteExp(UNote note, UTrack track) {
+                if (note.phonemeExpressions.Any(e => e.abbr == oldAbbr)) {
+                    var toRemove = new List<UExpression>();
+                    note.phonemeExpressions.Where(e => e.abbr == oldAbbr).ForEach(oldExp => {
+                        if (!note.phonemeExpressions.Any(newExp => newExp.abbr == newAbbr && newExp.index == oldExp.index)) {
+                            // When there is only old exp, convert it to new exp
+                            oldExp.abbr = newAbbr;
+                            if (track.TryGetExpDescriptor(this, newAbbr, out var descriptor)) {
+                                oldExp.descriptor = descriptor;
+                            }
+                        } else {
+                            // When both old and new exp exist, remove the old one
+                            toRemove.Add(oldExp);
+                        }
+                    });
+                    toRemove.ForEach(exp => note.phonemeExpressions.Remove(exp));
+                }
             }
         }
 

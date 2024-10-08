@@ -43,6 +43,7 @@ namespace OpenUtau.Core.Format {
         static public UProject LoadProject(string file) {
             UProject project = new UProject();
             Ustx.AddDefaultExpressions(project);
+            project.FilePath = file;
             // Detects lyric encoding
             Encoding lyricEncoding = Encoding.UTF8;
             var encodingDetector = new EncodingDetector();
@@ -58,20 +59,27 @@ namespace OpenUtau.Core.Format {
             TicksPerQuarterNoteTimeDivision timeDivision = midi.TimeDivision as TicksPerQuarterNoteTimeDivision;
             var PPQ = timeDivision.TicksPerQuarterNote;
             //Parse tempo
-            project.tempos = ParseTempos(midi.GetTempoMap(), PPQ);
+            var tempoMap = midi.GetTempoMap();
+            project.timeSignatures = ParseTimeSignatures(tempoMap, PPQ);
+            project.tempos = ParseTempos(tempoMap, PPQ);
 
             //Parse tracks
             project.tracks = new List<UTrack>();
 
             var parts = ParseParts(midi, PPQ, project);
             foreach (var part in parts) {
-                var track = new UTrack();
-                track.TrackNo = project.tracks.Count;
+                var track = new UTrack(project) {
+                    TrackNo = project.tracks.Count
+                };
                 part.trackNo = track.TrackNo;
+                if(part.name != "New Part"){
+                    track.TrackName = part.name;
+                }
                 part.AfterLoad(project, track);
                 project.tracks.Add(track);
                 project.parts.Add(part);
             }
+            project.ValidateFull();
             return project;
         }
 
@@ -115,8 +123,7 @@ namespace OpenUtau.Core.Format {
             var changes = tempoMap.GetTempoChanges();
             if (changes != null && changes.Count() > 0) {
                 var firstTempoTime = changes.First().Time;
-                if (firstTempoTime > 0)
-                {
+                if (firstTempoTime > 0) {
                     UTempoList.Add(new UTempo {
                         position = 0,
                         bpm = 120.0
@@ -130,14 +137,44 @@ namespace OpenUtau.Core.Format {
                         bpm = 60.0 / tempo.MicrosecondsPerQuarterNote * 1000000.0
                     });
                 }
-            } else//曲速列表为空
-              {
+            } else {//Midi doesn't contain any tempo change
                 UTempoList.Add(new UTempo {
                     position = 0,
                     bpm = 120.0
                 });
             }
             return UTempoList;
+        }
+
+        public static List<UTimeSignature> ParseTimeSignatures(TempoMap tempoMap, short PPQ) {
+            List<UTimeSignature> UTimeSignatureList = new List<UTimeSignature>();
+            var lastUTimeSignature = new UTimeSignature {
+                barPosition = 0,
+                beatPerBar = 4,
+                beatUnit = 4
+            };
+            var changes = tempoMap.GetTimeSignatureChanges();
+            if (changes != null && changes.Count() > 0) {
+                var firstTimeSignatureTime = changes.First().Time;
+                if (firstTimeSignatureTime > 0) {
+                    UTimeSignatureList.Add(lastUTimeSignature);
+                }
+                int lastTime = 0;
+                foreach (var change in changes) {
+                    var timeSignature = change.Value;
+                    var time = (int)(change.Time) / PPQ;
+                    lastUTimeSignature = new UTimeSignature {
+                        barPosition = lastUTimeSignature.barPosition + (time - lastTime) * lastUTimeSignature.beatUnit / 4 / lastUTimeSignature.beatPerBar,
+                        beatPerBar = timeSignature.Numerator,
+                        beatUnit = timeSignature.Denominator
+                    };
+                    UTimeSignatureList.Add(lastUTimeSignature);
+                    lastTime = time;
+                }
+            } else {
+                UTimeSignatureList.Add(lastUTimeSignature);
+            }
+            return UTimeSignatureList;
         }
 
         static List<UVoicePart> ParseParts(MidiFile midi, short PPQ, UProject project) {
@@ -149,6 +186,14 @@ namespace OpenUtau.Core.Format {
                     var part = new UVoicePart();
                     using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
                         var events = objectsManager.Objects;
+                        //{position of lyric: lyric text}
+                        Dictionary<long, string> lyrics = events.Where(e => e.Event is LyricEvent)
+                            .ToDictionary(e=> e.Time, e => ((LyricEvent)e.Event).Text);
+                        var trackName = events.Where(e => e.Event is SequenceTrackNameEvent)
+                            .Select(e => ((SequenceTrackNameEvent)e.Event).Text).FirstOrDefault();
+                        if (trackName != null) {
+                            part.name = trackName;
+                        }
                         foreach (Melanchall.DryWetMidi.Interaction.Note midiNote in midiNoteList) {
                             var note = project.CreateNote(
                                 midiNote.NoteNumber,
@@ -156,10 +201,8 @@ namespace OpenUtau.Core.Format {
                                 (int)(midiNote.Length * project.resolution / PPQ)
                             );
                             //handle lyric import
-                            string lyric = events.Where(e => e.Event is LyricEvent && e.Time == midiNote.Time)
-                                                     .Select(e => ((LyricEvent)e.Event).Text)
-                                                     .FirstOrDefault();
-                            if (lyric == null) {
+                            bool hasLyric = lyrics.TryGetValue(midiNote.Time, out string lyric);
+                            if (!hasLyric) {
                                 lyric = defaultLyric;
                             }
                             if (lyric == "-") {
@@ -187,13 +230,30 @@ namespace OpenUtau.Core.Format {
             //Tempo
             midiFile.Chunks.Add(new TrackChunk());
             using (TempoMapManager tempoMapManager = midiFile.ManageTempoMap()) {
+                var lastUTimeSignature = new UTimeSignature {
+                    barPosition = 0,
+                    beatPerBar = 4,
+                    beatUnit = 4
+                };
+                int lastTime = 0;
+                foreach (UTimeSignature uTimeSignature in project.timeSignatures) {
+                    var time = lastTime + (uTimeSignature.barPosition - lastUTimeSignature.barPosition) * lastUTimeSignature.beatPerBar * 4 / lastUTimeSignature.beatUnit * project.resolution;
+                    tempoMapManager.SetTimeSignature(time, new TimeSignature(uTimeSignature.beatPerBar, uTimeSignature.beatUnit));
+                    lastUTimeSignature = uTimeSignature;
+                    lastTime = time;
+                }
                 foreach(UTempo uTempo in project.tempos){
                     tempoMapManager.SetTempo(uTempo.position, Tempo.FromBeatsPerMinute(uTempo.bpm));
                 }
             }
             //Time Signature
             foreach (UTrack track in project.tracks) {
-                trackChunks.Add(new TrackChunk());
+                var trackChunk = new TrackChunk();
+                using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
+                    var events = objectsManager.Objects;
+                    events.Add(new TimedEvent(new SequenceTrackNameEvent(track.TrackName), 0));
+                }
+                trackChunks.Add(trackChunk);
             }
             //voice tracks
             foreach (UPart part in project.parts) {
@@ -203,6 +263,10 @@ namespace OpenUtau.Core.Format {
                     using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
                         var events = objectsManager.Objects;
                         foreach (UNote note in voicePart.notes) {
+                            //Ignore notes whose pitch is out of midi range
+                            if(note.tone < 0 || note.tone > 127){
+                                continue;
+                            }
                             string lyric = note.lyric;
                             if (lyric == "+") {
                                 lyric = "-";
