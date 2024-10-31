@@ -173,6 +173,11 @@ namespace OpenUtau.Core {
             });
         }
 
+        public void RenderMixdownWait(UProject project, string exportPath){
+            var task = RenderMixdown(project, exportPath);
+            task.Wait();
+        }
+
         // Exporting each tracks
         public async Task RenderToFiles(UProject project, string exportPath) {
             await Task.Run(() => {
@@ -201,6 +206,11 @@ namespace OpenUtau.Core {
                     DocManager.Inst.ExecuteCmd(new ProgressBarNotification(0, $"Failed to render."));
                 }
             });
+        }
+
+        public void RenderToFilesWait(UProject project, string exportPath) {
+            var task = RenderToFiles(project, exportPath);
+            task.Wait();
         }
 
         private void CheckFileWritable(string filePath) {

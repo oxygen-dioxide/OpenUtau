@@ -28,7 +28,9 @@ namespace OpenUtau.Cli {
             var types = new Type[] {
                 typeof(ClearCommand),
                 typeof(InstallCommand),
-                typeof(RenderCommand) };
+                typeof(RenderCommand),
+                typeof(CheckCommand),
+                typeof(ListCommand)};
 
             var parserResult = myParser.ParseArguments(args, types);
 

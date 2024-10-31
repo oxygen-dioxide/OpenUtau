@@ -7,7 +7,7 @@ using OpenUtau.Cli.Util;
 namespace OpenUtau.Cli.Commands {
     [Verb("install", HelpText = "Install a voicebank")]
     public class InstallCommand : BaseCommand {
-        [Value(0, MetaName = "voicebank", Required = true, HelpText = "The .ustx file to render")]
+        [Value(0, MetaName = "archivePath", Required = true, HelpText = "Path to the voicebank archive file")]
         public string archiveFilePath { get; set; }
 
         [Option('a', "archiveEncoding", Required = false, HelpText = "Encoding of the name of the files in the archive")]
@@ -38,7 +38,8 @@ namespace OpenUtau.Cli.Commands {
             var progressBar = new UShellProgressBar();
             var installer = new Classic.VoicebankInstaller(basePath, progressBar.Notify, 
                 getEncoding(archiveEncodingStr), getEncoding(textEncodingStr));
-            installer.LoadArchive(archiveFilePath);
+            //TODO
+            //installer.Install(archiveFilePath);
             return true;
         }
     }
