@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
+    <TargetFramework>net8.0-windows</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <SatelliteResourceLanguages>none</SatelliteResourceLanguages>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>0.0.0</Version>
+    <ApplicationIcon>Assets\open-utau.ico</ApplicationIcon>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <DebugType>embedded</DebugType>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <CFBundleName>OpenUtau</CFBundleName>
+    <CFBundleDisplayName>OpenUtau</CFBundleDisplayName>
+    <CFBundleIdentifier>com.stakira.openutau</CFBundleIdentifier>
+    <CFBundleVersion>0.0.0</CFBundleVersion>
+    <CFBundleShortVersionString>0.0.0</CFBundleShortVersionString>
+    <CFBundlePackageType>APPL</CFBundlePackageType>
+    <CFBundleSignature>????</CFBundleSignature>
+    <CFBundleExecutable>OpenUtau</CFBundleExecutable>
+    <CFBundleIconFile>OpenUtau.icns</CFBundleIconFile>
+    <NSPrincipalClass>NSApplication</NSPrincipalClass>
+    <NSHighResolutionCapable>true</NSHighResolutionCapable>
+    <CFBundleDocumentTypes>
+        <array>
+            <dict>
+                <key>CFBundleTypeName</key>
+                <string>OpenUtau Sequence File</string>
+                <key>CFBundleTypeExtensions</key>
+                <array>
+                    <string>ustx</string>
+                </array>
+                <key>CFBundleTypeIconFile</key>
+                <string>OpenUtau.icns</string>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>LSItemContentTypes</key>
+                <array>
+                    <string>com.stakira.openutau.ustx</string>
+                </array>
+            </dict>
+        </array>          
+  </CFBundleDocumentTypes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="11.2.1" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenUtau\OpenUtau.csproj" />
+  </ItemGroup>
+</Project>

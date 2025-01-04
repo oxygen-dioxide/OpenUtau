@@ -1,8 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
-    <TargetFramework>net8.0-windows</TargetFramework>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+  <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
