@@ -10,7 +10,7 @@ using Serilog;
 using Microsoft.ML.OnnxRuntime;
 
 namespace OpenUtau.Core.DiffSinger {
-    class DiffSingerSinger : USinger {
+    public class DiffSingerSinger : USinger {
         public override string Id => voicebank.Id;
         public override string Name => voicebank.Name;
         public override Dictionary<string, string> LocalizedNames => voicebank.LocalizedNames;

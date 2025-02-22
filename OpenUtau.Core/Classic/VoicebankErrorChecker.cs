@@ -7,10 +7,10 @@ using NAudio.Wave;
 
 namespace OpenUtau.Classic {
     public class VoicebankError {
-        public string message;
-        public FileTrace trace;
-        public string soundFile;
-        public Exception e;
+        public string? message;
+        public FileTrace? trace;
+        public string? soundFile;
+        public Exception? e;
 
         public override string ToString() {
             var builder = new StringBuilder();
