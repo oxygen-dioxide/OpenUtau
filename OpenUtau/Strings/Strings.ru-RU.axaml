@@ -1,5 +1,6 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="context.note.copy">Скопировать ноту</system:String>
   <system:String x:Key="context.note.delete">Удалить ноту</system:String>
@@ -10,9 +11,9 @@
   <system:String x:Key="context.part.replaceaudio">Повторный выбор аудиофайла</system:String>
   <system:String x:Key="context.part.transcribe">Транскрибировать аудио для создания нотной партии</system:String>
   <system:String x:Key="context.part.transcribing">Транскрибирование</system:String>
-  <system:String x:Key="context.pitch.easein"></system:String>
-  <system:String x:Key="context.pitch.easeinout"></system:String>
-  <system:String x:Key="context.pitch.easeout"></system:String>
+  <!--<system:String x:Key="context.pitch.easein">Ease in</system:String>-->
+  <!--<system:String x:Key="context.pitch.easeinout">Ease in/out</system:String>-->
+  <!--<system:String x:Key="context.pitch.easeout">Ease out</system:String>-->
   <system:String x:Key="context.pitch.linear">Линейный</system:String>
   <system:String x:Key="context.pitch.pointadd">Добавить точку</system:String>
   <system:String x:Key="context.pitch.pointdel">Удалить точку</system:String>
@@ -63,13 +64,13 @@
   <system:String x:Key="errors.details">Подробности ошибки</system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder1">Ошибка загрузки вокодера </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">. Пожалуйста, загрузите вокодер из: </system:String>
-  <system:String x:Key="errors.encryptedarchive"></system:String>
+  <!--<system:String x:Key="errors.encryptedarchive">Encrypted archive file isn't supported. Please extract the archive file manually.</system:String>-->
   <system:String x:Key="errors.expression.abbrlong">Аббревиатура должна содержать от 1 до 4 символов</system:String>
   <system:String x:Key="errors.expression.abbrset">Аббревиатура должна быть указана</system:String>
   <system:String x:Key="errors.expression.abbrunique">Аббревиатуры должны быть уникальными</system:String>
   <system:String x:Key="errors.expression.default">Значение по умолчанию должно находиться между минимальным и максимальным значением</system:String>
   <system:String x:Key="errors.expression.flagunique">Флаги должны быть уникальными</system:String>
-  <system:String x:Key="errors.expression.marge"></system:String>
+  <!--<system:String x:Key="errors.expression.marge">The following expressions have been merged due to duplicate flags</system:String>-->
   <system:String x:Key="errors.expression.min">Минимальное значение должно быть меньше максимального</system:String>
   <system:String x:Key="errors.expression.name">Необходимо указать название</system:String>
   <system:String x:Key="errors.failed.export">Не удалось экспортировать</system:String>
@@ -87,8 +88,8 @@
   <system:String x:Key="errors.failed.savesingerconfig">Не удалось сохранить файл конфигурации вокалиста</system:String>
   <system:String x:Key="errors.failed.searchsinger">Не удалось найти певцов</system:String>
   <system:String x:Key="errors.install.cpp">Попробуйте установить Visual C++ Redistributable. https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170</system:String>
-  <system:String x:Key="errors.lyrics.regex"></system:String>
-  <system:String x:Key="errors.lyrics.regexpreview"></system:String>
+  <!--<system:String x:Key="errors.lyrics.regex">Character not allowed in regular expression</system:String>-->
+  <!--<system:String x:Key="errors.lyrics.regexpreview">- regular expression error -</system:String>-->
 
   <system:String x:Key="exps.abbr">Сокращение</system:String>
   <system:String x:Key="exps.apply">Применить</system:String>
@@ -268,9 +269,9 @@
   <system:String x:Key="phoneticassistant.copy">Скопировть</system:String>
 
   <system:String x:Key="pianoroll.menu.batch">Пакетное редактирование</system:String>
-  <system:String x:Key="pianoroll.menu.batch.running"></system:String>
+  <!--<system:String x:Key="pianoroll.menu.batch.running">Running batch edit</system:String>-->
   <system:String x:Key="pianoroll.menu.lyrics">Текст</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Заменить &quot;-&quot; на &quot;+&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Заменить "-" на "+"</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">Редактировать текст</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">Хирагана в ромадзи</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">Добавить шлейф</system:String>
@@ -283,8 +284,8 @@
   <system:String x:Key="pianoroll.menu.notedefaults">Нота по умолчанию</system:String>
   <system:String x:Key="pianoroll.menu.notes">Ноты</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">Добавить дыхание</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtaildash">Добавить &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtailrest">Добавить &quot;R&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtaildash">Добавить "-"</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtailrest">Добавить "R"</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">Автоматическое легато</system:String>
   <system:String x:Key="pianoroll.menu.notes.bakepitch">Преобразование PITD в контрольные точки питча</system:String>
   <system:String x:Key="pianoroll.menu.notes.clear.vibratos">Очистить вибрато</system:String>
@@ -296,8 +297,8 @@
   <system:String x:Key="pianoroll.menu.notes.octaveup">Переместить на октаву выше</system:String>
   <system:String x:Key="pianoroll.menu.notes.quantize15">Квантовать до 1/128</system:String>
   <system:String x:Key="pianoroll.menu.notes.quantize30">Квантовать до 1/64</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetaildash">Удалить хвост &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetailrest">Удалить хвост &quot;R&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetaildash">Удалить хвост "-"</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetailrest">Удалить хвост "R"</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.aliases">Сбросить алиасы фонем</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.all">Сбросить ноты к стандартным значениям</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">Сбросить все настройки</system:String>
@@ -327,11 +328,22 @@
   <system:String x:Key="pianoroll.toggle.tone">Переключить тон ноты (Y)</system:String>
   <system:String x:Key="pianoroll.toggle.vibrato">Отображать вибрато (U)</system:String>
   <system:String x:Key="pianoroll.toggle.waveform">Отображать волну (W)</system:String>
-  <system:String x:Key="pianoroll.tool.drawlinepitch"></system:String>
+  <!--<system:String x:Key="pianoroll.tool.drawlinepitch">
+    Line Draw Pitch Tool (Shift + 4)
+    Left click to draw (draw straight line)
+    Right click to reset
+    Hold Ctrl to select
+    Hold Alt to smoothen
+  </system:String>-->
   <system:String x:Key="pianoroll.tool.drawpitch">Инструмент рисовки питча (4)</system:String>
   <system:String x:Key="pianoroll.tool.eraser">Ластик (3)</system:String>
   <system:String x:Key="pianoroll.tool.knife">Нож (5)</system:String>
-  <system:String x:Key="pianoroll.tool.overwritepitch"></system:String>
+  <!--<system:String x:Key="pianoroll.tool.overwritepitch">Overwrite Pitch Tool (Ctrl + 4)
+    Left click to draw (overwrites vibrato or mod+)
+    Right click to reset
+    Hold Ctrl to select
+    Hold Alt to smoothen
+  </system:String>-->
   <system:String x:Key="pianoroll.tool.penplus">Карандаж Plus (Ctrl + 2)
     Левый клик чтобы рисовать
     Правый клик чтобы удалить
@@ -349,7 +361,7 @@
   <system:String x:Key="prefs.advanced.importtempo.never">Никогда</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper">Текстовый помощник</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper.brackets">Добавить скобки в текстовом помощнике</system:String>
-  <system:String x:Key="prefs.advanced.rememberfiletypes">Запомнить эти типы файлов в &quot;Открыть последние&quot;</system:String>
+  <system:String x:Key="prefs.advanced.rememberfiletypes">Запомнить эти типы файлов в "Открыть последние"</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging">Журналирование ресамплера</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging.warn">Сохраняет вывод ресамплера в файлах лога. Эта опция замедляет работу пользовательского интерфейса и рендеринга.</system:String>
   <system:String x:Key="prefs.advanced.stable">Стабильный</system:String>
@@ -386,7 +398,7 @@
   <system:String x:Key="prefs.paths.loaddeepfolders">Загрузить все глубинные папки</system:String>
   <system:String x:Key="prefs.paths.reset">Сбросить</system:String>
   <system:String x:Key="prefs.paths.select">Выбрать</system:String>
-  <system:String x:Key="prefs.penplus">Установить инструмент &quot;Перо плюс&quot; по умолчанию</system:String>
+  <system:String x:Key="prefs.penplus">Установить инструмент "Перо плюс" по умолчанию</system:String>
   <system:String x:Key="prefs.playback">Воспроизведение</system:String>
   <system:String x:Key="prefs.playback.autoscroll">Автопрокрутка</system:String>
   <system:String x:Key="prefs.playback.autoscrollmode">Режим автопрокрутки</system:String>
@@ -400,7 +412,7 @@
   <system:String x:Key="prefs.playback.lockstarttime">На паузе</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.off">Ничего не делать</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.on">Переместить курсор назад к месту начала воспроизведения.</system:String>
-  <system:String x:Key="prefs.playback.lockstarttime.onlycursor"></system:String>
+  <!--<system:String x:Key="prefs.playback.lockstarttime.onlycursor">Move only cursor back to where you started playing</system:String>-->
   <system:String x:Key="prefs.playback.test">Тест</system:String>
   <system:String x:Key="prefs.rendering">Рендеринг</system:String>
   <system:String x:Key="prefs.rendering.defaultrenderer">Рендерер по-умолчанию (для классических войсбанков)</system:String>
@@ -413,8 +425,8 @@
   <system:String x:Key="prefs.rendering.resampler">Ресамплер</system:String>
   <system:String x:Key="prefs.rendering.resampler.morewarn">
     Предупреждение: moresampler поддерживается не полностью. Он может быть медленным и вызвать высокую нагрузку процессора. Если вы настаиваете, пожалуйста:
-    1. Для параметра &quot;resampler-compatibility&quot; установите значение &quot;on&quot; в moreconfig.txt.
-    2. Задайте параметру &quot;auto-update-llsm-mrq&quot; значение &quot;off&quot; в moreconfig.txt.
+    1. Для параметра "resampler-compatibility" установите значение "on" в moreconfig.txt.
+    2. Задайте параметру "auto-update-llsm-mrq" значение "off" в moreconfig.txt.
     3. Терпеливо ждите, пока moresampler сгенерирует недостающие llsm файлы.
   </system:String>
   <system:String x:Key="prefs.rendering.resampler.note">
@@ -541,7 +553,7 @@
   <system:String x:Key="tracks.trackcolor">Изменить цвет трека</system:String>
   <system:String x:Key="tracks.tracksettings">Настройки трека</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <!--<FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>-->
 
   <system:String x:Key="updater.caption">Проверить наличие обновлений</system:String>
   <system:String x:Key="updater.description">Открытая платформа синтеза вокала</system:String>
@@ -553,6 +565,6 @@
   <system:String x:Key="updater.update">Обновить</system:String>
 
   <system:String x:Key="warning">Предупреждение</system:String>
-  <system:String x:Key="warning.asciipath">Ваш путь к OpenUtau (&quot;{0}&quot;) содержит символы, не являющимися символами ASCII. EXE-ресамплеры могут не работать.</system:String>
+  <system:String x:Key="warning.asciipath">Ваш путь к OpenUtau ("{0}") содержит символы, не являющимися символами ASCII. EXE-ресамплеры могут не работать.</system:String>
   <system:String x:Key="warning.renderer">Для этого рендерера нет настроек.</system:String>
 </ResourceDictionary>
