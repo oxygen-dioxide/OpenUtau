@@ -1,24 +1,22 @@
-using Serilog;
+﻿using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 using OpenUtau.Api;
+using OpenUtau.Classic;
 
 namespace OpenUtau.Core.DiffSinger
 {
-    public class G2pReplacementsData{
+    class DiffSingerG2pDictionaryData : G2pDictionaryData{
         public struct Replacement{
             public string from;
             public string to;
         }
         public Replacement[]? replacements;
-        
-        public static G2pReplacementsData Load(string text){
-            return OpenUtau.Core.Yaml.DefaultDeserializer.Deserialize<G2pReplacementsData>(text);
-        }
 
-        public Dictionary<string, string> toDict(){
+        public Dictionary<string, string> replacementsDict(){
             var dict = new Dictionary<string, string>();
             if(replacements!=null){
                 foreach(var r in replacements){
@@ -38,8 +36,13 @@ namespace OpenUtau.Core.DiffSinger
         //vowels and consonants of BaseG2p
         protected virtual string[] GetBaseG2pVowels()=>new string[]{};
         protected virtual string[] GetBaseG2pConsonants()=>new string[]{};
-        
-        protected override IG2p LoadG2p(string rootPath) {
+
+        private Dictionary<string, bool> phonemeSymbols = new Dictionary<string, bool>();
+        protected bool HasPhoneme(string phoneme) {
+            return phonemeSymbols.ContainsKey(phoneme);
+        }
+
+        protected override IG2p LoadG2p(string rootPath, bool useLangId = false) {
             //Each phonemizer has a delicated dictionary name, such as dsdict-en.yaml, dsdict-ru.yaml.
             //If this dictionary exists, load it.
             //If not, load dsdict.yaml.
@@ -54,8 +57,16 @@ namespace OpenUtau.Core.DiffSinger
                 if (File.Exists(dictionaryPath)) {
                     try {
                         string dictText = File.ReadAllText(dictionaryPath);
-                        replacements = G2pReplacementsData.Load(dictText).toDict();
-                        g2pBuilder.Load(dictText);
+                        var dictData = Yaml.DefaultDeserializer.Deserialize<DiffSingerG2pDictionaryData>(dictText);
+                        g2pBuilder.Load(dictData);
+                        replacements = dictData.replacementsDict();
+                        // Collect all symbols from the dictionary and add them to phonemeSymbols
+                        if (dictData.symbols != null) {
+                            foreach (var symbol in dictData.symbols) {
+                                phonemeSymbols[symbol.symbol.Trim()] = true;
+                            }
+                        }
+                        Log.Error("Loaded symbols: " + string.Join(", ", phonemeSymbols.Keys));
                     } catch (Exception e) {
                         Log.Error(e, $"Failed to load {dictionaryPath}");
                     }
@@ -72,12 +83,20 @@ namespace OpenUtau.Core.DiffSinger
             if(baseG2p == null){
                 return new G2pFallbacks(g2ps.ToArray());
             }
-            var phonemeSymbols = new Dictionary<string, bool>();
             foreach(var v in GetBaseG2pVowels()){
                 phonemeSymbols[v]=true;
             }
             foreach(var c in GetBaseG2pConsonants()){
                 phonemeSymbols[c]=false;
+            }
+            if(useLangId){
+                //For diffsinger multi dict voicebanks, the replacements of g2p phonemes default to the <langcode>/<phoneme>
+                var langCode = GetLangCode();
+                foreach(var ph in GetBaseG2pVowels().Concat(GetBaseG2pConsonants())){
+                    if(!replacements.ContainsKey(ph)){
+                        replacements[ph]=langCode + "/" + ph;
+                    }
+                }
             }
             foreach(var from in replacements.Keys){
                 var to = replacements[from];
