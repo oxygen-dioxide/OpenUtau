@@ -1668,6 +1668,9 @@ namespace OpenUtau.App.Views {
                 return;
             }
             var exps = new ExpSelector[] { expSelector1, expSelector2, expSelector3, expSelector4, expSelector5 };
+            foreach(var exp in exps){
+                exp.Part = ViewModel.NotesViewModel.Part;
+            }
             exps[DocManager.Inst.Project.expSecondary].SelectExp();
             exps[DocManager.Inst.Project.expPrimary].SelectExp();
         }

@@ -469,7 +469,8 @@ namespace OpenUtau.Core.DiffSinger {
         }
 
         public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
-            var result = new List<UExpressionDescriptor> {
+            
+            var dsExpressions = new List<UExpressionDescriptor> {
                 //velocity
                 new UExpressionDescriptor{
                     name="velocity (curve)",
@@ -504,7 +505,7 @@ namespace OpenUtau.Core.DiffSinger {
             //speakers
             var dsSinger = singer as DiffSingerSinger;
             if(dsSinger!=null && dsSinger.dsConfig.speakers != null) {
-                result.AddRange(Enumerable.Zip(
+                dsExpressions.AddRange(Enumerable.Zip(
                     dsSinger.Subbanks,
                     Enumerable.Range(1, dsSinger.Subbanks.Count),
                     (subbank,index)=>new UExpressionDescriptor {
@@ -517,7 +518,9 @@ namespace OpenUtau.Core.DiffSinger {
                         isFlag=false,
                     }));
             }
-            return result.ToArray();
+            return Format.Ustx.UniversialExpressions
+                .Concat(dsExpressions)
+                .ToArray();
         }
 
         public override string ToString() => Renderers.DIFFSINGER;

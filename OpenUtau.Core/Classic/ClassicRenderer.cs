@@ -135,11 +135,15 @@ namespace OpenUtau.Classic {
         }
 
         public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
+            IEnumerable<UExpressionDescriptor> resamplerExps = new UExpressionDescriptor[]{};
             var manifest= renderSettings.Resampler.Manifest;
-            if (manifest == null) {
-                return new UExpressionDescriptor[] { };
+            if (manifest != null) {
+                resamplerExps = manifest.expressions.Values.ToArray();
             }
-            return manifest.expressions.Values.ToArray();
+            return Ustx.UniversialExpressions
+                .Concat(Ustx.ClassicExpressions)
+                .Concat(resamplerExps)
+                .ToArray();
         }
 
         public override string ToString() => Renderers.CLASSIC;

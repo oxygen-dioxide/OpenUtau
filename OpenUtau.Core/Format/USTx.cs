@@ -35,30 +35,48 @@ namespace OpenUtau.Core.Format {
         public const string VOIC = "voic";
 
         public static readonly string[] required = { DYN, PITD, CLR, ENG, VEL, VOL, ATK, DEC };
+        
+        /// <summary>
+        /// Expressions supported by all renderers
+        /// </summary>
+        public static UExpressionDescriptor[] UniversialExpressions = new UExpressionDescriptor[] {
+            new UExpressionDescriptor("dynamics (curve)", DYN, -240, 120, 0) { type = UExpressionType.Curve },
+            new UExpressionDescriptor("pitch deviation (curve)", PITD, -1200, 1200, 0) { type = UExpressionType.Curve },
+            new UExpressionDescriptor("voice color", CLR, false, new string[0])
+        };
+
+        /// <summary>
+        /// Expressions supported by all renderers that use UTAU voicebanks, CLASSIC and WORLDLINE-R
+        /// </summary>
+        public static UExpressionDescriptor[] ClassicExpressions = new UExpressionDescriptor[] {
+            new UExpressionDescriptor("velocity", VEL, 0, 200, 100),
+            new UExpressionDescriptor("volume", VOL, 0, 200, 100),
+            new UExpressionDescriptor("attack", ATK, 0, 200, 100),
+            new UExpressionDescriptor("decay", DEC, 0, 100, 0),
+            new UExpressionDescriptor("modulation plus", MODP, 0, 100, 0),
+            new UExpressionDescriptor("alternate", ALT, 0, 16, 0),
+            new UExpressionDescriptor("direct", DIR, false, new string[] { "off", "on" }),
+            new UExpressionDescriptor("tone shift", SHFT, -36, 36, 0),
+        };
+
+        /// <summary>
+        /// Expressions supported by all worldline-based renderers, WORLDLINE-R, ENUNU and VOGEN
+        /// </summary>
+        public static UExpressionDescriptor[] WorldlineExpressions = new UExpressionDescriptor[]{
+            new UExpressionDescriptor("gender (curve)", GENC, -100, 100, 0) { type = UExpressionType.Curve },
+            new UExpressionDescriptor("breathiness (curve)", BREC, -100, 100, 0) { type = UExpressionType.Curve },
+            new UExpressionDescriptor("tension (curve)", TENC, -100, 100, 0) { type = UExpressionType.Curve },
+            new UExpressionDescriptor("voicing (curve)", VOIC, 0, 100, 100) { type = UExpressionType.Curve },
+        }
 
         public static void AddDefaultExpressions(UProject project) {
-            project.RegisterExpression(new UExpressionDescriptor("dynamics (curve)", DYN, -240, 120, 0) { type = UExpressionType.Curve });
-            project.RegisterExpression(new UExpressionDescriptor("pitch deviation (curve)", PITD, -1200, 1200, 0) { type = UExpressionType.Curve });
-            project.RegisterExpression(new UExpressionDescriptor("voice color", CLR, false, new string[0]));
             project.RegisterExpression(new UExpressionDescriptor("resampler engine", ENG, false, new string[] { "", WorldlineResampler.name }));
-            project.RegisterExpression(new UExpressionDescriptor("velocity", VEL, 0, 200, 100));
-            project.RegisterExpression(new UExpressionDescriptor("volume", VOL, 0, 200, 100));
-            project.RegisterExpression(new UExpressionDescriptor("attack", ATK, 0, 200, 100));
-            project.RegisterExpression(new UExpressionDescriptor("decay", DEC, 0, 100, 0));
             project.RegisterExpression(new UExpressionDescriptor("gender", GEN, -100, 100, 0, "g"));
-            project.RegisterExpression(new UExpressionDescriptor("gender (curve)", GENC, -100, 100, 0) { type = UExpressionType.Curve });
             project.RegisterExpression(new UExpressionDescriptor("breath", BRE, 0, 100, 0, "B"));
-            project.RegisterExpression(new UExpressionDescriptor("breathiness (curve)", BREC, -100, 100, 0) { type = UExpressionType.Curve });
             project.RegisterExpression(new UExpressionDescriptor("lowpass", LPF, 0, 100, 0, "H"));
             project.RegisterExpression(new UExpressionDescriptor("normalize", NORM, 0, 100, 86, "P"));
             project.RegisterExpression(new UExpressionDescriptor("modulation", MOD, 0, 100, 0));
-            project.RegisterExpression(new UExpressionDescriptor("modulation plus", MODP, 0, 100, 0));
-            project.RegisterExpression(new UExpressionDescriptor("alternate", ALT, 0, 16, 0));
-            project.RegisterExpression(new UExpressionDescriptor("direct", DIR, false, new string[] { "off", "on" }));
-            project.RegisterExpression(new UExpressionDescriptor("tone shift", SHFT, -36, 36, 0));
             project.RegisterExpression(new UExpressionDescriptor("tone shift (curve)", SHFC, -1200, 1200, 0) { type = UExpressionType.Curve });
-            project.RegisterExpression(new UExpressionDescriptor("tension (curve)", TENC, -100, 100, 0) { type = UExpressionType.Curve });
-            project.RegisterExpression(new UExpressionDescriptor("voicing (curve)", VOIC, 0, 100, 100) { type = UExpressionType.Curve });
 
             string message = string.Empty;
             if (ValidateExpression(project, "g", GEN)) {

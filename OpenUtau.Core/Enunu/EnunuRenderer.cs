@@ -263,7 +263,11 @@ namespace OpenUtau.Core.Enunu {
         }
 
         public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
-            return new UExpressionDescriptor[] { };
+            return Format.Ustx.UniversialExpressions
+                .Concat(Format.Ustx.WorldlineExpressions)
+                .Append(new UExpressionDescriptor("velocity", Format.Ustx.VEL, 0, 200, 100))
+                .Append(new UExpressionDescriptor("tone shift", Format.Ustx.SHFT, -36, 36, 0))
+                .ToArray();
         }
 
         public override string ToString() => Renderers.ENUNU;

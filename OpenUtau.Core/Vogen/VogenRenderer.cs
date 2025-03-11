@@ -228,7 +228,13 @@ namespace OpenUtau.Core.Vogen {
         }
 
         public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
-            return new UExpressionDescriptor[] { };
+            return Format.Ustx.UniversialExpressions
+                .Concat(Format.Ustx.WorldlineExpressions)
+                .Append(
+                    new UExpressionDescriptor("tone shift (curve)", Format.Ustx.SHFC, -1200, 1200, 0)
+                     { type = UExpressionType.Curve }
+                )
+                .ToArray();
         }
 
         public override string ToString() => Renderers.VOGEN;

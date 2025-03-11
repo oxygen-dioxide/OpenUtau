@@ -132,6 +132,16 @@ namespace OpenUtau.Core.Ustx {
             return Expressions.Values.Concat(project.expressions.Values.Where(x => !Expressions.ContainsKey(x.abbr))).ToList();
         }
 
+        public void RefreshExpressions(){
+            var renderer = RendererSettings.Renderer;
+            if(renderer == null){
+                Expressions = new Dictionary<string, UExpressionDescriptor>();
+            } else {
+                Expressions = renderer.GetSuggestedExpressions(Singer, RendererSettings)
+                    .ToDictionary(e => e.abbr, e => e);
+            }
+        }
+
         /**  
             <summary>
                 Return false if there is no corresponding descriptor in the project
@@ -214,13 +224,6 @@ namespace OpenUtau.Core.Ustx {
                     VoiceColorExp.max = VoiceColorExp.options.Length - 1;
                 }
             }
-            var renderer = RendererSettings.Renderer;
-            if(renderer == null){
-                Expressions = new Dictionary<string, UExpressionDescriptor>();
-            } else {
-                Expressions = renderer.GetSuggestedExpressions(Singer, RendererSettings)
-                    .ToDictionary(e => e.abbr, e => e);
-            }
         }
 
         public bool ValidateVoiceColor(out string[] oldColors, out string[] newColors) {
@@ -289,6 +292,7 @@ namespace OpenUtau.Core.Ustx {
             if (!Solo && Mute) {
                 Muted = true;
             }
+            RefreshExpressions();
         }
     }
 }

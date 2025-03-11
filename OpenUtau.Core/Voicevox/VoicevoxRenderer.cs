@@ -233,21 +233,11 @@ namespace OpenUtau.Core.Voicevox {
         }
 
 
-        public UExpressionDescriptor[] GetSuggestedExpressions(USinger singer, URenderSettings renderSettings) {
+        public UExpressionDescriptor[] GetSuggestedExpressions(USinger? singer, URenderSettings renderSettings) {
             //under development
-            var result = new List<UExpressionDescriptor> {
-                new UExpressionDescriptor{
-                    name="volume (curve)",
-                    abbr=VOLC,
-                    type=UExpressionType.Curve,
-                    min=0,
-                    max=200,
-                    defaultValue=100,
-                    isFlag=false,
-                },
+            return Format.Ustx.UniversialExpressions
+                .Append(new UExpressionDescriptor("volume (curve)", VOLC, 0, 200, 100){ type = UExpressionType.Curve })
             };
-
-            return result.ToArray();
         }
 
         public override string ToString() => Renderers.VOICEVOX;

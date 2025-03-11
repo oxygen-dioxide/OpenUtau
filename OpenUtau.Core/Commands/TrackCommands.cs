@@ -122,8 +122,15 @@ namespace OpenUtau.Core {
             this.oldSinger = track.Singer;
         }
         public override string ToString() { return "Change singer"; }
-        public override void Execute() { track.Singer = newSinger; }
-        public override void Unexecute() { track.Singer = oldSinger; }
+        public override void Execute() { 
+            track.Singer = newSinger;
+            track.RefreshExpressions();
+        }
+
+        public override void Unexecute() { 
+            track.Singer = oldSinger;
+            track.RefreshExpressions();
+        }
     }
 
     public class TrackChangePhonemizerCommand : TrackCommand {
@@ -156,10 +163,12 @@ namespace OpenUtau.Core {
         public override void Execute() {
             track.RendererSettings = newSettings.Clone();
             track.RendererSettings.Validate(track);
+            track.RefreshExpressions();
         }
         public override void Unexecute() {
             track.RendererSettings = oldSettings.Clone();
             track.RendererSettings.Validate(track);
+            track.RefreshExpressions();
         }
     }
 }

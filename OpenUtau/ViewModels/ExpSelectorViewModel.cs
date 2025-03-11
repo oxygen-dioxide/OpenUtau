@@ -49,7 +49,7 @@ namespace OpenUtau.App.ViewModels {
                 .Subscribe(_ => RefreshBrushes());
             TagBrush = ThemeManager.ExpNameBrush;
             Background = ThemeManager.ExpBrush;
-            //OnListChange();
+            RefreshDescriptors();
         }
 
         public bool SetExp(string abbr) {
@@ -85,11 +85,13 @@ namespace OpenUtau.App.ViewModels {
         }
 
         public void OnNext(UCommand cmd, bool isUndo) {
-            /*if (cmd is LoadProjectNotification ||
+            if (cmd is LoadProjectNotification ||
                 cmd is LoadPartNotification ||
-                cmd is ConfigureExpressionsCommand) {
-                OnListChange();
-            }*/
+                cmd is ConfigureExpressionsCommand ||
+                cmd is TrackChangeSingerCommand ||
+                cmd is TrackChangeRenderSettingCommand) {
+                RefreshDescriptors();
+            }
             if (cmd is SelectExpressionNotification) {
                 OnSelectExp((SelectExpressionNotification)cmd);
             }
