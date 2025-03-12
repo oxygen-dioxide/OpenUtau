@@ -5,12 +5,25 @@ using System.Linq;
 using YamlDotNet.Serialization;
 
 namespace OpenUtau.Core.Ustx {
+    /// <summary>
+    /// UCurve is a sampled expression curve.
+    /// </summary>
     public class UCurve {
         public const int interval = 5;
 
         [YamlIgnore] public UExpressionDescriptor descriptor;
+        /// <summary>
+        /// Tick position of each sample point on the curve, 
+        /// relative to the starting position of the part
+        /// </summary>
         public List<int> xs = new List<int>();
+        /// <summary>
+        /// Value of each sample point on the curve.
+        /// </summary>
         public List<int> ys = new List<int>();
+        /// <summary>
+        /// Abbreviation of the expression.
+        /// </summary>
         public string abbr;
 
         [YamlIgnore] public bool IsEmpty => xs.Count == 0 || ys.All(y => y == 0);

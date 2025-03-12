@@ -12,29 +12,57 @@ namespace OpenUtau.Core.Ustx {
         static readonly Regex phoneticHintPattern = new Regex(@"\[(.*)\]");
 
         /// <summary>
-        /// Position of the note in ticks, relative to the beginning of the part.
+        /// Starting position of the note in ticks, relative to the beginning of the part.
         /// </summary>
         public int position;
+        /// <summary>
+        /// Duration of the note in ticks.
+        /// </summary>
         public int duration;
+        /// <summary>
+        /// Tone of the note, midi number.
+        /// </summary>
         public int tone;
+        /// <summary>
+        /// Lyric of the note.
+        /// </summary>
         public string lyric = NotePresets.Default.DefaultLyric;
+        /// <summary>
+        /// Pitch control points of the note.
+        /// </summary>
         public UPitch pitch;
+        /// <summary>
+        /// Vibrato of the note.
+        /// </summary>
         public UVibrato vibrato;
 
         public List<UExpression> phonemeExpressions = new List<UExpression>();
         public List<UPhonemeOverride> phonemeOverrides = new List<UPhonemeOverride>();
 
+        /// <summary>
+        /// End point of the note in ticks, relative to the beginning of the part.
+        /// </summary>
         [YamlIgnore] public int End => position + duration;
 
         /// <summary>
-        /// Position of the note in milliseconds, relative to the beginning of the project.
+        /// Starting Position of the note in milliseconds, relative to the beginning of the project.
         /// </summary>
         [YamlIgnore] public double PositionMs { get; set; }
+        /// <summary>
+        /// Duration of the note in milliseconds
+        /// </summary>
         [YamlIgnore] public double DurationMs => EndMs - PositionMs;
+        /// <summary>
+        /// Ending position of the note in ticks, relative to the beginning of the part.
+        /// </summary>
         [YamlIgnore] public double EndMs { get; set; }
         [YamlIgnore] public bool Selected { get; set; } = false;
         [YamlIgnore] public UNote Prev { get; set; }
         [YamlIgnore] public UNote Next { get; set; }
+        /// <summary>
+        /// If this note is a slur note (note whose lyric starts with "+"), the lyrical note it extends.
+        /// Otherwise null
+        /// </summary>
         [YamlIgnore] public UNote Extends { get; set; }
         [YamlIgnore] public int ExtendedDuration { get; set; }
         [YamlIgnore] public int ExtendedEnd => position + ExtendedDuration;
@@ -451,6 +479,10 @@ namespace OpenUtau.Core.Ustx {
         /// Pitch relative to the tone of the note in 0.1 semi-tones.
         /// </summary>
         public float Y;
+
+        /// <summary>
+        /// Shape of the curve between the current point and the next point.
+        /// </summary>
         public PitchPointShape shape;
 
         public PitchPoint() { }
