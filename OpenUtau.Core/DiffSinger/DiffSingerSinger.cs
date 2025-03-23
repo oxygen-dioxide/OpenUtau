@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using K4os.Hash.xxHash;
 using OpenUtau.Classic;
 using OpenUtau.Core.Ustx;
 using Serilog;
 using Microsoft.ML.OnnxRuntime;
-using NumSharp;
 
 namespace OpenUtau.Core.DiffSinger {
     class DiffSingerSinger : USinger {
@@ -41,9 +41,11 @@ namespace OpenUtau.Core.DiffSinger {
         List<USubbank> subbanks = new List<USubbank>();
         List<UOto> otos = new List<UOto>();
         Dictionary<string, UOto> otoMap = new Dictionary<string, UOto>();
-
         public List<string> phonemes = new List<string>();
+        Dictionary<string, int> phonemeTokens;
+        public Dictionary<string, int> languageIds = new Dictionary<string, int>();
         public DsConfig dsConfig;
+        public ulong acousticHash;
         public InferenceSession acousticSession = null;
         public DsVocoder vocoder = null;
         public DsPitch pitchPredictor = null;
@@ -55,7 +57,7 @@ namespace OpenUtau.Core.DiffSinger {
             //Load Avatar
             if (Avatar != null && File.Exists(Avatar)) {
                 try {
-                    using (var stream = new FileStream(Avatar, FileMode.Open)) {
+                    using (var stream = new FileStream(Avatar, FileMode.Open, FileAccess.Read)) {
                         using (var memoryStream = new MemoryStream()) {
                             stream.CopyTo(memoryStream);
                             avatarData = memoryStream.ToArray();
@@ -76,12 +78,45 @@ namespace OpenUtau.Core.DiffSinger {
 
             //Load diffsinger config of a voicebank
             string configPath = Path.Combine(Location, "dsconfig.yaml");
-            dsConfig = Core.Yaml.DefaultDeserializer.Deserialize<DsConfig>(
-                File.ReadAllText(configPath, TextFileEncoding));
+            if(configPath != null && File.Exists(configPath)){
+                try {
+                    dsConfig = Core.Yaml.DefaultDeserializer.Deserialize<DsConfig>(
+                        File.ReadAllText(configPath, Encoding.UTF8));
+                } catch (Exception e) {
+                    Log.Error(e, $"Failed to load dsconfig.yaml for {Name} from {configPath}");
+                    dsConfig = new DsConfig();
+                }
+            } else {
+                Log.Error($"dsconfig.yaml not found for {Name} at {configPath}");
+                dsConfig = new DsConfig();
+            }
 
             //Load phoneme list
             string phonemesPath = Path.Combine(Location, dsConfig.phonemes);
-            phonemes = File.ReadLines(phonemesPath,TextFileEncoding).ToList();
+            if(phonemesPath != null && File.Exists(phonemesPath)){
+                try {
+                    phonemeTokens = DiffSingerUtils.LoadPhonemes(phonemesPath);
+                    phonemes = phonemeTokens.Keys.ToList();
+                } catch (Exception e){
+                    Log.Error(e, $"Failed to load phoneme list for {Name} from {phonemesPath}");
+                }
+            } else {
+                Log.Error($"phonemes file not found for {Name} at {phonemesPath}");
+            }
+
+            //Load language Id if needed
+            if(dsConfig.use_lang_id){
+                if(dsConfig.languages == null){
+                    Log.Error("\"languages\" field is not specified in dsconfig.yaml");
+                } else {
+                var langIdPath = Path.Join(Location, dsConfig.languages);
+                    try {
+                        languageIds = DiffSingerUtils.LoadLanguageIds(langIdPath);
+                    } catch (Exception e) {
+                        Log.Error(e, $"failed to load language id from {langIdPath}");
+                    }
+                }
+            }
 
             var dummyOtoSet = new UOtoSet(new OtoSet(), Location);
             foreach (var phone in phonemes) {
@@ -126,7 +161,10 @@ namespace OpenUtau.Core.DiffSinger {
 
         public InferenceSession getAcousticSession() {
             if (acousticSession is null) {
-                acousticSession = Onnx.getInferenceSession(Path.Combine(Location, dsConfig.acoustic));
+                var acousticPath = Path.Combine(Location, dsConfig.acoustic);
+                var acousticBytes = File.ReadAllBytes(acousticPath);
+                acousticHash = XXH64.DigestOf(acousticBytes);
+                acousticSession = Onnx.getInferenceSession(acousticBytes);
             }
             return acousticSession;
         }
@@ -169,6 +207,14 @@ namespace OpenUtau.Core.DiffSinger {
                 variancePredictor = new DsVariance(Location);
             }
             return variancePredictor;
+        }
+
+        public int PhonemeTokenize(string phoneme){
+            bool success = phonemeTokens.TryGetValue(phoneme, out int token);
+            if(!success){
+                throw new Exception($"Phoneme \"{phoneme}\" isn't supported by acoustic model. Please check {Path.Combine(Location, dsConfig.phonemes)}");
+            }
+            return token;
         }
 
         public override void FreeMemory(){

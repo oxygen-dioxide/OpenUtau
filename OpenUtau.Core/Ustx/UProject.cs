@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using OpenUtau.Core.Util;
+using SharpCompress;
 using YamlDotNet.Serialization;
 
 namespace OpenUtau.Core.Ustx {
@@ -58,11 +59,11 @@ namespace OpenUtau.Core.Ustx {
         /// <summary>
         /// Transient field used for serialization.
         /// </summary>
-        public List<UVoicePart> voiceParts;
+        public List<UVoicePart>? voiceParts;
         /// <summary>
         /// Transient field used for serialization.
         /// </summary>
-        public List<UWavePart> waveParts;
+        public List<UWavePart>? waveParts;
 
         [YamlIgnore] public string FilePath { get; set; } = string.Empty;
         [YamlIgnore] public bool Saved { get; set; } = false;
@@ -81,6 +82,36 @@ namespace OpenUtau.Core.Ustx {
         public void RegisterExpression(UExpressionDescriptor descriptor) {
             if (!expressions.ContainsKey(descriptor.abbr)) {
                 expressions.Add(descriptor.abbr, descriptor);
+            }
+        }
+
+        public void MargeExpression(string oldAbbr, string newAbbr) {
+            if (parts != null && parts.Count > 0) {
+                parts.Where(p => p is UVoicePart)
+                    .OfType<UVoicePart>()
+                    .ForEach(p => p.notes.ForEach(n => ConvertNoteExp(n, tracks[p.trackNo])));
+            } else if (voiceParts != null && voiceParts.Count > 0) {
+                voiceParts.ForEach(p => p.notes.ForEach(n => ConvertNoteExp(n, tracks[p.trackNo])));
+            }
+            expressions.Remove(oldAbbr);
+
+            void ConvertNoteExp(UNote note, UTrack track) {
+                if (note.phonemeExpressions.Any(e => e.abbr == oldAbbr)) {
+                    var toRemove = new List<UExpression>();
+                    note.phonemeExpressions.Where(e => e.abbr == oldAbbr).ForEach(oldExp => {
+                        if (!note.phonemeExpressions.Any(newExp => newExp.abbr == newAbbr && newExp.index == oldExp.index)) {
+                            // When there is only old exp, convert it to new exp
+                            oldExp.abbr = newAbbr;
+                            if (track.TryGetExpDescriptor(this, newAbbr, out var descriptor)) {
+                                oldExp.descriptor = descriptor;
+                            }
+                        } else {
+                            // When both old and new exp exist, remove the old one
+                            toRemove.Add(oldExp);
+                        }
+                    });
+                    toRemove.ForEach(exp => note.phonemeExpressions.Remove(exp));
+                }
             }
         }
 
@@ -110,13 +141,13 @@ namespace OpenUtau.Core.Ustx {
             }
             voiceParts = parts
                 .Where(part => part is UVoicePart)
-                .Select(part => part as UVoicePart)
+                .OfType<UVoicePart>()
                 .OrderBy(part => part.trackNo)
                 .ThenBy(part => part.position)
                 .ToList();
             waveParts = parts
                 .Where(part => part is UWavePart)
-                .Select(part => part as UWavePart)
+                .OfType<UWavePart>()
                 .OrderBy(part => part.trackNo)
                 .ThenBy(part => part.position)
                 .ToList();

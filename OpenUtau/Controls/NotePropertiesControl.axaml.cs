@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -96,13 +96,16 @@ namespace OpenUtau.App.Controls {
         void SliderPointerReleased(object? sender, PointerReleasedEventArgs args) {
             Log.Debug("Slider released");
             if (NotePropertiesViewModel.PanelControlPressed) {
+                if (sender is Slider slider && slider.Tag is string tag && !string.IsNullOrEmpty(tag)) {
+                    ViewModel.SetNoteParams(tag, (float)slider.Value);
+                }
                 NotePropertiesViewModel.PanelControlPressed = false;
                 DocManager.Inst.EndUndoGroup();
             }
         }
         void SliderPointerMoved(object? sender, PointerEventArgs args) {
             if (sender is Slider slider && slider.Tag is string tag && !string.IsNullOrEmpty(tag)) {
-                ViewModel.SetNoteParams(tag, slider.Value);
+                ViewModel.SetNoteParams(tag, (float)slider.Value);
             }
         }
 
@@ -155,8 +158,11 @@ namespace OpenUtau.App.Controls {
                     LoadPart(notif.part);
                 } else if (cmd is LoadProjectNotification) {
                     LoadPart(null);
-                } else if (cmd is SingersRefreshedNotification) {
-                    LoadPart(notif.part);
+                } else if (cmd is SingersRefreshedNotification srn && srn.singer != null && ViewModel.Part != null) {
+                    var singer = DocManager.Inst.Project.tracks[ViewModel.Part.trackNo].Singer;
+                    if (singer != null && singer == srn.singer) {
+                        LoadPart(ViewModel.Part);
+                    }
                 }
             } else if (cmd is TrackCommand) {
                 if (cmd is RemoveTrackCommand removeTrack) {
@@ -164,8 +170,8 @@ namespace OpenUtau.App.Controls {
                         LoadPart(null);
                     }
                 }
-            } else if (cmd is ConfigureExpressionsCommand) {
-                LoadPart(null);
+            } else if (cmd is ConfigureExpressionsCommand && ViewModel.Part != null) {
+                LoadPart(ViewModel.Part);
             }
         }
     }

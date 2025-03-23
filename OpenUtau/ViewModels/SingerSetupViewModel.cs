@@ -43,10 +43,16 @@ namespace OpenUtau.App.ViewModels {
             ArchiveEncoding = Encodings[0];
             TextEncoding = Encodings[0];
             textItems = new ObservableCollectionExtended<string>();
-
             this.WhenAnyValue(vm => vm.ArchiveFilePath)
                 .Subscribe(_ => {
                     if (!string.IsNullOrEmpty(ArchiveFilePath)) {
+                        if(IsEncrypted(ArchiveFilePath)) {
+                            throw new MessageCustomizableException(
+                                "Encrypted archive file isn't supported",
+                                "<translate:errors.encryptedarchive>", 
+                                new Exception("Encrypted archive file: " + ArchiveFilePath)
+                            );
+                        }                        
                         var config = LoadCharacterYaml(ArchiveFilePath);
                         MissingInfo = string.IsNullOrEmpty(config?.SingerType);
                         if (!string.IsNullOrEmpty(config?.TextFileEncoding)) {
@@ -84,8 +90,14 @@ namespace OpenUtau.App.ViewModels {
             using (var archive = ArchiveFactory.Open(ArchiveFilePath, readerOptions)) {
                 textItems.Clear();
                 textItems.AddRange(archive.Entries
-                    .Select(entry => entry.Key)
+                    .Select(entry => entry.Key!)
                     .ToArray());
+            }
+        }
+
+        private bool IsEncrypted(string archiveFilePath) {
+            using (var archive = ArchiveFactory.Open(archiveFilePath)) {
+                return archive.Entries.Any(e => e.IsEncrypted);
             }
         }
 
@@ -113,23 +125,28 @@ namespace OpenUtau.App.ViewModels {
                 ArchiveEncoding = new ArchiveEncoding { Forced = ArchiveEncoding },
             };
             using (var archive = ArchiveFactory.Open(ArchiveFilePath, readerOptions)) {
-                textItems.Clear();
-                foreach (var entry in archive.Entries.Where(entry => entry.Key.EndsWith("character.txt") || entry.Key.EndsWith("oto.ini"))) {
-                    using (var stream = entry.OpenEntryStream()) {
-                        using var reader = new StreamReader(stream, TextEncoding);
-                        textItems.Add($"------ {entry.Key} ------");
-                        int count = 0;
-                        while (count < 256 && !reader.EndOfStream) {
-                            string? line = reader.ReadLine();
-                            if (!string.IsNullOrWhiteSpace(line)) {
-                                textItems.Add(line);
-                                count++;
+                try {
+                    textItems.Clear();
+                    foreach (var entry in archive.Entries.Where(entry => entry.Key!.EndsWith("character.txt") || entry.Key.EndsWith("oto.ini"))) {
+                        using (var stream = entry.OpenEntryStream()) {
+                            using var reader = new StreamReader(stream, TextEncoding);
+                            textItems.Add($"------ {entry.Key} ------");
+                            int count = 0;
+                            while (count < 256 && !reader.EndOfStream) {
+                                string? line = reader.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(line)) {
+                                    textItems.Add(line);
+                                    count++;
+                                }
+                            }
+                            if (!reader.EndOfStream) {
+                                textItems.Add($"...");
                             }
                         }
-                        if (!reader.EndOfStream) {
-                            textItems.Add($"...");
-                        }
                     }
+                } catch (Exception ex) {
+                    DocManager.Inst.ExecuteCmd(new ErrorMessageNotification(ex));
+                    Step--;
                 }
             }
         }

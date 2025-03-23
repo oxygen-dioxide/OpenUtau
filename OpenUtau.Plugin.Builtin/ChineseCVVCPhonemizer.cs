@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +10,7 @@ using Serilog;
 
 namespace OpenUtau.Plugin.Builtin {
     [Phonemizer("Chinese CVVC Phonemizer", "ZH CVVC", language: "ZH")]
-    public class ChineseCVVCPhonemizer : BaseChinesePhonemizer {
+    public class ChineseCVVCPhonemizer : Phonemizer {
         private Dictionary<string, string> vowels = new Dictionary<string, string>();
         private Dictionary<string, string> consonants = new Dictionary<string, string>();
         private USinger singer;
@@ -46,7 +46,7 @@ namespace OpenUtau.Plugin.Builtin {
                                 },
                                 new Phoneme() {
                                     phoneme = oto1.Alias,
-                                    position = totalDuration - (totalDuration / 6),
+                                    position = totalDuration - Math.Min(totalDuration / 6, 60),
                                 },
                             },
                     };
@@ -54,13 +54,14 @@ namespace OpenUtau.Plugin.Builtin {
                 return MakeSimpleResult(oto.Alias);
             }
             int vcLen = 120;
+            int endTick = notes[^1].position + notes[^1].duration;
             if (singer.TryGetMappedOto(lyric, notes[0].tone + attr1.toneShift, attr1.voiceColor, out var cvOto)) {
-                vcLen = MsToTick(cvOto.Preutter);
+                vcLen = -timeAxis.MsToTickAt(-cvOto.Preutter, endTick);
                 if (cvOto.Overlap == 0 && vcLen < 120) {
                     vcLen = Math.Min(120, vcLen * 2); // explosive consonant with short preutter.
                 }
                 if (cvOto.Overlap < 0) {
-                    vcLen = MsToTick(cvOto.Preutter - cvOto.Overlap);
+                    vcLen = -timeAxis.MsToTickAt(-(cvOto.Preutter - cvOto.Overlap), endTick);
                 }
             }
 
@@ -74,7 +75,7 @@ namespace OpenUtau.Plugin.Builtin {
                     vcPhoneme = oto.Alias;
                 }
                 // prevDuration calculated on basis of previous note length
-                int prevDuration = prevNeighbour.Value.duration;
+                int prevDuration = notes[0].position - prevNeighbour.Value.position;
                 // vcLength depends on the Vel of the current base note
                 vcLen = Convert.ToInt32(Math.Min(prevDuration / 1.5, Math.Max(30, vcLen * (attr1.consonantStretchRatio ?? 1))));
             } else {
@@ -96,7 +97,7 @@ namespace OpenUtau.Plugin.Builtin {
                                 },
                                 new Phoneme() {
                                     phoneme = otoEnd.Alias,
-                                    position = totalDuration - (totalDuration / 6),
+                                    position = totalDuration - Math.Min(totalDuration / 6, 60),
                                 },
                             },
                         };
@@ -118,7 +119,7 @@ namespace OpenUtau.Plugin.Builtin {
                                 },
                                     new Phoneme() {
                                         phoneme = otoEnd.Alias,
-                                        position = totalDuration - (totalDuration / 6),
+                                        position = totalDuration - Math.Min(totalDuration / 6, 60),
                                 },
                             },
                             };
@@ -138,7 +139,7 @@ namespace OpenUtau.Plugin.Builtin {
                                 },
                                     new Phoneme() {
                                         phoneme = otoEnd.Alias,
-                                        position = totalDuration - (totalDuration / 6),
+                                        position = totalDuration - Math.Min(totalDuration / 6, 60),
                                 },
                             },
                             };
@@ -152,7 +153,7 @@ namespace OpenUtau.Plugin.Builtin {
                                 },
                                 new Phoneme() {
                                     phoneme = otoEnd1.Alias,
-                                    position = totalDuration - (totalDuration / 6),
+                                    position = totalDuration - Math.Min(totalDuration / 6, 60),
                                 },
                             },
                         };
@@ -220,6 +221,32 @@ namespace OpenUtau.Plugin.Builtin {
             } catch (Exception e) {
                 Log.Error(e, "failed to load presamp.ini");
             }
+        }
+    
+        public static Note[] ChangeLyric(Note[] group, string lyric) {
+            var oldNote = group[0];
+            group[0] = new Note {
+                lyric = lyric,
+                phoneticHint = oldNote.phoneticHint,
+                tone = oldNote.tone,
+                position = oldNote.position,
+                duration = oldNote.duration,
+                phonemeAttributes = oldNote.phonemeAttributes,
+            };
+            return group;
+        }
+
+        protected virtual string[] Romanize(IEnumerable<string> lyrics) {
+            return BaseChinesePhonemizer.Romanize(lyrics);
+        }
+
+        protected void RomanizeNotes(Note[][] groups) {
+            var ResultLyrics = Romanize(groups.Select(group => group[0].lyric));
+            Enumerable.Zip(groups, ResultLyrics, ChangeLyric).Last();
+        }
+
+        public override void SetUp(Note[][] groups, UProject project, UTrack track) {
+            RomanizeNotes(groups);
         }
     }
 }

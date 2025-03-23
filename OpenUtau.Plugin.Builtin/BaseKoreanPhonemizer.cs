@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenUtau.Api;
@@ -23,13 +23,19 @@ namespace OpenUtau.Plugin.Builtin {
         protected static readonly string[] PLAIN_VOWELS = new string[]{"ㅏ", "ㅣ", "ㅜ", "ㅔ", "ㅗ", "ㅡ", "ㅓ", "ㅢ"};
         protected static readonly string[] SOFT_BATCHIMS = new string[]{"ㄴ", "ㄹ", "ㅇ"};
         protected static readonly string[] HARD_BATCHIMS = new string[]{"ㄱ", "ㄷ", "ㅂ", "ㅁ"};
+
+        // this phonemizer will call ConvertPhonemes() when lyric is hanguel or additionalTest is true . (override to use)
+        protected virtual bool additionalTest(string lyric) {
+            return false;
+        } 
         public override void SetSinger(USinger singer) => this.singer = singer;
         public static string? FindInOto(USinger singer, string phoneme, Note note, bool nullIfNotFound = false) {
             // 음소와 노트를 입력받고, 다음계 및 보이스컬러 에일리어스를 적용한다. 
             // nullIfNotFound가 true이면 음소가 찾아지지 않을 때 음소가 아닌 null을 리턴한다.
             // nullIfNotFound가 false면 음소가 찾아지지 않을 때 그대로 음소를 반환
             string phonemeToReturn;
-            string color = string.Empty;
+            var attr = note.phonemeAttributes?.FirstOrDefault(attr => attr.index == 0) ?? default;
+            string color = attr.voiceColor ?? string.Empty;
             int toneShift = 0;
             int? alt = null;
             if (phoneme.Equals("")) {return phoneme;}
@@ -125,6 +131,7 @@ namespace OpenUtau.Plugin.Builtin {
                     position = totalDuration - totalDuration / totalDurationDivider},
                 }
             };
+            
         }
 
         /// <summary>
@@ -162,44 +169,80 @@ namespace OpenUtau.Plugin.Builtin {
             };
         }
 
-        /// <summary>
-        /// Returns Result with three input Phonemes. 
-        /// 
-        /// </summary>
-        /// <param name="firstPhoneme"></param>
-        /// <param name="secondPhoneme"></param>
-        /// <param name="thirdPhoneme"></param>
-        /// <param name="totalDuration"></param>
-        /// <param name="secondPhonemePosition"></param>
-        /// <param name="secondTotalDurationDivider"></param>
-        /// <param name="thirdTotalDurationDivider"></param>
-        /// <returns> Result  </returns>
-        public Result GenerateResult(String firstPhoneme, String secondPhoneme, String thirdPhoneme, int totalDuration, int secondTotalDurationDivider=3, int thirdTotalDurationDivider=8){
-            return new Result() {
-                phonemes = new Phoneme[] {
-                    new Phoneme { phoneme = firstPhoneme},
-                    new Phoneme { phoneme = secondPhoneme,
-                    position = totalDuration - totalDuration / secondTotalDurationDivider},
-                    new Phoneme { phoneme = thirdPhoneme,
-                    position = totalDuration - totalDuration / thirdTotalDurationDivider},
-                }// -음소 있이 이어줌
-            };
+        public class ProcessResult {
+            public Note[] KoreanLyricNotes { get; set; }
+            public Note? KoreanLyricPrevNote { get; set; }
+            public Note? KoreanLyricNextNote { get; set; }
         }
-        /// <summary>
-        /// <para> It AUTOMATICALLY generates phonemes based on phoneme hints (each phonemes should be separated by ",". (Example: [a, a i, ya])) </para>
-        /// <para> But it can't generate phonemes automatically, so should implement ConvertPhonemes() Method in child class. </para>
-        /// <para> Also it can't generate Endsounds automatically, so should implement GenerateEndSound() Method in child class.</para>
+
+        // <summary>
+        /// The Romanized lyrics will be completely converted to Hangul.
+        /// 로마자 가사들을 전부 한글로 바꿔줍니다.
         /// </summary>
-        public override Result Process(Note[] notes, Note? prev, Note? next, Note? prevNeighbour, Note? nextNeighbour, Note[] prevNeighbours) {
-            Note note = notes[0];
-            string lyric = note.lyric;
-            string phoneticHint = note.phoneticHint;
+        /// <param name="notes"></param>
+        /// <param name="prevNote"></param>
+        /// <param name="nextNote"></param>
+        /// <returns> ProcessResult? </returns>
+        public static ProcessResult? ConvertRomajiNoteToHangeul(Note[] notes, Note? prevNote, Note? nextNote) {
+            var note = notes[0];
+            var lyric = note.lyric;
 
-            Note? prevNote = prevNeighbour; // null or Note
-            Note thisNote = note;
-            Note? nextNote = nextNeighbour; // null or Note
+            if (KoreanPhonemizerUtil.IsKoreanRomaji(lyric)) { // TODO
+                notes[0] = new Note() {
+                    lyric = KoreanPhonemizerUtil.TryParseKoreanRomaji(lyric),
+                    phoneticHint = note.phoneticHint,
+                    position = note.position,
+                    duration = note.duration,
+                    tone = note.tone,
+                    phonemeAttributes = note.phonemeAttributes
+                };
+                Note? prevNoteNew = prevNote;
+                Note? nextNoteNew = nextNote;
+                if (prevNote != null) {
+                    if (KoreanPhonemizerUtil.IsHangeul(prevNote.Value.lyric) != null) {
+                        if (prevNote != null) {
+                            prevNoteNew = new Note() {
+                                lyric = KoreanPhonemizerUtil.TryParseKoreanRomaji(prevNote.Value.lyric),
+                                phoneticHint = prevNote.Value.phoneticHint,
+                                position = prevNote.Value.position,
+                                duration = prevNote.Value.duration,
+                                tone = prevNote.Value.tone,
+                                phonemeAttributes = prevNote.Value.phonemeAttributes
+                            };
+                        }
+                        if (nextNote != null) {
+                            nextNoteNew = new Note() {
+                                lyric = KoreanPhonemizerUtil.TryParseKoreanRomaji(nextNote.Value.lyric),
+                                phoneticHint = nextNote.Value.phoneticHint,
+                                position = nextNote.Value.position,
+                                duration = nextNote.Value.duration,
+                                tone = nextNote.Value.tone,
+                                phonemeAttributes = nextNote.Value.phonemeAttributes
+                            };
 
-            int totalDuration = notes.Sum(n => n.duration);
+                        }
+                        
+                    }
+                }
+                return new ProcessResult {
+                    KoreanLyricNotes = notes,
+                    KoreanLyricPrevNote = prevNoteNew,
+                    KoreanLyricNextNote = nextNoteNew,
+                };
+            }
+            return null;
+        }
+
+        // <summary>
+        /// It analyzes the phonetic hint and returns the result.
+        /// 발음 힌트를 분석하여 Result를 반환합니다.
+        /// </summary>
+        /// <param name="singer"></param>
+        /// <param name="note"></param>
+        /// <param name="totalDuration"></param>
+        /// <returns> Result? </returns>
+        public  Result? RenderPhoneticHint(USinger singer, Note note, int totalDuration) {
+            var phoneticHint = note.phoneticHint;
 
             if (phoneticHint != null) {
                 // if there are phonetic hint
@@ -291,8 +334,59 @@ namespace OpenUtau.Plugin.Builtin {
                 return new Result() {
                     phonemes = phonemes
                 };
-            } 
-            else if (KoreanPhonemizerUtil.IsHangeul(lyric)) {
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Returns Result with three input Phonemes. 
+        /// 
+        /// </summary>
+        /// <param name="firstPhoneme"></param>
+        /// <param name="secondPhoneme"></param>
+        /// <param name="thirdPhoneme"></param>
+        /// <param name="totalDuration"></param>
+        /// <param name="secondPhonemePosition"></param>
+        /// <param name="secondTotalDurationDivider"></param>
+        /// <param name="thirdTotalDurationDivider"></param>
+        /// <returns> Result  </returns>
+        public Result GenerateResult(String firstPhoneme, String secondPhoneme, String thirdPhoneme, int totalDuration, int secondTotalDurationDivider=3, int thirdTotalDurationDivider=8){
+            return new Result() {
+                phonemes = new Phoneme[] {
+                    new Phoneme { phoneme = firstPhoneme},
+                    new Phoneme { phoneme = secondPhoneme,
+                    position = totalDuration - totalDuration / secondTotalDurationDivider},
+                    new Phoneme { phoneme = thirdPhoneme,
+                    position = totalDuration - totalDuration / thirdTotalDurationDivider},
+                }// -음소 있이 이어줌
+            };
+        }
+        /// <summary>
+        /// <para> It AUTOMATICALLY generates phonemes based on phoneme hints (each phonemes should be separated by ",". (Example: [a, a i, ya])) </para>
+        /// <para> But it can't generate phonemes automatically, so should implement ConvertPhonemes() Method in child class. </para>
+        /// <para> Also it can't generate Endsounds automatically, so should implement GenerateEndSound() Method in child class.</para>
+        /// </summary>
+        public override Result Process(Note[] notes, Note? prev, Note? next, Note? prevNeighbour, Note? nextNeighbour, Note[] prevNeighbours) {
+            Note note = notes[0];
+            string lyric = note.lyric;
+
+            Note? prevNote = prevNeighbour; // null or Note
+            Note thisNote = note;
+            Note? nextNote = nextNeighbour; // null or Note
+
+            int totalDuration = notes.Sum(n => n.duration);
+
+            var phoneticHint = RenderPhoneticHint(singer, note, totalDuration);
+            if (phoneticHint != null) {
+                return (Result) phoneticHint;
+            }
+
+            var romaji2Korean = ConvertRomajiNoteToHangeul(notes, prevNeighbour, nextNeighbour);
+            if (romaji2Korean != null) {
+                return ConvertPhonemes(romaji2Korean.KoreanLyricNotes, prev, next, romaji2Korean.KoreanLyricPrevNote, romaji2Korean.KoreanLyricNextNote, prevNeighbours);
+            }
+
+            if (KoreanPhonemizerUtil.IsHangeul(lyric) || !KoreanPhonemizerUtil.IsHangeul(lyric) && additionalTest(lyric)) {
                 return ConvertPhonemes(notes, prev, next, prevNeighbour, nextNeighbour, prevNeighbours);
             } 
             else {
@@ -300,6 +394,7 @@ namespace OpenUtau.Plugin.Builtin {
             }
         }
 
+        
         /// <summary>
         /// abstract class for Ini Management
         /// To use, child phonemizer should implement this class(BaseIniManager) with its own setting values!

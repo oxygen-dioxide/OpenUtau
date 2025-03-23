@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenUtau.Api;
+using OpenUtau.Core.Ustx;
+using Serilog;
 
-namespace OpenUtau.Core
-{
+namespace OpenUtau.Core {
     public abstract class MachineLearningPhonemizer : Phonemizer
     {
         //The results of the timing model are stored in partResult
@@ -15,7 +16,7 @@ namespace OpenUtau.Core
         //Called when the note is changed, and the entire song is passed into the SetUp function as long as the note is changed
         //groups is a two-dimensional array of Note, each Note[] represents a lyrical note and its following slur notes
         //Run phoneme timing model in sections to prevent butterfly effect
-        public override void SetUp(Note[][] groups) {
+        public override void SetUp(Note[][] groups, UProject project, UTrack track) {
             if (groups.Length == 0) {
                 return;
             }
@@ -30,7 +31,12 @@ namespace OpenUtau.Core
                     phrase.Add(groups[i]);
                 } else {
                     //If the previous and current notes are not connected, process the current sentence and start the next sentence
-                    ProcessPart(phrase.ToArray());
+                    try{
+                        ProcessPart(phrase.ToArray());
+                    }catch(Exception e){
+                        var sentenceLyrics = string.Join(" ", phrase.Select(group => group[0].lyric));
+                        Log.Error($"Failed to phonemize sentence {sentenceLyrics}: {e.Message}");
+                    }
                     phrase.Clear();
                     phrase.Add(groups[i]);
                 }

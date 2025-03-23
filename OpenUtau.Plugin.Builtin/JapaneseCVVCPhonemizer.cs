@@ -6,7 +6,7 @@ using OpenUtau.Core.Ustx;
 using Serilog;
 
 namespace OpenUtau.Plugin.Builtin {
-    [Phonemizer("Japanese CVVC Phonemizer", "JA CVVC", "TUBS",language:"JA")]
+    [Phonemizer("Japanese CVVC Phonemizer (legacy)", "JA CVVC", "TUBS",language:"JA")]
     public class JapaneseCVVCPhonemizer : Phonemizer {
         static readonly string[] plainVowels = new string[] {"あ","い","う","え","お","を","ん","ン"};
         static readonly string[] nonVowels = new string[]{"息","吸","R","-","k","ky","g","gy",
@@ -103,7 +103,6 @@ namespace OpenUtau.Plugin.Builtin {
         private bool checkOtoUntilHit(string[] input, Note note, out UOto oto) {
             oto = default;
             var attr = note.phonemeAttributes?.FirstOrDefault(attr => attr.index == 0) ?? default;
-            var attr1 = note.phonemeAttributes?.FirstOrDefault(attr => attr.index == 1) ?? default;
 
             var otos = new List<UOto>();
             foreach (string test in input) {
@@ -119,11 +118,9 @@ namespace OpenUtau.Plugin.Builtin {
                 if (otos.Any(oto => (oto.Color ?? string.Empty) == color)) {
                     oto = otos.Find(oto => (oto.Color ?? string.Empty) == color);
                     return true;
-                } else if (otos.Any(oto => (color ?? string.Empty) == color)) {
-                    oto = otos.Find(oto => (color ?? string.Empty) == color);
-                    return true;
                 } else {
-                    return false;
+                    oto = otos.First();
+                    return true;
                 }
             }
             return false;

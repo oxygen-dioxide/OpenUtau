@@ -9,6 +9,7 @@
         Icon="/Assets/open-utau.ico"
         Title="{Binding Title}" MinWidth="300" MinHeight="200"
         KeyDown="OnKeyDown" PointerPressed="OnPointerPressed" Closing="WindowClosing"
+        Focusable="True"
         TransparencyLevelHint="None"
         ExtendClientAreaToDecorationsHint="{Binding ExtendToFrame}">
   <Window.Styles>
@@ -17,29 +18,17 @@
     </Style>
   </Window.Styles>
   <Grid>
-    <Grid Name="MainGrid" DragDrop.AllowDrop="True" IsEnabled="False" IsVisible="False" Margin="{Binding $parent[1].WindowDecorationMargin}">
+    <Grid Name="MainGrid" DragDrop.AllowDrop="True" Margin="{Binding $parent[1].WindowDecorationMargin}">
       <Grid RowDefinitions="24,24,1*,20,4" ColumnDefinitions="300,*,24" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Menu Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left"
               Opened="OnMainMenuOpened" Closed="OnMainMenuClosed" PointerExited="OnMainMenuPointerLeave">
           <MenuItem Header="{DynamicResource menu.file}">
             <MenuItem Header="{DynamicResource menu.file.new}" InputGesture="Ctrl+N" Click="OnMenuNew"/>
-            <MenuItem Header="{DynamicResource menu.file.newfromtemplate}" ItemsSource="{Binding OpenTemplates}">
-              <MenuItem.DataTemplates>
-                <DataTemplate DataType="vm:MenuItemViewModel">
-                  <MenuItem Header="{Binding Header}" Command="{Binding Command, FallbackValue={x:Null}}" CommandParameter="{Binding CommandParameter}"/>
-                </DataTemplate>
-              </MenuItem.DataTemplates>
-            </MenuItem>
+            <MenuItem Header="{DynamicResource menu.file.newfromtemplate}" ItemsSource="{Binding OpenTemplates}" Classes="MenuItemWithSubMenu"/>
             <MenuItem Header="{DynamicResource menu.file.savetemplate}" Click="OnMenuSaveTemplate"/>
             <MenuItem Header="-" Height="1"/>
             <MenuItem Header="{DynamicResource menu.file.open}" InputGesture="Ctrl+O" Click="OnMenuOpen"/>
-            <MenuItem Header="{DynamicResource menu.file.openrecent}" ItemsSource="{Binding OpenRecent}">
-              <MenuItem.DataTemplates>
-                <DataTemplate DataType="vm:MenuItemViewModel">
-                  <MenuItem Header="{Binding Header}" Command="{Binding Command, FallbackValue={x:Null}}" CommandParameter="{Binding CommandParameter}"/>
-                </DataTemplate>
-              </MenuItem.DataTemplates>
-            </MenuItem>
+            <MenuItem Header="{DynamicResource menu.file.openrecent}" ItemsSource="{Binding OpenRecent}" Classes="MenuItemWithSubMenu"/>
             <MenuItem Header="{DynamicResource menu.file.openprojectlocation}" Click="OnMenuOpenProjectLocation"/>
             <MenuItem Header="-" Height="1"/>
             <MenuItem Header="{DynamicResource menu.file.save}" InputGesture="Ctrl+S" Click="OnMenuSave"/>
@@ -47,9 +36,7 @@
             <MenuItem Header="-" Height="1"/>
             <MenuItem Header="{DynamicResource menu.file.importtracks}" Click="OnMenuImportTracks"/>
             <MenuItem Header="{DynamicResource menu.file.importaudio}" Click="OnMenuImportAudio"/>
-            <MenuItem Header="{DynamicResource menu.file.importmidi}">
-              <MenuItem Header="{DynamicResource menu.file.importmidi.naudio}" Click="OnMenuImportMidiNaudio"/>
-              <MenuItem Header="{DynamicResource menu.file.importmidi.drywetmidi}" Click="OnMenuImportMidiDrywetmidi"/>
+            <MenuItem Header="{DynamicResource menu.file.importmidi}" Click="OnMenuImportMidi">
             </MenuItem>
             <MenuItem Header="-" Height="1"/>
             <MenuItem Header="{DynamicResource menu.file.exportaudio}">
@@ -67,6 +54,14 @@
             </MenuItem>
             <MenuItem Header="{DynamicResource menu.file.openexportlocation}" Click="OnMenuOpenProjectLocation"/>
           </MenuItem>
+          <MenuItem Header="{DynamicResource menu.edit}">
+            <MenuItem Header="{DynamicResource menu.edit.undo}" InputGesture="Ctrl+Z" Command="{Binding Undo}"/>
+            <MenuItem Header="{DynamicResource menu.edit.redo}" InputGesture="Ctrl+Y" Command="{Binding Redo}"/>
+          </MenuItem>
+          <MenuItem Header="{DynamicResource menu.project}">
+            <MenuItem Header="{DynamicResource menu.project.expressions}" Click="OnMenuExpressionss"/>
+            <MenuItem Header="{DynamicResource menu.project.remaptimeaxis}" Click="OnMenuRemapTimeaxis"/>
+          </MenuItem>
           <MenuItem Header="{DynamicResource menu.tools}">
             <MenuItem Header="{DynamicResource menu.tools.layout}">
               <MenuItem Header="{DynamicResource menu.tools.layout.vsplit11}" Click="OnMenuLayoutVSplit11"/>
@@ -76,10 +71,10 @@
               <MenuItem Header="{DynamicResource menu.tools.layout.hsplit12}" Click="OnMenuLayoutHSplit12"/>
               <MenuItem Header="{DynamicResource menu.tools.layout.hsplit13}" Click="OnMenuLayoutHSplit13"/>
             </MenuItem>
+            <MenuItem Header="{DynamicResource menu.tools.fullscreen}" InputGesture="F11" Click="OnMenuFullScreen"/>
             <MenuItem Header="{Binding ClearCacheHeader}" Click="OnMenuClearCache"/>
             <MenuItem Header="{DynamicResource menu.tools.debugwindow}" Click="OnMenuDebugWindow"/>
             <MenuItem Header="{DynamicResource phoneticassistant.caption}" Click="OnMenuPhoneticAssistant"/>
-            <MenuItem Header="{DynamicResource menu.tools.project.expressions}" Click="OnMenuExpressionss"/>
             <MenuItem Header="{DynamicResource menu.tools.singers}" Click="OnMenuSingers"/>
             <MenuItem Header="{DynamicResource menu.tools.singer.install}" Click="OnMenuInstallSinger"/>
             <MenuItem Header="{DynamicResource menu.tools.dependency.install}" Click="OnMenuInstallDependency"/>
@@ -263,8 +258,5 @@
         <ProgressBar Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Value="{Binding Progress}"/>
       </Grid>
     </Grid>
-    <Border Name="Splash">
-      <TextBlock Text="{DynamicResource progress.loadingsingers}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-    </Border>
   </Grid>
 </Window>

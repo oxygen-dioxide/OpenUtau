@@ -68,9 +68,13 @@ namespace OpenUtau.Core.Format {
 
             var parts = ParseParts(midi, PPQ, project);
             foreach (var part in parts) {
-                var track = new UTrack(project);
-                track.TrackNo = project.tracks.Count;
+                var track = new UTrack(project) {
+                    TrackNo = project.tracks.Count
+                };
                 part.trackNo = track.TrackNo;
+                if(part.name != "New Part"){
+                    track.TrackName = part.name;
+                }
                 part.AfterLoad(project, track);
                 project.tracks.Add(track);
                 project.parts.Add(part);
@@ -119,8 +123,7 @@ namespace OpenUtau.Core.Format {
             var changes = tempoMap.GetTempoChanges();
             if (changes != null && changes.Count() > 0) {
                 var firstTempoTime = changes.First().Time;
-                if (firstTempoTime > 0)
-                {
+                if (firstTempoTime > 0) {
                     UTempoList.Add(new UTempo {
                         position = 0,
                         bpm = 120.0
@@ -134,8 +137,7 @@ namespace OpenUtau.Core.Format {
                         bpm = 60.0 / tempo.MicrosecondsPerQuarterNote * 1000000.0
                     });
                 }
-            } else//曲速列表为空
-              {
+            } else {//Midi doesn't contain any tempo change
                 UTempoList.Add(new UTempo {
                     position = 0,
                     bpm = 120.0
@@ -184,6 +186,15 @@ namespace OpenUtau.Core.Format {
                     var part = new UVoicePart();
                     using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
                         var events = objectsManager.Objects;
+                        //{position of lyric: lyric text}
+                        Dictionary<long, string> lyrics = events.Where(e => e.Event is LyricEvent)
+                            .GroupBy(e => e.Time)
+                            .ToDictionary(g=> g.Key, g => ((LyricEvent)g.First().Event).Text);
+                        var trackName = events.Where(e => e.Event is SequenceTrackNameEvent)
+                            .Select(e => ((SequenceTrackNameEvent)e.Event).Text).FirstOrDefault();
+                        if (trackName != null) {
+                            part.name = trackName;
+                        }
                         foreach (Melanchall.DryWetMidi.Interaction.Note midiNote in midiNoteList) {
                             var note = project.CreateNote(
                                 midiNote.NoteNumber,
@@ -191,10 +202,8 @@ namespace OpenUtau.Core.Format {
                                 (int)(midiNote.Length * project.resolution / PPQ)
                             );
                             //handle lyric import
-                            string lyric = events.Where(e => e.Event is LyricEvent && e.Time == midiNote.Time)
-                                                     .Select(e => ((LyricEvent)e.Event).Text)
-                                                     .FirstOrDefault();
-                            if (lyric == null) {
+                            bool hasLyric = lyrics.TryGetValue(midiNote.Time, out string lyric);
+                            if (!hasLyric) {
                                 lyric = defaultLyric;
                             }
                             if (lyric == "-") {
@@ -240,7 +249,12 @@ namespace OpenUtau.Core.Format {
             }
             //Time Signature
             foreach (UTrack track in project.tracks) {
-                trackChunks.Add(new TrackChunk());
+                var trackChunk = new TrackChunk();
+                using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
+                    var events = objectsManager.Objects;
+                    events.Add(new TimedEvent(new SequenceTrackNameEvent(track.TrackName), 0));
+                }
+                trackChunks.Add(trackChunk);
             }
             //voice tracks
             foreach (UPart part in project.parts) {
@@ -250,6 +264,10 @@ namespace OpenUtau.Core.Format {
                     using (var objectsManager = new TimedObjectsManager<TimedEvent>(trackChunk.Events)) {
                         var events = objectsManager.Objects;
                         foreach (UNote note in voicePart.notes) {
+                            //Ignore notes whose pitch is out of midi range
+                            if(note.tone < 0 || note.tone > 127){
+                                continue;
+                            }
                             string lyric = note.lyric;
                             if (lyric == "+") {
                                 lyric = "-";
