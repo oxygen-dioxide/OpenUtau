@@ -7,6 +7,7 @@ using utauPlugin;
 
 using OpenUtau.Api;
 using OpenUtau.Core;
+using OpenUtau.Core.Format;
 using OpenUtau.Core.Ustx;
 
 using PhonemizerOnUtau;
@@ -129,6 +130,16 @@ try {
     }
     var groupArray = groupList.ToArray();
 
+    //Set up dummy project
+    var project = new OpenUtau.Core.Ustx.UProject();
+    Ustx.AddDefaultExpressions(project);
+    var track = project.tracks[0];
+    project.expressions.TryGetValue(Ustx.CLR, out var descriptor);
+    track.VoiceColorExp = descriptor.Clone();
+    var colors = singer.Subbanks.Select(subbank => subbank.Color).ToHashSet();
+    track.VoiceColorExp.options = colors.OrderBy(c => c).ToArray();
+    track.VoiceColorExp.max = track.VoiceColorExp.options.Length - 1;
+
     //Run phonemizer
     Phonemizer phonemizer = phonemizerSelected.Create();
     phonemizer.Testing = true;
@@ -136,7 +147,7 @@ try {
     phonemizer.SetTiming(timeAxis);
     var resultNotes = new List<MyNote>() { };
     var currTick = 0;
-    phonemizer.SetUp(groupArray);
+    phonemizer.SetUp(groupArray, project, track);
     for (var i = 0; i < groupArray.Length; i++) {
         var group = groupArray[i];
         var result = phonemizer.Process(
