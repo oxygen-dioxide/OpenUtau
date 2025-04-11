@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OpenUtau.Core\OpenUtau.Core.csproj" />
+    <ProjectReference Include="..\OpenUtau.Desktop\OpenUtau.Desktop.csproj" />
     <ProjectReference Include="..\OpenUtau.Plugin.Builtin\OpenUtau.Plugin.Builtin.csproj" />
     <ProjectReference Include="..\OpenUtau\OpenUtau.csproj" />
   </ItemGroup>
