@@ -1,6 +1,6 @@
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ mobile ]
 
 jobs:
   pr-test:
@@ -30,7 +30,7 @@ jobs:
       run: dotnet workload install android
 
     - name: restore
-      run: dotnet restore OpenUtau -r ${{ matrix.os.arch }}
+      run: dotnet restore OpenUtau.Desktop/OpenUtau.Desktop.csproj -r ${{ matrix.os.arch }}
 
     - name: test
       run: dotnet test OpenUtau.Test
