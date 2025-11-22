@@ -63,8 +63,8 @@ OpenUtau aims to be an open source editing environment for UTAU community, with 
   <system:String x:Key="dialogs.unsupportedfile.caption">Unsupported file format</system:String>
   <system:String x:Key="dialogs.unsupportedfile.message">Unsupported file format: </system:String>
   <system:String x:Key="dialogs.voicecolorremapping">Voice color remapping</system:String>
-  <system:String x:Key="dialogs.voicecolorremapping.error">This singer has no voice color</system:String>
   <system:String x:Key="dialogs.voicecolorremapping.caption">Applies to all notes in this track:</system:String>
+  <system:String x:Key="dialogs.voicecolorremapping.error">This singer has no voice color</system:String>
 
   <system:String x:Key="errors.caption">Error</system:String>
   <system:String x:Key="errors.details">Error Details</system:String>
@@ -312,7 +312,7 @@ Warning: this option removes custom presets.</system:String>
   <system:String x:Key="pianoroll.menu.batch.running">Running batch edit</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">Lyrics</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Replace "-" with "+"</system:String>
-    <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Replace "-" with "+~"</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Replace "-" with "+~"</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">Edit Lyrics</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">Hiragana to Romaji</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">Insert slur lyric</system:String>
@@ -365,6 +365,7 @@ Warning: this option removes custom presets.</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.prev">Prev</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.searchalias">Search Alias</system:String>
   <system:String x:Key="pianoroll.snapdiv">Snap Division</system:String>
+  <system:String x:Key="pianoroll.toggle.expressions">View Expressions (L)</system:String>
   <system:String x:Key="pianoroll.toggle.finalpitch">View Final Pitch to Render (R)</system:String>
   <system:String x:Key="pianoroll.toggle.noteparams">View Note Parameters (\)</system:String>
   <system:String x:Key="pianoroll.toggle.phoneme">View Phonemes (O)</system:String>
@@ -376,7 +377,6 @@ Warning: this option removes custom presets.</system:String>
   <system:String x:Key="pianoroll.toggle.tone">Toggle Note Tone (Y)</system:String>
   <system:String x:Key="pianoroll.toggle.vibrato">View Vibrato (U)</system:String>
   <system:String x:Key="pianoroll.toggle.waveform">View Waveform (W)</system:String>
-  <system:String x:Key="pianoroll.toggle.expressions">View Expressions (L)</system:String>
   <system:String x:Key="pianoroll.tool.drawlinepitch">Line Draw Pitch Tool (Shift + 4)
     Left click to draw (draw straight line)
     Right click to reset
@@ -389,12 +389,7 @@ Warning: this option removes custom presets.</system:String>
     Hold Alt to smoothen</system:String>
   <system:String x:Key="pianoroll.tool.eraser">Eraser Tool (3)</system:String>
   <system:String x:Key="pianoroll.tool.knife">Knife Tool (5)</system:String>
-  <system:String x:Key="pianoroll.tool.overwritepitch">Overwrite Pitch Tool (Ctrl + 4)
-    Left click to draw (overwrites vibrato or mod+)
-    Right click to reset
-    Hold Ctrl to select
-    Hold Alt to smoothen</system:String>
-    <system:String x:Key="pianoroll.tool.overwritelinepitch">
+  <system:String x:Key="pianoroll.tool.overwritelinepitch">
         Line Draw Pitch Tool (Ctrl + Shift + 4)
         Left click to draw 
         (draw straight line overwrites the vibrato or mod+)
@@ -402,6 +397,11 @@ Warning: this option removes custom presets.</system:String>
         Hold Ctrl to select
         Hold Alt to smoothen
     </system:String>
+  <system:String x:Key="pianoroll.tool.overwritepitch">Overwrite Pitch Tool (Ctrl + 4)
+    Left click to draw (overwrites vibrato or mod+)
+    Right click to reset
+    Hold Ctrl to select
+    Hold Alt to smoothen</system:String>
   <system:String x:Key="pianoroll.tool.penplus">Pen Plus Tool (Ctrl + 2)
     Left click to draw
     Right click to delete
@@ -535,7 +535,7 @@ expected: {0}
 Actual: {1}
 The voicebank may not work on another OS.</system:String>
   <system:String x:Key="singererror.yamlnotfound">character.yaml not found.</system:String>
-  
+
   <system:String x:Key="singers.caption">Singers</system:String>
   <system:String x:Key="singers.editoto.editinsetparam">Edit In setParam</system:String>
   <system:String x:Key="singers.editoto.editinvlabeler">Edit In vLabeler</system:String>
