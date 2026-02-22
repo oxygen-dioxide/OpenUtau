@@ -1,5 +1,8 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--DO NOT modify this file. It is managed autometically.-->
+<!--To contribute to OpenUtau's localization, visit https://crowdin.com/project/oxygen-dioxideopenutau -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="command.batch.lyric">Пакетное редактирование текста</system:String>
   <system:String x:Key="command.batch.note">Пакетное редактирование нот</system:String>
@@ -108,16 +111,16 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="dialogs.unsupportedfile.caption">Неподдерживаемый формат файла</system:String>
   <system:String x:Key="dialogs.unsupportedfile.message">Неподдерживаемый формат файла: </system:String>
   <system:String x:Key="dialogs.voicecolorremapping">Изменение цвета голоса</system:String>
-  <system:String x:Key="dialogs.voicecolorremapping.error">У этого вокалиста нет цветов голоса</system:String>
   <system:String x:Key="dialogs.voicecolorremapping.caption">Применится ко всем нотам в этом треке:</system:String>
+  <system:String x:Key="dialogs.voicecolorremapping.error">У этого вокалиста нет цветов голоса</system:String>
 
   <system:String x:Key="errors.caption">Ошибка</system:String>
   <system:String x:Key="errors.details">Подробности ошибки</system:String>
-  <system:String x:Key="errors.diffsinger.downloadvocoder">Ошибка при загрузке вокодера &quot;{0}&quot;. Пожалуйста, установите вокодер отсюда {1}</system:String>
+  <system:String x:Key="errors.diffsinger.downloadvocoder">Ошибка при загрузке вокодера "{0}". Пожалуйста, установите вокодер отсюда {1}</system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder1">Ошибка загрузки вокодера </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">. Пожалуйста, загрузите вокодер из: </system:String>
   <system:String x:Key="errors.editing.autopitch.unsupported">Данный войсбанк не поддерживает авто генерацию питча. Пожалуйста, используйте Diffsinger или Enunu войсбанк.</system:String>
-  <system:String x:Key="errors.encryptedarchive">Зашифрованные архивы не поддерживаются. Пожалуйста, откройте папку Singers (Инструменты &gt; Параметры &gt; Пути) и вручную извлеките туда файлы архива.</system:String>
+  <system:String x:Key="errors.encryptedarchive">Зашифрованные архивы не поддерживаются. Пожалуйста, откройте папку Singers (Инструменты > Параметры > Пути) и вручную извлеките туда файлы архива.</system:String>
   <system:String x:Key="errors.expression.abbrlong">Аббревиатура должна содержать от 1 до 4 символов</system:String>
   <system:String x:Key="errors.expression.abbrset">Аббревиатура должна быть указана</system:String>
   <system:String x:Key="errors.expression.abbrunique">Аббревиатуры должны быть уникальными</system:String>
@@ -151,13 +154,13 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="errors.lyrics.regex">Символ не допустим в регулярном выражении</system:String>
   <system:String x:Key="errors.lyrics.regexpreview">- ошибка регулярного выражения -</system:String>
 
-  <system:String x:Key="exesetup.installing">Установка &quot;{0}&quot;...</system:String>
+  <system:String x:Key="exesetup.installing">Установка "{0}"...</system:String>
   <system:String x:Key="exesetup.linux">Чтобы использовать exe ресамплеры или вавтулы на Linux:
 1. Установите wine из {0}
-2. Укажите путь к wine в Параметры &gt; Дополнительно &gt; Путь к Wine</system:String>
+2. Укажите путь к wine в Параметры > Дополнительно > Путь к Wine</system:String>
   <system:String x:Key="exesetup.mac">Чтобы использовать exe ресамплеры или вавтулы на MacOS:
 1. Установите wine используя следующие команды
-2. Укажите путь к wine в Параметры &gt; Дополнительно &gt; Путь к Wine</system:String>
+2. Укажите путь к wine в Параметры > Дополнительно > Путь к Wine</system:String>
   <system:String x:Key="exesetup.resampler">Установить как ресамплер</system:String>
   <system:String x:Key="exesetup.title">Установка Exe Файла</system:String>
   <system:String x:Key="exesetup.wavtool">Установить как wavtool</system:String>
@@ -363,50 +366,47 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="oto.suffix">Суффикс</system:String>
 
   <system:String x:Key="packages.caption">Пакеты</system:String>
-  <system:String x:Key="packages.refresh">Обновить</system:String>
-  <system:String x:Key="packages.installed">Установлено</system:String>
-  <system:String x:Key="packages.col.name">Название</system:String>
-  <system:String x:Key="packages.col.id">ID</system:String>
-  <system:String x:Key="packages.col.developer">Разработчик</system:String>
-  <system:String x:Key="packages.col.version">Версия</system:String>
   <system:String x:Key="packages.col.action">Действие</system:String>
+  <system:String x:Key="packages.col.developer">Разработчик</system:String>
+  <system:String x:Key="packages.col.id">ID</system:String>
   <system:String x:Key="packages.col.installed">Установлено</system:String>
-  <system:String x:Key="packages.unknownversion">неизвестная версия</system:String>
-  <system:String x:Key="packages.install">Установить</system:String>
-  <system:String x:Key="packages.update">Обновить</system:String>
-  <system:String x:Key="packages.uninstall">Удалить</system:String>
-  <system:String x:Key="packages.openinstalllocation">Открыть папку установки</system:String>
-  <system:String x:Key="packages.installfromfile">Установить из файла (.oudep)...</system:String>
+  <system:String x:Key="packages.col.name">Название</system:String>
+  <system:String x:Key="packages.col.version">Версия</system:String>
   <system:String x:Key="packages.confirm.install.caption">Установка пакета</system:String>
   <system:String x:Key="packages.confirm.install.message">Установить {0}?</system:String>
-  <system:String x:Key="packages.confirm.update.caption">Обновление пакета</system:String>
-  <system:String x:Key="packages.confirm.update.message">Обновить {0} до версии {1}?</system:String>
   <system:String x:Key="packages.confirm.uninstall.caption">Удаление пакета</system:String>
   <system:String x:Key="packages.confirm.uninstall.message">Удалить {0}?</system:String>
+  <system:String x:Key="packages.confirm.update.caption">Обновление пакета</system:String>
+  <system:String x:Key="packages.confirm.update.message">Обновить {0} до версии {1}?</system:String>
+  <system:String x:Key="packages.errors.missing">Пакет {0} не найден. Установите его с помощью Менеджера Пакетов.</system:String>
+  <system:String x:Key="packages.install">Установить</system:String>
+  <system:String x:Key="packages.installed">Установлено</system:String>
+  <system:String x:Key="packages.installfromfile">Установить из файла (.oudep)...</system:String>
+  <system:String x:Key="packages.openinstalllocation">Открыть папку установки</system:String>
+  <system:String x:Key="packages.refresh">Обновить</system:String>
+  <system:String x:Key="packages.status.error">Ошибка</system:String>
   <system:String x:Key="packages.status.fetching">Загрузка реестра...</system:String>
-  <system:String x:Key="packages.status.uninstalling">Удаление {0}...</system:String>
-  <system:String x:Key="packages.status.uninstallfinished">Удаление завершено</system:String>
-  <system:String x:Key="packages.status.uninstallfailed">Не удалось удалить</system:String>
+  <system:String x:Key="packages.status.installfailed">Не удалось установить</system:String>
+  <system:String x:Key="packages.status.installfinished">Установка завершена</system:String>
+  <system:String x:Key="packages.status.installing">Установка {0}...</system:String>
   <system:String x:Key="packages.status.listinginstalled">Получение списка...</system:String>
   <system:String x:Key="packages.status.ready">Готово</system:String>
-  <system:String x:Key="packages.status.error">Ошибка</system:String>
-  <system:String x:Key="packages.status.installing">Установка {0}...</system:String>
-  <system:String x:Key="packages.status.installfinished">Установка завершена</system:String>
-  <system:String x:Key="packages.status.installfailed">Не удалось установить</system:String>
-  <system:String x:Key="packages.errors.missing">Пакет {0} не найден. Установите его с помощью Менеджера Пакетов.</system:String>
+  <system:String x:Key="packages.status.uninstallfailed">Не удалось удалить</system:String>
+  <system:String x:Key="packages.status.uninstallfinished">Удаление завершено</system:String>
+  <system:String x:Key="packages.status.uninstalling">Удаление {0}...</system:String>
+  <system:String x:Key="packages.uninstall">Удалить</system:String>
+  <system:String x:Key="packages.unknownversion">неизвестная версия</system:String>
+  <system:String x:Key="packages.update">Обновить</system:String>
 
   <system:String x:Key="phoneticassistant.caption">Фонетический помощник</system:String>
   <system:String x:Key="phoneticassistant.copy">Скопировать</system:String>
 
   <system:String x:Key="pianoroll.key">Тональность (для отображения ступеней)</system:String>
-  <system:String x:Key="pianoroll.menu.view.pianoroll">Пианоролл</system:String>
-  <system:String x:Key="pianoroll.menu.view.pianoroll.detach">Открепить</system:String>
-  <system:String x:Key="pianoroll.menu.view.pianoroll.hide">Скрыть</system:String>
   <system:String x:Key="pianoroll.menu.batch">Пакетное редактирование</system:String>
   <system:String x:Key="pianoroll.menu.batch.running">Групповое редактирование</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">Текст</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Заменить &quot;-&quot; на &quot;+&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Заменить &quot;-&quot; на &quot;+~&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Заменить "-" на "+"</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Заменить "-" на "+~"</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">Редактировать текст</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">Хирагана в ромадзи</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">Добавить шлейф</system:String>
@@ -419,8 +419,8 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="pianoroll.menu.notedefaults">Нота по умолчанию</system:String>
   <system:String x:Key="pianoroll.menu.notes">Ноты</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">Добавить вдох</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtaildash">Добавить &quot;-&quot; на конец</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtailrest">Добавить &quot;R&quot; на конец</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtaildash">Добавить "-" на конец</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtailrest">Добавить "R" на конец</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">Автоматическое легато</system:String>
   <system:String x:Key="pianoroll.menu.notes.bakepitch">Преобразование PITD в контролируемые точки питча</system:String>
   <system:String x:Key="pianoroll.menu.notes.clear.vibratos">Очистить вибрато</system:String>
@@ -437,8 +437,8 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="pianoroll.menu.notes.randomizetiming">Рандомизировать тайминг ноты</system:String>
   <system:String x:Key="pianoroll.menu.notes.randomizetuning">Рандомизировать тюнинг</system:String>
   <system:String x:Key="pianoroll.menu.notes.refreshrealcurves">Обновить реальные кривые</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetaildash">Удалить хвост &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetailrest">Удалить хвост &quot;R&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetaildash">Удалить хвост "-"</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetailrest">Удалить хвост "R"</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.aliases">Сбросить алиасы фонем</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.all">Сбросить ноты до значений по умолчанию</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">Сбросить все настройки</system:String>
@@ -460,7 +460,11 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="pianoroll.menu.searchnote.note">Нота</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.prev">Пред</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.searchalias">Искать алиас</system:String>
+  <system:String x:Key="pianoroll.menu.view.pianoroll">Пианоролл</system:String>
+  <system:String x:Key="pianoroll.menu.view.pianoroll.detach">Открепить</system:String>
+  <system:String x:Key="pianoroll.menu.view.pianoroll.hide">Скрыть</system:String>
   <system:String x:Key="pianoroll.snapdiv">Деление сетки</system:String>
+  <system:String x:Key="pianoroll.toggle.expressions">Показать выражения (L)</system:String>
   <system:String x:Key="pianoroll.toggle.finalpitch">Показать отрендеренный питч (R)</system:String>
   <system:String x:Key="pianoroll.toggle.noteparams">Показать параметры ноты (\)</system:String>
   <system:String x:Key="pianoroll.toggle.phoneme">Показать фонемы (O)</system:String>
@@ -472,7 +476,6 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="pianoroll.toggle.tone">Переключить тон ноты (Y)</system:String>
   <system:String x:Key="pianoroll.toggle.vibrato">Отображать вибрато (U)</system:String>
   <system:String x:Key="pianoroll.toggle.waveform">Отображать форму волны (W)</system:String>
-  <system:String x:Key="pianoroll.toggle.expressions">Показать выражения (L)</system:String>
   <system:String x:Key="pianoroll.tool.drawlinepitch">Инструмент для рисования питча линией (Shift + 4)
     Левая кнопка для рисования (прямая линия)
     Правая кнопка для сбрасывания
@@ -485,12 +488,7 @@ OpenUtau стремится стать средой редактирования
     Удерживайте Alt, чтобы сгладить</system:String>
   <system:String x:Key="pianoroll.tool.eraser">Ластик (3)</system:String>
   <system:String x:Key="pianoroll.tool.knife">Нож (5)</system:String>
-  <system:String x:Key="pianoroll.tool.overwritepitch">Инструмент переписывания питча (Ctrl + 4)
-    Левая кнопка для рисования (игнорирует вибрато и mod+)
-    Правая кнопка для сбрасывания
-    Удерживайте Ctrl, чтобы выбрать
-    Удерживайте Alt, чтобы сгладить</system:String>
-    <system:String x:Key="pianoroll.tool.overwritelinepitch">
+  <system:String x:Key="pianoroll.tool.overwritelinepitch">
         Инструмент для рисования питча линией (Ctrl + Shift + 4)
         Левая кнопка для рисования 
         (прямая линия, которая игнорирует вибрато и mod+)
@@ -498,6 +496,11 @@ OpenUtau стремится стать средой редактирования
         Удерживайте Ctrl, чтобы выбрать
         Удерживайте Alt, чтобы сгладить
     </system:String>
+  <system:String x:Key="pianoroll.tool.overwritepitch">Инструмент переписывания питча (Ctrl + 4)
+    Левая кнопка для рисования (игнорирует вибрато и mod+)
+    Правая кнопка для сбрасывания
+    Удерживайте Ctrl, чтобы выбрать
+    Удерживайте Alt, чтобы сгладить</system:String>
   <system:String x:Key="pianoroll.tool.penplus">Карандаш Плюс (Ctrl + 2)
     Левая кнопка для рисования
     Правая кнопка для сбрасывания
@@ -511,13 +514,19 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="prefs.advanced.beta">Бета</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper">Текстовый помощник</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper.brackets">Добавить скобки в текстовом помощнике</system:String>
-  <system:String x:Key="prefs.advanced.rememberfiletypes">Запомнить эти типы файлов в &quot;Открыть недавние&quot;</system:String>
+  <system:String x:Key="prefs.advanced.rememberfiletypes">Запомнить эти типы файлов в "Открыть недавние"</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging">Журналирование ресамплера</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging.warn">Сохраняет вывод ресамплера в файлах лога. Эта опция замедляет работу пользовательского интерфейса и рендеринга.</system:String>
   <system:String x:Key="prefs.advanced.stable">Стабильный</system:String>
   <system:String x:Key="prefs.advanced.vlabelerpath">Путь к vLabeler</system:String>
   <system:String x:Key="prefs.advanced.winepath">Путь к Wine (укажите, чтобы включить wine для совместимости)</system:String>
   <system:String x:Key="prefs.appearance">Интерфейс</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.create.empty">Название темы не может быть пустым.</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.create.prompt">Введите Название Темы</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.create.title">Создать Пользовательскую Тему</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.delete.message">Вы уверены, что хотите удалить эту тему?</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.delete.title">Удалить Пользовательскую Тему</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.edit.title">Редактировать Пользовательскую Тему</system:String>
   <system:String x:Key="prefs.appearance.degree">Стиль отображения ступеней</system:String>
   <system:String x:Key="prefs.appearance.degree.numbered">Нумерация (1 2 3 4 5 6 7)</system:String>
   <system:String x:Key="prefs.appearance.degree.off">Отключено</system:String>
@@ -531,18 +540,12 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="prefs.appearance.theme">Тема</system:String>
   <system:String x:Key="prefs.appearance.theme.dark">Темная</system:String>
   <system:String x:Key="prefs.appearance.theme.light">Светлая</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.edit.title">Редактировать Пользовательскую Тему</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.delete.title">Удалить Пользовательскую Тему</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.delete.message">Вы уверены, что хотите удалить эту тему?</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.create.title">Создать Пользовательскую Тему</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.create.prompt">Введите Название Темы</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.create.empty">Название темы не может быть пустым.</system:String>
   <system:String x:Key="prefs.appearance.trackcolor">Использовать цвет трека в интерфейсе</system:String>
   <system:String x:Key="prefs.cache">Кэш</system:String>
   <system:String x:Key="prefs.cache.clearonquit">Очищать кэш при выходе</system:String>
   <system:String x:Key="prefs.cache.diffsingertensorcache">Тензорный кэш DiffSinger</system:String>
   <system:String x:Key="prefs.caption">Параметры</system:String>
-  <system:String x:Key="prefs.diffsinger">DiffSinger</system:String>
+  <!--<system:String x:Key="prefs.diffsinger">DiffSinger</system:String>-->
   <system:String x:Key="prefs.editing">Редактирование</system:String>
   <system:String x:Key="prefs.general">Общее</system:String>
   <system:String x:Key="prefs.note.restart">Примечание: пожалуйста, перезапустите OpenUtau после изменения этого пункта.</system:String>
@@ -560,7 +563,7 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="prefs.paths.reset">Сбросить</system:String>
   <system:String x:Key="prefs.paths.select">Выбрать</system:String>
   <system:String x:Key="prefs.paths.singer">Путь к вокалистам</system:String>
-  <system:String x:Key="prefs.penplus">Установить инструмент &quot;Карандаш Плюс&quot; по умолчанию</system:String>
+  <system:String x:Key="prefs.penplus">Установить инструмент "Карандаш Плюс" по умолчанию</system:String>
   <system:String x:Key="prefs.playback">Воспроизведение</system:String>
   <system:String x:Key="prefs.playback.autoscroll">Автопрокрутка</system:String>
   <system:String x:Key="prefs.playback.autoscrollmode">Режим автопрокрутки</system:String>
@@ -568,7 +571,7 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="prefs.playback.autoscrollmode.stationarycursor">Неподвижный курсор</system:String>
   <system:String x:Key="prefs.playback.backend">Звуковой бэкенд</system:String>
   <system:String x:Key="prefs.playback.backend.auto">Автоматический</system:String>
-  <system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>
+  <!--<system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>-->
   <system:String x:Key="prefs.playback.cursorposition">Поле автопрокрутки</system:String>
   <system:String x:Key="prefs.playback.device">Устройство воспроизведения</system:String>
   <system:String x:Key="prefs.playback.lockstarttime">На паузе</system:String>
@@ -588,15 +591,15 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="prefs.rendering.prerender">Пре-рендер</system:String>
   <system:String x:Key="prefs.rendering.resampler">Ресамплер</system:String>
   <system:String x:Key="prefs.rendering.resampler.morewarn">Предупреждение: moresampler поддерживается не полностью. Он может работать медленно и вызвать высокую нагрузку на процессор. Если вы все же хотите его использовать, пожалуйста:
-  1. Для параметра &quot;resampler-compatibility&quot; установите значение &quot;on&quot; в moreconfig.txt.
-  2. Для параметра &quot;auto-update-llsm-mrq&quot; установите значение &quot;off&quot; в moreconfig.txt.
+  1. Для параметра "resampler-compatibility" установите значение "on" в moreconfig.txt.
+  2. Для параметра "auto-update-llsm-mrq" установите значение "off" в moreconfig.txt.
   3. Терпеливо ждите, пока moresampler сгенерирует недостающие llsm файлы.</system:String>
   <system:String x:Key="prefs.rendering.resampler.note">Примечание: для использования внешних ресамплеров, пожалуйста, переместите DLL или EXE ресамплера в папку Resamplers (где установлен OpenUtau) и выберите его в параметрах.</system:String>
   <system:String x:Key="prefs.rendering.skipmuted">Пропускать отключенные треки</system:String>
   <system:String x:Key="prefs.rendering.threads.cpuwarn">Предупреждение: слишком большое количество потоков рендеринга может привести к медленной работе OpenUtau.</system:String>
   <system:String x:Key="prefs.rendering.threads.numthreads">Максимальное количество потоков рендеринга</system:String>
   <system:String x:Key="prefs.rendering.wavtool">Вавтул</system:String>
-  <system:String x:Key="prefs.utau">UTAU</system:String>
+  <!--<system:String x:Key="prefs.utau">UTAU</system:String>-->
 
   <system:String x:Key="progress.cachecleared">Кэш очищен.</system:String>
   <system:String x:Key="progress.clearingcache">Очистка кэша...</system:String>
@@ -610,22 +613,22 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="singererror.aliasstartwithspace">Алиас содержит пробел в начале или конце.</system:String>
   <system:String x:Key="singererror.bitdepth">Звуковой файл имеет глубину, отличную от 16 бит.</system:String>
   <system:String x:Key="singererror.consonantoutofduration">Согласная вне длительности звукового файла.</system:String>
-  <system:String x:Key="singererror.consonantshort">Согласная должна быть &gt;= 0.</system:String>
+  <system:String x:Key="singererror.consonantshort">Согласная должна быть >= 0.</system:String>
   <system:String x:Key="singererror.cutoffconsonant">Конец должен быть справа от согласной.</system:String>
   <system:String x:Key="singererror.cutoffoutofduration">Конец вне длительности звукового файла.</system:String>
   <system:String x:Key="singererror.cutoffoverlap">Конец должен быть справа от нахлеста.</system:String>
   <system:String x:Key="singererror.cutoffpreutter">Конец должен быть справа от вступления.</system:String>
   <system:String x:Key="singererror.duplicatealias">Имеются дублирующиеся алиасы.{0}</system:String>
-  <system:String x:Key="singererror.duplicatename">В наборе oto &quot;{0}&quot; найдены файлы с одинаковыми именами (без учета регистра): {1}. Войсбанк может не работать на других ОС с чувствительностью к регистру.</system:String>
+  <system:String x:Key="singererror.duplicatename">В наборе oto "{0}" найдены файлы с одинаковыми именами (без учета регистра): {1}. Войсбанк может не работать на других ОС с чувствительностью к регистру.</system:String>
   <system:String x:Key="singererror.failedload">Не удалось загрузить войсбанк.</system:String>
   <system:String x:Key="singererror.invalidduration">Неверная продолжительность {0}.</system:String>
   <system:String x:Key="singererror.invalidoto">Неверный формат oto.</system:String>
   <system:String x:Key="singererror.mono">Звуковой файл не является моноканальным.</system:String>
   <system:String x:Key="singererror.offsetoutofduration">Начало вне длительности звукового файла.</system:String>
-  <system:String x:Key="singererror.offsetshort">Начало должно быть &gt;= 0.</system:String>
+  <system:String x:Key="singererror.offsetshort">Начало должно быть >= 0.</system:String>
   <system:String x:Key="singererror.overlapoutofduration">Нахлест вне длительности звукового файла.</system:String>
   <system:String x:Key="singererror.preutteroutofduration">Вступление вне длительности звукового файла.</system:String>
-  <system:String x:Key="singererror.preuttershort">Вступление должно быть &gt;= 0.</system:String>
+  <system:String x:Key="singererror.preuttershort">Вступление должно быть >= 0.</system:String>
   <system:String x:Key="singererror.samplerate">Звуковой файл имеет частоту дискретизации, отличную от 44100 Гц.</system:String>
   <system:String x:Key="singererror.soundmissing">Звуковой файл отсутствует</system:String>
   <system:String x:Key="singererror.soundnotopened">Невозможно открыть звуковой файл.</system:String>
@@ -636,7 +639,7 @@ OpenUtau стремится стать средой редактирования
 Фактически: {1}
 Войсбанк может не работать на других ОС.</system:String>
   <system:String x:Key="singererror.yamlnotfound">character.yaml не найден.</system:String>
-  
+
   <system:String x:Key="singers.caption">Вокалисты</system:String>
   <system:String x:Key="singers.editoto.editinsetparam">Редактировать в setParam</system:String>
   <system:String x:Key="singers.editoto.editinvlabeler">Редактировать в vLabeler</system:String>
@@ -704,6 +707,10 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="singersetup.textfileencoding.prompt">Выберите кодировку, в которой содержимое файла будет выглядеть правильно.</system:String>
   <system:String x:Key="singersetup.title">Настройка вокалиста</system:String>
 
+  <system:String x:Key="themeeditor.cancel">Отмена</system:String>
+  <system:String x:Key="themeeditor.save">Сохранить</system:String>
+  <system:String x:Key="themeeditor.title">Редактор Темы</system:String>
+
   <system:String x:Key="tip.aliasbox">Заменить алиасы</system:String>
   <system:String x:Key="tip.exps">Числовой тип опций
     ЛКМ при рисовании: Задать выражения
@@ -761,11 +768,11 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="tracks.trackcolor">Изменить цвет трека</system:String>
   <system:String x:Key="tracks.tracksettings">Настройки трека</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <!--<FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>-->
 
   <system:String x:Key="updater.caption">Проверка наличия обновлений</system:String>
   <system:String x:Key="updater.description">Открытая платформа синтеза вокала</system:String>
-  <system:String x:Key="updater.github">GitHub</system:String>
+  <!--<system:String x:Key="updater.github">GitHub</system:String>-->
   <system:String x:Key="updater.status.available">Доступно обновление {0}!</system:String>
   <system:String x:Key="updater.status.checking">Проверка наличия обновлений...</system:String>
   <system:String x:Key="updater.status.notavailable">Установлена актуальная версия</system:String>
@@ -773,7 +780,7 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="updater.update">Обновить</system:String>
 
   <system:String x:Key="warning">Предупреждение</system:String>
-  <system:String x:Key="warning.asciipath">Ваш путь к OpenUtau (&quot;{0}&quot;) содержит символы, не являющимися символами ASCII. EXE-ресамплеры могут не работать.</system:String>
+  <system:String x:Key="warning.asciipath">Ваш путь к OpenUtau ("{0}") содержит символы, не являющимися символами ASCII. EXE-ресамплеры могут не работать.</system:String>
   <system:String x:Key="warning.renderer">Для этого типа рендера нет настроек.</system:String>
 
   <system:String x:Key="welcome.new">Новый</system:String>
@@ -783,8 +790,4 @@ OpenUtau стремится стать средой редактирования
   <system:String x:Key="welcome.recent">Недавние</system:String>
   <system:String x:Key="welcome.start">Начать</system:String>
   <system:String x:Key="welcome.template">Шаблон</system:String>
-
-  <system:String x:Key="themeeditor.title">Редактор Темы</system:String>
-  <system:String x:Key="themeeditor.save">Сохранить</system:String>
-  <system:String x:Key="themeeditor.cancel">Отмена</system:String>
 </ResourceDictionary>
