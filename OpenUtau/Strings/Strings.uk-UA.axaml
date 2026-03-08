@@ -1,5 +1,8 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--DO NOT modify this file. It is managed autometically.-->
+<!--To contribute to OpenUtau's localization, visit https://crowdin.com/project/oxygen-dioxideopenutau -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="command.batch.lyric">Пакетне редагування слів</system:String>
   <system:String x:Key="command.batch.note">Пакетне редагування нот</system:String>
@@ -95,7 +98,7 @@
   <system:String x:Key="dialogs.messagebox.ok">Ок</system:String>
   <system:String x:Key="dialogs.messagebox.yes">Так</system:String>
   <system:String x:Key="dialogs.noresampler.caption">Ресемплер відсутній</system:String>
-  <system:String x:Key="dialogs.noresampler.message">Ресемплер відсутній! Перемістіть exe або dll свого улюбленого ресемплера в теку &quot;Resampler&quot; та оберіть його в Налаштуваннях!</system:String>
+  <system:String x:Key="dialogs.noresampler.message">Ресемплер відсутній! Перемістіть exe або dll свого улюбленого ресемплера в теку "Resampler" та оберіть його в Налаштуваннях!</system:String>
   <system:String x:Key="dialogs.recovery">Попередньо, OpenUtau зупинив свою роботу неправильно. Натисніть тут, щоб відновити.</system:String>
   <system:String x:Key="dialogs.recovery.caption">Відновлення проєкту</system:String>
   <system:String x:Key="dialogs.remaptimeaxis.message">Цей інструмент змінить темп проєкту без редагування дійсних позицій та тривалостей нот (у секундах).
@@ -108,16 +111,16 @@
   <system:String x:Key="dialogs.unsupportedfile.caption">Непідтримуваний формат файлу</system:String>
   <system:String x:Key="dialogs.unsupportedfile.message">Непідтримуваний формат файлу: </system:String>
   <system:String x:Key="dialogs.voicecolorremapping">Перевизначення кольорів голосу</system:String>
-  <system:String x:Key="dialogs.voicecolorremapping.error">Цей войсбанк не має кольорів голосу</system:String>
   <system:String x:Key="dialogs.voicecolorremapping.caption">Вплине на усі ноти в цій доріжці:</system:String>
+  <system:String x:Key="dialogs.voicecolorremapping.error">Цей войсбанк не має кольорів голосу</system:String>
 
   <system:String x:Key="errors.caption">Помилка</system:String>
   <system:String x:Key="errors.details">Подробиці Помилки</system:String>
-  <system:String x:Key="errors.diffsinger.downloadvocoder">Проблема завантаження вокодеру &quot;{0}&quot;. Будь ласка, завантажте вокодер з {1}</system:String>
+  <system:String x:Key="errors.diffsinger.downloadvocoder">Проблема завантаження вокодеру "{0}". Будь ласка, завантажте вокодер з {1}</system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder1">Проблема завантаження вокодеру </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">. Будь ласка, завантажте вокодер з </system:String>
   <system:String x:Key="errors.editing.autopitch.unsupported">Войсбанк, який ви обрали не підтримує генерацію автоматичної кривої пітчу. Будь ласка, використовуйте Diffsinger або Enunu войсбанк.</system:String>
-  <system:String x:Key="errors.encryptedarchive">Зашифровані файли архіву не підтримуються. Будь ласка, відкрийте теку Singer через Інструменти &gt; Налаштування &gt; Шляхи, та розпакуйте архів вручну у цю теку.</system:String>
+  <system:String x:Key="errors.encryptedarchive">Зашифровані файли архіву не підтримуються. Будь ласка, відкрийте теку Singer через Інструменти > Налаштування > Шляхи, та розпакуйте архів вручну у цю теку.</system:String>
   <system:String x:Key="errors.expression.abbrlong">Абревіатура повинна бути від 1 до 4 символів за довжиною</system:String>
   <system:String x:Key="errors.expression.abbrset">Абревіатуру потрібно встановити</system:String>
   <system:String x:Key="errors.expression.abbrunique">Абревіатури повинні бути унікальними</system:String>
@@ -151,13 +154,13 @@
   <system:String x:Key="errors.lyrics.regex">Символ не дозволений у звичайних виразах</system:String>
   <system:String x:Key="errors.lyrics.regexpreview">- помилка звичайного виразу -</system:String>
 
-  <system:String x:Key="exesetup.installing">Завантаження &quot;{0}&quot;...</system:String>
+  <system:String x:Key="exesetup.installing">Завантаження "{0}"...</system:String>
   <system:String x:Key="exesetup.linux">Для того щоб використати exe ресемплери або вавтули на Linux:
 1. Встановіть wine з {0}
-2. Встановіть шлях до wine у Налаштування &gt; Розширені &gt; Шлях до Wine</system:String>
+2. Встановіть шлях до wine у Налаштування > Розширені > Шлях до Wine</system:String>
   <system:String x:Key="exesetup.mac">Для того щоб використати exe ресемплери або вавтули на MacOS:
 1. Встановіть wine використовуючи наступні команди
-2. Встановіть шлях до wine у Налаштування &gt; Розширені &gt; Шлях до Wine</system:String>
+2. Встановіть шлях до wine у Налаштування > Розширені > Шлях до Wine</system:String>
   <system:String x:Key="exesetup.resampler">Встановити як ресемплер</system:String>
   <system:String x:Key="exesetup.title">Встановлення EXE-файлу</system:String>
   <system:String x:Key="exesetup.wavtool">Встановити як вавтул</system:String>
@@ -344,90 +347,87 @@
   <system:String x:Key="noteproperty.tuning">Детюн</system:String>
   <system:String x:Key="noteproperty.vibratoenable">Увімкнути</system:String>
 
-  <system:String x:Key="oto.alias">Alias</system:String>
+  <!--<system:String x:Key="oto.alias">Alias</system:String>-->
   <system:String x:Key="oto.color">Колір</system:String>
-  <system:String x:Key="oto.consonant">Consonant</system:String>
-  <system:String x:Key="oto.cutoff">Cutoff</system:String>
+  <!--<system:String x:Key="oto.consonant">Consonant</system:String>-->
+  <!--<system:String x:Key="oto.cutoff">Cutoff</system:String>-->
   <system:String x:Key="oto.edit.consonant">Встановити Consonant</system:String>
   <system:String x:Key="oto.edit.cutoff">Встановити Cutoff</system:String>
   <system:String x:Key="oto.edit.offset">Встановити Offset</system:String>
   <system:String x:Key="oto.edit.overlap">Встановити Overlap</system:String>
   <system:String x:Key="oto.edit.preutter">Встановити Preutter</system:String>
   <system:String x:Key="oto.file">Файл</system:String>
-  <system:String x:Key="oto.offset">Offset</system:String>
-  <system:String x:Key="oto.overlap">Overlap</system:String>
+  <!--<system:String x:Key="oto.offset">Offset</system:String>-->
+  <!--<system:String x:Key="oto.overlap">Overlap</system:String>-->
   <system:String x:Key="oto.phonetic">Фонема</system:String>
   <system:String x:Key="oto.prefix">Префікс</system:String>
-  <system:String x:Key="oto.preutter">Preutter</system:String>
+  <!--<system:String x:Key="oto.preutter">Preutter</system:String>-->
   <system:String x:Key="oto.set">Встановити</system:String>
   <system:String x:Key="oto.suffix">Суфікс</system:String>
 
   <system:String x:Key="packages.caption">Пакети</system:String>
-  <system:String x:Key="packages.refresh">Оновити</system:String>
-  <system:String x:Key="packages.installed">Встановлено</system:String>
-  <system:String x:Key="packages.col.name">Назва</system:String>
-  <system:String x:Key="packages.col.id">Id</system:String>
-  <system:String x:Key="packages.col.developer">Розробник</system:String>
-  <system:String x:Key="packages.col.version">Версія</system:String>
   <system:String x:Key="packages.col.action">Дія</system:String>
+  <system:String x:Key="packages.col.developer">Розробник</system:String>
+  <!--<system:String x:Key="packages.col.id">Id</system:String>-->
   <system:String x:Key="packages.col.installed">Встановлено</system:String>
-  <system:String x:Key="packages.unknownversion">невідома версія</system:String>
-  <system:String x:Key="packages.install">Встановити</system:String>
-  <system:String x:Key="packages.update">Оновити</system:String>
-  <system:String x:Key="packages.uninstall">Видалити</system:String>
-  <system:String x:Key="packages.openinstalllocation">Відкрити Розташування Встановлень</system:String>
-  <system:String x:Key="packages.installfromfile">Встановити з Файлу (.oudep)...</system:String>
+  <system:String x:Key="packages.col.name">Назва</system:String>
+  <system:String x:Key="packages.col.version">Версія</system:String>
   <system:String x:Key="packages.confirm.install.caption">Встановити пакет</system:String>
   <system:String x:Key="packages.confirm.install.message">Чи бажаєте встановити {0}?</system:String>
-  <system:String x:Key="packages.confirm.update.caption">Оновити пакет</system:String>
-  <system:String x:Key="packages.confirm.update.message">Чи бажаєте оновити {0} до версії {1}?</system:String>
   <system:String x:Key="packages.confirm.uninstall.caption">Видалити пакет</system:String>
   <system:String x:Key="packages.confirm.uninstall.message">Чи бажаєте видалити {0}?</system:String>
+  <system:String x:Key="packages.confirm.update.caption">Оновити пакет</system:String>
+  <system:String x:Key="packages.confirm.update.message">Чи бажаєте оновити {0} до версії {1}?</system:String>
+  <system:String x:Key="packages.errors.missing">Пакет {0} не знайдено. Встановіть його використовуючи Менеджер Пакетів.</system:String>
+  <system:String x:Key="packages.install">Встановити</system:String>
+  <system:String x:Key="packages.installed">Встановлено</system:String>
+  <system:String x:Key="packages.installfromfile">Встановити з Файлу (.oudep)...</system:String>
+  <system:String x:Key="packages.openinstalllocation">Відкрити Розташування Встановлень</system:String>
+  <system:String x:Key="packages.refresh">Оновити</system:String>
+  <system:String x:Key="packages.status.error">Помилка</system:String>
   <system:String x:Key="packages.status.fetching">Зчитування реєстру...</system:String>
-  <system:String x:Key="packages.status.uninstalling">Видалення {0}...</system:String>
-  <system:String x:Key="packages.status.uninstallfinished">Видалення завершено</system:String>
-  <system:String x:Key="packages.status.uninstallfailed">Видалення не вдалося</system:String>
+  <system:String x:Key="packages.status.installfailed">Встановлення не вдалося</system:String>
+  <system:String x:Key="packages.status.installfinished">Встановлення завершено</system:String>
+  <system:String x:Key="packages.status.installing">Встановлення {0}...</system:String>
   <system:String x:Key="packages.status.listinginstalled">Перелічення встановлених...</system:String>
   <system:String x:Key="packages.status.ready">Готово</system:String>
-  <system:String x:Key="packages.status.error">Помилка</system:String>
-  <system:String x:Key="packages.status.installing">Встановлення {0}...</system:String>
-  <system:String x:Key="packages.status.installfinished">Встановлення завершено</system:String>
-  <system:String x:Key="packages.status.installfailed">Встановлення не вдалося</system:String>
-  <system:String x:Key="packages.errors.missing">Пакет {0} не знайдено. Встановіть його використовуючи Менеджер Пакетів.</system:String>
+  <system:String x:Key="packages.status.uninstallfailed">Видалення не вдалося</system:String>
+  <system:String x:Key="packages.status.uninstallfinished">Видалення завершено</system:String>
+  <system:String x:Key="packages.status.uninstalling">Видалення {0}...</system:String>
+  <system:String x:Key="packages.uninstall">Видалити</system:String>
+  <system:String x:Key="packages.unknownversion">невідома версія</system:String>
+  <system:String x:Key="packages.update">Оновити</system:String>
 
   <system:String x:Key="phoneticassistant.caption">Фонетичний Асистент</system:String>
   <system:String x:Key="phoneticassistant.copy">Скопіювати</system:String>
 
   <system:String x:Key="pianoroll.key">Тональність (для відображення ступенів ладу)</system:String>
-  <system:String x:Key="pianoroll.menu.view.pianoroll">Фортепіанна доріжка</system:String>
-  <system:String x:Key="pianoroll.menu.view.pianoroll.detach">Від’єднати</system:String>
-  <system:String x:Key="pianoroll.menu.view.pianoroll.hide">Сховати</system:String>
   <system:String x:Key="pianoroll.menu.batch">Пакетне редагування</system:String>
   <system:String x:Key="pianoroll.menu.batch.running">Виконання пакетного редагування</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">Слова</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Замінити &quot;-&quot; на &quot;+&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Замінити &quot;-&quot; на &quot;+~&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Замінити "-" на "+"</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Замінити "-" на "+~"</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">Редагувати Слова</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">Хіраґана -&gt; Ромаджі</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.insertslur">Вставити &quot;+~&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.javcvtocv">Японський VCV -&gt; CV</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">Хіраґана -> Ромаджі</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.insertslur">Вставити "+~"</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.javcvtocv">Японський VCV -> CV</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.movesuffixtovoicecolor">Перемісти Суфікс до Кольору Голосу</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removelettersuffix">Прибрати Буквений Суфікс</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removephonetichint">Прибрати Фонетичну Підказку</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removetonesuffix">Прибрати Суфікси Тону</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.romajitohiragana">Ромаджі -&gt; Хіраґана</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.romajitohiragana">Ромаджі -> Хіраґана</system:String>
   <system:String x:Key="pianoroll.menu.notedefaults">Станд. Знач. Нот</system:String>
   <system:String x:Key="pianoroll.menu.notes">Ноти</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">Додати вдихи</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtaildash">Додати кінцеві &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtailrest">Додати кінцеві &quot;R&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtaildash">Додати кінцеві "-"</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtailrest">Додати кінцеві "R"</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">Автоматичне Легато</system:String>
   <system:String x:Key="pianoroll.menu.notes.bakepitch">Конвертувати PITD в точки контролю пітчу</system:String>
   <system:String x:Key="pianoroll.menu.notes.clear.vibratos">Очистити вібрато</system:String>
   <system:String x:Key="pianoroll.menu.notes.commonnotecopy">Копіювати (Commonnote)</system:String>
   <system:String x:Key="pianoroll.menu.notes.commonnotepaste">Вставити (Commonnote)</system:String>
   <system:String x:Key="pianoroll.menu.notes.fixoverlap">Виправити ноти, що перетинаються</system:String>
-  <system:String x:Key="pianoroll.menu.notes.hanzitopinyin">Ханьцзи -&gt; Піньїнь</system:String>
+  <system:String x:Key="pianoroll.menu.notes.hanzitopinyin">Ханьцзи -> Піньїнь</system:String>
   <system:String x:Key="pianoroll.menu.notes.lengthencrossfade">Подовження кросфейдів</system:String>
   <system:String x:Key="pianoroll.menu.notes.loadrenderedpitch">Завантажити прорендерений пітч</system:String>
   <system:String x:Key="pianoroll.menu.notes.octavedown">Перемістити на октаву нижче</system:String>
@@ -437,8 +437,8 @@
   <system:String x:Key="pianoroll.menu.notes.randomizetiming">Рандомізувати зміщення нот</system:String>
   <system:String x:Key="pianoroll.menu.notes.randomizetuning">Рандомізувати детюн</system:String>
   <system:String x:Key="pianoroll.menu.notes.refreshrealcurves">Оновити справжні криві</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetaildash">Видалити кінцеві &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetailrest">Видалити кінцеві &quot;R&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetaildash">Видалити кінцеві "-"</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetailrest">Видалити кінцеві "R"</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.aliases">Скинути аліаси фонем</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.all">Скинути ноти до стандарту</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">Скинути всі параметри</system:String>
@@ -453,14 +453,18 @@
   <system:String x:Key="pianoroll.menu.plugin.reload">Перезавантажити</system:String>
   <system:String x:Key="pianoroll.menu.reset">Скинути</system:String>
   <system:String x:Key="pianoroll.menu.searchnote">Пошук Нот</system:String>
-  <system:String x:Key="pianoroll.menu.searchnote.alias">Alias</system:String>
+  <!--<system:String x:Key="pianoroll.menu.searchnote.alias">Alias</system:String>-->
   <system:String x:Key="pianoroll.menu.searchnote.all">Виділити Всі</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.close">Закрити</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.next">Далі</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.note">Нота</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.prev">Назад</system:String>
   <system:String x:Key="pianoroll.menu.searchnote.searchalias">Пошук Alias</system:String>
+  <system:String x:Key="pianoroll.menu.view.pianoroll">Фортепіанна доріжка</system:String>
+  <system:String x:Key="pianoroll.menu.view.pianoroll.detach">Від’єднати</system:String>
+  <system:String x:Key="pianoroll.menu.view.pianoroll.hide">Сховати</system:String>
   <system:String x:Key="pianoroll.snapdiv">Притягання Магніту</system:String>
+  <system:String x:Key="pianoroll.toggle.expressions">Відображення Виразів (L)</system:String>
   <system:String x:Key="pianoroll.toggle.finalpitch">Відображення Кінцевого Пітчу (R)</system:String>
   <system:String x:Key="pianoroll.toggle.noteparams">Відображення Параметрів Нот (\)</system:String>
   <system:String x:Key="pianoroll.toggle.phoneme">Відображення Фонем (O)</system:String>
@@ -472,7 +476,6 @@
   <system:String x:Key="pianoroll.toggle.tone">Програвання Тону Ноти (Y)</system:String>
   <system:String x:Key="pianoroll.toggle.vibrato">Відображення Вібрато (U)</system:String>
   <system:String x:Key="pianoroll.toggle.waveform">Відображення Форм Хвилі (W)</system:String>
-  <system:String x:Key="pianoroll.toggle.expressions">Відображення Виразів (L)</system:String>
   <system:String x:Key="pianoroll.tool.drawlinepitch">Лінійне Малювання Пітчу (Shift + 4)
     ЛКМ щоб малювати (пряму лінію)
     ПКМ щоб скинути
@@ -485,18 +488,18 @@
     Затисніть Alt щоб вирівняти</system:String>
   <system:String x:Key="pianoroll.tool.eraser">Гумка (3)</system:String>
   <system:String x:Key="pianoroll.tool.knife">Ніж (5)</system:String>
-  <system:String x:Key="pianoroll.tool.overwritepitch">Інструмент Перезапису Пітчу (Ctrl + 4)
-    ЛКМ щоб малювати (переписує вібрато або mod+)
-    ПКМ щоб скинути
-    Затисніть Ctrl щоб обрати
-    Затисніть Alt щоб вирівняти</system:String>
-    <system:String x:Key="pianoroll.tool.overwritelinepitch">
+  <system:String x:Key="pianoroll.tool.overwritelinepitch">
         Лінійне Малювання Пітчу (Ctrl + Shift + 4)
     ЛКМ щоб малювати (пряма лінія переписує вібрато або mod+)
     ПКМ щоб скинути
     Затисніть Ctrl щоб обрати
     Затисніть Alt щоб вирівняти
     </system:String>
+  <system:String x:Key="pianoroll.tool.overwritepitch">Інструмент Перезапису Пітчу (Ctrl + 4)
+    ЛКМ щоб малювати (переписує вібрато або mod+)
+    ПКМ щоб скинути
+    Затисніть Ctrl щоб обрати
+    Затисніть Alt щоб вирівняти</system:String>
   <system:String x:Key="pianoroll.tool.penplus">Розширена Ручка (Ctrl + 2)
     ЛКМ для малювання
     ПКМ для видалення
@@ -510,13 +513,19 @@
   <system:String x:Key="prefs.advanced.beta">Бета</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper">Помічник зі Словами</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper.brackets">Помічник зі Словами Додає Дужки</system:String>
-  <system:String x:Key="prefs.advanced.rememberfiletypes">Запам'ятати цей тип файлів у &quot;Відкрити Нещодавні&quot;</system:String>
+  <system:String x:Key="prefs.advanced.rememberfiletypes">Запам'ятати цей тип файлів у "Відкрити Нещодавні"</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging">Звітування Ресемплерів</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging.warn">Зберігає вивід ресемплерів у файлах звіту. Це налаштування сповільнює інтерфейс та рендер.</system:String>
   <system:String x:Key="prefs.advanced.stable">Стабільний</system:String>
   <system:String x:Key="prefs.advanced.vlabelerpath">Шлях до vLabeler</system:String>
   <system:String x:Key="prefs.advanced.winepath">Шлях до Wine (ввімкніть wine для сумісності з exe ресемплерами)</system:String>
   <system:String x:Key="prefs.appearance">Вигляд</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.create.empty">Ім'я теми не може бути порожнім.</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.create.prompt">Ввести Ім'я Теми</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.create.title">Створити Користувацьку Тему</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.delete.message">Ви дійсно бажаєте видалити цю тему?</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.delete.title">Видалити Користувацьку Тему</system:String>
+  <system:String x:Key="prefs.appearance.customtheme.edit.title">Редагувати Користувацьку Тему</system:String>
   <system:String x:Key="prefs.appearance.degree">Стиль показу ладу</system:String>
   <system:String x:Key="prefs.appearance.degree.numbered">Пронумеровано (1 2 3 4 5 6 7)</system:String>
   <system:String x:Key="prefs.appearance.degree.off">Вимк.</system:String>
@@ -530,18 +539,12 @@
   <system:String x:Key="prefs.appearance.theme">Тема</system:String>
   <system:String x:Key="prefs.appearance.theme.dark">Темна</system:String>
   <system:String x:Key="prefs.appearance.theme.light">Світла</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.edit.title">Редагувати Користувацьку Тему</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.delete.title">Видалити Користувацьку Тему</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.delete.message">Ви дійсно бажаєте видалити цю тему?</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.create.title">Створити Користувацьку Тему</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.create.prompt">Ввести Ім'я Теми</system:String>
-  <system:String x:Key="prefs.appearance.customtheme.create.empty">Ім'я теми не може бути порожнім.</system:String>
   <system:String x:Key="prefs.appearance.trackcolor">Використовувати колір доріжки в інтерфейсі</system:String>
   <system:String x:Key="prefs.cache">Кеш</system:String>
   <system:String x:Key="prefs.cache.clearonquit">Очищати кеш на виході</system:String>
   <system:String x:Key="prefs.cache.diffsingertensorcache">Tensor-кеш DiffSinger</system:String>
   <system:String x:Key="prefs.caption">Налаштування</system:String>
-  <system:String x:Key="prefs.diffsinger">DiffSinger</system:String>
+  <!--<system:String x:Key="prefs.diffsinger">DiffSinger</system:String>-->
   <system:String x:Key="prefs.editing">Редагування</system:String>
   <system:String x:Key="prefs.general">Загальні</system:String>
   <system:String x:Key="prefs.note.restart">Примітка: після зміни цього налаштування, будь ласка, перезапустіть OpenUtau.</system:String>
@@ -559,7 +562,7 @@
   <system:String x:Key="prefs.paths.reset">Скинути</system:String>
   <system:String x:Key="prefs.paths.select">Вибрати</system:String>
   <system:String x:Key="prefs.paths.singer">Шлях Співаків</system:String>
-  <system:String x:Key="prefs.penplus">Встановити інструмент &quot;Розширена Ручка&quot;, як стандартний</system:String>
+  <system:String x:Key="prefs.penplus">Встановити інструмент "Розширена Ручка", як стандартний</system:String>
   <system:String x:Key="prefs.playback">Відтворення</system:String>
   <system:String x:Key="prefs.playback.autoscroll">Автоматичне Прокручування</system:String>
   <system:String x:Key="prefs.playback.autoscrollmode">Режим Автоматичного Прокручування</system:String>
@@ -567,7 +570,7 @@
   <system:String x:Key="prefs.playback.autoscrollmode.stationarycursor">Стаціонарний Курсор</system:String>
   <system:String x:Key="prefs.playback.backend">Аудіосистема</system:String>
   <system:String x:Key="prefs.playback.backend.auto">Автоматично</system:String>
-  <system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>
+  <!--<system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>-->
   <system:String x:Key="prefs.playback.cursorposition">Відступ Автоматичного Прокручування</system:String>
   <system:String x:Key="prefs.playback.device">Пристрій відтворення</system:String>
   <system:String x:Key="prefs.playback.lockstarttime">При Паузі</system:String>
@@ -587,15 +590,15 @@
   <system:String x:Key="prefs.rendering.prerender">Попередній рендер</system:String>
   <system:String x:Key="prefs.rendering.resampler">Ресемплер</system:String>
   <system:String x:Key="prefs.rendering.resampler.morewarn">Попередження: moresampler не підтримується повністю. Він може бути повільним і спричиняти високе використання ЦП. Якщо Ви все одно бажаєте його використовувати:
-  1. Змініть &quot;resampler-compatibility&quot; на &quot;on&quot; в moreconfig.txt.
-  2. Змініть &quot;auto-update-llsm-mrq&quot; на &quot;off&quot; в moreconfig.txt.
+  1. Змініть "resampler-compatibility" на "on" в moreconfig.txt.
+  2. Змініть "auto-update-llsm-mrq" на "off" в moreconfig.txt.
   3. Зачекайте щоб moresampler згенерував відсутні LLMS-файли.</system:String>
   <system:String x:Key="prefs.rendering.resampler.note">Примітка: щоб використовувати сторонні ресемплери, додайте DLL або EXE-файл ресемплера до теки Resamplers у шляху інсталяції OpenUtau та оберіть його в Налаштуваннях.</system:String>
   <system:String x:Key="prefs.rendering.skipmuted">Пропустити стишені доріжки</system:String>
   <system:String x:Key="prefs.rendering.threads.cpuwarn">Попередження: надто багато потоків рендеру можуть сповільнити роботу OpenUtau.</system:String>
   <system:String x:Key="prefs.rendering.threads.numthreads">Максимальна к-сть потоків рендеру</system:String>
   <system:String x:Key="prefs.rendering.wavtool">Вавтул</system:String>
-  <system:String x:Key="prefs.utau">UTAU</system:String>
+  <!--<system:String x:Key="prefs.utau">UTAU</system:String>-->
 
   <system:String x:Key="progress.cachecleared">Кеш очищено.</system:String>
   <system:String x:Key="progress.clearingcache">Очищення кешу...</system:String>
@@ -609,22 +612,22 @@
   <system:String x:Key="singererror.aliasstartwithspace">Alias починається або закінчується пробілом.</system:String>
   <system:String x:Key="singererror.bitdepth">Розрядність аудіофайлу не є 16-бітною.</system:String>
   <system:String x:Key="singererror.consonantoutofduration">Consonant поза тривалістю аудіофайлу.</system:String>
-  <system:String x:Key="singererror.consonantshort">Consonant мусить бути &gt;= 0.</system:String>
+  <system:String x:Key="singererror.consonantshort">Consonant мусить бути >= 0.</system:String>
   <system:String x:Key="singererror.cutoffconsonant">Cutoff мусить бути правіше consonant.</system:String>
   <system:String x:Key="singererror.cutoffoutofduration">Cutoff поза тривалістю аудіофайлу.</system:String>
   <system:String x:Key="singererror.cutoffoverlap">Cutoff мусить бути правіше overlap.</system:String>
   <system:String x:Key="singererror.cutoffpreutter">Cutoff мусить бути правіше preutter.</system:String>
   <system:String x:Key="singererror.duplicatealias">Тут присутні однакові alias. {0}</system:String>
-  <system:String x:Key="singererror.duplicatename">Знайдено однакові імена файлів при ігноруванні регістру в наборі ото &quot;{0}&quot;: {1}. Цей войсбанк може не працювати на ОС які не розрізняють регістр літер.</system:String>
+  <system:String x:Key="singererror.duplicatename">Знайдено однакові імена файлів при ігноруванні регістру в наборі ото "{0}": {1}. Цей войсбанк може не працювати на ОС які не розрізняють регістр літер.</system:String>
   <system:String x:Key="singererror.failedload">Не вдалося завантажити войсбанк.</system:String>
   <system:String x:Key="singererror.invalidduration">Неправильна тривалість {0}.</system:String>
   <system:String x:Key="singererror.invalidoto">Неправильний формат ото.</system:String>
   <system:String x:Key="singererror.mono">Аудіофайл не є моно.</system:String>
   <system:String x:Key="singererror.offsetoutofduration">Offset поза тривалістю аудіофайлу.</system:String>
-  <system:String x:Key="singererror.offsetshort">Offset мусить бути &gt;= 0.</system:String>
+  <system:String x:Key="singererror.offsetshort">Offset мусить бути >= 0.</system:String>
   <system:String x:Key="singererror.overlapoutofduration">Overlap поза тривалістю аудіофайлу.</system:String>
   <system:String x:Key="singererror.preutteroutofduration">Preutter поза тривалістю аудіофайлу.</system:String>
-  <system:String x:Key="singererror.preuttershort">Preutter мусить бути &gt;= 0.</system:String>
+  <system:String x:Key="singererror.preuttershort">Preutter мусить бути >= 0.</system:String>
   <system:String x:Key="singererror.samplerate">Частота дискретизації аудіофайлів не 44100 Гц.</system:String>
   <system:String x:Key="singererror.soundmissing">Аудіофайл відсутній</system:String>
   <system:String x:Key="singererror.soundnotopened">Не вдалося відкрити аудіофайл.</system:String>
@@ -635,7 +638,7 @@
 Присутній: {1}
 Цей войсбанк може не працювати на інших ОС.</system:String>
   <system:String x:Key="singererror.yamlnotfound">character.yaml не знайдено.</system:String>
-  
+
   <system:String x:Key="singers.caption">Співаки</system:String>
   <system:String x:Key="singers.editoto.editinsetparam">Редагувати в setParam</system:String>
   <system:String x:Key="singers.editoto.editinvlabeler">Редагувати у vLabeler</system:String>
@@ -703,6 +706,10 @@
   <system:String x:Key="singersetup.textfileencoding.prompt">Оберіть кодування при якому вміст файлів виглядає правильно.</system:String>
   <system:String x:Key="singersetup.title">Встановлення Співака</system:String>
 
+  <system:String x:Key="themeeditor.cancel">Скасувати</system:String>
+  <system:String x:Key="themeeditor.save">Зберегти</system:String>
+  <system:String x:Key="themeeditor.title">Редактор теми</system:String>
+
   <system:String x:Key="tip.aliasbox">Перевизначити Alias</system:String>
   <system:String x:Key="tip.exps">Типи Числовий,Опції
     Малювання ЛКМ: Встановлює значення виразів
@@ -760,11 +767,11 @@
   <system:String x:Key="tracks.trackcolor">Змінити колір доріжки</system:String>
   <system:String x:Key="tracks.tracksettings">Налаштування Доріжки</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <!--<FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>-->
 
   <system:String x:Key="updater.caption">Перевірити Наявність Оновлень</system:String>
   <system:String x:Key="updater.description">Відкрита платформа для синтезу співу</system:String>
-  <system:String x:Key="updater.github">GitHub</system:String>
+  <!--<system:String x:Key="updater.github">GitHub</system:String>-->
   <system:String x:Key="updater.status.available">Доступне оновлення v{0}!</system:String>
   <system:String x:Key="updater.status.checking">Перевірка наявності оновлень...</system:String>
   <system:String x:Key="updater.status.notavailable">У Вас остання версія</system:String>
@@ -772,7 +779,7 @@
   <system:String x:Key="updater.update">Оновити</system:String>
 
   <system:String x:Key="warning">Попередження</system:String>
-  <system:String x:Key="warning.asciipath">Шлях до домашньої теки OpenUTAU &quot;{0}&quot; містить не-ASCII символи. Exe ресемплери можливо не працюватимуть.</system:String>
+  <system:String x:Key="warning.asciipath">Шлях до домашньої теки OpenUTAU "{0}" містить не-ASCII символи. Exe ресемплери можливо не працюватимуть.</system:String>
   <system:String x:Key="warning.renderer">Немає налаштувань для цього рендереру.</system:String>
 
   <system:String x:Key="welcome.new">Новий</system:String>
@@ -782,8 +789,4 @@
   <system:String x:Key="welcome.recent">Нещодавні</system:String>
   <system:String x:Key="welcome.start">Почати</system:String>
   <system:String x:Key="welcome.template">Шаблони</system:String>
-
-  <system:String x:Key="themeeditor.title">Редактор теми</system:String>
-  <system:String x:Key="themeeditor.save">Зберегти</system:String>
-  <system:String x:Key="themeeditor.cancel">Скасувати</system:String>
 </ResourceDictionary>
