@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
+using OpenUtau.Core.Ustx;
 using Serilog;
 
 namespace OpenUtau.Core.Util {
@@ -58,8 +59,10 @@ namespace OpenUtau.Core.Util {
         [Serializable]
         public class SerializableNotePresets {
             public string DefaultLyric = "a";
+            public string SplittedLyric = "+";
             public PortamentoPreset DefaultPortamento = new PortamentoPreset("Standard", 80, -40);
             public List<PortamentoPreset> PortamentoPresets = new List<PortamentoPreset> { };
+            public PitchPointShape DefaultPitchShape = PitchPointShape.io;
             public VibratoPreset DefaultVibrato = new VibratoPreset("Standard", 75, 175, 25, 10, 10, 0, 0, 0);
             public List<VibratoPreset> VibratoPresets = new List<VibratoPreset> { };
             public bool AutoVibratoToggle = false;

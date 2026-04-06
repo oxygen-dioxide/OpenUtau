@@ -18,12 +18,65 @@
     <Setter Property="BorderBrush" Value="{DynamicResource SelectedTrackAccentDarkBrush}"/>
   </Style>
 
+  <Style Selector="Path.checkmenu">
+    <Setter Property="IsHitTestVisible" Value="False"/>
+    <Setter Property="Data" Value="M1,5 L4,8 L9,1"/>
+    <Setter Property="Stroke" Value="{DynamicResource SelectedTrackAccentBrush}"/>
+    <Setter Property="StrokeThickness" Value="2"/>
+    <Setter Property="Width" Value="12"/>
+    <Setter Property="Height" Value="12"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+  </Style>
+
   <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
     <Setter Property="Background" Value="{DynamicResource SelectedTrackAccentLightBrushSemi}"/>
   </Style>
 
+  <Style Selector="ListBox.toolbox">
+    <Setter Property="FontSize" Value="12"/>
+    <Setter Property="Padding" Value="2"/>
+    <Setter Property="Margin" Value="1"/>
+    <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+  </Style>
+
   <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
     <Setter Property="Background" Value="{DynamicResource SelectedTrackAccentLightBrushSemi}"/>
+  </Style>
+
+  <Style Selector="ListBoxItem.toolbox">
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="MinHeight" Value="20"/>
+    <Setter Property="Height" Value="20"/>
+    <Setter Property="Width" Value="20"/>
+    <Setter Property="Padding" Value="1"/>
+    <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+
+    <Style Selector="^:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NeutralAccentBrush}"/>
+    </Style>
+    <Style Selector="^:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NeutralAccentBrushPointerOver}"/>
+    </Style>
+    <Style Selector="^:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NeutralAccentBrushSemi}"/>
+    </Style>
+    <Style Selector="^:selected:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NeutralAccentBrush}"/>
+    </Style>
+    <Style Selector="^:selected:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NeutralAccentBrushPointerOver}"/>
+    </Style>
+    <Style Selector="^ Path.filled">
+        <Setter Property="Fill" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+    </Style>
+    <Style Selector="^ Ellipse.stroked">
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Stroke" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+    </Style>
+    <Style Selector="^ Path.stroked">
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Stroke" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+    </Style>
   </Style>
 
   <Style Selector="Slider.fader">
@@ -64,4 +117,75 @@
     </Style>
   </Style>
 
+  <Style Selector="RadioButton">
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="FontSize" Value="12"/>
+    <Setter Property="Template">
+      <ControlTemplate TargetType="RadioButton">
+        <StackPanel Orientation="Horizontal">
+          <Border
+          Name="RootBorder"
+          Background="{TemplateBinding Background}"
+          BorderBrush="{TemplateBinding BorderBrush}"
+          BorderThickness="{TemplateBinding BorderThickness}"
+          CornerRadius="{TemplateBinding CornerRadius}">
+            <Grid ColumnDefinitions="20,*">
+              <Grid Height="32" VerticalAlignment="Top">
+                <Ellipse
+                    Name="OuterEllipse"
+                    Width="14"
+                    Height="14"
+                    Fill="{DynamicResource RadioButtonOuterEllipseFill}"
+                    Stroke="{DynamicResource RadioButtonOuterEllipseStroke}"
+                    StrokeThickness="{DynamicResource RadioButtonBorderThemeThickness}"
+                    UseLayoutRounding="False" />
+
+                <Ellipse
+                    Name="CheckOuterEllipse"
+                    Width="14"
+                    Height="14"
+                    Fill="{DynamicResource SelectedTrackAccentBrush}"
+                    Opacity="0"
+                    Stroke="{DynamicResource SelectedTrackAccentBrush}"
+                    StrokeThickness="{DynamicResource RadioButtonBorderThemeThickness}"
+                    UseLayoutRounding="False" />
+
+                <Ellipse
+                    Name="CheckGlyph"
+                    Width="7"
+                    Height="7"
+                    Fill="{DynamicResource SystemControlBackgroundAltHighBrush}"
+                    Opacity="0"
+                    Stroke="{DynamicResource SystemControlBackgroundAltHighBrush}"
+                    UseLayoutRounding="False" />
+              </Grid>
+
+              <ContentPresenter
+                  Name="PART_ContentPresenter"
+                  Grid.Column="1"
+                  Margin="{TemplateBinding Padding}"
+                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                  Content="{TemplateBinding Content}"
+                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                  Foreground="{TemplateBinding Foreground}"
+                  RecognizesAccessKey="True" />
+            </Grid>
+          </Border>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover /template/ Ellipse#OuterEllipse">
+      <Setter Property="Stroke" Value="{DynamicResource RadioButtonOuterEllipseStrokePointerOver}" />
+      <Setter Property="Fill" Value="{DynamicResource RadioButtonOuterEllipseFillPointerOver}" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Ellipse#CheckOuterEllipse">
+      <Setter Property="Stroke" Value="{DynamicResource SelectedTrackAccentLightBrush}" />
+      <Setter Property="Fill" Value="{DynamicResource SelectedTrackAccentLightBrush}" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Ellipse#CheckGlyph">
+      <Setter Property="Stroke" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+      <Setter Property="Fill" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+    </Style>
+  </Style>
 </Styles>

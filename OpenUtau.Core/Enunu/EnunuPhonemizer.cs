@@ -6,6 +6,7 @@ using System.Text;
 using K4os.Hash.xxHash;
 using OpenUtau.Api;
 using OpenUtau.Core.Ustx;
+using Serilog;
 
 namespace OpenUtau.Core.Enunu {
     [Phonemizer("Enunu Phonemizer", "ENUNU")]
@@ -13,6 +14,7 @@ namespace OpenUtau.Core.Enunu {
         readonly string PhonemizerType = "ENUNU";
 
         protected EnunuSinger singer;
+        protected string port;
         Dictionary<Note[], Phoneme[]> partResult = new Dictionary<Note[], Phoneme[]>();
 
         struct TimingResult {
@@ -27,6 +29,9 @@ namespace OpenUtau.Core.Enunu {
 
         public override void SetSinger(USinger singer) {
             this.singer = singer as EnunuSinger;
+            if (port == null) {
+                port = EnunuUtils.SetPortNum();
+            }
         }
 
         public override void SetUp(Note[][] notes, UProject project, UTrack track) {
@@ -42,9 +47,11 @@ namespace OpenUtau.Core.Enunu {
             var scorePath = Path.Join(enutmpPath, $"score.lab");
             var timingPath = Path.Join(enutmpPath, $"timing.lab");
             var enunuNotes = NoteGroupsToEnunu(notes);
+            var voicebankNameHash = $"{this.singer.voicebankNameHash:x16}";
             if (!File.Exists(scorePath) || !File.Exists(timingPath)) {
+                Log.Information(this.singer.Name + ":" + voicebankNameHash);
                 EnunuUtils.WriteUst(enunuNotes, bpm, singer, ustPath);
-                var response = EnunuClient.Inst.SendRequest<TimingResponse>(new string[] { "timing", ustPath });
+                var response = EnunuClient.Inst.SendRequest<TimingResponse>(new string[] { "timing", ustPath,"", voicebankNameHash, "600" }, port);
                 if (response.error != null) {
                     throw new Exception(response.error);
                 }

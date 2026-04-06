@@ -27,6 +27,7 @@ namespace OpenUtau.Core.Ustx {
         public UPart() { }
 
         public abstract int GetMinDurTick(UProject project);
+        public abstract int GetMaxPosiTick(UProject project);
 
         public virtual void BeforeSave(UProject project, UTrack track) { }
         public virtual void AfterLoad(UProject project, UTrack track) { }
@@ -64,6 +65,12 @@ namespace OpenUtau.Core.Ustx {
             int endTicks = position + (notes.LastOrDefault()?.End ?? 1);
             project.timeAxis.TickPosToBarBeat(endTicks, out int bar, out int beat, out int remainingTicks);
             return project.timeAxis.BarBeatToTickPos(bar, beat + 1) - position;
+        }
+        
+        public override int GetMaxPosiTick(UProject project) {
+            int maxStartTick = position + (notes.FirstOrDefault()?.position ?? Duration);
+            project.timeAxis.TickPosToBarBeat(maxStartTick, out int bar, out int beat, out int remainingTicks);
+            return project.timeAxis.BarBeatToTickPos(bar, beat - 1);
         }
 
         public override void BeforeSave(UProject project, UTrack track) {
@@ -288,8 +295,10 @@ namespace OpenUtau.Core.Ustx {
 
         [YamlMember(Order = 100)] public string relativePath;
         [YamlMember(Order = 101)] public double fileDurationMs;
-        [YamlMember(Order = 102)] public double skipMs;
-        [YamlMember(Order = 103)] public double trimMs;
+        [YamlMember(Order = 102)] public int skip;
+        [YamlMember(Order = 103)] public int trim;
+        [YamlMember(Order = 104)] public int fadein;
+        [YamlMember(Order = 105)] public int fadeout;
 
         [YamlIgnore]
         public override string DisplayName => Missing ? $"[Missing] {name}" : name;
@@ -308,18 +317,28 @@ namespace OpenUtau.Core.Ustx {
 
         private int duration;
 
+        public double GetSkipMs(UProject project) {
+            return project.timeAxis.MsBetweenTickPos(position - skip, position);
+        }
+
+        public double GetTrimMs(UProject project) {
+            return project.timeAxis.MsBetweenTickPos(End, End + trim);
+        }
+
         public override int GetMinDurTick(UProject project) {
-            double posMs = project.timeAxis.TickPosToMsPos(position);
-            int end = project.timeAxis.MsPosToTickPos(posMs + fileDurationMs);
-            return end - position;
+            return project.resolution;
+        }
+
+        public override int GetMaxPosiTick(UProject project) {
+            return End - project.resolution;
         }
 
         public override UPart Clone() {
             var part = new UWavePart() {
                 _filePath = _filePath,
                 relativePath = relativePath,
-                skipMs = skipMs,
-                trimMs = trimMs,
+                skip = skip,
+                trim = trim,
             };
             part.Load(DocManager.Inst.Project);
             return part;
@@ -391,9 +410,9 @@ namespace OpenUtau.Core.Ustx {
         }
 
         private void UpdateDuration(UProject project) {
-            double posMs = project.timeAxis.TickPosToMsPos(position);
-            int end = project.timeAxis.MsPosToTickPos(posMs + fileDurationMs);
-            duration = end - position;
+            double fileStartMs = project.timeAxis.TickPosToMsPos(position - skip);
+            int fileEnd = project.timeAxis.MsPosToTickPos(fileStartMs + fileDurationMs);
+            duration = fileEnd - trim - position;
         }
 
         public override void BeforeSave(UProject project, UTrack track) {
@@ -409,6 +428,44 @@ namespace OpenUtau.Core.Ustx {
                 }
             }
             Load(project);
+        }
+
+        public ISignalSource TrimSamples(UProject project) {
+            double offsetMs = project.timeAxis.TickPosToMsPos(position);
+            double estimatedLengthMs = project.timeAxis.TickPosToMsPos(End) - offsetMs;
+            var waveSource = new WaveSource(
+                offsetMs,
+                estimatedLengthMs,
+                0, channels);
+            int skipCount = (int)(GetSkipMs(project) * sampleRate / 1000) * channels;
+            int trimCount = (int)(GetTrimMs(project) * sampleRate / 1000) * channels;
+            int remainingCount = Samples.Length - skipCount - trimCount;
+            if (remainingCount <= 0) {
+                waveSource.SetSamples(new float[0]);
+                return waveSource;
+            }
+            float[] trimmedSamples = new float[remainingCount];
+            Array.Copy(Samples, skipCount, trimmedSamples, 0, remainingCount);
+
+            int fadeinFrames = (int)(project.timeAxis.MsBetweenTickPos(position, position + fadein) * sampleRate / 1000);
+            for (int i = 0; i < fadeinFrames && i * channels < remainingCount; i++) {
+                float gain = (float)i / fadeinFrames;
+                for (int j = 0; j < channels; j++) {
+                    trimmedSamples[i * channels + j] *= gain;
+                }
+            }
+            int fadeoutFrames = (int)(project.timeAxis.MsBetweenTickPos(End - fadeout, End) * sampleRate / 1000);
+            for (int i = 0; i < fadeoutFrames && i * channels < remainingCount; i++) {
+                float gain = (float)i / fadeoutFrames;
+                for (int j = 0; j < channels; j++) {
+                    int targetIdx = remainingCount - 1 - (i * channels + (channels - 1 - j));
+                    if (targetIdx >= 0) {
+                        trimmedSamples[targetIdx] *= gain;
+                    }
+                }
+            }
+            waveSource.SetSamples(trimmedSamples);
+            return waveSource;
         }
     }
 }

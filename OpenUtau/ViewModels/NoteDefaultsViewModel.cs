@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reactive.Linq;
 using OpenUtau.Core;
+using OpenUtau.Core.Ustx;
 using OpenUtau.Core.Util;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -10,8 +11,10 @@ namespace OpenUtau.App.ViewModels {
     class NoteDefaultsViewModel : ViewModelBase {
 
         [Reactive] public string? DefaultLyric { get; set; }
+        [Reactive] public string? SplittedLyric { get; set; }
         [Reactive] public int CurrentPortamentoLength { get; set; }
         [Reactive] public int CurrentPortamentoStart { get; set; }
+        [Reactive] public int CurrentPitchShape { get; set; }
         [Reactive] public float CurrentVibratoLength { get; set; }
         [Reactive] public float CurrentVibratoPeriod { get; set; }
         [Reactive] public float CurrentVibratoDepth { get; set; }
@@ -40,8 +43,10 @@ namespace OpenUtau.App.ViewModels {
         public bool IsVibratoApplied => appliedVibratoPreset != null;
         public NoteDefaultsViewModel() {
             DefaultLyric = NotePresets.Default.DefaultLyric;
+            SplittedLyric = NotePresets.Default.SplittedLyric;
             CurrentPortamentoLength = NotePresets.Default.DefaultPortamento.PortamentoLength;
             CurrentPortamentoStart = NotePresets.Default.DefaultPortamento.PortamentoStart;
+            CurrentPitchShape = (int)NotePresets.Default.DefaultPitchShape;
             CurrentVibratoLength = NotePresets.Default.DefaultVibrato.VibratoLength;
             CurrentVibratoPeriod = NotePresets.Default.DefaultVibrato.VibratoPeriod;
             CurrentVibratoDepth = NotePresets.Default.DefaultVibrato.VibratoDepth;
@@ -63,6 +68,14 @@ namespace OpenUtau.App.ViewModels {
                         NotePresets.Default.DefaultLyric = defaultLyric;
                         NotePresets.Save();
                     });
+            this.WhenAnyValue(vm => vm.SplittedLyric)
+                    .Subscribe(splittedLyric => {
+                        if(splittedLyric == null){
+                            return;
+                        }
+                        NotePresets.Default.SplittedLyric = splittedLyric;
+                        NotePresets.Save();
+                    });
             this.WhenAnyValue(vm => vm.CurrentPortamentoLength)
                     .Subscribe(portamentoLength => {
                         NotePresets.Default.DefaultPortamento.PortamentoLength = portamentoLength;
@@ -71,6 +84,11 @@ namespace OpenUtau.App.ViewModels {
             this.WhenAnyValue(vm => vm.CurrentPortamentoStart)
                     .Subscribe(portamentoStart => {
                         NotePresets.Default.DefaultPortamento.PortamentoStart = portamentoStart;
+                        NotePresets.Save();
+                    });
+            this.WhenAnyValue(vm => vm.CurrentPitchShape)
+                    .Subscribe(pitchShape => {
+                        NotePresets.Default.DefaultPitchShape = (PitchPointShape)pitchShape;
                         NotePresets.Save();
                     });
             this.WhenAnyValue(vm => vm.CurrentVibratoLength)
@@ -201,8 +219,10 @@ namespace OpenUtau.App.ViewModels {
 
         public void ResetSettings() {
             DefaultLyric = NotePresets.Default.DefaultLyric;
+            SplittedLyric = NotePresets.Default.SplittedLyric;
             CurrentPortamentoLength = NotePresets.Default.DefaultPortamento.PortamentoLength;
             CurrentPortamentoStart = NotePresets.Default.DefaultPortamento.PortamentoStart;
+            CurrentPitchShape = (int)NotePresets.Default.DefaultPitchShape;
             CurrentVibratoLength = NotePresets.Default.DefaultVibrato.VibratoLength;
             CurrentVibratoPeriod = NotePresets.Default.DefaultVibrato.VibratoPeriod;
             CurrentVibratoDepth = NotePresets.Default.DefaultVibrato.VibratoDepth;

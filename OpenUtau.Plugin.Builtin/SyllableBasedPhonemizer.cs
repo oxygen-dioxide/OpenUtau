@@ -233,7 +233,7 @@ namespace OpenUtau.Plugin.Builtin {
         protected bool isDictionaryLoading => dictionaries[GetType()] == null;
         protected double TransitionBasicLengthMs => 100;
 
-        private static Dictionary<Type, IG2p> dictionaries = new Dictionary<Type, IG2p>();
+        private Dictionary<Type, IG2p> dictionaries = new Dictionary<Type, IG2p>();
         private const string FORCED_ALIAS_SYMBOL = "?";
         private string error = "";
         private readonly string[] wordSeparators = new[] { " ", "_" };
@@ -305,7 +305,7 @@ namespace OpenUtau.Plugin.Builtin {
                     var subResult = dictionary.Query(subword);
                     if (subResult == null) {
                         Log.Warning($"Subword '{subword}' from word '{note.lyric}' can't be found in the dictionary");
-                        subResult = HandleWordNotFound(subword);
+                        subResult = HandleWordNotFound(note);
                         if (subResult == null) {
                             return null;
                         }
@@ -491,8 +491,17 @@ namespace OpenUtau.Plugin.Builtin {
         /// </summary>
         /// <param name="word"></param>
         /// <returns></returns>
-        protected virtual string[] HandleWordNotFound(string word) {
-            error = "word not found";
+        protected virtual string[] HandleWordNotFound(Note note) {
+            var attr = note.phonemeAttributes?.FirstOrDefault(attr => attr.index == 0) ?? default;
+            string alt = attr.alternate?.ToString() ?? string.Empty;
+            string color = attr.voiceColor;
+            int toneShift = attr.toneShift;
+            var mpdlyric = MapPhoneme(note.lyric, note.tone + toneShift, color, alt, singer);
+            if(HasOto(mpdlyric, note.tone)){
+                error = mpdlyric;
+            }else{
+                error = "word not found";
+            }
             return null;
         }
 
@@ -673,7 +682,7 @@ namespace OpenUtau.Plugin.Builtin {
             return MakeSimpleResult(note.lyric.Substring(1));
         }
 
-        private void ReadDictionaryAndInit() {
+        protected void ReadDictionaryAndInit() {
             var dictionaryName = GetDictionaryName();
             if (dictionaryName == null) {
                 return;

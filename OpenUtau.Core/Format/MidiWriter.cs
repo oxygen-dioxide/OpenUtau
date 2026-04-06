@@ -188,7 +188,8 @@ namespace OpenUtau.Core.Format {
                         var events = objectsManager.Objects;
                         //{position of lyric: lyric text}
                         Dictionary<long, string> lyrics = events.Where(e => e.Event is LyricEvent)
-                            .ToDictionary(e=> e.Time, e => ((LyricEvent)e.Event).Text);
+                            .GroupBy(e => e.Time)
+                            .ToDictionary(g=> g.Key, g => ((LyricEvent)g.First().Event).Text);
                         var trackName = events.Where(e => e.Event is SequenceTrackNameEvent)
                             .Select(e => ((SequenceTrackNameEvent)e.Event).Text).FirstOrDefault();
                         if (trackName != null) {
@@ -206,7 +207,7 @@ namespace OpenUtau.Core.Format {
                                 lyric = defaultLyric;
                             }
                             if (lyric == "-") {
-                                lyric = "+";
+                                lyric = "+~";
                             }
                             note.lyric = lyric;
                             if (NotePresets.Default.AutoVibratoToggle && note.duration >= NotePresets.Default.AutoVibratoNoteDuration) {
@@ -268,7 +269,7 @@ namespace OpenUtau.Core.Format {
                                 continue;
                             }
                             string lyric = note.lyric;
-                            if (lyric == "+") {
+                            if (lyric == "+~" || lyric == "+*") {
                                 lyric = "-";
                             }
                             events.Add(new TimedEvent(new LyricEvent(lyric), note.position + partOffset));

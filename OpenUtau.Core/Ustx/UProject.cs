@@ -39,14 +39,14 @@ namespace OpenUtau.Core.Ustx {
         public string cacheDir = "UCache";
         [YamlMember(SerializeAs = typeof(string))]
         public Version ustxVersion;
-        public int resolution = 480;
+        [YamlIgnore] public int resolution => 480;
 
         [Obsolete("Since ustx v0.6")] public double bpm = 120;
         [Obsolete("Since ustx v0.6")] public int beatPerBar = 4;
         [Obsolete("Since ustx v0.6")] public int beatUnit = 4;
 
         public Dictionary<string, UExpressionDescriptor> expressions = new Dictionary<string, UExpressionDescriptor>();
-        public string[] expSelectors = new string[] { Format.Ustx.DYN, Format.Ustx.PITD, Format.Ustx.CLR, Format.Ustx.ENG, Format.Ustx.VEL };
+        public string[] expSelectors = new string[] { Format.Ustx.DYN, Format.Ustx.PITD, Format.Ustx.CLR, Format.Ustx.ENG, Format.Ustx.VEL, Format.Ustx.VOL, Format.Ustx.ATK, Format.Ustx.DEC, Format.Ustx.GEN, Format.Ustx.BRE };
         public int expPrimary = 0;
         public int expSecondary = 1;
         public int key = 0;//Music key of the project, 0 = C, 1 = C#, 2 = D, ..., 11 = B
@@ -59,11 +59,11 @@ namespace OpenUtau.Core.Ustx {
         /// <summary>
         /// Transient field used for serialization.
         /// </summary>
-        public List<UVoicePart> voiceParts;
+        public List<UVoicePart>? voiceParts;
         /// <summary>
         /// Transient field used for serialization.
         /// </summary>
-        public List<UWavePart> waveParts;
+        public List<UWavePart>? waveParts;
 
         [YamlIgnore] public string FilePath { get; set; } = string.Empty;
         [YamlIgnore] public bool Saved { get; set; } = false;
@@ -119,8 +119,9 @@ namespace OpenUtau.Core.Ustx {
             UNote note = UNote.Create();
             int start = NotePresets.Default.DefaultPortamento.PortamentoStart;
             int length = NotePresets.Default.DefaultPortamento.PortamentoLength;
-            note.pitch.AddPoint(new PitchPoint(start, 0));
-            note.pitch.AddPoint(new PitchPoint(start + length, 0));
+            var shape = NotePresets.Default.DefaultPitchShape;
+            note.pitch.AddPoint(new PitchPoint(start, 0, shape));
+            note.pitch.AddPoint(new PitchPoint(start + length, 0, shape));
             return note;
         }
 
@@ -141,13 +142,13 @@ namespace OpenUtau.Core.Ustx {
             }
             voiceParts = parts
                 .Where(part => part is UVoicePart)
-                .Select(part => part as UVoicePart)
+                .OfType<UVoicePart>()
                 .OrderBy(part => part.trackNo)
                 .ThenBy(part => part.position)
                 .ToList();
             waveParts = parts
                 .Where(part => part is UWavePart)
-                .Select(part => part as UWavePart)
+                .OfType<UWavePart>()
                 .OrderBy(part => part.trackNo)
                 .ThenBy(part => part.position)
                 .ToList();

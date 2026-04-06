@@ -21,10 +21,20 @@ namespace OpenUtau.Core {
     }
 
     public class SetNoteExpressionCommand : ExpCommand {
+        static readonly HashSet<string> needsPhonemizer = new HashSet<string> {
+            Format.Ustx.ALT, Format.Ustx.CLR, Format.Ustx.SHFT, Format.Ustx.VEL
+        };
+
         public readonly UProject project;
         public readonly UTrack track;
         public readonly float?[] newValue;
         public readonly float?[] oldValue;
+        public override ValidateOptions ValidateOptions
+            => new ValidateOptions {
+                SkipTiming = true,
+                Part = Part,
+                SkipPhonemizer = !needsPhonemizer.Contains(Key),
+            };
         public SetNoteExpressionCommand(UProject project, UTrack track, UVoicePart part, UNote note, string abbr, float?[] values) : base(part) {
             this.project = project;
             this.track = track;
@@ -36,6 +46,43 @@ namespace OpenUtau.Core {
         public override string ToString() => $"Set note expression {Key}";
         public override void Execute() => Note.SetExpression(project, track, Key, newValue);
         public override void Unexecute() => Note.SetExpression(project, track, Key, oldValue);
+    }
+
+    public class SetNotesSameExpressionCommand : ExpCommand {
+        static readonly HashSet<string> needsPhonemizer = new HashSet<string> {
+            Format.Ustx.ALT, Format.Ustx.CLR, Format.Ustx.SHFT, Format.Ustx.VEL
+        };
+
+        public readonly UProject project;
+        public readonly UTrack track;
+        public readonly UNote[] notes;
+        public readonly float? newValue;
+        public readonly float?[][] oldValue;
+        public override ValidateOptions ValidateOptions
+            => new ValidateOptions {
+                SkipTiming = true,
+                Part = Part,
+                SkipPhonemizer = !needsPhonemizer.Contains(Key),
+            };
+        public SetNotesSameExpressionCommand(UProject project, UTrack track, UVoicePart part, IEnumerable<UNote> notes, string abbr, float? value) : base(part) {
+            this.project = project;
+            this.track = track;
+            Key = abbr;
+            this.notes = notes.ToArray();
+            newValue = value;
+            oldValue = notes.Select(note => note.GetExpressionNoteHas(project, track, abbr)).ToArray();
+        }
+        public override string ToString() => $"Set note expression {Key}";
+        public override void Execute() {
+            for (var i = 0; i < notes.Length; i++) {
+                notes[i].SetExpression(project, track, Key, new float?[] { newValue });
+            }
+        }
+        public override void Unexecute() {
+            for (var i = 0; i < notes.Length; i++) {
+                notes[i].SetExpression(project, track, Key, oldValue[i]);
+            }
+        }
     }
 
     public class SetPhonemeExpressionCommand : ExpCommand {
@@ -128,6 +175,38 @@ namespace OpenUtau.Core {
         public override void Unexecute() { Point.shape = OldShape; }
     }
 
+    public class SetPitchPointShapeCommand : PitchExpCommand {
+        public UNote[] Notes;
+        public PitchPointShape NewShape;
+        public PitchPointShape[][] OldShapes;
+        public SetPitchPointShapeCommand(UVoicePart part, IEnumerable<UNote> notes, PitchPointShape shape) : base(part) {
+            this.Notes = notes.ToArray();
+            this.NewShape = shape;
+            this.OldShapes = notes
+                .Select(note => note.pitch.data
+                    .Select(point => point.shape)
+                    .ToArray())
+                .ToArray();
+        }
+        public override string ToString() { return "Change pitch point shape"; }
+        public override void Execute() {
+            foreach (var note in Notes) {
+                foreach (var point in note.pitch.data) {
+                    point.shape = NewShape;
+                }
+            }
+        }
+        public override void Unexecute() {
+            for (var i = 0; i < Notes.Length; i++) {
+                var note = Notes[i];
+                var shapes = OldShapes[i];
+                for (var p = 0; p < shapes.Length; p++) {
+                    note.pitch.data[p].shape = shapes[p];
+                }
+            }
+        }
+    }
+
     public class SnapPitchPointCommand : PitchExpCommand {
         readonly float X, Y;
         public SnapPitchPointCommand(UVoicePart part, UNote note) : base(part) {
@@ -188,8 +267,9 @@ namespace OpenUtau.Core {
             newPitch = new UPitch();
             int start = NotePresets.Default.DefaultPortamento.PortamentoStart;
             int length = NotePresets.Default.DefaultPortamento.PortamentoLength;
-            newPitch.AddPoint(new PitchPoint(start, 0));
-            newPitch.AddPoint(new PitchPoint(start + length, 0));
+            var shape = NotePresets.Default.DefaultPitchShape;
+            newPitch.AddPoint(new PitchPoint(start, 0, shape));
+            newPitch.AddPoint(new PitchPoint(start + length, 0, shape));
         }
         public override string ToString() => "Reset pitch points";
         public override void Execute() => Note.pitch = newPitch;
@@ -303,14 +383,16 @@ namespace OpenUtau.Core {
         readonly int[] oldYs;
         readonly int[] newXs;
         readonly int[] newYs;
+        readonly bool setReal;
         public MergedSetCurveCommand(UProject project, UVoicePart part,
-            string abbr, int[] oldXs, int[] oldYs, int[] newXs, int[] newYs) : base(part) {
+            string abbr, int[] oldXs, int[] oldYs, int[] newXs, int[] newYs, bool setReal = false) : base(part) {
             this.project = project;
             this.abbr = abbr;
             this.oldXs = oldXs;
             this.oldYs = oldYs;
             this.newXs = newXs;
             this.newYs = newYs;
+            this.setReal = setReal;
         }
         public override string ToString() => "Edit Curve";
         public override void Execute() {
@@ -319,11 +401,11 @@ namespace OpenUtau.Core {
                 curve = new UCurve(descriptor);
                 Part.curves.Add(curve);
             }
-            curve.xs.Clear();
-            curve.ys.Clear();
+            GetCurveXs(curve)?.Clear();
+            GetCurveYs(curve)?.Clear();
             if (newXs != null && newYs != null) {
-                curve.xs.AddRange(newXs);
-                curve.ys.AddRange(newYs);
+                GetCurveXs(curve)?.AddRange(newXs);
+                GetCurveYs(curve)?.AddRange(newYs);
             }
         }
         public override void Unexecute() {
@@ -331,6 +413,76 @@ namespace OpenUtau.Core {
             if (curve == null && project.expressions.TryGetValue(abbr, out var descriptor)) {
                 curve = new UCurve(descriptor);
                 Part.curves.Add(curve);
+            }
+            GetCurveXs(curve)?.Clear();
+            GetCurveYs(curve)?.Clear();
+            if (oldXs != null && oldYs != null) {
+                GetCurveXs(curve)?.AddRange(oldXs);
+                GetCurveYs(curve)?.AddRange(oldYs);
+            }
+        }
+        private List<int>? GetCurveXs(UCurve? curve) {
+            return setReal ? curve?.realXs : curve?.xs;
+        }
+        private List<int>? GetCurveYs(UCurve? curve) {
+            return setReal ? curve?.realYs : curve?.ys;
+        }
+    }
+
+    public class PasteCurveCommand : ExpCommand {
+        readonly UProject project;
+        readonly string abbr;
+        readonly int[] xs;
+        readonly int[] ys;
+        int[]? oldXs;
+        int[]? oldYs;
+        public PasteCurveCommand(UProject project, UVoicePart part, string abbr, IEnumerable<int> xs, IEnumerable<int> ys) : base(part) {
+            this.project = project;
+            this.abbr = abbr;
+            this.xs = xs.ToArray();
+            this.ys = ys.ToArray();
+            var curve = part.curves.FirstOrDefault(c => c.abbr == abbr);
+            oldXs = curve?.xs.ToArray();
+            oldYs = curve?.ys.ToArray();
+        }
+        public PasteCurveCommand(UProject project, UVoicePart part, string abbr, int startX, int startY, int endX, int endY) : base(part) {
+            this.project = project;
+            this.abbr = abbr;
+            this.xs = new int[] { startX, endX };
+            this.ys = new int[] { startY, endY };
+            var curve = part.curves.FirstOrDefault(c => c.abbr == abbr);
+            oldXs = curve?.xs.ToArray();
+            oldYs = curve?.ys.ToArray();
+        }
+        public override string ToString() => "Edit Curve";
+        public override void Execute() {
+            var curve = Part.curves.FirstOrDefault(c => c.abbr == abbr);
+            var track = project.tracks[Part.trackNo];
+            if (track.TryGetExpDescriptor(project, abbr, out var descriptor)) {
+                if (curve == null) {
+                    curve = new UCurve(descriptor);
+                    Part.curves.Add(curve);
+                }
+
+                var xs = this.xs.ToList();
+                var ys = this.ys.ToList();
+                xs.Insert(0, xs[0] - UCurve.interval);
+                ys.Insert(0, curve.Sample(xs[0]));
+                xs.Add(xs.Last() + UCurve.interval);
+                ys.Add(curve.Sample(xs.Last()));
+                ys = ys.Select(y => (int)Math.Clamp(y, descriptor.min, descriptor.max)).ToList();
+
+                curve.Set(xs.First(), ys.First(), xs.First(), ys.First());
+                curve.Set(xs.Last(), ys.Last(), xs.Last(), ys.Last());
+                for (int i = 0; i < xs.Count - 1; i++) {
+                    curve.Set(xs[i + 1], ys[i + 1], xs[i], ys[i]);
+                }
+            }
+        }
+        public override void Unexecute() {
+            var curve = Part.curves.FirstOrDefault(c => c.abbr == abbr);
+            if (curve == null) {
+                return;
             }
             curve.xs.Clear();
             curve.ys.Clear();
