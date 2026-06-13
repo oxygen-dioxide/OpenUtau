@@ -1,0 +1,30 @@
+name: Format Check
+
+on: 
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  pr-format-check:
+    name: Code formatting check
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: False
+
+    steps:
+      - name: Checkout repository contents
+        uses: actions/checkout@v1
+
+      - name: Check code file format for cs files
+        uses: oxygen-dioxide/CodeFormatChecker@main
+        with: 
+          glob: "**/*.cs"
+          encoding: utf-8-sig
+          line-ending: crlf
+
+      - name: Check code file format for axaml files
+        uses: oxygen-dioxide/CodeFormatChecker@main
+        with: 
+          glob: "**/*.axaml"
+          encoding: utf-8-sig
+          line-ending: crlf
