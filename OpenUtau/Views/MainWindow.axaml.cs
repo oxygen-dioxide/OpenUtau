@@ -986,7 +986,14 @@ namespace OpenUtau.App.Views {
                     ThemeManager.GetString("dialogs.installdependency.caption"),
                     MessageBox.MessageBoxButtons.OkCancel);
                 if (result == MessageBox.MessageBoxResult.Ok) {
-                    await PackageManager.Inst.InstallFromFileAsync(file);
+                    try {
+                        await PackageManager.Inst.InstallFromFileAsync(file);
+                    } catch (Exception e) {
+                        Log.Error(e, $"Failed to install dependency {file}");
+                        _ = await MessageBox.ShowError(this, new MessageCustomizableException(
+                            $"Failed to install dependency {file}",
+                            $"<translate:errors.failed.installdependency>: {file}", e));
+                    }
                 }
             }
         }
