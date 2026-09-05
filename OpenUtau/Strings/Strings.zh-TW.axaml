@@ -1,5 +1,8 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--DO NOT modify this file. It is managed autometically.-->
+<!--To contribute to OpenUtau's localization, visit https://crowdin.com/project/oxygen-dioxideopenutau -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="button.apply">套用</system:String>
   <system:String x:Key="button.cancel">取消</system:String>
@@ -107,10 +110,10 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="dialogs.export.savefirst">請先儲存專案</system:String>
   <system:String x:Key="dialogs.exportds.caption">匯出 DiffSinger 指令碼</system:String>
   <system:String x:Key="dialogs.exportds.curves">曲線</system:String>
-  <system:String x:Key="dialogs.exportds.notrendered"></system:String>
+  <!--<system:String x:Key="dialogs.exportds.notrendered">Please render all parts before exporting.</system:String>-->
   <system:String x:Key="dialogs.exportds.pitch">音高 (f0)</system:String>
-  <system:String x:Key="dialogs.exportds.variance"></system:String>
-  <system:String x:Key="dialogs.exportds.variance.hint"></system:String>
+  <!--<system:String x:Key="dialogs.exportds.variance">Variance expressions</system:String>-->
+  <!--<system:String x:Key="dialogs.exportds.variance.hint">Enable DiffSinger Tensor Cache in Preferences to export variance curves.</system:String>-->
   <system:String x:Key="dialogs.importtracks.caption">匯入音軌</system:String>
   <system:String x:Key="dialogs.importtracks.importtempo">導入的項目包含以下節奏標記。你要使用嗎？</system:String>
   <system:String x:Key="dialogs.installdependency.caption">安裝相依性</system:String>
@@ -162,7 +165,7 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="errors.diffsinger.downloadvocoder1">載入聲碼器時錯誤 </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">. 請從下列位置下載聲碼器： </system:String>
   <system:String x:Key="errors.editing.autopitch.unsupported">目前的音源不支援生成音高曲線。請使用 Diffsinger 或 Enunu 音源。</system:String>
-  <system:String x:Key="errors.encryptedarchive">不支援加密壓縮檔案。請從工具 &gt; 偏好設定 &gt; 路徑開啟歌手資料夾，並手動將壓縮檔案解壓縮至此位置。</system:String>
+  <system:String x:Key="errors.encryptedarchive">不支援加密壓縮檔案。請從工具 > 偏好設定 > 路徑開啟歌手資料夾，並手動將壓縮檔案解壓縮至此位置。</system:String>
   <system:String x:Key="errors.expression.abbrlong">縮寫必須介於 1 到 4 個字元之間</system:String>
   <system:String x:Key="errors.expression.abbrset">必須設定縮寫</system:String>
   <system:String x:Key="errors.expression.abbrunique">縮寫必須是唯一的</system:String>
@@ -184,7 +187,7 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="errors.failed.openfile">開啟失敗</system:String>
   <system:String x:Key="errors.failed.openlocation">無法打開位置</system:String>
   <system:String x:Key="errors.failed.opennewerproject">專案比軟體更新！請升級 OpenUtau！</system:String>
-  <system:String x:Key="errors.failed.prerender"></system:String>
+  <!--<system:String x:Key="errors.failed.prerender">Failed to render in the background.</system:String>-->
   <system:String x:Key="errors.failed.render">算繪失敗。</system:String>
   <system:String x:Key="errors.failed.runeditingmacro">執行編輯巨集失敗</system:String>
   <system:String x:Key="errors.failed.save">儲存失敗</system:String>
@@ -197,16 +200,16 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="errors.install.cpp">請嘗試安裝最新的 Visual C++ 可轉散發套件。https://learn.microsoft.com/zh-tw/cpp/windows/latest-supported-vc-redist?view=msvc-170</system:String>
   <system:String x:Key="errors.lyrics.regex">在正則表達式中不允許的字元</system:String>
   <system:String x:Key="errors.lyrics.regexpreview">- 正則表達式錯誤 -</system:String>
-  <system:String x:Key="errors.resampler.failed.message"></system:String>
-  <system:String x:Key="errors.toast.details"></system:String>
+  <!--<system:String x:Key="errors.resampler.failed.message">Resampler failed to create output file(s). Resampler errors like this are often caused by oto.ini configuration issues. Consider generating a singer error report to check for such issues.</system:String>-->
+  <!--<system:String x:Key="errors.toast.details">(Click here for details)</system:String>-->
 
-  <system:String x:Key="exesetup.installing">安裝&quot;{0}&quot;...</system:String>
+  <system:String x:Key="exesetup.installing">安裝"{0}"...</system:String>
   <system:String x:Key="exesetup.linux">在 Linux 上使用 exe 引擎或 wavtool：
 1. 從 {0} 安裝 Wine
-2. 在「偏好設定」&gt;「進階」&gt;「Wine 路徑」中設定 Wine 路徑</system:String>
+2. 在「偏好設定」>「進階」>「Wine 路徑」中設定 Wine 路徑</system:String>
   <system:String x:Key="exesetup.mac">在 MacOS 上使用 exe 引擎或 wavtool：
 1. 使用以下命令安裝 Wine
-2. 在「偏好設定」&gt;「進階」&gt;「Wine 路徑」中設定 Wine 路徑</system:String>
+2. 在「偏好設定」>「進階」>「Wine 路徑」中設定 Wine 路徑</system:String>
   <system:String x:Key="exesetup.resampler">安裝為引擎</system:String>
   <system:String x:Key="exesetup.title">安裝exe檔案</system:String>
   <system:String x:Key="exesetup.wavtool">安裝為 wavtool</system:String>
@@ -321,7 +324,7 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="menu.tools">工具</system:String>
   <system:String x:Key="menu.tools.clearcache">清除快取</system:String>
   <system:String x:Key="menu.tools.debugwindow">除錯視窗</system:String>
-  <system:String x:Key="menu.tools.dependency.install"></system:String>
+  <!--<system:String x:Key="menu.tools.dependency.install">Install Dependency (.oudep)...</system:String>-->
   <system:String x:Key="menu.tools.fullscreen">全螢幕</system:String>
   <system:String x:Key="menu.tools.layout">版面配置</system:String>
   <system:String x:Key="menu.tools.layout.hsplit11">橫向 1:1</system:String>
@@ -350,6 +353,18 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="mergevoicebank.setvoicecolor">為聲音色彩設定新名稱（顯示於 CLR 中）。</system:String>
   <system:String x:Key="mergevoicebank.title">合併音源</system:String>
 
+  <!--<system:String x:Key="mixfx.applyonexport">Apply when exporting mixdown</system:String>-->
+  <!--<system:String x:Key="mixfx.caption">Track Polish</system:String>-->
+  <!--<system:String x:Key="mixfx.enabled">Enable on this track</system:String>-->
+  <!--<system:String x:Key="mixfx.library">Library</system:String>-->
+  <system:String x:Key="mixfx.library.default">預設</system:String>
+  <system:String x:Key="mixfx.library.delete">刪除</system:String>
+  <!--<system:String x:Key="mixfx.library.placeholder">Select a saved preset...</system:String>-->
+  <system:String x:Key="mixfx.library.save">儲存...</system:String>
+  <system:String x:Key="mixfx.preset">預設集</system:String>
+  <system:String x:Key="mixfx.recommended">套用預設設定</system:String>
+  <!--<system:String x:Key="mixfx.recommended.tip">Vocal Air + Gentle compression + Small Room</system:String>-->
+
   <system:String x:Key="notedefaults.lyric">歌詞</system:String>
   <system:String x:Key="notedefaults.lyric.enter">當按下 Enter 鍵時</system:String>
   <system:String x:Key="notedefaults.lyric.knife">當使用剪刀工具時</system:String>
@@ -377,8 +392,8 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
 
   <system:String x:Key="noteproperty">音符屬性</system:String>
   <system:String x:Key="noteproperty.basic">基本屬性</system:String>
-  <system:String x:Key="noteproperty.parent.phonemizer"></system:String>
-  <system:String x:Key="noteproperty.phonemizer"></system:String>
+  <!--<system:String x:Key="noteproperty.parent.phonemizer">Follows Parent Phonemizer</system:String>-->
+  <!--<system:String x:Key="noteproperty.phonemizer">Phonemizer</system:String>-->
   <system:String x:Key="noteproperty.set">設定</system:String>
   <system:String x:Key="noteproperty.setlongnote">僅適用於長音符</system:String>
   <system:String x:Key="noteproperty.tone">音高</system:String>
@@ -436,6 +451,8 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="packages.unknownversion">不明版本</system:String>
   <system:String x:Key="packages.update">升級</system:String>
 
+  <!--<system:String x:Key="phoneme.show.error">Alt + Click to view the full error</system:String>-->
+
   <system:String x:Key="phoneticassistant.caption">音標助理</system:String>
   <system:String x:Key="phoneticassistant.copy">複製</system:String>
 
@@ -444,8 +461,9 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="pianoroll.menu.batch.running">執行批次編輯</system:String>
   <system:String x:Key="pianoroll.menu.external">外部</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">歌詞</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">使用 &quot;+&quot; 替換 &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">使用 &quot;+~&quot; 替換 &quot;-&quot;</system:String>
+  <!--<system:String x:Key="pianoroll.menu.lyrics.addphonetichints">Add Phonetic Hint</system:String>-->
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">使用 "+" 替換 "-"</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">使用 "+~" 替換 "-"</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">編輯歌詞</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">平假名轉羅馬拼音</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">插入轉音歌詞</system:String>
@@ -453,14 +471,13 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="pianoroll.menu.lyrics.movesuffixtovoicecolor">將後綴移動到聲音色彩</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removelettersuffix">移除字母後綴</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removephonetichint">移除音標提示</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.addphonetichints"></system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removetonesuffix">移除音調後綴</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.romajitohiragana">羅馬拼音轉平假名</system:String>
   <system:String x:Key="pianoroll.menu.notedefaults">音符預設設定</system:String>
   <system:String x:Key="pianoroll.menu.notes">音符</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">新增呼吸音</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtaildash">新增音符尾端 &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtailrest">新增音符尾端 &quot;R&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtaildash">新增音符尾端 "-"</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtailrest">新增音符尾端 "R"</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">填補音符之間的空隙</system:String>
   <system:String x:Key="pianoroll.menu.notes.bakepitch">將手繪音高轉換為控制點音高</system:String>
   <system:String x:Key="pianoroll.menu.notes.clear.vibratos">清除顫音</system:String>
@@ -477,13 +494,13 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="pianoroll.menu.notes.randomizetiming">隨機化音符時機</system:String>
   <system:String x:Key="pianoroll.menu.notes.randomizetuning">隨機調音</system:String>
   <system:String x:Key="pianoroll.menu.notes.refreshrealcurves">重新載入真實音高曲線</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetaildash">刪除音符尾端 &quot;-&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetailrest">刪除音符尾端 &quot;R&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetaildash">刪除音符尾端 "-"</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetailrest">刪除音符尾端 "R"</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.aliases">重設音標別名</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.all">重設音符為預設</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">重設所有參數</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.exps">重設所有表現</system:String>
-  <system:String x:Key="pianoroll.menu.notes.reset.phonemetimings"></system:String>
+  <!--<system:String x:Key="pianoroll.menu.notes.reset.phonemetimings">Reset phoneme timings and envelopes</system:String>-->
   <system:String x:Key="pianoroll.menu.notes.reset.pitchbends">重設音高曲線</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.vibratos">重設顫音</system:String>
   <system:String x:Key="pianoroll.menu.part">段落</system:String>
@@ -503,11 +520,13 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="pianoroll.snapdiv">網格寬度</system:String>
   <system:String x:Key="pianoroll.toggle.expressions">檢視表現 (L)</system:String>
   <system:String x:Key="pianoroll.toggle.finalpitch">顯示算繪音高曲線 (R)</system:String>
-  <system:String x:Key="pianoroll.toggle.hidepianoroll"></system:String>
+  <!--<system:String x:Key="pianoroll.toggle.hidepianoroll">Hide Piano Roll</system:String>-->
+  <!--<system:String x:Key="pianoroll.toggle.livepitch.fast">Live Pitch (Fast): auto-regenerate DiffSinger pitch after edits (fastest)</system:String>-->
+  <!--<system:String x:Key="pianoroll.toggle.livepitch.normal">Live Pitch (Normal): auto-regenerate DiffSinger pitch after edits</system:String>-->
   <system:String x:Key="pianoroll.toggle.noteparams">檢視音符參數 (\)</system:String>
-  <system:String x:Key="pianoroll.toggle.overwritepitch"></system:String>
+  <!--<system:String x:Key="pianoroll.toggle.overwritepitch">Toggle Overwrite Pitch Mode</system:String>-->
   <system:String x:Key="pianoroll.toggle.phoneme">顯示音標 (O)</system:String>
-  <system:String x:Key="pianoroll.toggle.phonemizer"></system:String>
+  <!--<system:String x:Key="pianoroll.toggle.phonemizer">View Phonemizer Tags</system:String>-->
   <system:String x:Key="pianoroll.toggle.pitch">顯示手動音高曲線 (I)</system:String>
   <system:String x:Key="pianoroll.toggle.snap">啟用自動貼齊 (P)</system:String>
   <system:String x:Key="pianoroll.toggle.snap.auto">自動</system:String>
@@ -516,9 +535,10 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="pianoroll.toggle.tone">啟用音調提示 (Y)</system:String>
   <system:String x:Key="pianoroll.toggle.vibrato">顯示顫音 (U)</system:String>
   <system:String x:Key="pianoroll.toggle.waveform">顯示波形 (W)</system:String>
-  <system:String x:Key="pianoroll.toggle.livepitch.normal"></system:String>
-  <system:String x:Key="pianoroll.toggle.livepitch.fast"></system:String>
-  <system:String x:Key="pianoroll.tool.drawpitch"></system:String>
+  <!--<system:String x:Key="pianoroll.tool.drawpitch">Draw Pitch Tool (Shift + 1)
+    Left click to draw
+    Right click to reset
+    Hold Ctrl to select</system:String>-->
   <system:String x:Key="pianoroll.tool.eraser">橡皮擦工具 (3)</system:String>
   <system:String x:Key="pianoroll.tool.knife">分割工具 (4)</system:String>
   <system:String x:Key="pianoroll.tool.penplus">高級畫筆工具 (Ctrl + 2)
@@ -528,23 +548,36 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="pianoroll.tool.penv2">畫筆工具 (2)
     左鍵點擊以描繪
     右鍵點擊以重設</system:String>
-  <system:String x:Key="pianoroll.tool.pitchesinewave"></system:String>
-  <system:String x:Key="pianoroll.tool.pitchline"></system:String>
-  <system:String x:Key="pianoroll.tool.pitchpoint"></system:String>
-  <system:String x:Key="pianoroll.tool.pitchscurve"></system:String>
-  <system:String x:Key="pianoroll.tool.pitchsmoothen"></system:String>
+  <!--<system:String x:Key="pianoroll.tool.pitchesinewave">Pitch Sine Wave Tool (Shift + 4)
+    Drag to draw sine wave, release to enter adjusting mode
+    Move mouse to adjust wavelength and amplitude, click to apply
+    Right click to reset
+    Hold Ctrl to select</system:String>-->
+  <!--<system:String x:Key="pianoroll.tool.pitchline">Pitch Line Tool (Shift + 2)
+    Left click to draw straight line
+    Right click to reset
+    Hold Ctrl to select</system:String>-->
+  <!--<system:String x:Key="pianoroll.tool.pitchpoint">Pitch Point Tool (5)
+    Left click to add point
+    Drag to move only the point
+    Hold Ctrl to select</system:String>-->
+  <!--<system:String x:Key="pianoroll.tool.pitchscurve">Pitch S-Curve Tool (Shift + 3)
+    Drag to draw S-curve, release to enter adjusting mode
+    Move mouse to tune S-curve strength, click to apply
+    Right click to reset
+    Hold Ctrl to select</system:String>-->
+  <!--<system:String x:Key="pianoroll.tool.pitchsmoothen">Pitch Smoothen Tool (Shift + 5)
+    Left click to smoothen pitch
+    Right click to reset
+    Hold Ctrl to select</system:String>-->
   <system:String x:Key="pianoroll.tool.selectionv2">選取工具 (1)</system:String>
-  <system:String x:Key="pianoroll.tooltip.attack"></system:String>
+  <!--<system:String x:Key="pianoroll.tooltip.attack">Attack time delta</system:String>-->
   <system:String x:Key="pianoroll.tooltip.overlap">重疊</system:String>
   <system:String x:Key="pianoroll.tooltip.preutter">先行發聲</system:String>
-  <system:String x:Key="pianoroll.tooltip.release"></system:String>
+  <!--<system:String x:Key="pianoroll.tooltip.release">Release time delta</system:String>-->
 
   <system:String x:Key="prefs.advanced">進階</system:String>
   <system:String x:Key="prefs.advanced.beta">Beta測試版</system:String>
-  <system:String x:Key="prefs.channel"></system:String>
-  <system:String x:Key="prefs.channel.stable"></system:String>
-  <system:String x:Key="prefs.channel.beta"></system:String>
-  <system:String x:Key="prefs.channel.alpha"></system:String>
   <system:String x:Key="prefs.advanced.lyricshelper">歌詞助手</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper.brackets">歌詞助手（添加方括號）</system:String>
   <system:String x:Key="prefs.advanced.rememberfiletypes">在「最近開啟」中記住這些文件類型</system:String>
@@ -552,7 +585,7 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="prefs.advanced.resamplerlogging.warn">儲存引擎輸出紀錄至記錄檔。此選項可能影響介面與算繪效能。</system:String>
   <system:String x:Key="prefs.advanced.stable">穩定版</system:String>
   <system:String x:Key="prefs.advanced.vlabelerpath">vLabeler 路徑</system:String>
-  <system:String x:Key="prefs.advanced.wayland"></system:String>
+  <!--<system:String x:Key="prefs.advanced.wayland">Use Wayland</system:String>-->
   <system:String x:Key="prefs.advanced.winepath">Wine 路徑（設置以啟用 Wine 提高兼容性）</system:String>
   <system:String x:Key="prefs.appearance">外觀</system:String>
   <system:String x:Key="prefs.appearance.customtheme.create.empty">主題名稱不可為空白。</system:String>
@@ -565,13 +598,13 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="prefs.appearance.degree.numbered">簡譜（1 2 3 4 5 6 7）</system:String>
   <system:String x:Key="prefs.appearance.degree.off">關閉</system:String>
   <system:String x:Key="prefs.appearance.degree.solfege">唱名 (do re mi fa sol la ti)</system:String>
-  <system:String x:Key="prefs.appearance.detachpianoroll"></system:String>
+  <!--<system:String x:Key="prefs.appearance.detachpianoroll">Show piano roll in separate window</system:String>-->
   <system:String x:Key="prefs.appearance.diffsingerlangcodehide">隱藏音標編輯器的語言代碼</system:String>
   <system:String x:Key="prefs.appearance.lang">語言</system:String>
+  <!--<system:String x:Key="prefs.appearance.notehoverglow">Note hover glow</system:String>-->
+  <!--<system:String x:Key="prefs.appearance.playbacknotebounce">Bounce notes on playback</system:String>-->
+  <!--<system:String x:Key="prefs.appearance.playbacknotehighlight">Highlight notes on playback</system:String>-->
   <system:String x:Key="prefs.appearance.showghostnotes">在鋼琴卷軸上顯示其他音軌的音符</system:String>
-  <system:String x:Key="prefs.appearance.notehoverglow"></system:String>
-  <system:String x:Key="prefs.appearance.playbacknotehighlight"></system:String>
-  <system:String x:Key="prefs.appearance.playbacknotebounce"></system:String>
   <system:String x:Key="prefs.appearance.showicon">在鋼琴卷軸上顯示角色頭像</system:String>
   <system:String x:Key="prefs.appearance.showportrait">在鋼琴卷軸上顯示角色背景圖</system:String>
   <system:String x:Key="prefs.appearance.sortorder">歌手名稱顯示語言</system:String>
@@ -583,7 +616,11 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="prefs.cache.clearonquit">退出時清除快取</system:String>
   <system:String x:Key="prefs.cache.diffsingertensorcache">DiffSinger 張量快取</system:String>
   <system:String x:Key="prefs.caption">偏好設定</system:String>
-  <system:String x:Key="prefs.diffsinger">DiffSinger</system:String>
+  <!--<system:String x:Key="prefs.channel">Release Channel</system:String>-->
+  <!--<system:String x:Key="prefs.channel.alpha">Alpha</system:String>-->
+  <!--<system:String x:Key="prefs.channel.beta">Beta</system:String>-->
+  <!--<system:String x:Key="prefs.channel.stable">Stable</system:String>-->
+  <!--<system:String x:Key="prefs.diffsinger">DiffSinger</system:String>-->
   <system:String x:Key="prefs.editing">編輯</system:String>
   <system:String x:Key="prefs.general">一般</system:String>
   <system:String x:Key="prefs.note.restart">注意: 請重新啟動 OpenUtau 以套用變更</system:String>
@@ -604,40 +641,40 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="prefs.playback.autoscrollmode.stationarycursor">固定游標位置</system:String>
   <system:String x:Key="prefs.playback.backend">音訊後端</system:String>
   <system:String x:Key="prefs.playback.backend.auto">自動</system:String>
-  <system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>
-  <system:String x:Key="prefs.playback.backend.sdl3"></system:String>
+  <!--<system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>-->
+  <!--<system:String x:Key="prefs.playback.backend.sdl3">SDL 3</system:String>-->
   <system:String x:Key="prefs.playback.cursorposition">開始捲動位置</system:String>
   <system:String x:Key="prefs.playback.device">播放裝置</system:String>
   <system:String x:Key="prefs.playback.lockstarttime">暫停時</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.off">不進行動作</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.on">移動游標至起始播放位置</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.onlycursor">僅將游標移回到你開始播放的位置</system:String>
-  <system:String x:Key="prefs.playback.systemdefault"></system:String>
+  <!--<system:String x:Key="prefs.playback.systemdefault">Use system default device</system:String>-->
   <system:String x:Key="prefs.playback.test">測試</system:String>
   <system:String x:Key="prefs.rendering">算繪</system:String>
   <system:String x:Key="prefs.rendering.defaultrenderer">傳統音源的預設算繪器</system:String>
   <system:String x:Key="prefs.rendering.diffsingerdepth">DiffSinger 算繪深度</system:String>
+  <!--<system:String x:Key="prefs.rendering.diffsingerpitchlocalretaking">DiffSinger Pitch Local Retaking</system:String>-->
   <system:String x:Key="prefs.rendering.diffsingersteps">DiffSinger Acoustic算繪步驟</system:String>
   <system:String x:Key="prefs.rendering.diffsingerstepspitch">DiffSinger Pitch算繪步驟</system:String>
   <system:String x:Key="prefs.rendering.diffsingerstepsvariance">DiffSinger Variance算繪步驟</system:String>
-  <system:String x:Key="prefs.rendering.diffsingerpitchlocalretaking"></system:String>
-  <system:String x:Key="prefs.rendering.diffsingervariancelocalpitchpatch"></system:String>
-  <system:String x:Key="prefs.rendering.gamebackend"></system:String>
-  <system:String x:Key="prefs.rendering.onnxgpu">GPU</system:String>
+  <!--<system:String x:Key="prefs.rendering.diffsingervariancelocalpitchpatch">DiffSinger Local Variance Update for Pitch Edits</system:String>-->
+  <!--<system:String x:Key="prefs.rendering.gamebackend">GAME Inference Backend</system:String>-->
+  <!--<system:String x:Key="prefs.rendering.onnxgpu">GPU</system:String>-->
   <system:String x:Key="prefs.rendering.onnxrunner">機器學習執行程式</system:String>
   <system:String x:Key="prefs.rendering.phasecomp">相位補償</system:String>
   <system:String x:Key="prefs.rendering.prerender">預先算繪</system:String>
   <system:String x:Key="prefs.rendering.resampler">引擎</system:String>
   <system:String x:Key="prefs.rendering.resampler.morewarn">警告: Moresampler 尚未完整支援，可能導致使用速度緩慢並提高 CPU 使用率。若欲繼續，請遵循以下步驟:
-1. 將 moreconfig.txt 中的 &quot;resampler-compatibility&quot; 設定值更改為 &quot;on&quot;。
-2. 將 moreconfig.txt 中的 &quot;auto-update-llsm-mrq&quot; 設定值更改為 &quot;off&quot;。
+1. 將 moreconfig.txt 中的 "resampler-compatibility" 設定值更改為 "on"。
+2. 將 moreconfig.txt 中的 "auto-update-llsm-mrq" 設定值更改為 "off"。
 3. 首次播放時，請稍等 Moresampler 產生 LLSM 檔案。</system:String>
   <system:String x:Key="prefs.rendering.resampler.note">注意: 欲使用外部引擎，請將引擎 EXE 或 DLL 檔案置入 Resamplers 資料夾中，並在偏好設定選擇欲使用的引擎。</system:String>
   <system:String x:Key="prefs.rendering.skipmuted">跳過靜音的音軌</system:String>
   <system:String x:Key="prefs.rendering.threads.cpuwarn">警告: 算繪執行緒過多可能會導致OpenUtau運作緩慢。</system:String>
   <system:String x:Key="prefs.rendering.threads.numthreads">最大算繪執行緒數</system:String>
-  <system:String x:Key="prefs.rendering.wavtool">Wavtool</system:String>
-  <system:String x:Key="prefs.utau">UTAU</system:String>
+  <!--<system:String x:Key="prefs.rendering.wavtool">Wavtool</system:String>-->
+  <!--<system:String x:Key="prefs.utau">UTAU</system:String>-->
 
   <system:String x:Key="progress.cachecleared">快取已清除。</system:String>
   <system:String x:Key="progress.clearingcache">清除快取中...</system:String>
@@ -657,7 +694,7 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="singererror.cutoffoverlap">後裁切必須位於重疊的右側。</system:String>
   <system:String x:Key="singererror.cutoffpreutter">後裁切必須位於先行發聲的右側。</system:String>
   <system:String x:Key="singererror.duplicatealias">存在重複的別名。{0}</system:String>
-  <system:String x:Key="singererror.duplicatename">在 OTO 設定中忽略大小寫時發現重複的檔案名稱 &quot;{0}&quot;: {1}。
+  <system:String x:Key="singererror.duplicatename">在 OTO 設定中忽略大小寫時發現重複的檔案名稱 "{0}": {1}。
 該音源在對大小寫敏感的其他作業系統上可能無法使用。</system:String>
   <system:String x:Key="singererror.failedload">無法加載音源。</system:String>
   <system:String x:Key="singererror.invalidduration">無效的持續時間 {0}。</system:String>
@@ -743,6 +780,10 @@ OpenUtau 致力於為 UTAU 社群建立開源編輯環境，提供現代化使�
   <system:String x:Key="singersetup.textfileencoding.prompt">選擇一種讓檔案內容顯示正確的編碼。</system:String>
   <system:String x:Key="singersetup.title">安裝歌手</system:String>
 
+  <!--<system:String x:Key="themeeditor.cancel">Cancel</system:String>-->
+  <!--<system:String x:Key="themeeditor.save">Save</system:String>-->
+  <system:String x:Key="themeeditor.title">主題編輯器</system:String>
+
   <system:String x:Key="tip.aliasbox">覆寫別名</system:String>
   <system:String x:Key="tip.exps">數值、選項類型
 左鍵描繪：設定表現
@@ -773,12 +814,13 @@ Shift + 左鍵描繪：繪製水平線
     空白鍵: 播放</system:String>
   <system:String x:Key="tip.notes.zoomx">◀ 捲動以橫向縮放 ▶</system:String>
   <system:String x:Key="tip.notes.zoomy">捲動以縱向縮放 ▶</system:String>
-  <system:String x:Key="tip.playback.loop"></system:String>
+  <!--<system:String x:Key="tip.playback.loop">Loop playback</system:String>-->
 
   <system:String x:Key="tracks.duplicate">複製音軌</system:String>
   <system:String x:Key="tracks.duplicatesettings">複製音軌設定</system:String>
   <system:String x:Key="tracks.favorite">收藏</system:String>
   <system:String x:Key="tracks.installsinger">安裝歌手</system:String>
+  <!--<system:String x:Key="tracks.mixfx">Track Polish...</system:String>-->
   <system:String x:Key="tracks.more">更多</system:String>
   <system:String x:Key="tracks.movedown">下移</system:String>
   <system:String x:Key="tracks.moveup">上移</system:String>
@@ -801,11 +843,11 @@ Shift + 左鍵描繪：繪製水平線
   <system:String x:Key="tracks.trackcolor">更改音軌顏色</system:String>
   <system:String x:Key="tracks.tracksettings">音軌設定</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <!--<FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>-->
 
   <system:String x:Key="updater.caption">檢查更新</system:String>
   <system:String x:Key="updater.description">開放歌聲合成平台</system:String>
-  <system:String x:Key="updater.github">GitHub</system:String>
+  <!--<system:String x:Key="updater.github">GitHub</system:String>-->
   <system:String x:Key="updater.status.available">版本 v{0} 已可更新!</system:String>
   <system:String x:Key="updater.status.checking">檢查更新...</system:String>
   <system:String x:Key="updater.status.notavailable">已為最新版本</system:String>
@@ -823,23 +865,4 @@ Shift + 左鍵描繪：繪製水平線
   <system:String x:Key="welcome.recent">最近</system:String>
   <system:String x:Key="welcome.start">開始</system:String>
   <system:String x:Key="welcome.template">範本</system:String>
-
-  <system:String x:Key="themeeditor.title">主題編輯器</system:String>
-  <system:String x:Key="themeeditor.save"></system:String>
-  <system:String x:Key="themeeditor.cancel"></system:String>
-  <system:String x:Key="phoneme.show.error"></system:String>
-
-  <!-- Mix Effects (post-processing) -->
-  <system:String x:Key="mixfx.caption"></system:String>
-  <system:String x:Key="mixfx.enabled"></system:String>
-  <system:String x:Key="mixfx.preset">預設集</system:String>
-  <system:String x:Key="mixfx.recommended">套用預設設定</system:String>
-  <system:String x:Key="mixfx.recommended.tip"></system:String>
-  <system:String x:Key="mixfx.applyonexport"></system:String>
-  <system:String x:Key="mixfx.library"></system:String>
-  <system:String x:Key="mixfx.library.placeholder"></system:String>
-  <system:String x:Key="mixfx.library.save">儲存...</system:String>
-  <system:String x:Key="mixfx.library.delete">刪除</system:String>
-  <system:String x:Key="mixfx.library.default">預設</system:String>
-  <system:String x:Key="tracks.mixfx"></system:String>
 </ResourceDictionary>

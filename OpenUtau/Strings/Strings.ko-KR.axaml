@@ -1,5 +1,8 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--DO NOT modify this file. It is managed autometically.-->
+<!--To contribute to OpenUtau's localization, visit https://crowdin.com/project/oxygen-dioxideopenutau -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="button.apply">적용</system:String>
   <system:String x:Key="button.cancel">취소</system:String>
@@ -81,9 +84,9 @@
   <system:String x:Key="context.part.transcribe">새 노트 파트로 오디오 전사</system:String>
   <system:String x:Key="context.part.transcribing">전사하고 있어요...</system:String>
   <system:String x:Key="context.pitch.easein">가속(Ease in)</system:String>
-  <system:String x:Key="context.pitch.easeinout">Ease in/out</system:String>
-  <system:String x:Key="context.pitch.easeout">Ease out</system:String>
-  <system:String x:Key="context.pitch.linear">Linear</system:String>
+  <!--<system:String x:Key="context.pitch.easeinout">Ease in/out</system:String>-->
+  <!--<system:String x:Key="context.pitch.easeout">Ease out</system:String>-->
+  <!--<system:String x:Key="context.pitch.linear">Linear</system:String>-->
   <system:String x:Key="context.pitch.pointadd">[피치선] 점 추가</system:String>
   <system:String x:Key="context.pitch.pointdel">[피치선] 점 삭제</system:String>
   <system:String x:Key="context.pitch.pointsnapprev">이전 노트에 물리기</system:String>
@@ -159,11 +162,11 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
 
   <system:String x:Key="errors.caption">오류</system:String>
   <system:String x:Key="errors.details">에러 상세정보</system:String>
-  <system:String x:Key="errors.diffsinger.downloadvocoder">보코더 &quot;{0}&quot;의 로드 도중 오류가 발생했어요. 보코더를 {1}에서 다운로드해 주세요.</system:String>
+  <system:String x:Key="errors.diffsinger.downloadvocoder">보코더 "{0}"의 로드 도중 오류가 발생했어요. 보코더를 {1}에서 다운로드해 주세요.</system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder1">보코더 로드 중 오류가 발생했어요 </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">. 다음 링크에서 보코더를 다운로드해 주세요. </system:String>
   <system:String x:Key="errors.editing.autopitch.unsupported">현재 가수는 자동 피치선을 지원하지 않아요. Diffsinger나 Enunu 가수를 사용해 주세요.</system:String>
-  <system:String x:Key="errors.encryptedarchive">암호화된 압축 파일은 지원되지 않아요. 도구 &gt; 환경설정 &gt; 경로에서 가수 폴더를 열고, 수동으로 압축을 해제해 주세요.</system:String>
+  <system:String x:Key="errors.encryptedarchive">암호화된 압축 파일은 지원되지 않아요. 도구 > 환경설정 > 경로에서 가수 폴더를 열고, 수동으로 압축을 해제해 주세요.</system:String>
   <system:String x:Key="errors.expression.abbrlong">줄임말의 글자 수는 한 글자 이상 네 글자 이하여야 해요</system:String>
   <system:String x:Key="errors.expression.abbrset">줄임말은 반드시 설정되어 있어야 해요</system:String>
   <system:String x:Key="errors.expression.abbrunique">줄임말은 유일한 값이어야 해요</system:String>
@@ -185,7 +188,7 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="errors.failed.openfile">열기에 실패했어요</system:String>
   <system:String x:Key="errors.failed.openlocation">위치 열기에 실패했어요</system:String>
   <system:String x:Key="errors.failed.opennewerproject">프로그램의 버전이 프로젝트보다 낮아 파일을 열지 못했어요. OpenUtau를 업데이트해 주세요!</system:String>
-  <system:String x:Key="errors.failed.prerender"></system:String>
+  <!--<system:String x:Key="errors.failed.prerender">Failed to render in the background.</system:String>-->
   <system:String x:Key="errors.failed.render">렌더링에 실패했어요</system:String>
   <system:String x:Key="errors.failed.runeditingmacro">매크로 실행에 실패했어요</system:String>
   <system:String x:Key="errors.failed.save">저장에 실패했어요</system:String>
@@ -198,16 +201,16 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="errors.install.cpp">아래에서 Microsoft Visual C++ 재배포 가능 패키지를 설치해 주세요. https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170</system:String>
   <system:String x:Key="errors.lyrics.regex">정규식에 사용할 수 없는 문자에요</system:String>
   <system:String x:Key="errors.lyrics.regexpreview">- 정규식 오류 -</system:String>
-  <system:String x:Key="errors.resampler.failed.message"></system:String>
-  <system:String x:Key="errors.toast.details"></system:String>
+  <!--<system:String x:Key="errors.resampler.failed.message">Resampler failed to create output file(s). Resampler errors like this are often caused by oto.ini configuration issues. Consider generating a singer error report to check for such issues.</system:String>-->
+  <!--<system:String x:Key="errors.toast.details">(Click here for details)</system:String>-->
 
-  <system:String x:Key="exesetup.installing">설치 중 &quot;{0}&quot;...</system:String>
+  <system:String x:Key="exesetup.installing">설치 중 "{0}"...</system:String>
   <system:String x:Key="exesetup.linux">Linux에서 exe 리샘플러나 웨이브툴을 사용하려면:
 1. {0}에서 wine을 다운로드하세요.
-2. 환경설정 &gt; 고급 &gt; Wine 설치 경로에 wine의 경로를 입력해 주세요.</system:String>
+2. 환경설정 > 고급 > Wine 설치 경로에 wine의 경로를 입력해 주세요.</system:String>
   <system:String x:Key="exesetup.mac">MacOS에서 exe 리샘플러나 웨이브툴을 사용하려면:
 1. 다음 명령어로 wine을 설치하세요.
-2. 환경설정 &gt; 고급 &gt; Wine 설치 경로에 wine의 경로를 입력해 주세요.</system:String>
+2. 환경설정 > 고급 > Wine 설치 경로에 wine의 경로를 입력해 주세요.</system:String>
   <system:String x:Key="exesetup.resampler">리샘플러로 설치하기</system:String>
   <system:String x:Key="exesetup.title">Exe 파일 설치 중...</system:String>
   <system:String x:Key="exesetup.wavtool">웨이브툴로 설치하기</system:String>
@@ -322,7 +325,7 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="menu.tools">도구</system:String>
   <system:String x:Key="menu.tools.clearcache">캐시 삭제</system:String>
   <system:String x:Key="menu.tools.debugwindow">디버그 창</system:String>
-  <system:String x:Key="menu.tools.dependency.install"></system:String>
+  <!--<system:String x:Key="menu.tools.dependency.install">Install Dependency (.oudep)...</system:String>-->
   <system:String x:Key="menu.tools.fullscreen">전체 화면</system:String>
   <system:String x:Key="menu.tools.layout">레이아웃</system:String>
   <system:String x:Key="menu.tools.layout.hsplit11">1:1 수평 배치</system:String>
@@ -351,6 +354,18 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
 문법: 접두사, 접미사</system:String>
   <system:String x:Key="mergevoicebank.setvoicecolor">음색들의 이름을 지정해 주세요. (CLR 표현에 표시됩니다.)</system:String>
   <system:String x:Key="mergevoicebank.title">음원 합치기</system:String>
+
+  <system:String x:Key="mixfx.applyonexport">믹스다운 시 적용</system:String>
+  <system:String x:Key="mixfx.caption">트랙 효과</system:String>
+  <system:String x:Key="mixfx.enabled">이 트랙에 적용</system:String>
+  <system:String x:Key="mixfx.library">라이브러리</system:String>
+  <system:String x:Key="mixfx.library.default">기본값</system:String>
+  <system:String x:Key="mixfx.library.delete">삭제</system:String>
+  <system:String x:Key="mixfx.library.placeholder">저장된 프리셋 선택...</system:String>
+  <system:String x:Key="mixfx.library.save">저장...</system:String>
+  <system:String x:Key="mixfx.preset">프리셋</system:String>
+  <system:String x:Key="mixfx.recommended">기본값으로</system:String>
+  <system:String x:Key="mixfx.recommended.tip">Vocal Air + Gentle compressor + Small Room</system:String>
 
   <system:String x:Key="notedefaults.lyric">가사</system:String>
   <system:String x:Key="notedefaults.lyric.enter">엔터 입력 시</system:String>
@@ -408,7 +423,7 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="packages.caption">패키지 관리자</system:String>
   <system:String x:Key="packages.col.action">작업</system:String>
   <system:String x:Key="packages.col.developer">개발자</system:String>
-  <system:String x:Key="packages.col.id">Id</system:String>
+  <!--<system:String x:Key="packages.col.id">Id</system:String>-->
   <system:String x:Key="packages.col.installed">설치된 버전</system:String>
   <system:String x:Key="packages.col.name">이름</system:String>
   <system:String x:Key="packages.col.version">버전</system:String>
@@ -438,6 +453,8 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="packages.unknownversion">알 수 없는 버전</system:String>
   <system:String x:Key="packages.update">업데이트</system:String>
 
+  <!--<system:String x:Key="phoneme.show.error">Alt + Click to view the full error</system:String>-->
+
   <system:String x:Key="phoneticassistant.caption">음소 도우미</system:String>
   <system:String x:Key="phoneticassistant.copy">복사</system:String>
 
@@ -446,30 +463,30 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="pianoroll.menu.batch.running">일괄 수정 중...</system:String>
   <system:String x:Key="pianoroll.menu.external">외부</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">가사 설정</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">'-' -&gt; '+'</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">'-' -&gt; '+~'</system:String>
+  <!--<system:String x:Key="pianoroll.menu.lyrics.addphonetichints">Add Phonetic Hint</system:String>-->
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">'-' -> '+'</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">'-' -> '+~'</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">가사 편집</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">히라가나 -&gt; 로마자</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">히라가나 -> 로마자</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">이음줄 가사(+~) 삽입</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.javcvtocv">(일본어) VCV -&gt; CV</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.movesuffixtovoicecolor">접미사 -&gt; CLR</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.javcvtocv">(일본어) VCV -> CV</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.movesuffixtovoicecolor">접미사 -> CLR</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removelettersuffix">[제거] 접미사 (글자)</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removephonetichint">[제거] 발음 힌트</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.addphonetichints"></system:String>
   <system:String x:Key="pianoroll.menu.lyrics.removetonesuffix">[제거] 접미사 (음계)</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.romajitohiragana">로마자 -&gt; 히라가나</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.romajitohiragana">로마자 -> 히라가나</system:String>
   <system:String x:Key="pianoroll.menu.notedefaults">노트 기본값</system:String>
   <system:String x:Key="pianoroll.menu.notes">노트</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">[앞 노트 추가] 숨소리</system:String>
   <system:String x:Key="pianoroll.menu.notes.addtaildash">[끝 노트 추가] '-'</system:String>
   <system:String x:Key="pianoroll.menu.notes.addtailrest">[끝 노트 추가] 'R'</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">선택된 노트 잇기</system:String>
-  <system:String x:Key="pianoroll.menu.notes.bakepitch">PITD -&gt; 피치선</system:String>
+  <system:String x:Key="pianoroll.menu.notes.bakepitch">PITD -> 피치선</system:String>
   <system:String x:Key="pianoroll.menu.notes.clear.vibratos">[제거] 비브라토</system:String>
   <system:String x:Key="pianoroll.menu.notes.commonnotecopy">일반 노트로 복사</system:String>
   <system:String x:Key="pianoroll.menu.notes.commonnotepaste">일반 노트로 붙여넣기</system:String>
   <system:String x:Key="pianoroll.menu.notes.fixoverlap">노트 겹침 수정</system:String>
-  <system:String x:Key="pianoroll.menu.notes.hanzitopinyin">(중국어) 한자 -&gt; 병음</system:String>
+  <system:String x:Key="pianoroll.menu.notes.hanzitopinyin">(중국어) 한자 -> 병음</system:String>
   <system:String x:Key="pianoroll.menu.notes.lengthencrossfade">크로스페이드 늘리기</system:String>
   <system:String x:Key="pianoroll.menu.notes.loadrenderedpitch">렌더링된 피치 불러오기</system:String>
   <system:String x:Key="pianoroll.menu.notes.octavedown">한 옥타브 아래로</system:String>
@@ -485,7 +502,7 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="pianoroll.menu.notes.reset.all">[재설정] 모든 노트</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">[재설정] 모든 파라미터</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.exps">[재설정] 모든 표현</system:String>
-  <system:String x:Key="pianoroll.menu.notes.reset.phonemetimings"></system:String>
+  <!--<system:String x:Key="pianoroll.menu.notes.reset.phonemetimings">Reset phoneme timings and envelopes</system:String>-->
   <system:String x:Key="pianoroll.menu.notes.reset.pitchbends">[재설정] 피치선</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.vibratos">[재설정] 비브라토</system:String>
   <system:String x:Key="pianoroll.menu.part">파트</system:String>
@@ -505,7 +522,9 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="pianoroll.snapdiv">스냅 폭</system:String>
   <system:String x:Key="pianoroll.toggle.expressions">표현 보기 (L)</system:String>
   <system:String x:Key="pianoroll.toggle.finalpitch">렌더링된 피치 보기 (R)</system:String>
-  <system:String x:Key="pianoroll.toggle.hidepianoroll"></system:String>
+  <!--<system:String x:Key="pianoroll.toggle.hidepianoroll">Hide Piano Roll</system:String>-->
+  <!--<system:String x:Key="pianoroll.toggle.livepitch.fast">Live Pitch (Fast): auto-regenerate DiffSinger pitch after edits (fastest)</system:String>-->
+  <!--<system:String x:Key="pianoroll.toggle.livepitch.normal">Live Pitch (Normal): auto-regenerate DiffSinger pitch after edits</system:String>-->
   <system:String x:Key="pianoroll.toggle.noteparams">노트 설정 열기 (\)</system:String>
   <system:String x:Key="pianoroll.toggle.overwritepitch">피치 덮어쓰기 모드 활성</system:String>
   <system:String x:Key="pianoroll.toggle.phoneme">음소 보기 (O)</system:String>
@@ -518,8 +537,6 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="pianoroll.toggle.tone">노트음 활성 (Y)</system:String>
   <system:String x:Key="pianoroll.toggle.vibrato">비브라토 보기(U)</system:String>
   <system:String x:Key="pianoroll.toggle.waveform">파형 보기 (W)</system:String>
-  <system:String x:Key="pianoroll.toggle.livepitch.normal"></system:String>
-  <system:String x:Key="pianoroll.toggle.livepitch.fast"></system:String>
   <system:String x:Key="pianoroll.tool.drawpitch">피치 그리기 펜 (Shift + 1)
     피치 그리기: 왼쪽 클릭
     피치 초기화: 오른쪽 클릭
@@ -542,7 +559,10 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
     직선 피치 그리기: 왼쪽 클릭
     피치 초기화: 오른쪽 클릭
     노트 선택: Ctrl + 클릭</system:String>
-  <system:String x:Key="pianoroll.tool.pitchpoint"></system:String>
+  <!--<system:String x:Key="pianoroll.tool.pitchpoint">Pitch Point Tool (5)
+    Left click to add point
+    Drag to move only the point
+    Hold Ctrl to select</system:String>-->
   <system:String x:Key="pianoroll.tool.pitchscurve">피치 S-커브 (Shift + 3)
     S-커브 그리기: 왼쪽 클릭, 조정 모드로 이동
     S-커브 강도 조정: 마우스 이동, 클릭해 적용
@@ -560,10 +580,6 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
 
   <system:String x:Key="prefs.advanced">고급</system:String>
   <system:String x:Key="prefs.advanced.beta">베타 버전 사용</system:String>
-  <system:String x:Key="prefs.channel"></system:String>
-  <system:String x:Key="prefs.channel.stable"></system:String>
-  <system:String x:Key="prefs.channel.beta"></system:String>
-  <system:String x:Key="prefs.channel.alpha"></system:String>
   <system:String x:Key="prefs.advanced.lyricshelper">가사 입력 도우미</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper.brackets">가사 입력 도우미의 대괄호 자동 추가</system:String>
   <system:String x:Key="prefs.advanced.rememberfiletypes">'최근 파일'에 표시할 파일 유형</system:String>
@@ -571,7 +587,7 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="prefs.advanced.resamplerlogging.warn">리샘플러의 결과물을 로그 파일에 저장합니다. UI 및 렌더링의 속도가 느려질 수 있어요.</system:String>
   <system:String x:Key="prefs.advanced.stable">안정화 버전</system:String>
   <system:String x:Key="prefs.advanced.vlabelerpath">vLabeler 설치 경로</system:String>
-  <system:String x:Key="prefs.advanced.wayland"></system:String>
+  <!--<system:String x:Key="prefs.advanced.wayland">Use Wayland</system:String>-->
   <system:String x:Key="prefs.advanced.winepath">Wine 설치 경로 (호환성을 위해 wine을 사용할 시 설정해 주세요)</system:String>
   <system:String x:Key="prefs.appearance">외형</system:String>
   <system:String x:Key="prefs.appearance.customtheme.create.empty">테마 이름은 비워둘 수 없어요.</system:String>
@@ -584,13 +600,13 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="prefs.appearance.degree.numbered">숫자매김 (1 2 3 4 5 6 7)</system:String>
   <system:String x:Key="prefs.appearance.degree.off">미사용</system:String>
   <system:String x:Key="prefs.appearance.degree.solfege">계이름 (do re mi fa sol la ti)</system:String>
-  <system:String x:Key="prefs.appearance.detachpianoroll"></system:String>
+  <!--<system:String x:Key="prefs.appearance.detachpianoroll">Show piano roll in separate window</system:String>-->
   <system:String x:Key="prefs.appearance.diffsingerlangcodehide">음소의 언어 접두사 숨기기</system:String>
   <system:String x:Key="prefs.appearance.lang">언어</system:String>
+  <!--<system:String x:Key="prefs.appearance.notehoverglow">Note hover glow</system:String>-->
+  <!--<system:String x:Key="prefs.appearance.playbacknotebounce">Bounce notes on playback</system:String>-->
+  <!--<system:String x:Key="prefs.appearance.playbacknotehighlight">Highlight notes on playback</system:String>-->
   <system:String x:Key="prefs.appearance.showghostnotes">피아노 롤에 다른 트랙의 노트 표시</system:String>
-  <system:String x:Key="prefs.appearance.notehoverglow"></system:String>
-  <system:String x:Key="prefs.appearance.playbacknotehighlight"></system:String>
-  <system:String x:Key="prefs.appearance.playbacknotebounce"></system:String>
   <system:String x:Key="prefs.appearance.showicon">피아노 롤에 가수 아이콘 표시</system:String>
   <system:String x:Key="prefs.appearance.showportrait">피아노 롤에 가수 스탠딩 표시</system:String>
   <system:String x:Key="prefs.appearance.sortorder">가수 이름 표시 언어</system:String>
@@ -602,7 +618,11 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="prefs.cache.clearonquit">나갈 때 자동으로 캐시 삭제</system:String>
   <system:String x:Key="prefs.cache.diffsingertensorcache">DiffSinger 텐서 캐시</system:String>
   <system:String x:Key="prefs.caption">환경 설정</system:String>
-  <system:String x:Key="prefs.diffsinger">DiffSinger</system:String>
+  <!--<system:String x:Key="prefs.channel">Release Channel</system:String>-->
+  <!--<system:String x:Key="prefs.channel.alpha">Alpha</system:String>-->
+  <!--<system:String x:Key="prefs.channel.beta">Beta</system:String>-->
+  <!--<system:String x:Key="prefs.channel.stable">Stable</system:String>-->
+  <!--<system:String x:Key="prefs.diffsinger">DiffSinger</system:String>-->
   <system:String x:Key="prefs.editing">편집</system:String>
   <system:String x:Key="prefs.general">일반</system:String>
   <system:String x:Key="prefs.note.restart">참고: 설정을 반영하려면 OpenUtau를 재시작하세요.</system:String>
@@ -623,8 +643,8 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="prefs.playback.autoscrollmode.stationarycursor">커서 스크롤</system:String>
   <system:String x:Key="prefs.playback.backend">오디오 백엔드</system:String>
   <system:String x:Key="prefs.playback.backend.auto">자동</system:String>
-  <system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>
-  <system:String x:Key="prefs.playback.backend.sdl3"></system:String>
+  <!--<system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>-->
+  <!--<system:String x:Key="prefs.playback.backend.sdl3">SDL 3</system:String>-->
   <system:String x:Key="prefs.playback.cursorposition">자동 스크롤 여백</system:String>
   <system:String x:Key="prefs.playback.device">오디오 출력 장치</system:String>
   <system:String x:Key="prefs.playback.lockstarttime">일시정지할 때</system:String>
@@ -636,27 +656,27 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="prefs.rendering">렌더링</system:String>
   <system:String x:Key="prefs.rendering.defaultrenderer">기본 렌더러 (Classic 음원용)</system:String>
   <system:String x:Key="prefs.rendering.diffsingerdepth">DiffSinger 렌더링 깊이(Depth)</system:String>
+  <!--<system:String x:Key="prefs.rendering.diffsingerpitchlocalretaking">DiffSinger Pitch Local Retaking</system:String>-->
   <system:String x:Key="prefs.rendering.diffsingersteps">DiffSinger 렌더링 스텝 (Acoustic 모델용)</system:String>
   <system:String x:Key="prefs.rendering.diffsingerstepspitch">DiffSinger 렌더링 스텝 (Pitch 모델용)</system:String>
   <system:String x:Key="prefs.rendering.diffsingerstepsvariance">DiffSinger 렌더링 스텝 (Variance 모델용)</system:String>
-  <system:String x:Key="prefs.rendering.diffsingerpitchlocalretaking"></system:String>
-  <system:String x:Key="prefs.rendering.diffsingervariancelocalpitchpatch"></system:String>
-  <system:String x:Key="prefs.rendering.gamebackend"></system:String>
+  <!--<system:String x:Key="prefs.rendering.diffsingervariancelocalpitchpatch">DiffSinger Local Variance Update for Pitch Edits</system:String>-->
+  <!--<system:String x:Key="prefs.rendering.gamebackend">GAME Inference Backend</system:String>-->
   <system:String x:Key="prefs.rendering.onnxgpu">그래픽 카드(GPU)</system:String>
   <system:String x:Key="prefs.rendering.onnxrunner">머신러닝 실행 장치</system:String>
   <system:String x:Key="prefs.rendering.phasecomp">위상 보정</system:String>
   <system:String x:Key="prefs.rendering.prerender">미리보기용 렌더</system:String>
   <system:String x:Key="prefs.rendering.resampler">리샘플러</system:String>
   <system:String x:Key="prefs.rendering.resampler.morewarn">경고: moresampler 지원은 아직 불완전합니다. 느릴 수 있고, CPU 점유율이 높을 수 있습니다. 계속 사용하시려면 다음을 따라 주세요.
-    1. moreconfig.txt를 열고, &quot;resampler-compatibility&quot;를 &quot;on&quot;으로 설정해 주세요.
-    2. 같은 파일에서, &quot;auto-update-llsm-mrq&quot;을 &quot;off&quot;로 변경합니다.
+    1. moreconfig.txt를 열고, "resampler-compatibility"를 "on"으로 설정해 주세요.
+    2. 같은 파일에서, "auto-update-llsm-mrq"을 "off"로 변경합니다.
     3. moresampler가 누락된 llsm 파일을 생성할 때까지 기다려 주세요.</system:String>
   <system:String x:Key="prefs.rendering.resampler.note">참고: 외부 리샘플러를 사용하려면, OpenUtau 설치 경로 속 Resamplers 폴더에 리샘플러의 DLL 또는 EXE 파일을 넣어 주세요. 그리고 환경 설정에서 리샘플러를 선택합시다.</system:String>
   <system:String x:Key="prefs.rendering.skipmuted">뮤트된 트랙 건너뛰기</system:String>
   <system:String x:Key="prefs.rendering.threads.cpuwarn">경고: 렌더링 스레드가 너무 많아요. OpenUtau가 느려질 수 있습니다.</system:String>
   <system:String x:Key="prefs.rendering.threads.numthreads">최대 스레드 수</system:String>
   <system:String x:Key="prefs.rendering.wavtool">웨이브툴</system:String>
-  <system:String x:Key="prefs.utau">UTAU</system:String>
+  <!--<system:String x:Key="prefs.utau">UTAU</system:String>-->
 
   <system:String x:Key="progress.cachecleared">캐시를 비웠어요.</system:String>
   <system:String x:Key="progress.clearingcache">캐시를 비우고 있어요...</system:String>
@@ -676,7 +696,7 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="singererror.cutoffoverlap">컷오프는 오버랩의 오른쪽에 위치해야 해요.</system:String>
   <system:String x:Key="singererror.cutoffpreutter">컷오프는 프리셋의 오른쪽에 위치해야 해요.</system:String>
   <system:String x:Key="singererror.duplicatealias">중복 에일리어스가 있어요. {0}</system:String>
-  <system:String x:Key="singererror.duplicatename">oto의 &quot;{0}&quot;: {1}에서 대소문자를 미구분한 중복 파일명을 발견했어요.
+  <system:String x:Key="singererror.duplicatename">oto의 "{0}": {1}에서 대소문자를 미구분한 중복 파일명을 발견했어요.
 대소문자를 구분하는 OS에서는 이 음원이 정상 작동하지 않을 수 있어요.</system:String>
   <system:String x:Key="singererror.failedload">음원 로드에 실패했어요.</system:String>
   <system:String x:Key="singererror.invalidduration">길이 {0}은 유효하지 않아요.</system:String>
@@ -762,6 +782,10 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="singersetup.textfileencoding.prompt">텍스트가 정상적으로 보이는 인코딩을 골라 주세요.</system:String>
   <system:String x:Key="singersetup.title">가수 설치</system:String>
 
+  <!--<system:String x:Key="themeeditor.cancel">Cancel</system:String>-->
+  <!--<system:String x:Key="themeeditor.save">Save</system:String>-->
+  <system:String x:Key="themeeditor.title">테마 편집기</system:String>
+
   <system:String x:Key="tip.aliasbox">에일리어스 덮어쓰기</system:String>
   <system:String x:Key="tip.exps">숫자형, 선택지형
     표현 입력하기: 왼쪽 마우스로 긋기
@@ -792,12 +816,13 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
     재생: 스페이스 바</system:String>
   <system:String x:Key="tip.notes.zoomx">◀ 수평 확대 시 여기서 스크롤 ▶</system:String>
   <system:String x:Key="tip.notes.zoomy">수직 확대 시 여기서 스크롤 ▶</system:String>
-  <system:String x:Key="tip.playback.loop"></system:String>
+  <!--<system:String x:Key="tip.playback.loop">Loop playback</system:String>-->
 
   <system:String x:Key="tracks.duplicate">트랙 복제</system:String>
   <system:String x:Key="tracks.duplicatesettings">트랙 설정 복제</system:String>
   <system:String x:Key="tracks.favorite">즐겨찾기</system:String>
   <system:String x:Key="tracks.installsinger">가수 설치</system:String>
+  <system:String x:Key="tracks.mixfx">트랙 효과...</system:String>
   <system:String x:Key="tracks.more">더보기</system:String>
   <system:String x:Key="tracks.movedown">아래로</system:String>
   <system:String x:Key="tracks.moveup">위로</system:String>
@@ -820,11 +845,11 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="tracks.trackcolor">트랙 색상 변경</system:String>
   <system:String x:Key="tracks.tracksettings">트랙 설정</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <!--<FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>-->
 
   <system:String x:Key="updater.caption">업데이트 확인</system:String>
   <system:String x:Key="updater.description">오픈소스 음성 합성 플랫폼</system:String>
-  <system:String x:Key="updater.github">GitHub</system:String>
+  <!--<system:String x:Key="updater.github">GitHub</system:String>-->
   <system:String x:Key="updater.status.available">v{0} 버전 업데이트가 있어요!</system:String>
   <system:String x:Key="updater.status.checking">업데이트를 확인하고 있어요...</system:String>
   <system:String x:Key="updater.status.notavailable">최신 버전</system:String>
@@ -832,7 +857,7 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="updater.update">업데이트</system:String>
 
   <system:String x:Key="warning">경고</system:String>
-  <system:String x:Key="warning.asciipath">OpenUtau 설치 경로 &quot;{0}&quot;에 비 ASCII 문자가 있어요. Exe 리샘플러가 작동하지 않을 수 있습니다.</system:String>
+  <system:String x:Key="warning.asciipath">OpenUtau 설치 경로 "{0}"에 비 ASCII 문자가 있어요. Exe 리샘플러가 작동하지 않을 수 있습니다.</system:String>
   <system:String x:Key="warning.renderer">이 렌더러에 대한 설정이 없습니다.</system:String>
 
   <system:String x:Key="welcome.new">새 프로젝트...</system:String>
@@ -842,23 +867,4 @@ OpenUtau(오픈우타우)는 세련된 사용자 경험과 유연한 음운 지�
   <system:String x:Key="welcome.recent">최근 기록들</system:String>
   <system:String x:Key="welcome.start">시작하기</system:String>
   <system:String x:Key="welcome.template">템플릿</system:String>
-
-  <system:String x:Key="themeeditor.title">테마 편집기</system:String>
-  <system:String x:Key="themeeditor.save"></system:String>
-  <system:String x:Key="themeeditor.cancel"></system:String>
-  <system:String x:Key="phoneme.show.error"></system:String>
-
-  <!-- Mix Effects (post-processing) -->
-  <system:String x:Key="mixfx.caption">트랙 효과</system:String>
-  <system:String x:Key="mixfx.enabled">이 트랙에 적용</system:String>
-  <system:String x:Key="mixfx.preset">프리셋</system:String>
-  <system:String x:Key="mixfx.recommended">기본값으로</system:String>
-  <system:String x:Key="mixfx.recommended.tip">Vocal Air + Gentle compressor + Small Room</system:String>
-  <system:String x:Key="mixfx.applyonexport">믹스다운 시 적용</system:String>
-  <system:String x:Key="mixfx.library">라이브러리</system:String>
-  <system:String x:Key="mixfx.library.placeholder">저장된 프리셋 선택...</system:String>
-  <system:String x:Key="mixfx.library.save">저장...</system:String>
-  <system:String x:Key="mixfx.library.delete">삭제</system:String>
-  <system:String x:Key="mixfx.library.default">기본값</system:String>
-  <system:String x:Key="tracks.mixfx">트랙 효과...</system:String>
 </ResourceDictionary>
