@@ -1,5 +1,8 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--DO NOT modify this file. It is managed autometically.-->
+<!--To contribute to OpenUtau's localization, visit https://crowdin.com/project/oxygen-dioxideopenutau -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="button.apply">適用</system:String>
   <system:String x:Key="button.cancel">キャンセル</system:String>
@@ -21,8 +24,8 @@
   <system:String x:Key="command.exp.edit">表情の編集</system:String>
   <system:String x:Key="command.exp.paste">表情カーブの貼り付け</system:String>
   <system:String x:Key="command.exp.reset">表情のリセット</system:String>
-  <system:String x:Key="command.expressiongraph.edit"></system:String>
-  <system:String x:Key="command.expressiongraph.import"></system:String>
+  <!--<system:String x:Key="command.expressiongraph.edit">Edit expression graphs</system:String>-->
+  <!--<system:String x:Key="command.expressiongraph.import">Import expression graph</system:String>-->
   <system:String x:Key="command.import.audio">オーディオのインポート</system:String>
   <system:String x:Key="command.import.track">トラックのインポート</system:String>
   <system:String x:Key="command.note.add">音符の追加</system:String>
@@ -97,6 +100,7 @@
   <system:String x:Key="context.timeline.deltempo">{0}のテンポ変更を削除</system:String>
   <system:String x:Key="context.timeline.deltimesig">拍子変更を削除</system:String>
 
+  <system:String x:Key="dawintegration.bpmmismatch">DAWプロジェクトのテンポが、このプロジェクトのテンポと一致していません。2つのタイムラインは「秒」単位でのみ一致し、「小節」単位では一致しません。同期を維持するには、テンポを合わせてください。</system:String>
   <system:String x:Key="dawintegration.caption">DAWとの連携</system:String>
   <system:String x:Key="dawintegration.col.apiversion">APIバージョン</system:String>
   <system:String x:Key="dawintegration.col.compatibility">ステータス</system:String>
@@ -106,59 +110,62 @@
   <system:String x:Key="dawintegration.compatible">接続可能</system:String>
   <system:String x:Key="dawintegration.connect">接続する</system:String>
   <system:String x:Key="dawintegration.connected">{0} に接続しました。</system:String>
+  <system:String x:Key="dawintegration.connected.count">{0} 個のプラグインに接続しました。</system:String>
   <system:String x:Key="dawintegration.connecting">接続中...</system:String>
   <system:String x:Key="dawintegration.disconnect">切断する</system:String>
   <system:String x:Key="dawintegration.disconnected">未接続</system:String>
+  <!--<system:String x:Key="dawintegration.guide.caps.1">Automatically follows every edit — the project and each rendered part are sent to the plugin as you work.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.caps.2">One plugin instance per DAW track; choose which OpenUtau track each instance plays from the plugin window or the DAW's automation panel.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.caps.3">Playhead sync — the OpenUtau playhead follows your DAW's transport.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.caps.4">Export-friendly — a DAW bounce waits for parts that are still rendering, so exports match playback.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.caps.header">What it can do</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.caption">How to use</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.download">Download for {0}</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.clap">Install CLAP</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.clap.reinstall">Reinstall CLAP</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.done">Installed to {0}. Rescan plugins in your DAW, then click Refresh here.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.downloading">Downloading... {0}%</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.elevfail">The elevated copy failed ({0}), so the plugin went into the per-user folder {1} instead. Rescan plugins in your DAW, then click Refresh here.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.extracting">Unpacking...</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.failed">Installation failed: {0}</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.fallback">Administrator approval was declined, so the plugin went into the per-user folder {1} instead. Rescan plugins in your DAW, then click Refresh here.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.header">Install the plugin (detected on this machine)</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.preparing">Preparing download...</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.vst3">Install VST3</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.install.vst3.reinstall">Reinstall VST3</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.installed.no">Not installed</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.installed.ok">Installed</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.manual">Full manual</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.manual.zh">使用手册（中文）</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.paths.linux">VST3: ~/.vst3
+CLAP: ~/.clap</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.paths.mac">VST3: ~/Library/Audio/Plug-Ins/VST3
+CLAP: ~/Library/Audio/Plug-Ins/CLAP</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.paths.win">VST3: C:\Program Files\Common Files\VST3
+CLAP: C:\Program Files\Common Files\CLAP
+No administrator rights? Use %LOCALAPPDATA%\Programs\Common\VST3 (or ...\CLAP) instead.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.releases">All releases</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.scope.1">The bridge works on one computer only, and your DAW needs to load VST3 or CLAP instruments (REAPER, Cubase, FL Studio, Studio One, Ableton Live, Bitwig, ...).</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.scope.2">The two timelines align by absolute time — give both projects the same BPM to keep bars aligned.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.scope.3">OpenUtau delivers the vocals only: volume, pan, mute and effects live on the DAW mixer.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.scope.header">Boundaries</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.step1">1. Install the plugin: click an install button above (confirm the administrator prompt if it appears), or download it manually and copy the whole "OpenUtau Bridge.vst3" folder into your DAW's plugin folder:</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.step2">2. In your DAW, add an instrument track and insert "OpenUtau Bridge" (vendor OpenUTAU). Do this while OpenUtau is still closed — the DAW comes first.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.step3">3. Open OpenUtau, save your project, then come back here: Refresh, select the plugin, Connect.</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.steps.header">Setup (three steps)</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.what">OpenUtau Bridge is a free plugin (VST3/CLAP) for your DAW. It receives OpenUtau's project and rendered audio and places them on the DAW's timeline: keep writing and tuning in OpenUtau, and mix in your DAW. It makes no sound by itself and needs no extra setup inside OpenUtau.</system:String>-->
   <system:String x:Key="dawintegration.hint">このPC上で待機しているDAWプラグインに接続します。編集作業はOpenUtauで行い、プロジェクトデータとレンダリングされた音声がプラグインに送信されます。</system:String>
   <system:String x:Key="dawintegration.incompatible">サポートされていないAPIバージョンです</system:String>
   <system:String x:Key="dawintegration.lost">接続が切断されました: {0}</system:String>
-  <system:String x:Key="dawintegration.none"></system:String>
-  <system:String x:Key="dawintegration.none.installed"></system:String>
+  <!--<system:String x:Key="dawintegration.none">No DAW plugin found. Load the OpenUtau Bridge plugin on an instrument track in your DAW, then refresh. New to this? Expand "How to use" above.</system:String>-->
+  <!--<system:String x:Key="dawintegration.none.installed">The bridge plugin is installed, but no running instance was found. Load OpenUtau Bridge on an instrument track in your DAW, then click Refresh.</system:String>-->
   <system:String x:Key="dawintegration.reconnecting">{0} に再接続しています...</system:String>
   <system:String x:Key="dawintegration.refresh">更新する</system:String>
-  <system:String x:Key="dawintegration.unsavedproject">プロジェクトはまだ保存されていません。未保存のプロジェクトはDAWに送信できないため、先にプロジェクトを保存してからDAWプラグインを接続してください。</system:String>
-  <system:String x:Key="dawintegration.bpmmismatch">DAWプロジェクトのテンポが、このプロジェクトのテンポと一致していません。2つのタイムラインは「秒」単位でのみ一致し、「小節」単位では一致しません。同期を維持するには、テンポを合わせてください。</system:String>
   <system:String x:Key="dawintegration.state.connected">接続されました</system:String>
   <system:String x:Key="dawintegration.state.connecting">接続中…</system:String>
-  <system:String x:Key="dawintegration.state.reconnecting">再接続中…</system:String>
   <system:String x:Key="dawintegration.state.free">未接続</system:String>
-  <system:String x:Key="dawintegration.connected.count">{0} 個のプラグインに接続しました。</system:String>
-  <system:String x:Key="dawintegration.guide.caption"></system:String>
-  <system:String x:Key="dawintegration.guide.what"></system:String>
-  <system:String x:Key="dawintegration.guide.caps.header"></system:String>
-  <system:String x:Key="dawintegration.guide.caps.1"></system:String>
-  <system:String x:Key="dawintegration.guide.caps.2"></system:String>
-  <system:String x:Key="dawintegration.guide.caps.3"></system:String>
-  <system:String x:Key="dawintegration.guide.caps.4"></system:String>
-  <system:String x:Key="dawintegration.guide.scope.header"></system:String>
-  <system:String x:Key="dawintegration.guide.scope.1"></system:String>
-  <system:String x:Key="dawintegration.guide.scope.2"></system:String>
-  <system:String x:Key="dawintegration.guide.scope.3"></system:String>
-  <system:String x:Key="dawintegration.guide.steps.header"></system:String>
-  <system:String x:Key="dawintegration.guide.step1"></system:String>
-  <system:String x:Key="dawintegration.guide.step2"></system:String>
-  <system:String x:Key="dawintegration.guide.step3"></system:String>
-  <system:String x:Key="dawintegration.guide.paths.win"></system:String>
-  <system:String x:Key="dawintegration.guide.paths.mac"></system:String>
-  <system:String x:Key="dawintegration.guide.paths.linux"></system:String>
-  <system:String x:Key="dawintegration.guide.download"></system:String>
-  <system:String x:Key="dawintegration.guide.install.header"></system:String>
-  <system:String x:Key="dawintegration.guide.install.clap"></system:String>
-  <system:String x:Key="dawintegration.guide.install.clap.reinstall"></system:String>
-  <system:String x:Key="dawintegration.guide.install.done"></system:String>
-  <system:String x:Key="dawintegration.guide.install.downloading"></system:String>
-  <system:String x:Key="dawintegration.guide.install.extracting"></system:String>
-  <system:String x:Key="dawintegration.guide.install.failed"></system:String>
-  <system:String x:Key="dawintegration.guide.install.fallback"></system:String>
-  <system:String x:Key="dawintegration.guide.install.elevfail"></system:String>
-  <system:String x:Key="dawintegration.guide.install.preparing"></system:String>
-  <system:String x:Key="dawintegration.guide.install.vst3"></system:String>
-  <system:String x:Key="dawintegration.guide.install.vst3.reinstall"></system:String>
-  <system:String x:Key="dawintegration.guide.installed.no"></system:String>
-  <system:String x:Key="dawintegration.guide.installed.ok"></system:String>
-  <system:String x:Key="dawintegration.guide.manual"></system:String>
-  <system:String x:Key="dawintegration.guide.manual.zh"></system:String>
-  <system:String x:Key="dawintegration.guide.releases"></system:String>
+  <system:String x:Key="dawintegration.state.reconnecting">再接続中…</system:String>
+  <system:String x:Key="dawintegration.unsavedproject">プロジェクトはまだ保存されていません。未保存のプロジェクトはDAWに送信できないため、先にプロジェクトを保存してからDAWプラグインを接続してください。</system:String>
 
   <system:String x:Key="debug.clear">クリア</system:String>
   <system:String x:Key="debug.copylog">ログをコピー</system:String>
@@ -225,11 +232,11 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
 
   <system:String x:Key="errors.caption">エラー</system:String>
   <system:String x:Key="errors.details">エラーの詳細</system:String>
-  <system:String x:Key="errors.diffsinger.downloadvocoder">ボコーダー &quot;{0}&quot; のロードに失敗しました。未インストールの場合、以下のURLからダウンロードしてください：{1}</system:String>
+  <system:String x:Key="errors.diffsinger.downloadvocoder">ボコーダー "{0}" のロードに失敗しました。未インストールの場合、以下のURLからダウンロードしてください：{1}</system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder1">ボコーダー </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">のロードに失敗しました。未インストールの場合、以下のURLからダウンロードしてください: </system:String>
   <system:String x:Key="errors.editing.autopitch.unsupported">現在のボイスバンクはピッチカーブの生成に対応していません。この機能はDiffSingerやEnunuのシンガーで使用できます。</system:String>
-  <system:String x:Key="errors.encryptedarchive">パスワード付き圧縮ファイルには対応していません。&quot;ツール &gt; 設定 &gt; ファイルの場所&quot; からSingerフォルダを開き、手動で展開したファイルをここに配置してください。</system:String>
+  <system:String x:Key="errors.encryptedarchive">パスワード付き圧縮ファイルには対応していません。"ツール > 設定 > ファイルの場所" からSingerフォルダを開き、手動で展開したファイルをここに配置してください。</system:String>
   <system:String x:Key="errors.expression.abbrlong">パラメータの略称は1～4文字で入力してください</system:String>
   <system:String x:Key="errors.expression.abbrset">パラメータの略称を入力してください</system:String>
   <system:String x:Key="errors.expression.abbrunique">パラメータの略称が重複しています</system:String>
@@ -257,7 +264,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="errors.failed.save">保存に失敗しました</system:String>
   <system:String x:Key="errors.failed.savesingerconfig">シンガー設定の保存に失敗しました</system:String>
   <system:String x:Key="errors.failed.searchsinger">シンガーの取得に失敗しました</system:String>
-  <system:String x:Key="errors.failed.synth.consonantexceedscutoff"></system:String>
+  <!--<system:String x:Key="errors.failed.synth.consonantexceedscutoff">Oto error: consonant exceeds cutoff</system:String>-->
   <system:String x:Key="errors.failed.synth.cutoffbeforeoffset">原音設定エラー：右ブランクが左ブランクよりも前にあります</system:String>
   <system:String x:Key="errors.failed.synth.cutoffexceedduration">原音設定エラー：右ブランクがオーディオの長さを超えています</system:String>
   <system:String x:Key="errors.failed.transcribe.rmvpe">RMVPE ONNXモデルの読み込みエラーが発生しました。パッケージマネージャーからインストールするか、{0} に rmvpe.onnx を配置してください。</system:String>
@@ -271,83 +278,84 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="exesetup.installing">{0} をインストールします...</system:String>
   <system:String x:Key="exesetup.linux">Linuxでresamplerやwavtoolのexeファイルを使うには、
 1. {0}からwineをインストールします
-2. 設定 &gt; 高度な設定 &gt; Wineの場所 でWineのパスを設定します</system:String>
+2. 設定 > 高度な設定 > Wineの場所 でWineのパスを設定します</system:String>
   <system:String x:Key="exesetup.mac">MacOSでresamplerやwavtoolのexeファイルを使うには、
 1. 以下のコマンドを使用してWineをインストールします
-2. 設定 &gt; 高度な設定 &gt; Wineの場所 でWineのパスを設定します</system:String>
+2. 設定 > 高度な設定 > Wineの場所 でWineのパスを設定します</system:String>
   <system:String x:Key="exesetup.resampler">resampler（エンジン）としてインストール</system:String>
   <system:String x:Key="exesetup.title">Exeファイルのインストール</system:String>
   <system:String x:Key="exesetup.wavtool">wavtoolとしてインストール</system:String>
 
-  <system:String x:Key="expressiongraph.category.input"></system:String>
-  <system:String x:Key="expressiongraph.category.math"></system:String>
-  <system:String x:Key="expressiongraph.category.output"></system:String>
-  <system:String x:Key="expressiongraph.category.time"></system:String>
-  <system:String x:Key="expressiongraph.category.logic"></system:String>
-  <system:String x:Key="expressiongraph.node.time"></system:String>
-  <system:String x:Key="expressiongraph.node.smooth"></system:String>
-  <system:String x:Key="expressiongraph.node.random_range"></system:String>
-  <system:String x:Key="expressiongraph.node.slew"></system:String>
-  <system:String x:Key="expressiongraph.param.speed"></system:String>
-  <system:String x:Key="expressiongraph.param.easing"></system:String>
-  <system:String x:Key="expressiongraph.node.compare"></system:String>
-  <system:String x:Key="expressiongraph.node.and"></system:String>
-  <system:String x:Key="expressiongraph.node.or"></system:String>
-  <system:String x:Key="expressiongraph.node.not"></system:String>
-  <system:String x:Key="expressiongraph.node.if_else"></system:String>
-  <system:String x:Key="expressiongraph.copy"></system:String>
-  <system:String x:Key="expressiongraph.cycle"></system:String>
-  <system:String x:Key="expressiongraph.default"></system:String>
-  <system:String x:Key="expressiongraph.delete"></system:String>
-  <system:String x:Key="expressiongraph.deletenode"></system:String>
-  <system:String x:Key="expressiongraph.duplicate"></system:String>
-  <system:String x:Key="expressiongraph.error"></system:String>
-  <system:String x:Key="expressiongraph.export"></system:String>
-  <system:String x:Key="expressiongraph.graph"></system:String>
-  <system:String x:Key="expressiongraph.hint"></system:String>
-  <system:String x:Key="expressiongraph.hint.nograph"></system:String>
-  <system:String x:Key="expressiongraph.import"></system:String>
-  <system:String x:Key="expressiongraph.import.added"></system:String>
-  <system:String x:Key="expressiongraph.import.conflicts"></system:String>
-  <system:String x:Key="expressiongraph.import.invalid"></system:String>
-  <system:String x:Key="expressiongraph.import.newer"></system:String>
-  <system:String x:Key="expressiongraph.input"></system:String>
-  <system:String x:Key="expressiongraph.missing"></system:String>
-  <system:String x:Key="expressiongraph.name"></system:String>
-  <system:String x:Key="expressiongraph.new"></system:String>
-  <system:String x:Key="expressiongraph.node.abs"></system:String>
-  <system:String x:Key="expressiongraph.node.add"></system:String>
-  <system:String x:Key="expressiongraph.node.clamp"></system:String>
-  <system:String x:Key="expressiongraph.node.constant"></system:String>
-  <system:String x:Key="expressiongraph.node.curve_input"></system:String>
-  <system:String x:Key="expressiongraph.node.curve_output"></system:String>
-  <system:String x:Key="expressiongraph.node.divide"></system:String>
-  <system:String x:Key="expressiongraph.node.lfo"></system:String>
-  <system:String x:Key="expressiongraph.node.map_range"></system:String>
-  <system:String x:Key="expressiongraph.node.masked_curve_input"></system:String>
-  <system:String x:Key="expressiongraph.node.max"></system:String>
-  <system:String x:Key="expressiongraph.node.min"></system:String>
-  <system:String x:Key="expressiongraph.node.mix"></system:String>
-  <system:String x:Key="expressiongraph.node.multiply"></system:String>
-  <system:String x:Key="expressiongraph.node.note_envelope"></system:String>
-  <system:String x:Key="expressiongraph.node.note_position"></system:String>
-  <system:String x:Key="expressiongraph.node.phrase_notes"></system:String>
-  <system:String x:Key="expressiongraph.node.phoneme_input"></system:String>
-  <system:String x:Key="expressiongraph.node.phoneme_output"></system:String>
-  <system:String x:Key="expressiongraph.node.pitch_input"></system:String>
-  <system:String x:Key="expressiongraph.node.pitch_output"></system:String>
-  <system:String x:Key="expressiongraph.node.subtract"></system:String>
-  <system:String x:Key="expressiongraph.noexpression"></system:String>
-  <system:String x:Key="expressiongraph.output"></system:String>
-  <system:String x:Key="expressiongraph.pitchcurve"></system:String>
-  <system:String x:Key="expressiongraph.pitchcurve.pitd"></system:String>
-  <system:String x:Key="expressiongraph.pitchcurve.pito"></system:String>
-  <system:String x:Key="expressiongraph.renderer"></system:String>
-  <system:String x:Key="expressiongraph.tab"></system:String>
-  <system:String x:Key="expressiongraph.unavailable"></system:String>
-  <system:String x:Key="expressiongraph.unknownnode"></system:String>
-  <system:String x:Key="expressiongraph.unused"></system:String>
-  <system:String x:Key="expressiongraph.usedby"></system:String>
+  <!--<system:String x:Key="expressiongraph.category.input">Inputs</system:String>-->
+  <!--<system:String x:Key="expressiongraph.category.logic">Logic</system:String>-->
+  <!--<system:String x:Key="expressiongraph.category.math">Math</system:String>-->
+  <!--<system:String x:Key="expressiongraph.category.output">Outputs</system:String>-->
+  <!--<system:String x:Key="expressiongraph.category.time">Time</system:String>-->
+  <!--<system:String x:Key="expressiongraph.copy">copy</system:String>-->
+  <!--<system:String x:Key="expressiongraph.cycle">That link would make a loop.</system:String>-->
+  <!--<system:String x:Key="expressiongraph.default">Default for this renderer</system:String>-->
+  <!--<system:String x:Key="expressiongraph.delete">Delete</system:String>-->
+  <!--<system:String x:Key="expressiongraph.deletenode">Delete Node</system:String>-->
+  <!--<system:String x:Key="expressiongraph.duplicate">Duplicate</system:String>-->
+  <!--<system:String x:Key="expressiongraph.error">Not used, because</system:String>-->
+  <!--<system:String x:Key="expressiongraph.export">Export...</system:String>-->
+  <!--<system:String x:Key="expressiongraph.graph">graph</system:String>-->
+  <!--<system:String x:Key="expressiongraph.hint">Right-click to add a node. Drag from a node's output to an input to link them.</system:String>-->
+  <!--<system:String x:Key="expressiongraph.hint.nograph">Click New to create a graph for a renderer.</system:String>-->
+  <!--<system:String x:Key="expressiongraph.import">Import...</system:String>-->
+  <!--<system:String x:Key="expressiongraph.import.added">Added expressions</system:String>-->
+  <!--<system:String x:Key="expressiongraph.import.conflicts">Already defined differently in this project, so the project's definitions were kept</system:String>-->
+  <!--<system:String x:Key="expressiongraph.import.invalid">Not an expression graph file</system:String>-->
+  <!--<system:String x:Key="expressiongraph.import.newer">This expression graph file was saved by a newer version of OpenUtau</system:String>-->
+  <!--<system:String x:Key="expressiongraph.input">In</system:String>-->
+  <!--<system:String x:Key="expressiongraph.missing">unavailable</system:String>-->
+  <!--<system:String x:Key="expressiongraph.name">Name</system:String>-->
+  <!--<system:String x:Key="expressiongraph.new">New</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.abs">Abs</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.add">Add</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.and">AND</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.clamp">Clamp</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.compare">Compare</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.constant">Constant</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.curve_input">Curve</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.curve_output">Curve Output</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.divide">Divide</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.if_else">If / Else</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.lfo">LFO</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.map_range">Map Range</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.masked_curve_input">Masked Curve</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.max">Max</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.min">Min</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.mix">Mix</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.multiply">Multiply</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.not">NOT</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.note_envelope">Note Envelope</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.note_position">Position in Note</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.or">OR</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.phoneme_input">Phoneme Expression</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.phoneme_output">Phoneme Expression Output</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.phrase_notes">Phrase Note Counter</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.pitch_input">Pitch</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.pitch_output">Pitch Output</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.random_range">Random Range</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.slew">Rate Limiter</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.smooth">Smooth (Attack / Release)</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.subtract">Subtract</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.time">Project Time</system:String>-->
+  <!--<system:String x:Key="expressiongraph.noexpression">Choose an expression.</system:String>-->
+  <!--<system:String x:Key="expressiongraph.output">Out</system:String>-->
+  <!--<system:String x:Key="expressiongraph.param.easing">Easing</system:String>-->
+  <!--<system:String x:Key="expressiongraph.param.speed">Speed (units/s)</system:String>-->
+  <!--<system:String x:Key="expressiongraph.pitchcurve">Draw and load pitch into</system:String>-->
+  <!--<system:String x:Key="expressiongraph.pitchcurve.pitd">Pitch deviation (PITD)</system:String>-->
+  <!--<system:String x:Key="expressiongraph.pitchcurve.pito">Pitch override (PITO)</system:String>-->
+  <!--<system:String x:Key="expressiongraph.renderer">Renderer</system:String>-->
+  <!--<system:String x:Key="expressiongraph.tab">Graphs</system:String>-->
+  <!--<system:String x:Key="expressiongraph.unavailable">Not available for this graph's renderer.</system:String>-->
+  <!--<system:String x:Key="expressiongraph.unknownnode">Unknown node: this version can't run it.</system:String>-->
+  <!--<system:String x:Key="expressiongraph.unused">No track uses this graph.</system:String>-->
+  <!--<system:String x:Key="expressiongraph.usedby">Used by</system:String>-->
+
   <system:String x:Key="exps.abbr">パラメータの略称</system:String>
   <system:String x:Key="exps.caption">表情</system:String>
   <system:String x:Key="exps.defaultvalue">デフォルト値</system:String>
@@ -363,12 +371,12 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="exps.sepbycomma">カスタム値は ','で区切ってください。</system:String>
   <system:String x:Key="exps.skipoutput">フラグの設定値がデフォルトと同じときフラグを出力しない</system:String>
   <system:String x:Key="exps.systemdefault">システムのデフォルト値</system:String>
-  <system:String x:Key="exps.tab"></system:String>
+  <!--<system:String x:Key="exps.tab">Expressions</system:String>-->
   <system:String x:Key="exps.track">トラックの表情（上書き）</system:String>
   <system:String x:Key="exps.trackdefault">このトラックのデフォルト値</system:String>
   <system:String x:Key="exps.type">タイプ</system:String>
   <system:String x:Key="exps.type.curve">カーブ</system:String>
-  <system:String x:Key="exps.type.maskedcurve"></system:String>
+  <!--<system:String x:Key="exps.type.maskedcurve">Masked Curve</system:String>-->
   <system:String x:Key="exps.type.numerical">数値</system:String>
   <system:String x:Key="exps.type.options">カスタム</system:String>
 
@@ -435,13 +443,13 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="menu.file.exportwavto">別名でWavファイルを出力...</system:String>
   <system:String x:Key="menu.file.importaudio">音声をインポート...</system:String>
   <system:String x:Key="menu.file.importmidi">MIDIをインポート...</system:String>
-  <system:String x:Key="menu.file.importmidi.drywetmidi">DryWetMidi Importer</system:String>
-  <system:String x:Key="menu.file.importmidi.naudio">Naudio Importer</system:String>
+  <!--<system:String x:Key="menu.file.importmidi.drywetmidi">DryWetMidi Importer</system:String>-->
+  <!--<system:String x:Key="menu.file.importmidi.naudio">Naudio Importer</system:String>-->
   <system:String x:Key="menu.file.importtracks">トラックをインポート...</system:String>
   <system:String x:Key="menu.file.new">新規作成</system:String>
   <system:String x:Key="menu.file.newfromtemplate">テンプレートから新規作成</system:String>
   <system:String x:Key="menu.file.open">開く...</system:String>
-  <system:String x:Key="menu.file.openas">Open As</system:String>
+  <!--<system:String x:Key="menu.file.openas">Open As</system:String>-->
   <system:String x:Key="menu.file.openexportlocation">エクスポート先を開く</system:String>
   <system:String x:Key="menu.file.openprojectlocation">プロジェクトの場所を開く</system:String>
   <system:String x:Key="menu.file.openrecent">最近開いたファイル</system:String>
@@ -474,7 +482,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="menu.tools.packages">パッケージの管理...</system:String>
   <system:String x:Key="menu.tools.prefs">設定...</system:String>
   <system:String x:Key="menu.tools.singer.install">シンガーをインストール...</system:String>
-  <system:String x:Key="menu.tools.singer.installadv">Install Singer (Advanced)...</system:String>
+  <!--<system:String x:Key="menu.tools.singer.installadv">Install Singer (Advanced)...</system:String>-->
   <system:String x:Key="menu.tools.singers">シンガー...</system:String>
   <system:String x:Key="menu.tools.wavtoolresampler.install">Wavtool/Resamplerをインストール(.exe)...</system:String>
   <system:String x:Key="menu.view">表示</system:String>
@@ -501,7 +509,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="mixfx.library.save">保存...</system:String>
   <system:String x:Key="mixfx.preset">プリセット</system:String>
   <system:String x:Key="mixfx.recommended">デフォルト設定を適用</system:String>
-  <system:String x:Key="mixfx.recommended.tip">Vocal Air + Gentle compression + Small Room</system:String>
+  <!--<system:String x:Key="mixfx.recommended.tip">Vocal Air + Gentle compression + Small Room</system:String>-->
 
   <system:String x:Key="notedefaults.lyric">歌詞</system:String>
   <system:String x:Key="notedefaults.lyric.enter">入力時</system:String>
@@ -531,7 +539,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="noteproperty">音符のプロパティ</system:String>
   <system:String x:Key="noteproperty.basic">基本</system:String>
   <system:String x:Key="noteproperty.parent.phonemizer">トラックのPhonemizerを使用</system:String>
-  <system:String x:Key="noteproperty.phonemizer">Phonemizer</system:String>
+  <!--<system:String x:Key="noteproperty.phonemizer">Phonemizer</system:String>-->
   <system:String x:Key="noteproperty.set">セット</system:String>
   <system:String x:Key="noteproperty.setlongnote">長い音符のみセットする</system:String>
   <system:String x:Key="noteproperty.tone">音程</system:String>
@@ -539,7 +547,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="noteproperty.vibratoenable">オン</system:String>
 
   <system:String x:Key="oto.alias">エイリアス</system:String>
-  <system:String x:Key="oto.color">Color</system:String>
+  <!--<system:String x:Key="oto.color">Color</system:String>-->
   <system:String x:Key="oto.consonant">子音部</system:String>
   <system:String x:Key="oto.cutoff">右ブランク</system:String>
   <system:String x:Key="oto.edit.consonant">固定範囲</system:String>
@@ -551,10 +559,10 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="oto.offset">左ブランク</system:String>
   <system:String x:Key="oto.overlap">オーバーラップ</system:String>
   <system:String x:Key="oto.phonetic">読み方</system:String>
-  <system:String x:Key="oto.prefix">Prefix</system:String>
+  <!--<system:String x:Key="oto.prefix">Prefix</system:String>-->
   <system:String x:Key="oto.preutter">先行発声</system:String>
   <system:String x:Key="oto.set">セット</system:String>
-  <system:String x:Key="oto.suffix">Suffix</system:String>
+  <!--<system:String x:Key="oto.suffix">Suffix</system:String>-->
 
   <system:String x:Key="packages.caption">パッケージ</system:String>
   <system:String x:Key="packages.col.action">アクション</system:String>
@@ -600,8 +608,8 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="pianoroll.menu.external">OpenUtauプラグイン</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">歌詞</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.addphonetichints">発音のヒントを追加</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">&quot;-&quot; を &quot;+&quot; に置き換え</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">&quot;-&quot; を &quot;+~&quot; に置き換え</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">"-" を "+" に置き換え</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">"-" を "+~" に置き換え</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">歌詞を編集</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">ひらがな→ローマ字</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">歌詞をスラー(+~)にする</system:String>
@@ -614,8 +622,8 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="pianoroll.menu.notedefaults">デフォルト値を設定</system:String>
   <system:String x:Key="pianoroll.menu.notes">音符</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">ブレスを追加</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtaildash">末尾に&quot;-&quot;を追加</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtailrest">末尾に&quot;R&quot;を追加</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtaildash">末尾に"-"を追加</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtailrest">末尾に"R"を追加</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">音符の隙間を埋める</system:String>
   <system:String x:Key="pianoroll.menu.notes.bakepitch">ピッチ曲線（PITD）をピッチ点に変換</system:String>
   <system:String x:Key="pianoroll.menu.notes.clear.vibratos">ビブラートを削除</system:String>
@@ -632,8 +640,8 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="pianoroll.menu.notes.randomizetiming">音符のタイミングをランダムにする</system:String>
   <system:String x:Key="pianoroll.menu.notes.randomizetuning">微分音をランダムにする</system:String>
   <system:String x:Key="pianoroll.menu.notes.refreshrealcurves">表情パネルの実数値表示を更新（DiffSinger）</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetaildash">末尾の&quot;-&quot;を削除</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetailrest">末尾の&quot;R&quot;を削除</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetaildash">末尾の"-"を削除</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetailrest">末尾の"R"を削除</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.aliases">編集したエイリアスをリセット</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.all">音符の全要素をリセット</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">全てのパラメータをリセット</system:String>
@@ -661,7 +669,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="pianoroll.toggle.hidepianoroll">ピアノロールを非表示</system:String>
   <system:String x:Key="pianoroll.toggle.livepitch.fast">ライブピッチ（高速）：編集後にDiffSingerのピッチを自動再生成</system:String>
   <system:String x:Key="pianoroll.toggle.livepitch.normal">ライブピッチ（通常）：編集後にDiffSingerのピッチを自動再生成</system:String>
-  <system:String x:Key="pianoroll.toggle.mergephrases"></system:String>
+  <!--<system:String x:Key="pianoroll.toggle.mergephrases">Auto-merge nearby phrases (DiffSinger)</system:String>-->
   <system:String x:Key="pianoroll.toggle.noteparams">音符のプロパティを表示 (\)</system:String>
   <system:String x:Key="pianoroll.toggle.overwritepitch">ピッチ上書きモードを有効化</system:String>
   <system:String x:Key="pianoroll.toggle.phoneme">音素を表示 (O)</system:String>
@@ -676,25 +684,25 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="pianoroll.toggle.waveform">波形を表示 (W)</system:String>
   <system:String x:Key="pianoroll.tool.curve.cursor">カーソルツール
     左クリックで選択</system:String>
-  <system:String x:Key="pianoroll.tool.curve.pen">ペンツール
-    左クリックで描画
-    右クリックでリセット</system:String>
-  <system:String x:Key="pianoroll.tool.curve.line">直線ツール
-    左クリック：描画（直線を引く）
-    右クリック：リセット</system:String>
   <system:String x:Key="pianoroll.tool.curve.eraser">消しゴムツール
     クリックしてリセット</system:String>
-  <system:String x:Key="pianoroll.tool.curve.verticalstretch">垂直ストレッチツール
-    左クリックでカーブを上下に拡大・縮小
+  <system:String x:Key="pianoroll.tool.curve.horizontalshift">水平移動ツール
+    左クリックでカーブを左右に移動
     右クリックでリセット</system:String>
   <system:String x:Key="pianoroll.tool.curve.horizontalstretch">水平ストレッチツール
     左クリックでカーブを左右に拡大・縮小
     右クリックでリセット</system:String>
+  <system:String x:Key="pianoroll.tool.curve.line">直線ツール
+    左クリック：描画（直線を引く）
+    右クリック：リセット</system:String>
+  <system:String x:Key="pianoroll.tool.curve.pen">ペンツール
+    左クリックで描画
+    右クリックでリセット</system:String>
   <system:String x:Key="pianoroll.tool.curve.verticalshift">垂直シフトツール
     左クリックでカーブを上下に移動
     右クリックでリセット</system:String>
-  <system:String x:Key="pianoroll.tool.curve.horizontalshift">水平移動ツール
-    左クリックでカーブを左右に移動
+  <system:String x:Key="pianoroll.tool.curve.verticalstretch">垂直ストレッチツール
+    左クリックでカーブを上下に拡大・縮小
     右クリックでリセット</system:String>
   <system:String x:Key="pianoroll.tool.drawpitch">ピッチ描画ツール (Shift + 1)
     左クリックで描画
@@ -766,9 +774,9 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="prefs.appearance.notehoverglow">音符をマウスオーバーしたとき光らせる</system:String>
   <system:String x:Key="prefs.appearance.playbacknotebounce">再生中に音符をアニメーション表示する</system:String>
   <system:String x:Key="prefs.appearance.playbacknotehighlight">再生中に音符をハイライトする</system:String>
+  <!--<system:String x:Key="prefs.appearance.reduceanimations">Reduce animations</system:String>-->
   <system:String x:Key="prefs.appearance.showghostnotes">ピアノロール上に他トラックの音符を表示</system:String>
   <system:String x:Key="prefs.appearance.showicon">ピアノロールウィンドウにアイコンを表示</system:String>
-  <system:String x:Key="prefs.appearance.reduceanimations"></system:String>
   <system:String x:Key="prefs.appearance.showportrait">ピアノロール上に背景イラストを表示</system:String>
   <system:String x:Key="prefs.appearance.sortorder">シンガー名の表示言語</system:String>
   <system:String x:Key="prefs.appearance.theme">テーマ</system:String>
@@ -783,7 +791,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="prefs.channel.alpha">アルファ版</system:String>
   <system:String x:Key="prefs.channel.beta">ベータ版</system:String>
   <system:String x:Key="prefs.channel.stable">安定版</system:String>
-  <system:String x:Key="prefs.diffsinger">DiffSinger</system:String>
+  <!--<system:String x:Key="prefs.diffsinger">DiffSinger</system:String>-->
   <system:String x:Key="prefs.editing">編集</system:String>
   <system:String x:Key="prefs.general">一般</system:String>
   <system:String x:Key="prefs.note.restart">Note: この設定を変更した後は、OpenUtauを再起動してください。</system:String>
@@ -796,6 +804,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="prefs.paths.detect">検出</system:String>
   <system:String x:Key="prefs.paths.loaddeepfolders">深い階層のフォルダも読み込む</system:String>
   <system:String x:Key="prefs.paths.singer">Singersフォルダ</system:String>
+  <!--<system:String x:Key="prefs.placeholdertext.none">(None)</system:String>-->
   <system:String x:Key="prefs.playback">再生</system:String>
   <system:String x:Key="prefs.playback.autoscroll">自動スクロール</system:String>
   <system:String x:Key="prefs.playback.autoscrollmode">自動スクロールモード</system:String>
@@ -804,8 +813,8 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="prefs.playback.autoscrollmode.stationarycursor">カーソル追従</system:String>
   <system:String x:Key="prefs.playback.backend">オーディオバックエンド</system:String>
   <system:String x:Key="prefs.playback.backend.auto">自動</system:String>
-  <system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>
-  <system:String x:Key="prefs.playback.backend.sdl3"></system:String>
+  <!--<system:String x:Key="prefs.playback.backend.mini">MiniAudio</system:String>-->
+  <!--<system:String x:Key="prefs.playback.backend.sdl3">SDL 3</system:String>-->
   <system:String x:Key="prefs.playback.cursorposition">カーソルの場所</system:String>
   <system:String x:Key="prefs.playback.device">再生デバイス</system:String>
   <system:String x:Key="prefs.playback.lockstarttime">一時停止した時のカーソル</system:String>
@@ -813,36 +822,35 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="prefs.playback.lockstarttime.on">再生を開始した場所へカーソルと表示位置を戻す</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.onlycursor">再生を開始した場所へカーソルだけを戻す</system:String>
   <system:String x:Key="prefs.playback.metronome">メトロノーム</system:String>
-  <system:String x:Key="prefs.playback.metronome.volume">メトロノームの音量</system:String>
   <system:String x:Key="prefs.playback.metronome.highfrequency">メトロノームの高い音の周波数</system:String>
   <system:String x:Key="prefs.playback.metronome.lowfrequency">メトロノームの低い音の周波数</system:String>
+  <system:String x:Key="prefs.playback.metronome.volume">メトロノームの音量</system:String>
   <system:String x:Key="prefs.playback.systemdefault">システムのデフォルトのオーディオデバイスを使用する</system:String>
   <system:String x:Key="prefs.playback.test">再生テスト</system:String>
   <system:String x:Key="prefs.rendering">レンダリング</system:String>
   <system:String x:Key="prefs.rendering.defaultrenderer">Classic UTAU音源のデフォルトレンダラー</system:String>
-  <system:String x:Key="prefs.rendering.diffsingerdepth">DiffSinger Render Depth</system:String>
+  <!--<system:String x:Key="prefs.rendering.diffsingerdepth">DiffSinger Render Depth</system:String>-->
   <system:String x:Key="prefs.rendering.diffsingersteps">DiffSinger Render Steps：Acoustic</system:String>
   <system:String x:Key="prefs.rendering.diffsingerstepspitch">DiffSinger Render Steps：ピッチ</system:String>
   <system:String x:Key="prefs.rendering.diffsingerstepsvariance">DiffSinger Render Steps：Variance</system:String>
   <system:String x:Key="prefs.rendering.diffsingervariancelocalpitchpatch">ピッチ編集に伴うVarianceを更新する</system:String>
   <system:String x:Key="prefs.rendering.gamebackend">GAME推論バックエンド</system:String>
-  <system:String x:Key="prefs.rendering.mergephrases"></system:String>
-  <system:String x:Key="prefs.rendering.onnxgpu">GPU</system:String>
+  <!--<system:String x:Key="prefs.rendering.mergephrases">Phrase merge time (seconds)</system:String>-->
+  <!--<system:String x:Key="prefs.rendering.onnxgpu">GPU</system:String>-->
   <system:String x:Key="prefs.rendering.onnxrunner">機械学習の実行</system:String>
   <system:String x:Key="prefs.rendering.phasecomp">位相補正</system:String>
   <system:String x:Key="prefs.rendering.prerender">リアルタイムレンダリング</system:String>
-  <system:String x:Key="prefs.rendering.resampler">Resampler</system:String>
+  <!--<system:String x:Key="prefs.rendering.resampler">Resampler</system:String>-->
   <system:String x:Key="prefs.rendering.resampler.morewarn">警告：moresampler は完全にはサポートされていません。動作が遅く、CPU使用率が高くなる可能性があります。使用する場合は、以下の手順を実行してください：
-  1. moreconfig.txt で &quot;resampler-compatibility&quot; を &quot;on&quot; にします。
-  2. moreconfig.txt で &quot;auto-update-llsm-mrq&quot; を &quot;off&quot; にします。
+  1. moreconfig.txt で "resampler-compatibility" を "on" にします。
+  2. moreconfig.txt で "auto-update-llsm-mrq" を "off" にします。
   3. moresampler が不足している llsm ファイルを生成するのを待ちます。</system:String>
   <system:String x:Key="prefs.rendering.resampler.note">Note: エンジンを使用するには、使用したいエンジンのDLLまたはEXEファイルをOpenUTAUフォルダ内のResamplersフォルダに追加し、選択してください。</system:String>
   <system:String x:Key="prefs.rendering.skipmuted">ミュート中のトラックをレンダリングしない</system:String>
   <system:String x:Key="prefs.rendering.threads.cpuwarn">警告：レンダースレッドが多すぎるとOpenUtauの動作が重くなる可能性があります。</system:String>
   <system:String x:Key="prefs.rendering.threads.numthreads">最大レンダースレッド数</system:String>
-  <system:String x:Key="prefs.rendering.wavtool">Wavtool</system:String>
-  <system:String x:Key="prefs.utau">UTAU</system:String>
-  <system:String x:Key="prefs.placeholdertext.none"></system:String>
+  <!--<system:String x:Key="prefs.rendering.wavtool">Wavtool</system:String>-->
+  <!--<system:String x:Key="prefs.utau">UTAU</system:String>-->
 
   <system:String x:Key="progress.cachecleared">キャッシュをクリアしました。</system:String>
   <system:String x:Key="progress.clearingcache">キャッシュをクリア中...</system:String>
@@ -862,7 +870,7 @@ OpenUtauはUTAUコミュニティのためのオープンソースなエディ�
   <system:String x:Key="singererror.cutoffoverlap">右ブランクがオーバーラップよりも左にあります。</system:String>
   <system:String x:Key="singererror.cutoffpreutter">右ブランクが先行発声よりも左にあります。</system:String>
   <system:String x:Key="singererror.duplicatealias">重複したエイリアスがあります。{0}</system:String>
-  <system:String x:Key="singererror.duplicatename">&quot;{0}&quot;に、大文字小文字を区別しないときファイル名が重複するオーディオファイルがあります：{1}
+  <system:String x:Key="singererror.duplicatename">"{0}"に、大文字小文字を区別しないときファイル名が重複するオーディオファイルがあります：{1}
 このボイスバンクはOSによっては動作しない可能性があります。</system:String>
   <system:String x:Key="singererror.failedload">シンガーの読み込みに失敗しました。</system:String>
   <system:String x:Key="singererror.invalidduration">オーディオファイルの長さが不正です：{0}</system:String>
@@ -898,7 +906,7 @@ oto.iniに記載のファイル名：{0}
   <system:String x:Key="singers.errorreport">シンガーのエラーレポートを出力</system:String>
   <system:String x:Key="singers.location">ファイルの場所</system:String>
   <system:String x:Key="singers.merge">他の音源と統合</system:String>
-  <system:String x:Key="singers.oto"></system:String>
+  <!--<system:String x:Key="singers.oto">Oto</system:String>-->
   <system:String x:Key="singers.otoview.moveleft">左へ移動</system:String>
   <system:String x:Key="singers.otoview.moveright">右へ移動</system:String>
   <system:String x:Key="singers.otoview.selectnext">次を選択</system:String>
@@ -922,7 +930,7 @@ oto.iniに記載のファイル名：{0}
   <system:String x:Key="singers.setportrait">背景イラストを設定</system:String>
   <system:String x:Key="singers.setsingertype">シンガータイプを設定</system:String>
   <system:String x:Key="singers.subbanks.clear">クリア</system:String>
-  <system:String x:Key="singers.subbanks.color">Color</system:String>
+  <!--<system:String x:Key="singers.subbanks.color">Color</system:String>-->
   <system:String x:Key="singers.subbanks.color.add">Colorを追加</system:String>
   <system:String x:Key="singers.subbanks.color.remove">Colorを削除</system:String>
   <system:String x:Key="singers.subbanks.color.rename">名前を変更</system:String>
@@ -949,8 +957,8 @@ oto.iniに記載のファイル名：{0}
   <system:String x:Key="singersetup.textfileencoding.prompt">テキストが文字化けしないエンコードを選択してください。</system:String>
   <system:String x:Key="singersetup.title">シンガーのインストール</system:String>
 
-  <system:String x:Key="themeeditor.cancel"></system:String>
-  <system:String x:Key="themeeditor.save"></system:String>
+  <!--<system:String x:Key="themeeditor.cancel">Cancel</system:String>-->
+  <!--<system:String x:Key="themeeditor.save">Save</system:String>-->
   <system:String x:Key="themeeditor.title">テーマエディター</system:String>
 
   <system:String x:Key="tip.aliasbox">エイリアスの手動指定</system:String>
@@ -987,6 +995,9 @@ oto.iniに記載のファイル名：{0}
 
   <system:String x:Key="tracks.duplicate">トラックを複製</system:String>
   <system:String x:Key="tracks.duplicatesettings">トラック設定を複製</system:String>
+  <!--<system:String x:Key="tracks.expressiongraph">Expression Graph</system:String>-->
+  <!--<system:String x:Key="tracks.expressiongraph.default">Renderer default</system:String>-->
+  <!--<system:String x:Key="tracks.expressiongraph.none">none</system:String>-->
   <system:String x:Key="tracks.favorite">お気に入り</system:String>
   <system:String x:Key="tracks.installsinger">シンガーをインストール</system:String>
   <system:String x:Key="tracks.mixfx">トラックエフェクト...</system:String>
@@ -998,20 +1009,17 @@ oto.iniに記載のファイル名：{0}
   <system:String x:Key="tracks.mute.only">このトラックだけミュート</system:String>
   <system:String x:Key="tracks.mute.unmuteall">全トラックのミュートを解除</system:String>
   <system:String x:Key="tracks.nosinger">シンガーがありません</system:String>
-  <system:String x:Key="tracks.nosingermatch"></system:String>
+  <!--<system:String x:Key="tracks.nosingermatch">No matching singer</system:String>-->
   <system:String x:Key="tracks.openaddsingers">シンガーの場所（追加）フォルダを開く</system:String>
-  <system:String x:Key="tracks.openlocation"></system:String>
+  <!--<system:String x:Key="tracks.openlocation">Open location</system:String>-->
   <system:String x:Key="tracks.opensingers">Singersフォルダを開く</system:String>
   <system:String x:Key="tracks.remove">削除</system:String>
-  <system:String x:Key="tracks.removefromrecent"></system:String>
+  <!--<system:String x:Key="tracks.removefromrecent">Remove from recent</system:String>-->
   <system:String x:Key="tracks.rename">トラックの名前を変更</system:String>
-  <system:String x:Key="tracks.searchsinger"></system:String>
-  <system:String x:Key="tracks.searchterms"></system:String>
-  <system:String x:Key="tracks.searchterms.edit"></system:String>
-  <system:String x:Key="tracks.searchterms.prompt"></system:String>
-  <system:String x:Key="tracks.expressiongraph"></system:String>
-  <system:String x:Key="tracks.expressiongraph.default"></system:String>
-  <system:String x:Key="tracks.expressiongraph.none"></system:String>
+  <!--<system:String x:Key="tracks.searchsinger">Search singers</system:String>-->
+  <!--<system:String x:Key="tracks.searchterms">Search terms</system:String>-->
+  <!--<system:String x:Key="tracks.searchterms.edit">Edit search terms...</system:String>-->
+  <!--<system:String x:Key="tracks.searchterms.prompt">Extra words that find this singer, separated by commas.</system:String>-->
   <system:String x:Key="tracks.selectrenderer">レンダラーを選択</system:String>
   <system:String x:Key="tracks.selectsinger">シンガーを選択</system:String>
   <system:String x:Key="tracks.singerdefault">（このシンガーのデフォルト） </system:String>
@@ -1022,11 +1030,11 @@ oto.iniに記載のファイル名：{0}
   <system:String x:Key="tracks.trackcolor">トラックカラーを変更</system:String>
   <system:String x:Key="tracks.tracksettings">トラック設定</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <FontFamily x:Key="ui.fontfamily">Meiryo UI,Hiragino Sans,Segoe UI,San Francisco,Helvetica Neue</FontFamily>
 
   <system:String x:Key="updater.caption">アップデートの確認</system:String>
-  <system:String x:Key="updater.description">Open singing synthesis platform</system:String>
-  <system:String x:Key="updater.github">GitHub</system:String>
+  <!--<system:String x:Key="updater.description">Open singing synthesis platform</system:String>-->
+  <!--<system:String x:Key="updater.github">GitHub</system:String>-->
   <system:String x:Key="updater.status.available">アップデート v{0} が利用できます！</system:String>
   <system:String x:Key="updater.status.checking">アップデートを確認しています...</system:String>
   <system:String x:Key="updater.status.notavailable">最新版を使用中</system:String>
@@ -1034,7 +1042,7 @@ oto.iniに記載のファイル名：{0}
   <system:String x:Key="updater.update">アップデート</system:String>
 
   <system:String x:Key="warning">警告</system:String>
-  <system:String x:Key="warning.asciipath">OpenUtauのファイルパス &quot;{0}&quot; に非ASCII文字が含まれています。 EXE形式のエンジンが動作しない可能性があります。</system:String>
+  <system:String x:Key="warning.asciipath">OpenUtauのファイルパス "{0}" に非ASCII文字が含まれています。 EXE形式のエンジンが動作しない可能性があります。</system:String>
   <system:String x:Key="warning.renderer">このレンダラーには設定項目がありません</system:String>
 
   <system:String x:Key="welcome.new">新規</system:String>
@@ -1044,26 +1052,27 @@ oto.iniに記載のファイル名：{0}
   <system:String x:Key="welcome.recent">最近使用したファイル</system:String>
   <system:String x:Key="welcome.start">開始</system:String>
   <system:String x:Key="welcome.template">テンプレート</system:String>
-  <system:String x:Key="yamleditor.default"></system:String>
-  <system:String x:Key="yamleditor.discarded"></system:String>
-  <system:String x:Key="yamleditor.errors"></system:String>
-  <system:String x:Key="yamleditor.noproblems"></system:String>
-  <system:String x:Key="yamleditor.revert"></system:String>
-  <system:String x:Key="yamleditor.save"></system:String>
-  <system:String x:Key="yamleditor.syntax"></system:String>
-  <system:String x:Key="yamleditor.type.bool"></system:String>
-  <system:String x:Key="yamleditor.type.choice"></system:String>
-  <system:String x:Key="yamleditor.type.integer"></system:String>
-  <system:String x:Key="yamleditor.type.list"></system:String>
-  <system:String x:Key="yamleditor.type.map"></system:String>
-  <system:String x:Key="yamleditor.type.number"></system:String>
-  <system:String x:Key="yamleditor.type.section"></system:String>
-  <system:String x:Key="yamleditor.type.text"></system:String>
-  <system:String x:Key="yamleditor.unknownkey"></system:String>
-  <system:String x:Key="yamleditor.unsaved"></system:String>
-  <system:String x:Key="yamleditor.unsaved.caption"></system:String>
-  <system:String x:Key="yamleditor.unsaved.errors"></system:String>
-  <system:String x:Key="yamleditor.value"></system:String>
-  <system:String x:Key="yamleditor.warnings"></system:String>
-  <system:String x:Key="yamleditor.wrongtype"></system:String>
+
+  <!--<system:String x:Key="yamleditor.default">Default: {0}</system:String>-->
+  <!--<system:String x:Key="yamleditor.discarded">{0} has errors, so it can't be saved. Your changes to it were discarded.</system:String>-->
+  <!--<system:String x:Key="yamleditor.errors">Errors: {0}, warnings: {1}. OpenUtau could not load this file; fix the errors to save.</system:String>-->
+  <!--<system:String x:Key="yamleditor.noproblems">No problems found</system:String>-->
+  <!--<system:String x:Key="yamleditor.revert">Revert</system:String>-->
+  <!--<system:String x:Key="yamleditor.save">Save</system:String>-->
+  <!--<system:String x:Key="yamleditor.syntax">Not valid YAML: {0}</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.bool">true or false</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.choice">one of {0}</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.integer">whole number</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.list">list of {0}</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.map">map of {0}</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.number">number</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.section">section of keys</system:String>-->
+  <!--<system:String x:Key="yamleditor.type.text">text</system:String>-->
+  <!--<system:String x:Key="yamleditor.unknownkey">Unknown key "{0}", which OpenUtau ignores. Check the spelling.</system:String>-->
+  <!--<system:String x:Key="yamleditor.unsaved">Save changes to {0}?</system:String>-->
+  <!--<system:String x:Key="yamleditor.unsaved.caption">Unsaved changes</system:String>-->
+  <!--<system:String x:Key="yamleditor.unsaved.errors">{0} has errors, so it can't be saved. Discard your changes?</system:String>-->
+  <!--<system:String x:Key="yamleditor.value">Value: {0}</system:String>-->
+  <!--<system:String x:Key="yamleditor.warnings">Warnings: {0}. OpenUtau ignores these parts; you can still save.</system:String>-->
+  <!--<system:String x:Key="yamleditor.wrongtype">Expected {0}.</system:String>-->
 </ResourceDictionary>
