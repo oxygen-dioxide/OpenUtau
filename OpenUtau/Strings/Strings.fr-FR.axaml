@@ -1,5 +1,8 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--DO NOT modify this file. It is managed autometically.-->
+<!--To contribute to OpenUtau's localization, visit https://crowdin.com/project/oxygen-dioxideopenutau -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="button.apply">Appliquer</system:String>
   <system:String x:Key="button.cancel">Annuler</system:String>
@@ -97,64 +100,36 @@
   <system:String x:Key="context.timeline.deltempo">Supprimer le changement de tempo à {0}</system:String>
   <system:String x:Key="context.timeline.deltimesig">Supprimer le changement de signature rythmique</system:String>
 
+  <system:String x:Key="dawintegration.bpmmismatch">Le tempo du DAW ne correspond pas à ce projet. Les timelines seront synchronisées en secondes, mais pas en mesures (Bars) — Veuillez synchroniser les BPM.</system:String>
   <system:String x:Key="dawintegration.caption">Intégration DAW</system:String>
-  <system:String x:Key="dawintegration.col.apiversion">API</system:String>
+  <!--<system:String x:Key="dawintegration.col.apiversion">API</system:String>-->
   <system:String x:Key="dawintegration.col.compatibility">État</system:String>
-  <system:String x:Key="dawintegration.col.name">Plugin</system:String>
-  <system:String x:Key="dawintegration.col.port">Port</system:String>
+  <!--<system:String x:Key="dawintegration.col.name">Plugin</system:String>-->
+  <!--<system:String x:Key="dawintegration.col.port">Port</system:String>-->
   <system:String x:Key="dawintegration.col.state">Connexion</system:String>
-  <system:String x:Key="dawintegration.compatible">Compatible</system:String>
+  <!--<system:String x:Key="dawintegration.compatible">Compatible</system:String>-->
   <system:String x:Key="dawintegration.connect">Connecter</system:String>
   <system:String x:Key="dawintegration.connected">Connecté à {0}</system:String>
+  <system:String x:Key="dawintegration.connected.count">Connecté à {0} plugin(s)</system:String>
   <system:String x:Key="dawintegration.connecting">Connexion en cours...</system:String>
   <system:String x:Key="dawintegration.disconnect">Déconnecter</system:String>
   <system:String x:Key="dawintegration.disconnected">Déconnecté</system:String>
-  <system:String x:Key="dawintegration.hint">Connectez-vous au plugin DAW fonctionnant sur cette machine. Les modifications resteront dans OpenUtau ; le plugin recevra le projet et l'audio rendus pour la lecture directe.</system:String>
-  <system:String x:Key="dawintegration.incompatible">Version API non supportée</system:String>
-  <system:String x:Key="dawintegration.lost">Connexion perdue : {0}</system:String>
-  <system:String x:Key="dawintegration.none">Aucun plugin DAW trouvé. Chargez OpenUtau Bridge dans une piste instrument de votre DAW, puis rafraîchissez. Développez &quot;Comment utiliser&quot; pour plus d'infos.</system:String>
-  <system:String x:Key="dawintegration.none.installed">Plugin Bridge installé, mais aucune instance en cours d'exécution trouvée. Veuillez charger OpenUtau Bridge dans une piste de votre DAW, puis rafraîchissez.</system:String>
-  <system:String x:Key="dawintegration.reconnecting">Tentative de reconnexion à {0}...</system:String>
-  <system:String x:Key="dawintegration.refresh">Rafraîchir</system:String>
-  <system:String x:Key="dawintegration.unsavedproject">Le projet n'est pas sauvegardé. Veuillez d'abord enregistrer le projet avant de vous connecter au DAW — les projets non sauvegardés ne peuvent pas envoyer de données.</system:String>
-  <system:String x:Key="dawintegration.bpmmismatch">Le tempo du DAW ne correspond pas à ce projet. Les timelines seront synchronisées en secondes, mais pas en mesures (Bars) — Veuillez synchroniser les BPM.</system:String>
-  <system:String x:Key="dawintegration.state.connected">Connecté</system:String>
-  <system:String x:Key="dawintegration.state.connecting">Connexion</system:String>
-  <system:String x:Key="dawintegration.state.reconnecting">Reconnexion</system:String>
-  <system:String x:Key="dawintegration.state.free">Libre</system:String>
-  <system:String x:Key="dawintegration.connected.count">Connecté à {0} plugin(s)</system:String>
-  <system:String x:Key="dawintegration.guide.caption">Comment utiliser (Guide)</system:String>
-  <system:String x:Key="dawintegration.guide.what">OpenUtau Bridge est un plugin gratuit (VST3/CLAP) pour le mixage dans votre DAW. Il superpose le projet et l'audio rendu d'OpenUtau sur la timeline de votre DAW, vous permettant de composer et de mixer simultanément.</system:String>
-  <system:String x:Key="dawintegration.guide.caps.header">Ce qu'il fait</system:String>
   <system:String x:Key="dawintegration.guide.caps.1">Suivi des modifications — Le projet et chaque partie rendue sont envoyés au plugin en temps réel.</system:String>
   <system:String x:Key="dawintegration.guide.caps.2">Un plugin par piste — Choisissez les pistes OpenUtau lues par chaque instance directement depuis le plugin ou via l'automation du DAW.</system:String>
   <system:String x:Key="dawintegration.guide.caps.3">Synchronisation du curseur (Playhead) — Le curseur d'OpenUtau suivra automatiquement le transport de votre DAW.</system:String>
   <system:String x:Key="dawintegration.guide.caps.4">Export-friendly — Le rendu de l'audio dans le DAW attendra les rendus en attente d'OpenUtau pour un export parfait.</system:String>
-  <system:String x:Key="dawintegration.guide.scope.header">Portée et limitations</system:String>
-  <system:String x:Key="dawintegration.guide.scope.1">Le Bridge fonctionne sur la même machine. Votre DAW doit supporter les instruments VST3 ou CLAP (ex: REAPER, Cubase, FL Studio, Ableton Live).</system:String>
-  <system:String x:Key="dawintegration.guide.scope.2">La synchronisation est basée sur le temps réel. Veuillez régler le même BPM pour les deux projets afin d'aligner les mesures.</system:String>
-  <system:String x:Key="dawintegration.guide.scope.3">OpenUtau n'envoie que les voix brutes : Le volume, le panoramique (Pan) et le muet (Mute) doivent être gérés dans le mixeur du DAW.</system:String>
-  <system:String x:Key="dawintegration.guide.steps.header">Configuration (3 étapes)</system:String>
-  <system:String x:Key="dawintegration.guide.step1">1. Installez le plugin : Cliquez sur installer (accordez les droits d'administrateur si demandé), ou téléchargez le ZIP et copiez &quot;OpenUtau Bridge.vst3&quot; dans le dossier plugins de votre DAW.</system:String>
-  <system:String x:Key="dawintegration.guide.step2">2. Dans votre DAW, ajoutez une piste instrument et insérez &quot;OpenUtau Bridge&quot;. Le DAW doit être ouvert avant de connecter OpenUtau.</system:String>
-  <system:String x:Key="dawintegration.guide.step3">3. Ouvrez OpenUtau, enregistrez votre projet 1 fois. Revenez ici, cliquez sur rafraîchir, sélectionnez le plugin et connectez-vous.</system:String>
-  <system:String x:Key="dawintegration.guide.paths.win">VST3: C:\Program Files\Common Files\VST3
-CLAP: C:\Program Files\Common Files\CLAP
-(Si l'accès administrateur est refusé, il sera installé dans %LOCALAPPDATA%\Programs\Common\...)</system:String>
-  <system:String x:Key="dawintegration.guide.paths.mac">VST3: ~/Library/Audio/Plug-Ins/VST3
-CLAP: ~/Library/Audio/Plug-Ins/CLAP</system:String>
-  <system:String x:Key="dawintegration.guide.paths.linux">VST3: ~/.vst3
-CLAP: ~/.clap</system:String>
+  <system:String x:Key="dawintegration.guide.caps.header">Ce qu'il fait</system:String>
+  <system:String x:Key="dawintegration.guide.caption">Comment utiliser (Guide)</system:String>
   <system:String x:Key="dawintegration.guide.download">Télécharger pour {0}</system:String>
-  <system:String x:Key="dawintegration.guide.install.header">Installer le plugin (Détecté localement)</system:String>
   <system:String x:Key="dawintegration.guide.install.clap">Installer le plugin CLAP</system:String>
   <system:String x:Key="dawintegration.guide.install.clap.reinstall">Réinstaller le plugin CLAP</system:String>
   <system:String x:Key="dawintegration.guide.install.done">Installé dans {0}. Veuillez rescanner les plugins dans votre DAW, puis rafraîchir cette fenêtre.</system:String>
   <system:String x:Key="dawintegration.guide.install.downloading">Téléchargement en cours... {0}%</system:String>
+  <system:String x:Key="dawintegration.guide.install.elevfail">Échec des privilèges admin ({0}). Installé dans le dossier utilisateur {1}. Veuillez rescanner et rafraîchir.</system:String>
   <system:String x:Key="dawintegration.guide.install.extracting">Extraction du package...</system:String>
   <system:String x:Key="dawintegration.guide.install.failed">Échec de l'installation : {0}</system:String>
   <system:String x:Key="dawintegration.guide.install.fallback">Accès administrateur refusé. Installé dans le dossier utilisateur {1}. Veuillez rescanner dans votre DAW et rafraîchir ici.</system:String>
-  <system:String x:Key="dawintegration.guide.install.elevfail">Échec des privilèges admin ({0}). Installé dans le dossier utilisateur {1}. Veuillez rescanner et rafraîchir.</system:String>
+  <system:String x:Key="dawintegration.guide.install.header">Installer le plugin (Détecté localement)</system:String>
   <system:String x:Key="dawintegration.guide.install.preparing">Préparation du téléchargement...</system:String>
   <system:String x:Key="dawintegration.guide.install.vst3">Installer le plugin VST3</system:String>
   <system:String x:Key="dawintegration.guide.install.vst3.reinstall">Réinstaller le plugin VST3</system:String>
@@ -162,7 +137,35 @@ CLAP: ~/.clap</system:String>
   <system:String x:Key="dawintegration.guide.installed.ok">Installé avec succès</system:String>
   <system:String x:Key="dawintegration.guide.manual">Manuel complet</system:String>
   <system:String x:Key="dawintegration.guide.manual.zh">Manuel d'utilisation (Chinois)</system:String>
+  <!--<system:String x:Key="dawintegration.guide.paths.linux">VST3: ~/.vst3
+CLAP: ~/.clap</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.paths.mac">VST3: ~/Library/Audio/Plug-Ins/VST3
+CLAP: ~/Library/Audio/Plug-Ins/CLAP</system:String>-->
+  <system:String x:Key="dawintegration.guide.paths.win">VST3: C:\Program Files\Common Files\VST3
+CLAP: C:\Program Files\Common Files\CLAP
+(Si l'accès administrateur est refusé, il sera installé dans %LOCALAPPDATA%\Programs\Common\...)</system:String>
   <system:String x:Key="dawintegration.guide.releases">Voir toutes les versions disponibles</system:String>
+  <system:String x:Key="dawintegration.guide.scope.1">Le Bridge fonctionne sur la même machine. Votre DAW doit supporter les instruments VST3 ou CLAP (ex: REAPER, Cubase, FL Studio, Ableton Live).</system:String>
+  <system:String x:Key="dawintegration.guide.scope.2">La synchronisation est basée sur le temps réel. Veuillez régler le même BPM pour les deux projets afin d'aligner les mesures.</system:String>
+  <system:String x:Key="dawintegration.guide.scope.3">OpenUtau n'envoie que les voix brutes : Le volume, le panoramique (Pan) et le muet (Mute) doivent être gérés dans le mixeur du DAW.</system:String>
+  <system:String x:Key="dawintegration.guide.scope.header">Portée et limitations</system:String>
+  <system:String x:Key="dawintegration.guide.step1">1. Installez le plugin : Cliquez sur installer (accordez les droits d'administrateur si demandé), ou téléchargez le ZIP et copiez "OpenUtau Bridge.vst3" dans le dossier plugins de votre DAW.</system:String>
+  <system:String x:Key="dawintegration.guide.step2">2. Dans votre DAW, ajoutez une piste instrument et insérez "OpenUtau Bridge". Le DAW doit être ouvert avant de connecter OpenUtau.</system:String>
+  <system:String x:Key="dawintegration.guide.step3">3. Ouvrez OpenUtau, enregistrez votre projet 1 fois. Revenez ici, cliquez sur rafraîchir, sélectionnez le plugin et connectez-vous.</system:String>
+  <system:String x:Key="dawintegration.guide.steps.header">Configuration (3 étapes)</system:String>
+  <system:String x:Key="dawintegration.guide.what">OpenUtau Bridge est un plugin gratuit (VST3/CLAP) pour le mixage dans votre DAW. Il superpose le projet et l'audio rendu d'OpenUtau sur la timeline de votre DAW, vous permettant de composer et de mixer simultanément.</system:String>
+  <system:String x:Key="dawintegration.hint">Connectez-vous au plugin DAW fonctionnant sur cette machine. Les modifications resteront dans OpenUtau ; le plugin recevra le projet et l'audio rendus pour la lecture directe.</system:String>
+  <system:String x:Key="dawintegration.incompatible">Version API non supportée</system:String>
+  <system:String x:Key="dawintegration.lost">Connexion perdue : {0}</system:String>
+  <system:String x:Key="dawintegration.none">Aucun plugin DAW trouvé. Chargez OpenUtau Bridge dans une piste instrument de votre DAW, puis rafraîchissez. Développez "Comment utiliser" pour plus d'infos.</system:String>
+  <system:String x:Key="dawintegration.none.installed">Plugin Bridge installé, mais aucune instance en cours d'exécution trouvée. Veuillez charger OpenUtau Bridge dans une piste de votre DAW, puis rafraîchissez.</system:String>
+  <system:String x:Key="dawintegration.reconnecting">Tentative de reconnexion à {0}...</system:String>
+  <system:String x:Key="dawintegration.refresh">Rafraîchir</system:String>
+  <system:String x:Key="dawintegration.state.connected">Connecté</system:String>
+  <system:String x:Key="dawintegration.state.connecting">Connexion</system:String>
+  <system:String x:Key="dawintegration.state.free">Libre</system:String>
+  <system:String x:Key="dawintegration.state.reconnecting">Reconnexion</system:String>
+  <system:String x:Key="dawintegration.unsavedproject">Le projet n'est pas sauvegardé. Veuillez d'abord enregistrer le projet avant de vous connecter au DAW — les projets non sauvegardés ne peuvent pas envoyer de données.</system:String>
 
   <system:String x:Key="debug.clear">Effacer</system:String>
   <system:String x:Key="debug.copylog">Copier le journal</system:String>
@@ -229,11 +232,11 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
 
   <system:String x:Key="errors.caption">Erreur</system:String>
   <system:String x:Key="errors.details">Détails de l'erreur</system:String>
-  <system:String x:Key="errors.diffsinger.downloadvocoder">Erreur de chargement du Vocoder &quot;{0}&quot;. Veuillez le télécharger depuis {1}</system:String>
+  <system:String x:Key="errors.diffsinger.downloadvocoder">Erreur de chargement du Vocoder "{0}". Veuillez le télécharger depuis {1}</system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder1">Erreur de chargement du Vocoder </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">Veuillez télécharger le Vocoder depuis </system:String>
   <system:String x:Key="errors.editing.autopitch.unsupported">La voix actuelle ne prend pas en charge la génération de courbe de hauteur. Utilisez un chanteur DiffSinger ou Enunu.</system:String>
-  <system:String x:Key="errors.encryptedarchive">Les fichiers protégés par mot de passe ne sont pas pris en charge. Ouvrez le dossier du chanteur via Outils &gt; Préférences &gt; Chemins et extrayez manuellement l'archive.</system:String>
+  <system:String x:Key="errors.encryptedarchive">Les fichiers protégés par mot de passe ne sont pas pris en charge. Ouvrez le dossier du chanteur via Outils > Préférences > Chemins et extrayez manuellement l'archive.</system:String>
   <system:String x:Key="errors.expression.abbrlong">L'abréviation doit comporter entre 1 et 4 caractères.</system:String>
   <system:String x:Key="errors.expression.abbrset">L'abréviation de l'expression doit être définie.</system:String>
   <system:String x:Key="errors.expression.abbrunique">L'abréviation doit être unique.</system:String>
@@ -272,33 +275,22 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="errors.resampler.failed.message">Le rééchantillonneur (Resampler) n'a pas pu créer l'audio. Cela est souvent dû à une configuration oto.ini défectueuse. Envisagez de créer un rapport d'erreur du chanteur pour enquêter.</system:String>
   <system:String x:Key="errors.toast.details">(Cliquez ici pour les détails)</system:String>
 
-  <system:String x:Key="exesetup.installing">Installation de &quot;{0}&quot; en cours...</system:String>
+  <system:String x:Key="exesetup.installing">Installation de "{0}" en cours...</system:String>
   <system:String x:Key="exesetup.linux">Pour utiliser les rééchantillonneurs ou wavtools .exe sous Linux :
 1. Installez wine depuis {0}
-2. Définissez le chemin de wine dans Outils &gt; Préférences &gt; Avancé &gt; Chemin de Wine</system:String>
+2. Définissez le chemin de wine dans Outils > Préférences > Avancé > Chemin de Wine</system:String>
   <system:String x:Key="exesetup.mac">Pour utiliser les rééchantillonneurs ou wavtools .exe sous MacOS :
 1. Installez wine via la ligne de commande
-2. Définissez le chemin de wine dans Outils &gt; Préférences &gt; Avancé &gt; Chemin de Wine</system:String>
+2. Définissez le chemin de wine dans Outils > Préférences > Avancé > Chemin de Wine</system:String>
   <system:String x:Key="exesetup.resampler">Installer en tant que Rééchantillonneur (Resampler)</system:String>
   <system:String x:Key="exesetup.title">Installation du fichier Exe</system:String>
   <system:String x:Key="exesetup.wavtool">Installer en tant que Wavtool</system:String>
 
   <system:String x:Key="expressiongraph.category.input">Entrées (Inputs)</system:String>
+  <system:String x:Key="expressiongraph.category.logic">Logique (Logic)</system:String>
   <system:String x:Key="expressiongraph.category.math">Mathématiques (Math)</system:String>
   <system:String x:Key="expressiongraph.category.output">Sorties (Outputs)</system:String>
   <system:String x:Key="expressiongraph.category.time">Temps (Time)</system:String>
-  <system:String x:Key="expressiongraph.category.logic">Logique (Logic)</system:String>
-  <system:String x:Key="expressiongraph.node.time">Temps du projet (Project Time)</system:String>
-  <system:String x:Key="expressiongraph.node.smooth">Lisse (Smooth: Attack / Release)</system:String>
-  <system:String x:Key="expressiongraph.node.random_range">Plage aléatoire (Random Range)</system:String>
-  <system:String x:Key="expressiongraph.node.slew">Limiteur de taux (Rate Limiter)</system:String>
-  <system:String x:Key="expressiongraph.param.speed">Vitesse (Speed : units/s)</system:String>
-  <system:String x:Key="expressiongraph.param.easing">Lissage (Easing)</system:String>
-  <system:String x:Key="expressiongraph.node.compare">Comparer (Compare)</system:String>
-  <system:String x:Key="expressiongraph.node.and">Et (AND)</system:String>
-  <system:String x:Key="expressiongraph.node.or">Ou (OR)</system:String>
-  <system:String x:Key="expressiongraph.node.not">Non (NOT)</system:String>
-  <system:String x:Key="expressiongraph.node.if_else">Si / Sinon (If / Else)</system:String>
   <system:String x:Key="expressiongraph.copy">Copier</system:String>
   <system:String x:Key="expressiongraph.cycle">Cette connexion créera une boucle infinie.</system:String>
   <system:String x:Key="expressiongraph.default">Valeur par défaut du moteur de rendu</system:String>
@@ -321,11 +313,14 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="expressiongraph.new">Nouveau</system:String>
   <system:String x:Key="expressiongraph.node.abs">Valeur absolue (Abs)</system:String>
   <system:String x:Key="expressiongraph.node.add">Addition (Add)</system:String>
+  <system:String x:Key="expressiongraph.node.and">Et (AND)</system:String>
   <system:String x:Key="expressiongraph.node.clamp">Limiter la plage (Clamp)</system:String>
+  <system:String x:Key="expressiongraph.node.compare">Comparer (Compare)</system:String>
   <system:String x:Key="expressiongraph.node.constant">Constante (Constant)</system:String>
   <system:String x:Key="expressiongraph.node.curve_input">Courbe (Curve)</system:String>
   <system:String x:Key="expressiongraph.node.curve_output">Sortie de la courbe (Curve Output)</system:String>
   <system:String x:Key="expressiongraph.node.divide">Division (Divide)</system:String>
+  <system:String x:Key="expressiongraph.node.if_else">Si / Sinon (If / Else)</system:String>
   <system:String x:Key="expressiongraph.node.lfo">Basse fréquence (LFO)</system:String>
   <system:String x:Key="expressiongraph.node.map_range">Mappage de plage (Map Range)</system:String>
   <system:String x:Key="expressiongraph.node.masked_curve_input">Courbe masquée (Masked Curve)</system:String>
@@ -333,16 +328,24 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="expressiongraph.node.min">Minimum (Min)</system:String>
   <system:String x:Key="expressiongraph.node.mix">Mélanger (Mix)</system:String>
   <system:String x:Key="expressiongraph.node.multiply">Multiplication (Multiply)</system:String>
+  <system:String x:Key="expressiongraph.node.not">Non (NOT)</system:String>
   <system:String x:Key="expressiongraph.node.note_envelope">Enveloppe de la note</system:String>
   <system:String x:Key="expressiongraph.node.note_position">Position dans la note</system:String>
-  <system:String x:Key="expressiongraph.node.phrase_notes">Compteur de notes de la phrase</system:String>
+  <system:String x:Key="expressiongraph.node.or">Ou (OR)</system:String>
   <system:String x:Key="expressiongraph.node.phoneme_input">Expression du phonème</system:String>
   <system:String x:Key="expressiongraph.node.phoneme_output">Sortie de l'expression du phonème</system:String>
+  <system:String x:Key="expressiongraph.node.phrase_notes">Compteur de notes de la phrase</system:String>
   <system:String x:Key="expressiongraph.node.pitch_input">Hauteur (Pitch)</system:String>
   <system:String x:Key="expressiongraph.node.pitch_output">Sortie de la hauteur (Pitch Output)</system:String>
+  <system:String x:Key="expressiongraph.node.random_range">Plage aléatoire (Random Range)</system:String>
+  <system:String x:Key="expressiongraph.node.slew">Limiteur de taux (Rate Limiter)</system:String>
+  <system:String x:Key="expressiongraph.node.smooth">Lisse (Smooth: Attack / Release)</system:String>
   <system:String x:Key="expressiongraph.node.subtract">Soustraction (Subtract)</system:String>
+  <system:String x:Key="expressiongraph.node.time">Temps du projet (Project Time)</system:String>
   <system:String x:Key="expressiongraph.noexpression">Sélectionnez une expression</system:String>
   <system:String x:Key="expressiongraph.output">Sortie (Out)</system:String>
+  <system:String x:Key="expressiongraph.param.easing">Lissage (Easing)</system:String>
+  <system:String x:Key="expressiongraph.param.speed">Vitesse (Speed : units/s)</system:String>
   <system:String x:Key="expressiongraph.pitchcurve">Dessiner et charger la hauteur dans</system:String>
   <system:String x:Key="expressiongraph.pitchcurve.pitd">Déviation de hauteur (PITD)</system:String>
   <system:String x:Key="expressiongraph.pitchcurve.pito">Remplacement de hauteur (PITO)</system:String>
@@ -352,8 +355,9 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="expressiongraph.unknownnode">Nœud inconnu : Cette version ne peut pas l'exécuter.</system:String>
   <system:String x:Key="expressiongraph.unused">Aucune piste n'utilise ce graphe d'expression.</system:String>
   <system:String x:Key="expressiongraph.usedby">Utilisé par (Used by)</system:String>
+
   <system:String x:Key="exps.abbr">Abréviation (Abbr)</system:String>
-  <system:String x:Key="exps.caption">Expressions</system:String>
+  <!--<system:String x:Key="exps.caption">Expressions</system:String>-->
   <system:String x:Key="exps.defaultvalue">Valeur par défaut</system:String>
   <system:String x:Key="exps.flag">Flag du rééchantillonneur</system:String>
   <system:String x:Key="exps.getsuggestions">Ajouter toutes les expressions recommandées</system:String>
@@ -367,19 +371,19 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="exps.sepbycomma">Séparer les valeurs par ','</system:String>
   <system:String x:Key="exps.skipoutput">Ignorer la sortie du flag lorsqu'elle correspond à la valeur par défaut</system:String>
   <system:String x:Key="exps.systemdefault">Défaut du système</system:String>
-  <system:String x:Key="exps.tab">Expressions</system:String>
+  <!--<system:String x:Key="exps.tab">Expressions</system:String>-->
   <system:String x:Key="exps.track">Expression de la piste (Remplacement)</system:String>
   <system:String x:Key="exps.trackdefault">Défaut de la piste</system:String>
-  <system:String x:Key="exps.type">Type</system:String>
+  <!--<system:String x:Key="exps.type">Type</system:String>-->
   <system:String x:Key="exps.type.curve">Courbe (Curve)</system:String>
   <system:String x:Key="exps.type.maskedcurve">Courbe masquée</system:String>
   <system:String x:Key="exps.type.numerical">Numérique</system:String>
-  <system:String x:Key="exps.type.options">Options</system:String>
+  <!--<system:String x:Key="exps.type.options">Options</system:String>-->
 
   <system:String x:Key="languages.de">Allemand (German)</system:String>
   <system:String x:Key="languages.en">Anglais (English)</system:String>
   <system:String x:Key="languages.es">Espagnol (Spanish)</system:String>
-  <system:String x:Key="languages.fil">Filipino</system:String>
+  <!--<system:String x:Key="languages.fil">Filipino</system:String>-->
   <system:String x:Key="languages.fr">Français (French)</system:String>
   <system:String x:Key="languages.invariant">Aucune traduction (Invariant)</system:String>
   <system:String x:Key="languages.it">Italien (Italian)</system:String>
@@ -418,9 +422,9 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="menu.edit.cut">Couper</system:String>
   <system:String x:Key="menu.edit.delete">Supprimer</system:String>
   <system:String x:Key="menu.edit.lockunselectednotes">Verrouiller les notes non sélectionnées</system:String>
-  <system:String x:Key="menu.edit.lockunselectednotes.expressions">Expressions</system:String>
+  <!--<system:String x:Key="menu.edit.lockunselectednotes.expressions">Expressions</system:String>-->
   <system:String x:Key="menu.edit.lockunselectednotes.pitchpoints">Points de hauteur (Pitch Points)</system:String>
-  <system:String x:Key="menu.edit.lockunselectednotes.vibrato">Vibrato</system:String>
+  <!--<system:String x:Key="menu.edit.lockunselectednotes.vibrato">Vibrato</system:String>-->
   <system:String x:Key="menu.edit.paste">Coller</system:String>
   <system:String x:Key="menu.edit.pasteplainnotes">Coller comme notes simples uniquement</system:String>
   <system:String x:Key="menu.edit.redo">Rétablir (Redo)</system:String>
@@ -459,7 +463,7 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="menu.help.reportissue">Signaler un problème</system:String>
   <system:String x:Key="menu.help.wiki">Ouvrir la documentation du Wiki</system:String>
   <system:String x:Key="menu.project">Projet</system:String>
-  <system:String x:Key="menu.project.expressions">Expressions...</system:String>
+  <!--<system:String x:Key="menu.project.expressions">Expressions...</system:String>-->
   <system:String x:Key="menu.project.remaptimeaxis">Ajuster le tempo (En conservant le timing absolu)</system:String>
   <system:String x:Key="menu.tools">Outils</system:String>
   <system:String x:Key="menu.tools.clearcache">Effacer tout le cache</system:String>
@@ -468,13 +472,13 @@ Voulez-vous diviser à la prochaine position libre ?</system:String>
   <system:String x:Key="menu.tools.dependency.install">Installer une dépendance (.oudep)...</system:String>
   <system:String x:Key="menu.tools.fullscreen">Plein écran</system:String>
   <system:String x:Key="menu.tools.layout">Changer la disposition (Layout)</system:String>
-  <system:String x:Key="menu.tools.layout.hsplit11">Horizontal 1:1</system:String>
-  <system:String x:Key="menu.tools.layout.hsplit12">Horizontal 1:2</system:String>
-  <system:String x:Key="menu.tools.layout.hsplit13">Horizontal 1:3</system:String>
+  <!--<system:String x:Key="menu.tools.layout.hsplit11">Horizontal 1:1</system:String>-->
+  <!--<system:String x:Key="menu.tools.layout.hsplit12">Horizontal 1:2</system:String>-->
+  <!--<system:String x:Key="menu.tools.layout.hsplit13">Horizontal 1:3</system:String>-->
   <system:String x:Key="menu.tools.layout.reset">Réinitialiser la disposition</system:String>
-  <system:String x:Key="menu.tools.layout.vsplit11">Vertical 1:1</system:String>
-  <system:String x:Key="menu.tools.layout.vsplit12">Vertical 1:2</system:String>
-  <system:String x:Key="menu.tools.layout.vsplit13">Vertical 1:3</system:String>
+  <!--<system:String x:Key="menu.tools.layout.vsplit11">Vertical 1:1</system:String>-->
+  <!--<system:String x:Key="menu.tools.layout.vsplit12">Vertical 1:2</system:String>-->
+  <!--<system:String x:Key="menu.tools.layout.vsplit13">Vertical 1:3</system:String>-->
   <system:String x:Key="menu.tools.packages">Gestionnaire de paquets (Packages)...</system:String>
   <system:String x:Key="menu.tools.prefs">Préférences...</system:String>
   <system:String x:Key="menu.tools.singer.install">Installer une voix (Singer)...</system:String>
@@ -510,7 +514,7 @@ Format : prefix,suffix</system:String>
   <system:String x:Key="notedefaults.lyric">Paroles</system:String>
   <system:String x:Key="notedefaults.lyric.enter">Sur Entrée</system:String>
   <system:String x:Key="notedefaults.lyric.knife">Avec l'outil Couteau (Knife Tool)</system:String>
-  <system:String x:Key="notedefaults.portamento">Portamento</system:String>
+  <!--<system:String x:Key="notedefaults.portamento">Portamento</system:String>-->
   <system:String x:Key="notedefaults.portamento.length">Longueur de la transition</system:String>
   <system:String x:Key="notedefaults.portamento.start">Point de départ de la transition</system:String>
   <system:String x:Key="notedefaults.preset">Préréglage</system:String>
@@ -520,7 +524,7 @@ Format : prefix,suffix</system:String>
   <system:String x:Key="notedefaults.reset">Réinitialiser tous les paramètres</system:String>
   <system:String x:Key="notedefaults.reset.tooltip">Réinitialise tout à la valeur par défaut.
 Avertissement : Cette action supprimera tous vos préréglages personnalisés.</system:String>
-  <system:String x:Key="notedefaults.vibrato">Vibrato</system:String>
+  <!--<system:String x:Key="notedefaults.vibrato">Vibrato</system:String>-->
   <system:String x:Key="notedefaults.vibrato.autominlength">Longueur minimale de la note</system:String>
   <system:String x:Key="notedefaults.vibrato.autotoggle">Activer le vibrato automatique basé sur la longueur de la note</system:String>
   <system:String x:Key="notedefaults.vibrato.depth">Profondeur d'oscillation (Depth)</system:String>
@@ -542,7 +546,7 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="noteproperty.tuning">Accordage (Tuning)</system:String>
   <system:String x:Key="noteproperty.vibratoenable">Activer</system:String>
 
-  <system:String x:Key="oto.alias">Alias</system:String>
+  <!--<system:String x:Key="oto.alias">Alias</system:String>-->
   <system:String x:Key="oto.color">Couleur vocale</system:String>
   <system:String x:Key="oto.consonant">Consonne (Consonant)</system:String>
   <system:String x:Key="oto.cutoff">Coupure (Cutoff)</system:String>
@@ -561,12 +565,12 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="oto.suffix">Suffixe</system:String>
 
   <system:String x:Key="packages.caption">Gestionnaire de paquets (Packages)</system:String>
-  <system:String x:Key="packages.col.action">Action</system:String>
+  <!--<system:String x:Key="packages.col.action">Action</system:String>-->
   <system:String x:Key="packages.col.developer">Développeur</system:String>
-  <system:String x:Key="packages.col.id">Id</system:String>
+  <!--<system:String x:Key="packages.col.id">Id</system:String>-->
   <system:String x:Key="packages.col.installed">Installation</system:String>
   <system:String x:Key="packages.col.name">Nom du paquet</system:String>
-  <system:String x:Key="packages.col.version">Version</system:String>
+  <!--<system:String x:Key="packages.col.version">Version</system:String>-->
   <system:String x:Key="packages.confirm.install.caption">Installer le paquet</system:String>
   <system:String x:Key="packages.confirm.install.message">Voulez-vous vraiment installer le paquet {0} ?</system:String>
   <system:String x:Key="packages.confirm.uninstall.caption">Désinstaller le paquet</system:String>
@@ -604,8 +608,8 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="pianoroll.menu.external">Outils externes (External)</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">Outils de paroles</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.addphonetichints">Ajouter un guide phonétique</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Remplacer &quot;-&quot; par &quot;+&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Remplacer &quot;-&quot; par &quot;+~&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">Remplacer "-" par "+"</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">Remplacer "-" par "+~"</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">Ouvrir l'éditeur avancé de paroles</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">Convertir Hiragana en Romaji</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">Ajouter une liaison (Slur)</system:String>
@@ -618,7 +622,7 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="pianoroll.menu.notedefaults">Valeurs par défaut des notes</system:String>
   <system:String x:Key="pianoroll.menu.notes">Gérer les notes</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">Ajouter des respirations (Add breath)</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtaildash">Ajouter le symbole &quot;-&quot; à la fin</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtaildash">Ajouter le symbole "-" à la fin</system:String>
   <system:String x:Key="pianoroll.menu.notes.addtailrest">Ajouter une note de repos (R) à la fin</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">Liaison automatique (Auto Legato)</system:String>
   <system:String x:Key="pianoroll.menu.notes.bakepitch">Intégrer le PITD dans le contrôle de la hauteur (Bake pitch)</system:String>
@@ -636,8 +640,8 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="pianoroll.menu.notes.randomizetiming">Aléatoiriser le timing</system:String>
   <system:String x:Key="pianoroll.menu.notes.randomizetuning">Aléatoiriser l'accordage (Tuning)</system:String>
   <system:String x:Key="pianoroll.menu.notes.refreshrealcurves">Actualiser toutes les courbes réelles</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetaildash">Supprimer le &quot;-&quot; à la fin</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetailrest">Supprimer toutes les notes &quot;R&quot; à la fin</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetaildash">Supprimer le "-" à la fin</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetailrest">Supprimer toutes les notes "R" à la fin</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.aliases">Réinitialiser les alias</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.all">Tout réinitialiser</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">Réinitialiser tous les paramètres</system:String>
@@ -672,7 +676,7 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="pianoroll.toggle.phonemizer">Activer/Désactiver l'affichage des balises du Phonémiseur</system:String>
   <system:String x:Key="pianoroll.toggle.pitch">Activer/Désactiver la courbe de hauteur principale</system:String>
   <system:String x:Key="pianoroll.toggle.snap">Activer/Désactiver l'accrochage à la grille (Toggle Snap)</system:String>
-  <system:String x:Key="pianoroll.toggle.snap.auto">Auto</system:String>
+  <!--<system:String x:Key="pianoroll.toggle.snap.auto">Auto</system:String>-->
   <system:String x:Key="pianoroll.toggle.snap.autotriplet">Auto (Triplet supporté)</system:String>
   <system:String x:Key="pianoroll.toggle.tips">Afficher les conseils (Touche T)</system:String>
   <system:String x:Key="pianoroll.toggle.tone">Jouer le son lors du clic sur le Piano Roll (Touche Y)</system:String>
@@ -680,25 +684,25 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="pianoroll.toggle.waveform">Afficher la forme d'onde dans le Piano Roll (Touche W)</system:String>
   <system:String x:Key="pianoroll.tool.curve.cursor">Outil Curseur (Cursor Tool)
     Clic gauche pour sélectionner</system:String>
-  <system:String x:Key="pianoroll.tool.curve.pen">Outil Crayon (Pen Tool)
-    Clic gauche pour dessiner
-    Clic droit pour réinitialiser</system:String>
-  <system:String x:Key="pianoroll.tool.curve.line">Outil Ligne (Line Tool)
-    Clic gauche pour dessiner une ligne droite
-    Clic droit pour réinitialiser</system:String>
   <system:String x:Key="pianoroll.tool.curve.eraser">Outil Gomme (Eraser Tool)
     Clic pour réinitialiser</system:String>
-  <system:String x:Key="pianoroll.tool.curve.verticalstretch">Outil d'étirement vertical (Vertical Stretch)
-    Clic gauche pour étirer
+  <system:String x:Key="pianoroll.tool.curve.horizontalshift">Outil de décalage horizontal (Horizontal Shift)
+    Clic gauche pour déplacer
     Clic droit pour réinitialiser</system:String>
   <system:String x:Key="pianoroll.tool.curve.horizontalstretch">Outil d'étirement horizontal (Horizontal Stretch)
     Clic gauche pour étirer
     Clic droit pour réinitialiser</system:String>
+  <system:String x:Key="pianoroll.tool.curve.line">Outil Ligne (Line Tool)
+    Clic gauche pour dessiner une ligne droite
+    Clic droit pour réinitialiser</system:String>
+  <system:String x:Key="pianoroll.tool.curve.pen">Outil Crayon (Pen Tool)
+    Clic gauche pour dessiner
+    Clic droit pour réinitialiser</system:String>
   <system:String x:Key="pianoroll.tool.curve.verticalshift">Outil de décalage vertical (Vertical Shift)
     Clic gauche pour déplacer
     Clic droit pour réinitialiser</system:String>
-  <system:String x:Key="pianoroll.tool.curve.horizontalshift">Outil de décalage horizontal (Horizontal Shift)
-    Clic gauche pour déplacer
+  <system:String x:Key="pianoroll.tool.curve.verticalstretch">Outil d'étirement vertical (Vertical Stretch)
+    Clic gauche pour étirer
     Clic droit pour réinitialiser</system:String>
   <system:String x:Key="pianoroll.tool.drawpitch">Outil de dessin de hauteur (Touche 4)
     Clic gauche pour dessiner
@@ -746,10 +750,10 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="prefs.advanced.defaultsnapcurve">Lier la courbe par défaut (Snap)</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper">Assistant de paroles</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper.brackets">Ajouter automatiquement des parenthèses</system:String>
-  <system:String x:Key="prefs.advanced.rememberfiletypes">Se souvenir de ces formats dans &quot;Projets récents&quot;</system:String>
+  <system:String x:Key="prefs.advanced.rememberfiletypes">Se souvenir de ces formats dans "Projets récents"</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging">Enregistrement des journaux du rééchantillonneur (Logging)</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging.warn">Enregistrer les logs du Resampler. L'activation de cette option ralentira l'interface et le rendu.</system:String>
-  <system:String x:Key="prefs.advanced.stable">Stable</system:String>
+  <!--<system:String x:Key="prefs.advanced.stable">Stable</system:String>-->
   <system:String x:Key="prefs.advanced.vlabelerpath">Chemin de vLabeler (Path)</system:String>
   <system:String x:Key="prefs.advanced.wayland">Utiliser Wayland (Linux uniquement)</system:String>
   <system:String x:Key="prefs.advanced.winepath">Chemin de Wine (Pour la compatibilité croisée sous Linux/MacOS)</system:String>
@@ -770,23 +774,23 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="prefs.appearance.notehoverglow">Effet de surbrillance au survol d'une note</system:String>
   <system:String x:Key="prefs.appearance.playbacknotebounce">Animation de rebond des notes pendant la lecture</system:String>
   <system:String x:Key="prefs.appearance.playbacknotehighlight">Surligner les notes pendant la lecture</system:String>
+  <system:String x:Key="prefs.appearance.reduceanimations">Réduire les animations</system:String>
   <system:String x:Key="prefs.appearance.showghostnotes">Afficher les notes fantômes des autres pistes</system:String>
   <system:String x:Key="prefs.appearance.showicon">Toujours afficher l'icône dans le Piano Roll</system:String>
-  <system:String x:Key="prefs.appearance.reduceanimations">Réduire les animations</system:String>
   <system:String x:Key="prefs.appearance.showportrait">Afficher le portrait du chanteur dans le Piano Roll</system:String>
   <system:String x:Key="prefs.appearance.sortorder">Langue de tri des noms de chanteurs</system:String>
   <system:String x:Key="prefs.appearance.theme">Thème</system:String>
   <system:String x:Key="prefs.appearance.theme.dark">Sombre (Dark)</system:String>
   <system:String x:Key="prefs.appearance.theme.light">Clair (Light)</system:String>
   <system:String x:Key="prefs.appearance.trackcolor">Utiliser la couleur de la piste pour le design UI</system:String>
-  <system:String x:Key="prefs.cache">Cache</system:String>
+  <!--<system:String x:Key="prefs.cache">Cache</system:String>-->
   <system:String x:Key="prefs.cache.clearonquit">Vider le cache automatiquement à la fermeture</system:String>
   <system:String x:Key="prefs.cache.diffsingertensorcache">Utiliser le cache Tensor pour DiffSinger AI</system:String>
   <system:String x:Key="prefs.caption">Préférences</system:String>
   <system:String x:Key="prefs.channel">Canal de mise à jour</system:String>
-  <system:String x:Key="prefs.channel.alpha">Alpha</system:String>
+  <!--<system:String x:Key="prefs.channel.alpha">Alpha</system:String>-->
   <system:String x:Key="prefs.channel.beta">Bêta</system:String>
-  <system:String x:Key="prefs.channel.stable">Stable</system:String>
+  <!--<system:String x:Key="prefs.channel.stable">Stable</system:String>-->
   <system:String x:Key="prefs.diffsinger">DiffSinger AI</system:String>
   <system:String x:Key="prefs.editing">Outils d'édition</system:String>
   <system:String x:Key="prefs.general">Général</system:String>
@@ -800,6 +804,7 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="prefs.paths.detect">Recherche automatique</system:String>
   <system:String x:Key="prefs.paths.loaddeepfolders">Charger tous les sous-dossiers imbriqués</system:String>
   <system:String x:Key="prefs.paths.singer">Chemin principal des chanteurs</system:String>
+  <system:String x:Key="prefs.placeholdertext.none">(Aucun)</system:String>
   <system:String x:Key="prefs.playback">Lecture (Playback)</system:String>
   <system:String x:Key="prefs.playback.autoscroll">Défilement automatique (Auto-Scroll)</system:String>
   <system:String x:Key="prefs.playback.autoscrollmode">Mode de défilement</system:String>
@@ -809,7 +814,7 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="prefs.playback.backend">Pilote audio (Audio Backend)</system:String>
   <system:String x:Key="prefs.playback.backend.auto">Automatique</system:String>
   <system:String x:Key="prefs.playback.backend.mini">MiniAudio (Pour les PC peu performants)</system:String>
-  <system:String x:Key="prefs.playback.backend.sdl3">SDL 3</system:String>
+  <!--<system:String x:Key="prefs.playback.backend.sdl3">SDL 3</system:String>-->
   <system:String x:Key="prefs.playback.cursorposition">Position du curseur</system:String>
   <system:String x:Key="prefs.playback.device">Périphérique de lecture (Playback Device)</system:String>
   <system:String x:Key="prefs.playback.lockstarttime">Lorsqu'en pause (On Pausing)</system:String>
@@ -817,9 +822,9 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="prefs.playback.lockstarttime.on">Retourner à la position de départ (Fenêtre et curseur)</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.onlycursor">Retourner le curseur uniquement</system:String>
   <system:String x:Key="prefs.playback.metronome">Métronome</system:String>
-  <system:String x:Key="prefs.playback.metronome.volume">Volume du métronome</system:String>
   <system:String x:Key="prefs.playback.metronome.highfrequency">Fréquence haute du métronome</system:String>
   <system:String x:Key="prefs.playback.metronome.lowfrequency">Fréquence basse du métronome</system:String>
+  <system:String x:Key="prefs.playback.metronome.volume">Volume du métronome</system:String>
   <system:String x:Key="prefs.playback.systemdefault">Utiliser le périphérique système par défaut</system:String>
   <system:String x:Key="prefs.playback.test">Tester l'audio</system:String>
   <system:String x:Key="prefs.rendering">Paramètres de Rendu</system:String>
@@ -837,8 +842,8 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="prefs.rendering.prerender">Activer le pré-rendu automatique (Pre-render)</system:String>
   <system:String x:Key="prefs.rendering.resampler">Rééchantillonneur (Resampler) (Monde VCCV)</system:String>
   <system:String x:Key="prefs.rendering.resampler.morewarn">Attention : MORESAMPLER n'est pas entièrement supporté. Il peut être lent et consommer beaucoup de CPU. Si vous souhaitez l'utiliser :
-  1. Activez &quot;resampler-compatibility&quot; (on) dans moreconfig.txt
-  2. Désactivez &quot;auto-update-llsm-mrq&quot; (off) dans moreconfig.txt
+  1. Activez "resampler-compatibility" (on) dans moreconfig.txt
+  2. Désactivez "auto-update-llsm-mrq" (off) dans moreconfig.txt
   3. Attendez patiemment qu'il génère tous les fichiers llsm.</system:String>
   <system:String x:Key="prefs.rendering.resampler.note">Note : Placez toujours les fichiers .exe ou .dll externes dans le dossier Resamplers d'OpenUtau avant de les sélectionner.</system:String>
   <system:String x:Key="prefs.rendering.skipmuted">Ignorer le rendu des pistes muettes pour économiser le CPU</system:String>
@@ -846,7 +851,6 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="prefs.rendering.threads.numthreads">Limite maximale de threads de rendu (Max Render Threads)</system:String>
   <system:String x:Key="prefs.rendering.wavtool">Moteur d'assemblage Wavtool</system:String>
   <system:String x:Key="prefs.utau">Paramètres UTAU classiques</system:String>
-  <system:String x:Key="prefs.placeholdertext.none">(Aucun)</system:String>
 
   <system:String x:Key="progress.cachecleared">Le cache a été vidé avec succès.</system:String>
   <system:String x:Key="progress.clearingcache">Vidage du cache en cours...</system:String>
@@ -866,7 +870,7 @@ Avertissement : Cette action supprimera tous vos préréglages personnalisés.</
   <system:String x:Key="singererror.cutoffoverlap">La coupure (Cutoff) doit être à droite du chevauchement (Overlap).</system:String>
   <system:String x:Key="singererror.cutoffpreutter">La coupure (Cutoff) doit être à droite de la pré-prononciation (Preutter).</system:String>
   <system:String x:Key="singererror.duplicatealias">L'alias est dupliqué dans la banque vocale ! Veuillez le renommer : {0}</system:String>
-  <system:String x:Key="singererror.duplicatename">Nom de fichier dupliqué détecté (en ignorant la casse) dans le fichier oto &quot;{0}&quot; : {1}
+  <system:String x:Key="singererror.duplicatename">Nom de fichier dupliqué détecté (en ignorant la casse) dans le fichier oto "{0}" : {1}
 Cette banque pourrait ne pas fonctionner sur d'autres systèmes d'exploitation.</system:String>
   <system:String x:Key="singererror.failedload">Échec du chargement de la banque du chanteur.</system:String>
   <system:String x:Key="singererror.invalidduration">Durée invalide trouvée : {0}</system:String>
@@ -897,12 +901,12 @@ Veuillez corriger la casse pour garantir la compatibilité multi-OS.</system:Str
   <system:String x:Key="singers.editoto.reset">Réinitialiser les Otos</system:String>
   <system:String x:Key="singers.editoto.save">Enregistrer tous les Otos</system:String>
   <system:String x:Key="singers.editoto.searchalias">Rechercher un Alias</system:String>
-  <system:String x:Key="singers.editoto.setsetparampath">Veuillez télécharger setParam (v4.0b ou plus) sur http://nwp8861.blog92.fc2.com/ et le configurer dans Outils &gt; Préférences &gt; Avancé !</system:String>
-  <system:String x:Key="singers.editoto.setvlabelerpath">Téléchargez vLabeler (1.0.0-beta1 ou plus) sur https://github.com/sdercolin/vlabeler et configurez-le dans Préférences &gt; Avancé.</system:String>
+  <system:String x:Key="singers.editoto.setsetparampath">Veuillez télécharger setParam (v4.0b ou plus) sur http://nwp8861.blog92.fc2.com/ et le configurer dans Outils > Préférences > Avancé !</system:String>
+  <system:String x:Key="singers.editoto.setvlabelerpath">Téléchargez vLabeler (1.0.0-beta1 ou plus) sur https://github.com/sdercolin/vlabeler et configurez-le dans Préférences > Avancé.</system:String>
   <system:String x:Key="singers.errorreport">Rapport d'erreur du chanteur</system:String>
   <system:String x:Key="singers.location">Emplacement</system:String>
   <system:String x:Key="singers.merge">Fusionner avec un autre chanteur</system:String>
-  <system:String x:Key="singers.oto">Oto</system:String>
+  <!--<system:String x:Key="singers.oto">Oto</system:String>-->
   <system:String x:Key="singers.otoview.moveleft">Déplacer à gauche</system:String>
   <system:String x:Key="singers.otoview.moveright">Déplacer à droite</system:String>
   <system:String x:Key="singers.otoview.selectnext">Sélectionner le suivant</system:String>
@@ -991,6 +995,9 @@ Général
 
   <system:String x:Key="tracks.duplicate">Dupliquer la piste</system:String>
   <system:String x:Key="tracks.duplicatesettings">Dupliquer les paramètres de la piste</system:String>
+  <system:String x:Key="tracks.expressiongraph">Graphe d'expression (Expression Graph)</system:String>
+  <system:String x:Key="tracks.expressiongraph.default">Défaut du moteur de rendu</system:String>
+  <system:String x:Key="tracks.expressiongraph.none">Aucun (None)</system:String>
   <system:String x:Key="tracks.favorite">Favoris</system:String>
   <system:String x:Key="tracks.installsinger">Installer un chanteur</system:String>
   <system:String x:Key="tracks.mixfx">Effets de piste (Track Polish)</system:String>
@@ -1013,20 +1020,17 @@ Général
   <system:String x:Key="tracks.searchterms">Termes de recherche (Search terms)</system:String>
   <system:String x:Key="tracks.searchterms.edit">Modifier les termes de recherche...</system:String>
   <system:String x:Key="tracks.searchterms.prompt">Mots-clés séparés par des virgules pour trouver ce chanteur</system:String>
-  <system:String x:Key="tracks.expressiongraph">Graphe d'expression (Expression Graph)</system:String>
-  <system:String x:Key="tracks.expressiongraph.default">Défaut du moteur de rendu</system:String>
-  <system:String x:Key="tracks.expressiongraph.none">Aucun (None)</system:String>
   <system:String x:Key="tracks.selectrenderer">Sélectionner le moteur de rendu</system:String>
   <system:String x:Key="tracks.selectsinger">Sélectionner un chanteur</system:String>
   <system:String x:Key="tracks.singerdefault">(Par défaut du chanteur) </system:String>
-  <system:String x:Key="tracks.solo">Solo</system:String>
+  <!--<system:String x:Key="tracks.solo">Solo</system:String>-->
   <system:String x:Key="tracks.solo.add">Ajouter au Solo (Conserver les autres pistes en Solo)</system:String>
   <system:String x:Key="tracks.solo.only">Solo uniquement cette piste (Annuler le Solo des autres)</system:String>
   <system:String x:Key="tracks.solo.unsoloall">Désactiver le Solo sur toutes les pistes</system:String>
   <system:String x:Key="tracks.trackcolor">Changer la couleur de la piste</system:String>
   <system:String x:Key="tracks.tracksettings">Paramètres de la piste</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <!--<FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>-->
 
   <system:String x:Key="updater.caption">Recherche de mise à jour</system:String>
   <system:String x:Key="updater.description">Logiciel libre de synthèse de chant</system:String>
@@ -1038,14 +1042,17 @@ Général
   <system:String x:Key="updater.update">Mettre à jour</system:String>
 
   <system:String x:Key="warning">Avertissement</system:String>
-  <system:String x:Key="warning.asciipath">Le chemin de votre installation OpenUtau est &quot;{0}&quot; et contient des caractères non-anglais (Non-ASCII). 
+  <system:String x:Key="warning.asciipath">Le chemin de votre installation OpenUtau est "{0}" et contient des caractères non-anglais (Non-ASCII). 
 Cela empêchera les rééchantillonneurs de fonctionner correctement. Déplacez le programme dans un dossier ne contenant que des caractères anglais.</system:String>
   <system:String x:Key="warning.renderer">Aucun paramètre de configuration n'a été trouvé pour ce moteur de rendu audio.</system:String>
-  <system:String x:Key="warnings"></system:String>
-  <system:String x:Key="warnings.clear"></system:String>
-  <system:String x:Key="warnings.dismiss"></system:String>
-  <system:String x:Key="warnings.singers.duplicate"></system:String>
-  <system:String x:Key="warnings.singers.duplicate.detail"></system:String>
+
+  <!--<system:String x:Key="warnings">Warnings</system:String>-->
+  <!--<system:String x:Key="warnings.clear">Clear all</system:String>-->
+  <!--<system:String x:Key="warnings.dismiss">Dismiss</system:String>-->
+  <!--<system:String x:Key="warnings.singers.duplicate">Duplicate voicebank folder "{0}"</system:String>-->
+  <!--<system:String x:Key="warnings.singers.duplicate.detail">Using: {1}
+Ignored: {2}
+Rename the ignored folder to load it.</system:String>-->
 
   <system:String x:Key="welcome.new">Nouveau</system:String>
   <system:String x:Key="welcome.new.description">Créer un nouveau projet musical</system:String>
@@ -1054,6 +1061,7 @@ Cela empêchera les rééchantillonneurs de fonctionner correctement. Déplacez 
   <system:String x:Key="welcome.recent">Récents</system:String>
   <system:String x:Key="welcome.start">Démarrer</system:String>
   <system:String x:Key="welcome.template">Modèle (Template)</system:String>
+
   <system:String x:Key="yamleditor.default">Défaut : {0}</system:String>
   <system:String x:Key="yamleditor.discarded">{0} contient des erreurs et ne peut pas être enregistré. Vos modifications ont été annulées.</system:String>
   <system:String x:Key="yamleditor.errors">Erreurs : {0}, Avertissements : {1}. OpenUtau ne peut pas charger ce fichier ; veuillez corriger les erreurs pour enregistrer.</system:String>
@@ -1069,7 +1077,7 @@ Cela empêchera les rééchantillonneurs de fonctionner correctement. Déplacez 
   <system:String x:Key="yamleditor.type.number">Nombre (Number)</system:String>
   <system:String x:Key="yamleditor.type.section">Section de clés</system:String>
   <system:String x:Key="yamleditor.type.text">Texte</system:String>
-  <system:String x:Key="yamleditor.unknownkey">Clé inconnue &quot;{0}&quot;. OpenUtau l'ignorera. Vérifiez l'orthographe.</system:String>
+  <system:String x:Key="yamleditor.unknownkey">Clé inconnue "{0}". OpenUtau l'ignorera. Vérifiez l'orthographe.</system:String>
   <system:String x:Key="yamleditor.unsaved">Voulez-vous enregistrer les modifications dans {0} ?</system:String>
   <system:String x:Key="yamleditor.unsaved.caption">Modifications non enregistrées</system:String>
   <system:String x:Key="yamleditor.unsaved.errors">{0} contient des erreurs et ne peut pas être enregistré. Voulez-vous annuler vos modifications ?</system:String>
