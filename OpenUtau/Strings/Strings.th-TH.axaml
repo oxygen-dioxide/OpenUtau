@@ -1,5 +1,8 @@
-﻿<?xml version="1.0"?>
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--DO NOT modify this file. It is managed autometically.-->
+<!--To contribute to OpenUtau's localization, visit https://crowdin.com/project/oxygen-dioxideopenutau -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <system:String x:Key="button.apply">นำไปใช้</system:String>
   <system:String x:Key="button.cancel">ยกเลิก</system:String>
@@ -97,8 +100,9 @@
   <system:String x:Key="context.timeline.deltempo">ลบการเปลี่ยนจังหวะ (Tempo) ที่ {0}</system:String>
   <system:String x:Key="context.timeline.deltimesig">ลบการเปลี่ยนเครื่องหมายกำหนดจังหวะ</system:String>
 
+  <system:String x:Key="dawintegration.bpmmismatch">จังหวะของโปรเจกต์ DAW ไม่ตรงกับโปรเจกต์นี้ ไทม์ไลน์ทั้งสองจะตรงกันในระดับวินาทีเท่านั้น แต่ไม่ตรงในระดับห้องเพลง (Bars) — โปรดปรับจังหวะ Tempo ให้ตรงกันเพื่อให้ระบบซิงค์กันอย่างสมบูรณ์</system:String>
   <system:String x:Key="dawintegration.caption">การเชื่อมต่อ DAW (DAW Integration)</system:String>
-  <system:String x:Key="dawintegration.col.apiversion">API</system:String>
+  <!--<system:String x:Key="dawintegration.col.apiversion">API</system:String>-->
   <system:String x:Key="dawintegration.col.compatibility">สถานะ</system:String>
   <system:String x:Key="dawintegration.col.name">ปลั๊กอิน</system:String>
   <system:String x:Key="dawintegration.col.port">พอร์ต</system:String>
@@ -106,74 +110,73 @@
   <system:String x:Key="dawintegration.compatible">เข้ากันได้</system:String>
   <system:String x:Key="dawintegration.connect">เชื่อมต่อ</system:String>
   <system:String x:Key="dawintegration.connected">เชื่อมต่อกับ {0} แล้ว</system:String>
+  <system:String x:Key="dawintegration.connected.count">เชื่อมต่อกับปลั๊กอินจำนวน {0} ตัวแล้ว</system:String>
   <system:String x:Key="dawintegration.connecting">กำลังเชื่อมต่อ...</system:String>
   <system:String x:Key="dawintegration.disconnect">ยกเลิกการเชื่อมต่อ</system:String>
   <system:String x:Key="dawintegration.disconnected">ไม่ได้เชื่อมต่อ</system:String>
-  <system:String x:Key="dawintegration.hint">เชื่อมต่อกับปลั๊กอิน DAW ที่ทำงานอยู่บนเครื่องนี้ การแก้ไขจะยังคงอยู่ใน OpenUtau; ปลั๊กอินจะรับอัปเดตตัวโปรเจกต์และออดิโอที่เรนเดอร์แล้วไปเล่นโดยตรง</system:String>
-  <system:String x:Key="dawintegration.incompatible">ไม่รองรับ API เวอร์ชันนี้</system:String>
-  <system:String x:Key="dawintegration.lost">การเชื่อมต่อหลุด: {0}</system:String>
-  <system:String x:Key="dawintegration.none">ไม่พบปลั๊กอิน DAW โปรดโหลด OpenUtau Bridge ลงในแทร็กเครื่องดนตรีใน DAW ของคุณ แล้วคลิกรีเฟรช หากเพิ่งเคยใช้งาน โปรดขยาย &quot;วิธีใช้งาน&quot; ด้านบน</system:String>
-  <system:String x:Key="dawintegration.none.installed">ติดตั้งปลั๊กอิน Bridge แล้ว แต่ไม่พบอินสแตนซ์ที่กำลังทำงานอยู่ โปรดโหลด OpenUtau Bridge ลงในแทร็กเครื่องดนตรีใน DAW ของคุณ แล้วคลิกรีเฟรช</system:String>
-  <system:String x:Key="dawintegration.reconnecting">กำลังพยายามเชื่อมต่อกับ {0} ใหม่อีกครั้ง...</system:String>
-  <system:String x:Key="dawintegration.refresh">รีเฟรช</system:String>
-  <system:String x:Key="dawintegration.unsavedproject">โปรเจกต์ยังไม่ได้ถูกบันทึก กรุณาบันทึกโปรเจกต์ก่อน แล้วค่อยเชื่อมต่อกับปลั๊กอิน DAW — โปรเจกต์ที่ยังไม่ได้บันทึกจะไม่สามารถส่งข้อมูลไปยัง DAW ได้</system:String>
-  <system:String x:Key="dawintegration.bpmmismatch">จังหวะของโปรเจกต์ DAW ไม่ตรงกับโปรเจกต์นี้ ไทม์ไลน์ทั้งสองจะตรงกันในระดับวินาทีเท่านั้น แต่ไม่ตรงในระดับห้องเพลง (Bars) — โปรดปรับจังหวะ Tempo ให้ตรงกันเพื่อให้ระบบซิงค์กันอย่างสมบูรณ์</system:String>
-  <system:String x:Key="dawintegration.state.connected">เชื่อมต่อแล้ว</system:String>
-  <system:String x:Key="dawintegration.state.connecting">กำลังเชื่อมต่อ</system:String>
-  <system:String x:Key="dawintegration.state.reconnecting">กำลังเชื่อมต่อใหม่</system:String>
-  <system:String x:Key="dawintegration.state.free">ไม่ได้เชื่อมต่อ</system:String>
-  <system:String x:Key="dawintegration.connected.count">เชื่อมต่อกับปลั๊กอินจำนวน {0} ตัวแล้ว</system:String>
-  <system:String x:Key="dawintegration.guide.caption">วิธีใช้งาน (How to use)</system:String>
-  <system:String x:Key="dawintegration.guide.what">OpenUtau Bridge เป็นปลั๊กอินฟรี (VST3/CLAP) สำหรับการมิกซ์ใน DAW ของคุณ มันจะรับหน้าต่างโปรเจกต์และเสียงออดิโอที่เรนเดอร์แล้วจาก OpenUtau ไปวางทาบลงบนไทม์ไลน์ของ DAW ให้ทันที: คุณจึงสามารถเขียนและจูนเสียงใน OpenUtau ต่อไปได้เรื่อยๆ แล้วค่อยทำการมิกซ์ทีเดียวใน DAW ตัวมันเองไม่ได้สร้างเสียงใดๆ เพิ่มเติม และไม่ต้องตั้งค่าอะไรเพิ่มใน OpenUtau เลย</system:String>
-  <system:String x:Key="dawintegration.guide.caps.header">สิ่งที่ทำได้</system:String>
   <system:String x:Key="dawintegration.guide.caps.1">ติดตามทุกการแก้ไขอัตโนมัติ — ตัวโปรเจกต์และแต่ละพาร์ทที่เรนเดอร์แล้ว จะถูกส่งไปยังปลั๊กอินแบบเรียลไทม์ขณะที่คุณกำลังทำงาน</system:String>
   <system:String x:Key="dawintegration.guide.caps.2">หนึ่งปลั๊กอินต่อหนึ่งแทร็ก DAW; เลือกแทร็ก OpenUtau ที่แต่ละอินสแตนซ์จะทำการเล่นเสียงได้โดยตรงจากหน้าต่างปลั๊กอิน หรือแผงควบคุมออโตเมชันของ DAW</system:String>
   <system:String x:Key="dawintegration.guide.caps.3">ซิงค์จุดเล่น (Playhead sync) — เคอร์เซอร์หัวอ่านของ OpenUtau จะเคลื่อนที่ตาม transport ควบคุมการเล่นของ DAW คุณโดยอัตโนมัติ</system:String>
   <system:String x:Key="dawintegration.guide.caps.4">เป็นมิตรกับการส่งออก (Export-friendly) — การ bounce ออดิโอเพื่อส่งออกใน DAW จะหยุดรอพาร์ทที่กำลังติดค้างเรนเดอร์อยู่ใน OpenUtau เสมอ ทำให้ได้ไฟล์ผลลัพธ์ที่ตรงกับตอนเล่นฟังสดๆ</system:String>
-  <system:String x:Key="dawintegration.guide.scope.header">ขอบเขตและข้อจำกัด</system:String>
-  <system:String x:Key="dawintegration.guide.scope.1">ตัว Bridge จะทำงานได้บนคอมพิวเตอร์เครื่องเดียวกันเท่านั้น และ DAW ของคุณจะต้องรองรับการเสียบปลั๊กอินประเภทเครื่องดนตรี VST3 หรือ CLAP (เช่น REAPER, Cubase, FL Studio, Studio One, Ableton Live, Bitwig, ...)</system:String>
-  <system:String x:Key="dawintegration.guide.scope.2">ไทม์ไลน์ทั้งสองจะอิงเวลาตามความยาวจริงเป็นหลัก — กรุณาตั้งค่า BPM ของทั้งสองโปรเจกต์ให้มีค่าเท่ากันเสมอ เพื่อให้เส้นบาร์และจังหวะตรงกัน</system:String>
-  <system:String x:Key="dawintegration.guide.scope.3">OpenUtau จะส่งเฉพาะเสียงร้องเปล่าๆ เท่านั้น: ส่วนระดับความดัง, แพน (Pan), ปิดเสียง (Mute) และเอฟเฟกต์ต่างๆ คุณจะต้องไปตั้งค่าจัดการที่มิกเซอร์ของ DAW แทน</system:String>
-  <system:String x:Key="dawintegration.guide.steps.header">การตั้งค่า (เพียง 3 ขั้นตอน)</system:String>
-  <system:String x:Key="dawintegration.guide.step1">1. ติดตั้งปลั๊กอิน: คลิกปุ่มติดตั้งด้านบน (และกดยืนยันหากมีหน้าต่างขอสิทธิ์ผู้ดูแลระบบเด้งขึ้นมา) หรือคุณสามารถดาวน์โหลดแบบ ZIP ด้วยตนเองแล้วคัดลอกทั้งโฟลเดอร์ &quot;OpenUtau Bridge.vst3&quot; นำไปวางใส่ไว้ในโฟลเดอร์ปลั๊กอินของ DAW ก็ได้:</system:String>
-  <system:String x:Key="dawintegration.guide.step2">2. ใน DAW ของคุณ ให้เพิ่มแทร็กเครื่องดนตรีใหม่ขึ้นมา และเลือกใส่ &quot;OpenUtau Bridge&quot; (ผู้ผลิต OpenUTAU) โปรดทำขั้นตอนนี้ขณะที่ OpenUtau ยังปิดอยู่เท่านั้น — DAW ต้องมาก่อนเสมอ</system:String>
-  <system:String x:Key="dawintegration.guide.step3">3. เปิด OpenUtau ขึ้นมา และกดบันทึกโปรเจกต์ของคุณ 1 รอบ จากนั้นกลับมาที่หน้านี้: กดรีเฟรช เลือกปลั๊กอิน แล้วกดปุ่มเชื่อมต่อ</system:String>
-  <system:String x:Key="dawintegration.guide.paths.win">VST3: C:\Program Files\Common Files\VST3
-CLAP: C:\Program Files\Common Files\CLAP
-หากไม่มีสิทธิ์ผู้ดูแลระบบ? ระบบจะใช้ทางเลือก %LOCALAPPDATA%\Programs\Common\VST3 (หรือ ...\CLAP) แทนให้</system:String>
-  <system:String x:Key="dawintegration.guide.paths.mac">VST3: ~/Library/Audio/Plug-Ins/VST3
-CLAP: ~/Library/Audio/Plug-Ins/CLAP</system:String>
-  <system:String x:Key="dawintegration.guide.paths.linux">VST3: ~/.vst3
-CLAP: ~/.clap</system:String>
+  <system:String x:Key="dawintegration.guide.caps.header">สิ่งที่ทำได้</system:String>
+  <system:String x:Key="dawintegration.guide.caption">วิธีใช้งาน (How to use)</system:String>
   <system:String x:Key="dawintegration.guide.download">ดาวน์โหลดสำหรับ {0}</system:String>
-  <system:String x:Key="dawintegration.guide.install.header">ติดตั้งปลั๊กอิน (ตรวจพบในเครื่องนี้)</system:String>
   <system:String x:Key="dawintegration.guide.install.clap">ติดตั้งปลั๊กอิน CLAP</system:String>
   <system:String x:Key="dawintegration.guide.install.clap.reinstall">ติดตั้งปลั๊กอิน CLAP ใหม่อีกครั้ง</system:String>
   <system:String x:Key="dawintegration.guide.install.done">ทำการติดตั้งไปยัง {0} แล้ว กรุณาสแกนรีเฟรชปลั๊กอินใหม่ใน DAW ของคุณ จากนั้นค่อยคลิกรีเฟรชที่หน้าต่างนี้</system:String>
   <system:String x:Key="dawintegration.guide.install.downloading">กำลังดาวน์โหลด... {0}%</system:String>
+  <system:String x:Key="dawintegration.guide.install.elevfail">การติดตั้งด้วยสิทธิ์ผู้ดูแลระบบล้มเหลว ({0}) ปลั๊กอินจึงถูกนำไปติดตั้งที่โฟลเดอร์ผู้ใช้ {1} แทน กรุณาสแกนปลั๊กอินใหม่ใน DAW ของคุณ จากนั้นค่อยคลิกรีเฟรชที่หน้าต่างนี้</system:String>
   <system:String x:Key="dawintegration.guide.install.extracting">กำลังแตกไฟล์แพ็กเกจ...</system:String>
   <system:String x:Key="dawintegration.guide.install.failed">การติดตั้งล้มเหลว: {0}</system:String>
   <system:String x:Key="dawintegration.guide.install.fallback">เนื่องจากสิทธิ์ผู้ดูแลระบบถูกปฏิเสธ ปลั๊กอินจึงถูกนำไปติดตั้งที่โฟลเดอร์ผู้ใช้ {1} แทน กรุณาสแกนปลั๊กอินใหม่ใน DAW ของคุณ จากนั้นค่อยคลิกรีเฟรชที่หน้าต่างนี้</system:String>
-  <system:String x:Key="dawintegration.guide.install.elevfail">การติดตั้งด้วยสิทธิ์ผู้ดูแลระบบล้มเหลว ({0}) ปลั๊กอินจึงถูกนำไปติดตั้งที่โฟลเดอร์ผู้ใช้ {1} แทน กรุณาสแกนปลั๊กอินใหม่ใน DAW ของคุณ จากนั้นค่อยคลิกรีเฟรชที่หน้าต่างนี้</system:String>
+  <system:String x:Key="dawintegration.guide.install.header">ติดตั้งปลั๊กอิน (ตรวจพบในเครื่องนี้)</system:String>
   <system:String x:Key="dawintegration.guide.install.preparing">กำลังเตรียมการดาวน์โหลด...</system:String>
   <system:String x:Key="dawintegration.guide.install.vst3">ติดตั้งปลั๊กอิน VST3</system:String>
   <system:String x:Key="dawintegration.guide.install.vst3.reinstall">ติดตั้งปลั๊กอิน VST3 ใหม่อีกครั้ง</system:String>
   <system:String x:Key="dawintegration.guide.installed.no">ยังไม่ได้ติดตั้ง</system:String>
   <system:String x:Key="dawintegration.guide.installed.ok">ติดตั้งเรียบร้อยแล้ว</system:String>
   <system:String x:Key="dawintegration.guide.manual">คู่มือฉบับเต็ม</system:String>
-  <system:String x:Key="dawintegration.guide.manual.zh">使用手册（中文）</system:String>
+  <!--<system:String x:Key="dawintegration.guide.manual.zh">使用手册（中文）</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.paths.linux">VST3: ~/.vst3
+CLAP: ~/.clap</system:String>-->
+  <!--<system:String x:Key="dawintegration.guide.paths.mac">VST3: ~/Library/Audio/Plug-Ins/VST3
+CLAP: ~/Library/Audio/Plug-Ins/CLAP</system:String>-->
+  <system:String x:Key="dawintegration.guide.paths.win">VST3: C:\Program Files\Common Files\VST3
+CLAP: C:\Program Files\Common Files\CLAP
+หากไม่มีสิทธิ์ผู้ดูแลระบบ? ระบบจะใช้ทางเลือก %LOCALAPPDATA%\Programs\Common\VST3 (หรือ ...\CLAP) แทนให้</system:String>
   <system:String x:Key="dawintegration.guide.releases">ดูเวอร์ชันทั้งหมดที่มีจำหน่าย</system:String>
+  <system:String x:Key="dawintegration.guide.scope.1">ตัว Bridge จะทำงานได้บนคอมพิวเตอร์เครื่องเดียวกันเท่านั้น และ DAW ของคุณจะต้องรองรับการเสียบปลั๊กอินประเภทเครื่องดนตรี VST3 หรือ CLAP (เช่น REAPER, Cubase, FL Studio, Studio One, Ableton Live, Bitwig, ...)</system:String>
+  <system:String x:Key="dawintegration.guide.scope.2">ไทม์ไลน์ทั้งสองจะอิงเวลาตามความยาวจริงเป็นหลัก — กรุณาตั้งค่า BPM ของทั้งสองโปรเจกต์ให้มีค่าเท่ากันเสมอ เพื่อให้เส้นบาร์และจังหวะตรงกัน</system:String>
+  <system:String x:Key="dawintegration.guide.scope.3">OpenUtau จะส่งเฉพาะเสียงร้องเปล่าๆ เท่านั้น: ส่วนระดับความดัง, แพน (Pan), ปิดเสียง (Mute) และเอฟเฟกต์ต่างๆ คุณจะต้องไปตั้งค่าจัดการที่มิกเซอร์ของ DAW แทน</system:String>
+  <system:String x:Key="dawintegration.guide.scope.header">ขอบเขตและข้อจำกัด</system:String>
+  <system:String x:Key="dawintegration.guide.step1">1. ติดตั้งปลั๊กอิน: คลิกปุ่มติดตั้งด้านบน (และกดยืนยันหากมีหน้าต่างขอสิทธิ์ผู้ดูแลระบบเด้งขึ้นมา) หรือคุณสามารถดาวน์โหลดแบบ ZIP ด้วยตนเองแล้วคัดลอกทั้งโฟลเดอร์ "OpenUtau Bridge.vst3" นำไปวางใส่ไว้ในโฟลเดอร์ปลั๊กอินของ DAW ก็ได้:</system:String>
+  <system:String x:Key="dawintegration.guide.step2">2. ใน DAW ของคุณ ให้เพิ่มแทร็กเครื่องดนตรีใหม่ขึ้นมา และเลือกใส่ "OpenUtau Bridge" (ผู้ผลิต OpenUTAU) โปรดทำขั้นตอนนี้ขณะที่ OpenUtau ยังปิดอยู่เท่านั้น — DAW ต้องมาก่อนเสมอ</system:String>
+  <system:String x:Key="dawintegration.guide.step3">3. เปิด OpenUtau ขึ้นมา และกดบันทึกโปรเจกต์ของคุณ 1 รอบ จากนั้นกลับมาที่หน้านี้: กดรีเฟรช เลือกปลั๊กอิน แล้วกดปุ่มเชื่อมต่อ</system:String>
+  <system:String x:Key="dawintegration.guide.steps.header">การตั้งค่า (เพียง 3 ขั้นตอน)</system:String>
+  <system:String x:Key="dawintegration.guide.what">OpenUtau Bridge เป็นปลั๊กอินฟรี (VST3/CLAP) สำหรับการมิกซ์ใน DAW ของคุณ มันจะรับหน้าต่างโปรเจกต์และเสียงออดิโอที่เรนเดอร์แล้วจาก OpenUtau ไปวางทาบลงบนไทม์ไลน์ของ DAW ให้ทันที: คุณจึงสามารถเขียนและจูนเสียงใน OpenUtau ต่อไปได้เรื่อยๆ แล้วค่อยทำการมิกซ์ทีเดียวใน DAW ตัวมันเองไม่ได้สร้างเสียงใดๆ เพิ่มเติม และไม่ต้องตั้งค่าอะไรเพิ่มใน OpenUtau เลย</system:String>
+  <system:String x:Key="dawintegration.hint">เชื่อมต่อกับปลั๊กอิน DAW ที่ทำงานอยู่บนเครื่องนี้ การแก้ไขจะยังคงอยู่ใน OpenUtau; ปลั๊กอินจะรับอัปเดตตัวโปรเจกต์และออดิโอที่เรนเดอร์แล้วไปเล่นโดยตรง</system:String>
+  <system:String x:Key="dawintegration.incompatible">ไม่รองรับ API เวอร์ชันนี้</system:String>
+  <system:String x:Key="dawintegration.lost">การเชื่อมต่อหลุด: {0}</system:String>
+  <system:String x:Key="dawintegration.none">ไม่พบปลั๊กอิน DAW โปรดโหลด OpenUtau Bridge ลงในแทร็กเครื่องดนตรีใน DAW ของคุณ แล้วคลิกรีเฟรช หากเพิ่งเคยใช้งาน โปรดขยาย "วิธีใช้งาน" ด้านบน</system:String>
+  <system:String x:Key="dawintegration.none.installed">ติดตั้งปลั๊กอิน Bridge แล้ว แต่ไม่พบอินสแตนซ์ที่กำลังทำงานอยู่ โปรดโหลด OpenUtau Bridge ลงในแทร็กเครื่องดนตรีใน DAW ของคุณ แล้วคลิกรีเฟรช</system:String>
+  <system:String x:Key="dawintegration.reconnecting">กำลังพยายามเชื่อมต่อกับ {0} ใหม่อีกครั้ง...</system:String>
+  <system:String x:Key="dawintegration.refresh">รีเฟรช</system:String>
+  <system:String x:Key="dawintegration.state.connected">เชื่อมต่อแล้ว</system:String>
+  <system:String x:Key="dawintegration.state.connecting">กำลังเชื่อมต่อ</system:String>
+  <system:String x:Key="dawintegration.state.free">ไม่ได้เชื่อมต่อ</system:String>
+  <system:String x:Key="dawintegration.state.reconnecting">กำลังเชื่อมต่อใหม่</system:String>
+  <system:String x:Key="dawintegration.unsavedproject">โปรเจกต์ยังไม่ได้ถูกบันทึก กรุณาบันทึกโปรเจกต์ก่อน แล้วค่อยเชื่อมต่อกับปลั๊กอิน DAW — โปรเจกต์ที่ยังไม่ได้บันทึกจะไม่สามารถส่งข้อมูลไปยัง DAW ได้</system:String>
 
   <system:String x:Key="debug.clear">ล้างข้อมูล</system:String>
   <system:String x:Key="debug.copylog">คัดลอก Log</system:String>
-  <system:String x:Key="debug.filter"></system:String>
-  <system:String x:Key="debug.filter.level"></system:String>
-  <system:String x:Key="debug.livereload"></system:String>
-  <system:String x:Key="debug.livereload.tooltip"></system:String>
-  <system:String x:Key="debug.packages"></system:String>
-  <system:String x:Key="debug.packages.createphonemizer"></system:String>
-  <system:String x:Key="debug.packages.createphonemizer.prompt"></system:String>
-  <system:String x:Key="debug.packages.openlocation"></system:String>
+  <!--<system:String x:Key="debug.filter">Filter</system:String>-->
+  <!--<system:String x:Key="debug.filter.level">Lowest level shown</system:String>-->
+  <!--<system:String x:Key="debug.livereload">Live Reload Packages</system:String>-->
+  <!--<system:String x:Key="debug.livereload.tooltip">While this window is open, reload JavaScript phonemizers and themes when a file in the Dependencies folder changes.</system:String>-->
+  <!--<system:String x:Key="debug.packages">Packages</system:String>-->
+  <!--<system:String x:Key="debug.packages.createphonemizer">Create New Phonemizer...</system:String>-->
+  <!--<system:String x:Key="debug.packages.createphonemizer.prompt">Package id, also its folder name in Dependencies.</system:String>-->
+  <!--<system:String x:Key="debug.packages.openlocation">Open Packages Location</system:String>-->
   <system:String x:Key="debug.reverselogorder">สลับลำดับ Log</system:String>
 
   <system:String x:Key="dialogs.about.caption">เกี่ยวกับ OpenUTAU</system:String>
@@ -237,11 +240,11 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
 
   <system:String x:Key="errors.caption">ข้อผิดพลาด</system:String>
   <system:String x:Key="errors.details">รายละเอียดข้อผิดพลาด</system:String>
-  <system:String x:Key="errors.diffsinger.downloadvocoder">เกิดข้อผิดพลาดในการโหลด Vocoder &quot;{0}&quot; กรุณาดาวน์โหลด Vocoder จาก {1}</system:String>
+  <system:String x:Key="errors.diffsinger.downloadvocoder">เกิดข้อผิดพลาดในการโหลด Vocoder "{0}" กรุณาดาวน์โหลด Vocoder จาก {1}</system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder1">เกิดข้อผิดพลาดในการโหลด Vocoder </system:String>
   <system:String x:Key="errors.diffsinger.downloadvocoder2">กรุณาดาวน์โหลด Vocoder จาก </system:String>
   <system:String x:Key="errors.editing.autopitch.unsupported">ฐานเสียงปัจจุบันไม่รองรับการสร้างเส้นระดับเสียง กรุณาใช้ฐานเสียงที่เป็นระบบ DiffSinger หรือ Enunu</system:String>
-  <system:String x:Key="errors.encryptedarchive">ไม่รองรับไฟล์ที่ถูกเข้ารหัสผ่าน กรุณาเปิดโฟลเดอร์ Singer จากแถบ เครื่องมือ &gt; การตั้งค่า &gt; เส้นทาง และแตกไฟล์เข้ารหัสไปยังที่อยู่ดังกล่าวด้วยตนเอง</system:String>
+  <system:String x:Key="errors.encryptedarchive">ไม่รองรับไฟล์ที่ถูกเข้ารหัสผ่าน กรุณาเปิดโฟลเดอร์ Singer จากแถบ เครื่องมือ > การตั้งค่า > เส้นทาง และแตกไฟล์เข้ารหัสไปยังที่อยู่ดังกล่าวด้วยตนเอง</system:String>
   <system:String x:Key="errors.expression.abbrlong">ตัวย่อต้องมีความยาวระหว่าง 1 ถึง 4 ตัวอักษร</system:String>
   <system:String x:Key="errors.expression.abbrset">ต้องกำหนดตัวย่อพารามิเตอร์</system:String>
   <system:String x:Key="errors.expression.abbrunique">ชื่อตัวย่อต้องไม่ซ้ำกัน</system:String>
@@ -280,63 +283,52 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="errors.resampler.failed.message">Resampler ไม่สามารถสร้างไฟล์เสียงผลลัพธ์ได้ ข้อผิดพลาดในลักษณะนี้มักเกิดจากการตั้งค่า oto.ini ที่มีปัญหา โปรดพิจารณาสร้างรายงานข้อผิดพลาดนักร้องเพื่อตรวจสอบปัญหาดังกล่าว</system:String>
   <system:String x:Key="errors.toast.details">(คลิกที่นี่เพื่อดูรายละเอียด)</system:String>
 
-  <system:String x:Key="exesetup.installing">กำลังติดตั้ง &quot;{0}&quot;...</system:String>
+  <system:String x:Key="exesetup.installing">กำลังติดตั้ง "{0}"...</system:String>
   <system:String x:Key="exesetup.linux">สำหรับการใช้งาน resamplers หรือ wavtools ประเภท exe บน Linux:
 1. ติดตั้ง wine จาก {0}
-​2. ตั้งค่า wine path ใน เครื่องมือ &gt; การตั้งค่า &gt; ขั้นสูง &gt; Wine Path</system:String>
+​2. ตั้งค่า wine path ใน เครื่องมือ > การตั้งค่า > ขั้นสูง > Wine Path</system:String>
   <system:String x:Key="exesetup.mac">สำหรับการใช้งาน resamplers หรือ wavtools ประเภท exe บน MacOS:
 1. ติดตั้ง wine ผ่าน Command Line
-​2. ตั้งค่า wine path ใน เครื่องมือ &gt; การตั้งค่า &gt; ขั้นสูง &gt; Wine Path</system:String>
+​2. ตั้งค่า wine path ใน เครื่องมือ > การตั้งค่า > ขั้นสูง > Wine Path</system:String>
   <system:String x:Key="exesetup.resampler">ติดตั้งในฐานะ Resampler</system:String>
   <system:String x:Key="exesetup.title">กำลังติดตั้งไฟล์ Exe</system:String>
   <system:String x:Key="exesetup.wavtool">ติดตั้งในฐานะ Wavtool</system:String>
 
   <system:String x:Key="expressiongraph.category.input">ขาเข้า (Inputs)</system:String>
+  <system:String x:Key="expressiongraph.category.logic">ตรรกะ (Logic)</system:String>
   <system:String x:Key="expressiongraph.category.math">คณิตศาสตร์ (Math)</system:String>
   <system:String x:Key="expressiongraph.category.output">ขาออก (Outputs)</system:String>
   <system:String x:Key="expressiongraph.category.time">เวลา (Time)</system:String>
-  <system:String x:Key="expressiongraph.category.logic">ตรรกะ (Logic)</system:String>
-  <system:String x:Key="expressiongraph.node.time">เวลาของโปรเจกต์ (Project Time)</system:String>
-  <system:String x:Key="expressiongraph.node.smooth">ราบรื่น (Smooth: Attack / Release)</system:String>
-  <system:String x:Key="expressiongraph.node.random_range">ช่วงสุ่ม (Random Range)</system:String>
-  <system:String x:Key="expressiongraph.node.slew">จำกัดอัตรา (Rate Limiter)</system:String>
-  <system:String x:Key="expressiongraph.param.speed">ความเร็ว (Speed: units/s)</system:String>
-  <system:String x:Key="expressiongraph.param.easing">ความราบรื่น (Easing)</system:String>
-  <system:String x:Key="expressiongraph.node.compare">เปรียบเทียบ (Compare)</system:String>
-  <system:String x:Key="expressiongraph.node.and">และ (AND)</system:String>
-  <system:String x:Key="expressiongraph.node.or">หรือ (OR)</system:String>
-  <system:String x:Key="expressiongraph.node.not">ไม่ (NOT)</system:String>
-  <system:String x:Key="expressiongraph.node.if_else">ถ้า / มิฉะนั้น (If / Else)</system:String>
   <system:String x:Key="expressiongraph.copy">คัดลอก (copy)</system:String>
-  <system:String x:Key="expressiongraph.copynodes">Copy</system:String>
+  <!--<system:String x:Key="expressiongraph.copynodes">Copy</system:String>-->
   <system:String x:Key="expressiongraph.cycle">การเชื่อมโยงนั้นจะทำให้เกิดการวนลูป</system:String>
   <system:String x:Key="expressiongraph.default">ค่าเริ่มต้นของตัวเรนเดอร์นี้</system:String>
   <system:String x:Key="expressiongraph.delete">ลบ (Delete)</system:String>
   <system:String x:Key="expressiongraph.deletenode">ลบโหนด (Delete Node)</system:String>
   <system:String x:Key="expressiongraph.duplicate">ทำซ้ำ (Duplicate)</system:String>
-  <system:String x:Key="expressiongraph.duplicatenodes">Duplicate</system:String>
+  <!--<system:String x:Key="expressiongraph.duplicatenodes">Duplicate</system:String>-->
   <system:String x:Key="expressiongraph.error">ไม่ถูกนำมาใช้ เนื่องจาก</system:String>
   <system:String x:Key="expressiongraph.export">ส่งออก...</system:String>
   <system:String x:Key="expressiongraph.graph">กราฟ</system:String>
+  <!--<system:String x:Key="expressiongraph.help">How to use</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.add">Add a node</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.add.gesture">Right-click empty space</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.copy">Copy / Cut / Paste</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.fit">Fit all nodes</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.link">Link</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.link.gesture">Drag from an output to an input</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.move">Move</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.move.gesture">Drag a node's title; selected nodes move together</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.pan">Pan</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.pan.gesture">Drag empty space, or middle-drag anywhere</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.select">Select several</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.select.gesture">Shift-drag empty space, or Shift-click a node's title</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.selectall">Select all / none</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.unlink">Unlink</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.unlink.gesture">Drag a linked input away and drop it</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.zoom">Zoom</system:String>-->
+  <!--<system:String x:Key="expressiongraph.help.zoom.gesture">Mouse wheel</system:String>-->
   <system:String x:Key="expressiongraph.hint">คลิกขวาเพื่อเพิ่มโหนด ลากจากขาออกของโหนดหนึ่งไปยังขาเข้าของอีกโหนดเพื่อเชื่อมต่อ</system:String>
-  <system:String x:Key="expressiongraph.help">How to use</system:String>
-  <system:String x:Key="expressiongraph.help.add">Add a node</system:String>
-  <system:String x:Key="expressiongraph.help.add.gesture">Right-click empty space</system:String>
-  <system:String x:Key="expressiongraph.help.copy">Copy / Cut / Paste</system:String>
-  <system:String x:Key="expressiongraph.help.fit">Fit all nodes</system:String>
-  <system:String x:Key="expressiongraph.help.link">Link</system:String>
-  <system:String x:Key="expressiongraph.help.link.gesture">Drag from an output to an input</system:String>
-  <system:String x:Key="expressiongraph.help.move">Move</system:String>
-  <system:String x:Key="expressiongraph.help.move.gesture">Drag a node's title; selected nodes move together</system:String>
-  <system:String x:Key="expressiongraph.help.pan">Pan</system:String>
-  <system:String x:Key="expressiongraph.help.pan.gesture">Drag empty space, or middle-drag anywhere</system:String>
-  <system:String x:Key="expressiongraph.help.select">Select several</system:String>
-  <system:String x:Key="expressiongraph.help.select.gesture">Shift-drag empty space, or Shift-click a node's title</system:String>
-  <system:String x:Key="expressiongraph.help.selectall">Select all / none</system:String>
-  <system:String x:Key="expressiongraph.help.unlink">Unlink</system:String>
-  <system:String x:Key="expressiongraph.help.unlink.gesture">Drag a linked input away and drop it</system:String>
-  <system:String x:Key="expressiongraph.help.zoom">Zoom</system:String>
-  <system:String x:Key="expressiongraph.help.zoom.gesture">Mouse wheel</system:String>
   <system:String x:Key="expressiongraph.hint.nograph">คลิกสร้างใหม่ (New) เพื่อสร้างกราฟพารามิเตอร์สำหรับตัวเรนเดอร์</system:String>
   <system:String x:Key="expressiongraph.import">นำเข้า...</system:String>
   <system:String x:Key="expressiongraph.import.added">เพิ่มพารามิเตอร์แล้ว</system:String>
@@ -349,29 +341,40 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="expressiongraph.new">สร้างใหม่ (New)</system:String>
   <system:String x:Key="expressiongraph.node.abs">ค่าสัมบูรณ์ (Abs)</system:String>
   <system:String x:Key="expressiongraph.node.add">บวก (Add)</system:String>
+  <system:String x:Key="expressiongraph.node.and">และ (AND)</system:String>
   <system:String x:Key="expressiongraph.node.clamp">จำกัดช่วง (Clamp)</system:String>
+  <system:String x:Key="expressiongraph.node.compare">เปรียบเทียบ (Compare)</system:String>
   <system:String x:Key="expressiongraph.node.constant">ค่าคงที่ (Constant)</system:String>
   <system:String x:Key="expressiongraph.node.curve_input">เส้นโค้งพารามิเตอร์ (Curve)</system:String>
   <system:String x:Key="expressiongraph.node.curve_output">ผลลัพธ์เส้นโค้ง (Curve Output)</system:String>
   <system:String x:Key="expressiongraph.node.divide">หาร (Divide)</system:String>
+  <system:String x:Key="expressiongraph.node.if_else">ถ้า / มิฉะนั้น (If / Else)</system:String>
   <system:String x:Key="expressiongraph.node.lfo">คลื่นความถี่ต่ำ (LFO)</system:String>
   <system:String x:Key="expressiongraph.node.map_range">แปลงช่วงค่า (Map Range)</system:String>
-  <system:String x:Key="expressiongraph.node.masked_curve_input">Masked Curve</system:String>
+  <!--<system:String x:Key="expressiongraph.node.masked_curve_input">Masked Curve</system:String>-->
   <system:String x:Key="expressiongraph.node.max">ค่าสูงสุด (Max)</system:String>
   <system:String x:Key="expressiongraph.node.min">ค่าต่ำสุด (Min)</system:String>
   <system:String x:Key="expressiongraph.node.mix">ผสม (Mix)</system:String>
   <system:String x:Key="expressiongraph.node.multiply">คูณ (Multiply)</system:String>
-  <system:String x:Key="expressiongraph.node.note_envelope">Note Envelope</system:String>
+  <system:String x:Key="expressiongraph.node.not">ไม่ (NOT)</system:String>
+  <!--<system:String x:Key="expressiongraph.node.note_envelope">Note Envelope</system:String>-->
   <system:String x:Key="expressiongraph.node.note_position">ตำแหน่งในโน้ต (Position in Note)</system:String>
+  <system:String x:Key="expressiongraph.node.or">หรือ (OR)</system:String>
+  <!--<system:String x:Key="expressiongraph.node.phoneme_input">Phoneme Expression</system:String>-->
+  <!--<system:String x:Key="expressiongraph.node.phoneme_output">Phoneme Expression Output</system:String>-->
   <system:String x:Key="expressiongraph.node.phrase_notes">ตัวนับโน้ตในวลี (Phrase Note Counter)</system:String>
-  <system:String x:Key="expressiongraph.node.phoneme_input">Phoneme Expression</system:String>
-  <system:String x:Key="expressiongraph.node.phoneme_output">Phoneme Expression Output</system:String>
   <system:String x:Key="expressiongraph.node.pitch_input">ระดับเสียง (Pitch)</system:String>
   <system:String x:Key="expressiongraph.node.pitch_output">ผลลัพธ์ระดับเสียง (Pitch Output)</system:String>
+  <system:String x:Key="expressiongraph.node.random_range">ช่วงสุ่ม (Random Range)</system:String>
+  <system:String x:Key="expressiongraph.node.slew">จำกัดอัตรา (Rate Limiter)</system:String>
+  <system:String x:Key="expressiongraph.node.smooth">ราบรื่น (Smooth: Attack / Release)</system:String>
   <system:String x:Key="expressiongraph.node.subtract">ลบ (Subtract)</system:String>
+  <system:String x:Key="expressiongraph.node.time">เวลาของโปรเจกต์ (Project Time)</system:String>
   <system:String x:Key="expressiongraph.noexpression">เลือกพารามิเตอร์</system:String>
   <system:String x:Key="expressiongraph.output">ออก (Out)</system:String>
-  <system:String x:Key="expressiongraph.pastenodes">Paste</system:String>
+  <system:String x:Key="expressiongraph.param.easing">ความราบรื่น (Easing)</system:String>
+  <system:String x:Key="expressiongraph.param.speed">ความเร็ว (Speed: units/s)</system:String>
+  <!--<system:String x:Key="expressiongraph.pastenodes">Paste</system:String>-->
   <system:String x:Key="expressiongraph.pitchcurve">วาดและโหลดระดับเสียงลงใน</system:String>
   <system:String x:Key="expressiongraph.pitchcurve.pitd">ความเบี่ยงเบนระดับเสียง (PITD)</system:String>
   <system:String x:Key="expressiongraph.pitchcurve.pito">การแทนที่ระดับเสียง (PITO)</system:String>
@@ -381,10 +384,11 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="expressiongraph.unknownnode">โหนดที่ไม่รู้จัก: เวอร์ชันนี้ไม่สามารถทำงานได้</system:String>
   <system:String x:Key="expressiongraph.unused">ไม่มีแทร็กใดใช้กราฟพารามิเตอร์นี้</system:String>
   <system:String x:Key="expressiongraph.usedby">ใช้โดย (Used by)</system:String>
+
   <system:String x:Key="exps.abbr">ชื่อย่อ (Abbreviation)</system:String>
   <system:String x:Key="exps.caption">พารามิเตอร์ (Expressions)</system:String>
   <system:String x:Key="exps.defaultvalue">ค่าเริ่มต้น (Default)</system:String>
-  <system:String x:Key="exps.flag">Resampler Flag</system:String>
+  <!--<system:String x:Key="exps.flag">Resampler Flag</system:String>-->
   <system:String x:Key="exps.getsuggestions">เพิ่มพารามิเตอร์ตามคำแนะนำของตัวเรนเดอร์ทั้งหมด</system:String>
   <system:String x:Key="exps.isflag">เป็น Resampler Flag</system:String>
   <system:String x:Key="exps.maxvalue">ค่า Max</system:String>
@@ -396,12 +400,12 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="exps.sepbycomma">แยกตัวเลือกด้วยเครื่องหมาย ','</system:String>
   <system:String x:Key="exps.skipoutput">ข้ามการแสดงออกของ flag เมื่อตรงกับค่าเริ่มต้น</system:String>
   <system:String x:Key="exps.systemdefault">ค่าเริ่มต้นของระบบ</system:String>
-  <system:String x:Key="exps.tab">Expressions</system:String>
+  <!--<system:String x:Key="exps.tab">Expressions</system:String>-->
   <system:String x:Key="exps.track">พารามิเตอร์ระดับแทร็ก (ใช้ค่านี้แทนที่)</system:String>
   <system:String x:Key="exps.trackdefault">ค่าตั้งต้นของแทร็ก</system:String>
   <system:String x:Key="exps.type">ชนิด (Type)</system:String>
   <system:String x:Key="exps.type.curve">เส้นพารามิเตอร์ (Curve)</system:String>
-  <system:String x:Key="exps.type.maskedcurve">Masked Curve</system:String>
+  <!--<system:String x:Key="exps.type.maskedcurve">Masked Curve</system:String>-->
   <system:String x:Key="exps.type.numerical">ตัวเลข (Numerical)</system:String>
   <system:String x:Key="exps.type.options">ตัวเลือก (Options)</system:String>
 
@@ -493,7 +497,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="menu.tools">เครื่องมือ</system:String>
   <system:String x:Key="menu.tools.clearcache">ล้างข้อมูลแคชทั้งหมด</system:String>
   <system:String x:Key="menu.tools.dawintegration">การเชื่อมต่อ DAW (DAW Integration)...</system:String>
-  <system:String x:Key="menu.tools.debugwindow"></system:String>
+  <!--<system:String x:Key="menu.tools.debugwindow">Developer Window</system:String>-->
   <system:String x:Key="menu.tools.dependency.install">ติดตั้งส่วนเสริม (.oudep)...</system:String>
   <system:String x:Key="menu.tools.fullscreen">แสดงผลเต็มหน้าจอ</system:String>
   <system:String x:Key="menu.tools.layout">เปลี่ยนเค้าโครงหน้าต่าง (Layout)</system:String>
@@ -633,8 +637,8 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="pianoroll.menu.external">อุปกรณ์และการใช้งานภายนอก (External)</system:String>
   <system:String x:Key="pianoroll.menu.lyrics">เครื่องมือเนื้อร้อง</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.addphonetichints">เพิ่มข้อความไกด์นำเสียง (Add Phonetic Hint)</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">เปลี่ยนเครื่องหมาย &quot;-&quot; เป็น &quot;+&quot;</system:String>
-  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">เปลี่ยนเครื่องหมาย &quot;-&quot; เป็น &quot;+~&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplus">เปลี่ยนเครื่องหมาย "-" เป็น "+"</system:String>
+  <system:String x:Key="pianoroll.menu.lyrics.dashtoplustilda">เปลี่ยนเครื่องหมาย "-" เป็น "+~"</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.edit">เปิดหน้าต่างแก้ไขเนื้อร้องอย่างละเอียด</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.hiraganatoromaji">เปลี่ยนจากฮิรางานะ ให้เป็น โรมาจิ</system:String>
   <system:String x:Key="pianoroll.menu.lyrics.insertslur">เพิ่มคำร้องแบบเอื้อนเสียง (Slur lyric)</system:String>
@@ -647,7 +651,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="pianoroll.menu.notedefaults">การตั้งค่าตัวโน้ตพื้นฐาน</system:String>
   <system:String x:Key="pianoroll.menu.notes">จัดการตัวโน้ต</system:String>
   <system:String x:Key="pianoroll.menu.notes.addbreath">เพิ่มเสียงหายใจโดยอัตโนมัติ (Add breath)</system:String>
-  <system:String x:Key="pianoroll.menu.notes.addtaildash">ต่อท้ายด้วยสัญลักษณ์ลากเสียง &quot;-&quot;</system:String>
+  <system:String x:Key="pianoroll.menu.notes.addtaildash">ต่อท้ายด้วยสัญลักษณ์ลากเสียง "-"</system:String>
   <system:String x:Key="pianoroll.menu.notes.addtailrest">เพิ่มโน้ตพักเสียงตัว R ต่อท้ายเสมอ</system:String>
   <system:String x:Key="pianoroll.menu.notes.autolegato">การสไลด์เสียงต่อเนื่องโดยอัตโนมัติ (Auto Legato)</system:String>
   <system:String x:Key="pianoroll.menu.notes.bakepitch">แปลงเส้นควบคุม PITD ลงในจุดควบคุมระดับเสียงหลัก</system:String>
@@ -665,8 +669,8 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="pianoroll.menu.notes.randomizetiming">สุ่มตำแหน่งจังหวะเข้าของเสียง (Randomize timing)</system:String>
   <system:String x:Key="pianoroll.menu.notes.randomizetuning">สุ่มค่าการจูนระดับเสียงร้อง (Randomize tuning)</system:String>
   <system:String x:Key="pianoroll.menu.notes.refreshrealcurves">รีเฟรชกราฟจำลอง (Real curves) ใหม่ทั้งหมด</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetaildash">ลบเครื่องหมายลากเสียง &quot;-&quot; ที่ปลายโน้ตออก</system:String>
-  <system:String x:Key="pianoroll.menu.notes.removetailrest">ลบโน้ตพักเสียง &quot;R&quot; ที่ปลายโน้ตออกทั้งหมด</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetaildash">ลบเครื่องหมายลากเสียง "-" ที่ปลายโน้ตออก</system:String>
+  <system:String x:Key="pianoroll.menu.notes.removetailrest">ลบโน้ตพักเสียง "R" ที่ปลายโน้ตออกทั้งหมด</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.aliases">รีเซ็ตนามแฝง (Aliases) กลับไปเป็นเหมือนเดิม</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.all">ล้างข้อมูลทุกอย่างกลับไปเป็นโน้ตตั้งต้นใหม่</system:String>
   <system:String x:Key="pianoroll.menu.notes.reset.allparameters">รีเซ็ตทุกพารามิเตอร์ของโน้ต</system:String>
@@ -709,23 +713,26 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="pianoroll.toggle.waveform">เปิดรูปคลื่นเสียงพรีวิวในเปียโนโรล (ตัวดับเบิลยู W)</system:String>
   <system:String x:Key="pianoroll.tool.curve.cursor">เครื่องมือเคอร์เซอร์ (Cursor Tool)
     คลิกซ้ายเพื่อเลือก</system:String>
-  <system:String x:Key="pianoroll.tool.curve.pen">เครื่องมือปากกา (Pen Tool)
-    คลิกซ้ายเพื่อวาด
-    คลิกขวาเพื่อรีเซ็ต</system:String>
-  <system:String x:Key="pianoroll.tool.curve.line"></system:String>
   <system:String x:Key="pianoroll.tool.curve.eraser">เครื่องมือยางลบ (Eraser Tool)
     คลิกเพื่อรีเซ็ต</system:String>
-  <system:String x:Key="pianoroll.tool.curve.verticalstretch">เครื่องมือยืดแนวตั้ง (Vertical Stretch Tool)
-    คลิกซ้ายเพื่อยืดเส้นโค้งในแนวตั้ง
+  <system:String x:Key="pianoroll.tool.curve.horizontalshift">เครื่องมือเลื่อนแนวนอน (Horizontal Shift Tool)
+    คลิกซ้ายเพื่อเลื่อนเส้นโค้งในแนวนอน
     คลิกขวาเพื่อรีเซ็ต</system:String>
   <system:String x:Key="pianoroll.tool.curve.horizontalstretch">เครื่องมือยืดแนวนอน (Horizontal Stretch Tool)
     คลิกซ้ายเพื่อยืดเส้นโค้งในแนวนอน
     คลิกขวาเพื่อรีเซ็ต</system:String>
+  <!--<system:String x:Key="pianoroll.tool.curve.line">Line Tool
+    Left click to draw (draw straight line)
+    Hold Shift + Left click to draw (draw horizontal line)
+    Right click to reset</system:String>-->
+  <system:String x:Key="pianoroll.tool.curve.pen">เครื่องมือปากกา (Pen Tool)
+    คลิกซ้ายเพื่อวาด
+    คลิกขวาเพื่อรีเซ็ต</system:String>
   <system:String x:Key="pianoroll.tool.curve.verticalshift">เครื่องมือเลื่อนแนวตั้ง (Vertical Shift Tool)
     คลิกซ้ายเพื่อเลื่อนเส้นโค้งในแนวตั้ง
     คลิกขวาเพื่อรีเซ็ต</system:String>
-  <system:String x:Key="pianoroll.tool.curve.horizontalshift">เครื่องมือเลื่อนแนวนอน (Horizontal Shift Tool)
-    คลิกซ้ายเพื่อเลื่อนเส้นโค้งในแนวนอน
+  <system:String x:Key="pianoroll.tool.curve.verticalstretch">เครื่องมือยืดแนวตั้ง (Vertical Stretch Tool)
+    คลิกซ้ายเพื่อยืดเส้นโค้งในแนวตั้ง
     คลิกขวาเพื่อรีเซ็ต</system:String>
   <system:String x:Key="pianoroll.tool.drawpitch">เครื่องมือวาดระดับเสียง (กดเลข 4)
     คลิกซ้ายเพื่อวาด
@@ -773,7 +780,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.advanced.defaultsnapcurve">Snap เส้นโค้งเป็นค่าเริ่มต้น</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper">เครื่องมือช่วยเหลือด้านเนื้อร้อง</system:String>
   <system:String x:Key="prefs.advanced.lyricshelper.brackets">ผู้ช่วยเนื้อร้องให้ใส่วงเล็บไว้เสมอ</system:String>
-  <system:String x:Key="prefs.advanced.rememberfiletypes">จดจำรูปแบบไฟล์เหล่านี้ในเมนู &quot;โปรเจกต์ที่เปิดล่าสุด&quot;</system:String>
+  <system:String x:Key="prefs.advanced.rememberfiletypes">จดจำรูปแบบไฟล์เหล่านี้ในเมนู "โปรเจกต์ที่เปิดล่าสุด"</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging">การเก็บข้อมูลตัวแปลงความถี่ (Resampler Logging)</system:String>
   <system:String x:Key="prefs.advanced.resamplerlogging.warn">เก็บบันทึก (Log) การทำงานของ Resampler การเปิดใช้งานตัวเลือกนี้จะทำให้ UI และการเรนเดอร์ช้าลง</system:String>
   <system:String x:Key="prefs.advanced.stable">ความเสถียร (Stable)</system:String>
@@ -797,9 +804,9 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.appearance.notehoverglow">เอฟเฟกต์เรืองแสงเมื่อวางเมาส์บนโน้ต</system:String>
   <system:String x:Key="prefs.appearance.playbacknotebounce">เอฟเฟกต์โน้ตเด้งขณะเล่น</system:String>
   <system:String x:Key="prefs.appearance.playbacknotehighlight">เน้นสีโน้ตขณะเล่น</system:String>
+  <system:String x:Key="prefs.appearance.reduceanimations">ลดแอนิเมชันเคลื่อนไหว</system:String>
   <system:String x:Key="prefs.appearance.showghostnotes">แสดงโน้ตจากแทร็กอื่นๆ แบบจางๆ ด้วย (Ghost notes)</system:String>
   <system:String x:Key="prefs.appearance.showicon">แสดงไอคอนในเปียโนโรลเสมอ</system:String>
-  <system:String x:Key="prefs.appearance.reduceanimations">ลดแอนิเมชันเคลื่อนไหว</system:String>
   <system:String x:Key="prefs.appearance.showportrait">แสดงรูปภาพนักร้องในเปียโนโรลเสมอ</system:String>
   <system:String x:Key="prefs.appearance.sortorder">ภาษาของชื่อนักร้องที่แสดงบนโปรแกรม</system:String>
   <system:String x:Key="prefs.appearance.theme">ธีมโปรแกรม (Theme)</system:String>
@@ -810,10 +817,10 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.cache.clearonquit">ทำลายแคชขยะทิ้งอัตโนมัติ ทุกๆ ครั้งที่ปิดโปรแกรม</system:String>
   <system:String x:Key="prefs.cache.diffsingertensorcache">ใช้แคช Tensor สำหรับระบบ DiffSinger AI</system:String>
   <system:String x:Key="prefs.caption">การตั้งค่าทั่วไป (Preferences)</system:String>
-  <system:String x:Key="prefs.channel">Release Channel</system:String>
-  <system:String x:Key="prefs.channel.alpha">Alpha</system:String>
-  <system:String x:Key="prefs.channel.beta">Beta</system:String>
-  <system:String x:Key="prefs.channel.stable">Stable</system:String>
+  <!--<system:String x:Key="prefs.channel">Release Channel</system:String>-->
+  <!--<system:String x:Key="prefs.channel.alpha">Alpha</system:String>-->
+  <!--<system:String x:Key="prefs.channel.beta">Beta</system:String>-->
+  <!--<system:String x:Key="prefs.channel.stable">Stable</system:String>-->
   <system:String x:Key="prefs.diffsinger">DiffSinger AI</system:String>
   <system:String x:Key="prefs.editing">เครื่องมือตัดต่อ</system:String>
   <system:String x:Key="prefs.general">ระบบทั่วไป</system:String>
@@ -827,6 +834,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.paths.detect">ค้นหาอัตโนมัติ</system:String>
   <system:String x:Key="prefs.paths.loaddeepfolders">โหลดโฟลเดอร์ย่อยทั้งหมดที่ซ่อนอยู่</system:String>
   <system:String x:Key="prefs.paths.singer">ตั้งค่าโฟลเดอร์หลักสำหรับฐานเสียงนักร้อง</system:String>
+  <system:String x:Key="prefs.placeholdertext.none">(ไม่มี)</system:String>
   <system:String x:Key="prefs.playback">การเล่น (Playback)</system:String>
   <system:String x:Key="prefs.playback.autoscroll">การเลื่อนหน้าจอตามหัวอ่าน (Auto-Scroll)</system:String>
   <system:String x:Key="prefs.playback.autoscrollmode">รูปแบบการเลื่อนหน้าจอ</system:String>
@@ -836,7 +844,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.playback.backend">ไดร์เวอร์เสียงหลักออดิโอเบื้องหลัง</system:String>
   <system:String x:Key="prefs.playback.backend.auto">อัตโนมัติ (Automatic)</system:String>
   <system:String x:Key="prefs.playback.backend.mini">ระบบมินิออดิโอ MiniAudio (สำหรับคอมพิวเตอร์สเปกต่ำ)</system:String>
-  <system:String x:Key="prefs.playback.backend.sdl3">SDL 3</system:String>
+  <!--<system:String x:Key="prefs.playback.backend.sdl3">SDL 3</system:String>-->
   <system:String x:Key="prefs.playback.cursorposition">ระยะการเลื่อนหน้าจอ</system:String>
   <system:String x:Key="prefs.playback.device">อุปกรณ์สำหรับการขับเสียง (Playback Device)</system:String>
   <system:String x:Key="prefs.playback.lockstarttime">เมื่อกดหยุดชั่วคราว (On Pausing)</system:String>
@@ -844,9 +852,9 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.playback.lockstarttime.on">ดึงหน้าต่างและย้ายเคอร์เซอร์หัวอ่าน กลับไปยังจุดที่คุณเริ่มต้นเล่นทุกครั้ง</system:String>
   <system:String x:Key="prefs.playback.lockstarttime.onlycursor">ย้ายเฉพาะหัวอ่านเคอร์เซอร์เพียงอย่างเดียว ให้กลับไปจุดเริ่มต้น</system:String>
   <system:String x:Key="prefs.playback.metronome">เสียงเคาะให้จังหวะ (Metronome)</system:String>
-  <system:String x:Key="prefs.playback.metronome.volume">ระดับเสียงเคาะจังหวะ (Metronome Volume)</system:String>
   <system:String x:Key="prefs.playback.metronome.highfrequency">ความถี่สูงเสียงเคาะจังหวะ (Metronome High Frequency)</system:String>
   <system:String x:Key="prefs.playback.metronome.lowfrequency">ความถี่ต่ำเสียงเคาะจังหวะ (Metronome Low Frequency)</system:String>
+  <system:String x:Key="prefs.playback.metronome.volume">ระดับเสียงเคาะจังหวะ (Metronome Volume)</system:String>
   <system:String x:Key="prefs.playback.systemdefault">ใช้อุปกรณ์เสียงเริ่มต้นตามระบบของคุณ</system:String>
   <system:String x:Key="prefs.playback.test">ทดสอบเสียง</system:String>
   <system:String x:Key="prefs.rendering">การประมวลผลเรนเดอร์เสียง</system:String>
@@ -856,7 +864,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.rendering.diffsingerstepspitch">รอบสเต็ปการสร้างออโต้จูนระดับเสียง (Pitch) (DiffSinger AI)</system:String>
   <system:String x:Key="prefs.rendering.diffsingerstepsvariance">รอบสเต็ปการสร้างค่าผันแปรทางเสียง (Variance) (DiffSinger AI)</system:String>
   <system:String x:Key="prefs.rendering.diffsingervariancelocalpitchpatch">อัปเดต Variance เฉพาะจุดสำหรับการแก้ไขระดับเสียง (DiffSinger AI)</system:String>
-  <system:String x:Key="prefs.rendering.gamebackend">GAME Inference Backend</system:String>
+  <!--<system:String x:Key="prefs.rendering.gamebackend">GAME Inference Backend</system:String>-->
   <system:String x:Key="prefs.rendering.mergephrases">เวลาในการรวมวลี (วินาที)</system:String>
   <system:String x:Key="prefs.rendering.onnxgpu">ประมวลผลด้วยการ์ดจอ (GPU Acceleration)</system:String>
   <system:String x:Key="prefs.rendering.onnxrunner">ระบบที่ใช้รัน Machine Learning สำหรับปัญญาประดิษฐ์</system:String>
@@ -864,8 +872,8 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.rendering.prerender">เปิดใช้งานระบบเรนเดอร์ออโต้เตรียมพรีวิวเสียงไว้ล่วงหน้า (Pre-render)</system:String>
   <system:String x:Key="prefs.rendering.resampler">ตัวแปลงความถี่ของเสียง (Resampler) (โลกของ VCCV)</system:String>
   <system:String x:Key="prefs.rendering.resampler.morewarn">คำเตือน: MORESAMPLER รองรับได้ไม่สมบูรณ์แบบ มันอาจจะช้าและทำให้ CPU ทำงานหนัก หากคุณยืนยันที่จะใช้มัน กรุณาทำตามนี้:
-  1. ตั้งค่า &quot;resampler-compatibility&quot; ไปที่โหมด &quot;on&quot; ใน moreconfig.txt
-  2. ตั้งค่า &quot;auto-update-llsm-mrq&quot; ให้เป็น &quot;off&quot; ภายใน moreconfig.txt เช่นกัน
+  1. ตั้งค่า "resampler-compatibility" ไปที่โหมด "on" ใน moreconfig.txt
+  2. ตั้งค่า "auto-update-llsm-mrq" ให้เป็น "off" ภายใน moreconfig.txt เช่นกัน
   3. หลังจากนั้น กรุณารอ moresampler สร้างไฟล์ llsm อย่างอดทนจนกว่าจะครบทุกตัวครับ</system:String>
   <system:String x:Key="prefs.rendering.resampler.note">ข้อสังเกต: หากจะใช้งานไฟล์แปลงความถี่เสียงต่างๆ จากภายนอก กรุณาเอาไฟล์ .exe หรือ .dll ใส่ในแฟ้ม Resamplers ที่อยู่ในโฟลเดอร์หลัก OpenUtau เสมอ ก่อนที่จะเลือกตั้งค่ามัน</system:String>
   <system:String x:Key="prefs.rendering.skipmuted">งดเว้นการเรนเดอร์แทร็กที่ถูกปิดเสียงไว้ เพื่อประหยัด CPU (Skip muted tracks)</system:String>
@@ -873,7 +881,6 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="prefs.rendering.threads.numthreads">ขีดจำกัดจำนวนของคอร์เรนเดอร์สูงสุด (Maximum Render Threads)</system:String>
   <system:String x:Key="prefs.rendering.wavtool">เอนจินประกอบจิ๊กซอว์เสียงให้ราบรื่น (Wavtool)</system:String>
   <system:String x:Key="prefs.utau">การตั้งค่า UTAU แบบดั้งเดิม</system:String>
-  <system:String x:Key="prefs.placeholdertext.none">(ไม่มี)</system:String>
 
   <system:String x:Key="progress.cachecleared">ล้างขยะแคชเรียบร้อยแล้ว.</system:String>
   <system:String x:Key="progress.clearingcache">กำลังล้างแคช...</system:String>
@@ -893,7 +900,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="singererror.cutoffoverlap">จุดตัด (Cutoff) ต้องอยู่ในด้านขวาของการซ้อนทับ (Overlap)</system:String>
   <system:String x:Key="singererror.cutoffpreutter">จุดตัด (Cutoff) ต้องอยู๋ทางด้านขวาของเสียงก่อนเปล่ง (Preutter) เสมอ</system:String>
   <system:String x:Key="singererror.duplicatealias">ระบบตรวจพบว่าคุณมี Alias ซ้ำซ้อนกันอยู่ในฐานเสียง! กรุณาเข้าไปเปลี่ยนชื่อมันให้ถูกต้องเสียก่อน:{0}</system:String>
-  <system:String x:Key="singererror.duplicatename">ตรวจพบชื่อไฟล์ที่ซ้ำกัน เมื่อมีการละเว้นตัวพิมพ์เล็ก-พิมพ์ใหญ่ ในชุด oto &quot;{0}&quot;: {1}
+  <system:String x:Key="singererror.duplicatename">ตรวจพบชื่อไฟล์ที่ซ้ำกัน เมื่อมีการละเว้นตัวพิมพ์เล็ก-พิมพ์ใหญ่ ในชุด oto "{0}": {1}
 ฐานเสียงนี้อาจไม่สามารถใช้งานได้บนระบบปฏิบัติการ OS อื่น เนื่องจากความไม่เข้ากันนี้</system:String>
   <system:String x:Key="singererror.failedload">ระบบโหลดฐานเสียงของนักร้องล้มเหลว</system:String>
   <system:String x:Key="singererror.invalidduration">พบระยะเวลาที่ไม่ถูกต้อง {0}</system:String>
@@ -924,12 +931,12 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="singers.editoto.reset">รีเซ็ต Otos</system:String>
   <system:String x:Key="singers.editoto.save">บันทึกตั้งค่า Otos กลับเข้าไปใหม่ทั้งหมด</system:String>
   <system:String x:Key="singers.editoto.searchalias">ค้นหาชื่อสัทอักษร (Alias)</system:String>
-  <system:String x:Key="singers.editoto.setsetparampath">กรุณาดาวน์โหลด setParam (v4.0b หรือสูงกว่า) จาก http://nwp8861.blog92.fc2.com/ และตั้งค่าเส้นทางโฟลเดอร์ของตัว SetParam ผ่านตัวเลือกเมนู ตั้งค่า &gt; ขั้นสูง ใน OpenUtau ให้เรียบร้อยเสียก่อน!</system:String>
-  <system:String x:Key="singers.editoto.setvlabelerpath">ดาวน์โหลด vLabeler (1.0.0-beta1 ขึ้นไป) ได้ที่ https://github.com/sdercolin/vlabeler และอย่าลืมที่จะนำไฟล์ดังกล่าวเข้าไปใส่ไว้ที่หน้า ตั้งค่า &gt; เส้นทาง vLabeler ของระบบเราเสียก่อน ถึงจะสามารถเปิดใช้งานได้</system:String>
+  <system:String x:Key="singers.editoto.setsetparampath">กรุณาดาวน์โหลด setParam (v4.0b หรือสูงกว่า) จาก http://nwp8861.blog92.fc2.com/ และตั้งค่าเส้นทางโฟลเดอร์ของตัว SetParam ผ่านตัวเลือกเมนู ตั้งค่า > ขั้นสูง ใน OpenUtau ให้เรียบร้อยเสียก่อน!</system:String>
+  <system:String x:Key="singers.editoto.setvlabelerpath">ดาวน์โหลด vLabeler (1.0.0-beta1 ขึ้นไป) ได้ที่ https://github.com/sdercolin/vlabeler และอย่าลืมที่จะนำไฟล์ดังกล่าวเข้าไปใส่ไว้ที่หน้า ตั้งค่า > เส้นทาง vLabeler ของระบบเราเสียก่อน ถึงจะสามารถเปิดใช้งานได้</system:String>
   <system:String x:Key="singers.errorreport">สร้างเอกสารแจ้งเตือนข้อผิดพลาดของเสียงนักร้อง (Singer Error Report)</system:String>
   <system:String x:Key="singers.location">สถานที่จัดเก็บ</system:String>
   <system:String x:Key="singers.merge">รวมชุดเข้ากับฐานเสียงนักร้องอื่น</system:String>
-  <system:String x:Key="singers.oto">Oto</system:String>
+  <!--<system:String x:Key="singers.oto">Oto</system:String>-->
   <system:String x:Key="singers.otoview.moveleft">ขยับซ้าย</system:String>
   <system:String x:Key="singers.otoview.moveright">ขยับขวา</system:String>
   <system:String x:Key="singers.otoview.selectnext">เลือกคำถัดไป</system:String>
@@ -985,7 +992,15 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="themeeditor.title">นักออกแบบธีมและ UI (Theme Editor)</system:String>
 
   <system:String x:Key="tip.aliasbox">แทนที่คำสั่งนี้ด้วยนามแฝง (Override Alias)</system:String>
-  <system:String x:Key="tip.exps"></system:String>
+  <!--<system:String x:Key="tip.exps">Numerical,Options Type
+    Left Button Draw: Set expressions
+    Shift + Left Button Draw: Set uniform expressions
+    Right Button Draw: Reset expressions
+Curve Type
+    Left Button Draw: Draw
+    Line Tool Left Button Draw: Line Draw
+    Line Tool Shift + Left Button Draw: Horizontal Line Draw
+    Right Button Draw: Reset Line</system:String>-->
   <system:String x:Key="tip.exps.notsupported">ตัวเรนเดอร์ไม่รองรับการส่งคำสั่งพารามิเตอร์นี้</system:String>
   <system:String x:Key="tip.lyricbox.next">กด Tab: กระโดดไปโน้ตถัดไป</system:String>
   <system:String x:Key="tip.lyricbox.prev">กด Shift+Tab: ถอยไปโน้ตก่อนหน้านี้</system:String>
@@ -1010,6 +1025,9 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
 
   <system:String x:Key="tracks.duplicate">ทำซ้ำคัดลอกแทร็กนี้มาใหม่ทั้งหมด (Duplicate Track)</system:String>
   <system:String x:Key="tracks.duplicatesettings">คัดลอกเฉพาะการตั้งค่าแทร็ก (Duplicate Track Settings)</system:String>
+  <system:String x:Key="tracks.expressiongraph">กราฟพารามิเตอร์ (Expression Graph)</system:String>
+  <system:String x:Key="tracks.expressiongraph.default">ค่าเริ่มต้นของเรนเดอร์ (Renderer default)</system:String>
+  <system:String x:Key="tracks.expressiongraph.none">ไม่มี (none)</system:String>
   <system:String x:Key="tracks.favorite">รายการโปรด</system:String>
   <system:String x:Key="tracks.installsinger">ติดตั้งฐานเสียงนักร้องใหม่</system:String>
   <system:String x:Key="tracks.mixfx">ขัดเกลาเสียงเฉพาะ (Track Polish)</system:String>
@@ -1032,9 +1050,6 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="tracks.searchterms">คำค้นหา (Search terms)</system:String>
   <system:String x:Key="tracks.searchterms.edit">แก้ไขคำค้นหา...</system:String>
   <system:String x:Key="tracks.searchterms.prompt">คำอื่นๆ ที่ใช้สำหรับค้นหานักร้องคนนี้ โดยคั่นด้วยเครื่องหมายจุลภาค (,)</system:String>
-  <system:String x:Key="tracks.expressiongraph">กราฟพารามิเตอร์ (Expression Graph)</system:String>
-  <system:String x:Key="tracks.expressiongraph.default">ค่าเริ่มต้นของเรนเดอร์ (Renderer default)</system:String>
-  <system:String x:Key="tracks.expressiongraph.none">ไม่มี (none)</system:String>
   <system:String x:Key="tracks.selectrenderer">เลือกใช้เอนจินเรนเดอร์สำหรับแทร็กนี้</system:String>
   <system:String x:Key="tracks.selectsinger">เปลี่ยนตัวนักร้องให้แทร็ก</system:String>
   <system:String x:Key="tracks.singerdefault">(ค่าเริ่มต้นของนักร้อง) </system:String>
@@ -1045,7 +1060,7 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="tracks.trackcolor">เปลี่ยนสีสันของแทร็ก</system:String>
   <system:String x:Key="tracks.tracksettings">เปิดหน้าตั้งค่าการทำงานต่างๆ ของแทร็ก</system:String>
 
-  <FontFamily x:Key="ui.fontfamily">Segoe UI,San Francisco,Helvetica Neue</FontFamily>
+  <FontFamily x:Key="ui.fontfamily">Noto serif Thai,Angsana New,Noto Sans Thai,IBM Plex Sans Thai,Segoe UI,San Francisco,Helvetica Neue</FontFamily>
 
   <system:String x:Key="updater.caption">กำลังตรวจสอบหาอัปเดตเวอร์ชันใหม่</system:String>
   <system:String x:Key="updater.description">แพลตฟอร์มสังเคราะห์เสียงและปรับแต่งเสียงร้องแบบโอเพนซอร์สของทุกคน</system:String>
@@ -1057,16 +1072,17 @@ OpenUtau มุ่งหวังที่จะเป็นสภาพแว�
   <system:String x:Key="updater.update">อัปเดต</system:String>
 
   <system:String x:Key="warning">ข้อควรระวัง</system:String>
-  <system:String x:Key="warning.asciipath">ที่อยู่ของโปรแกรม OpenUtau ของคุณคือ &quot;{0}&quot; ซึ่งตรวจพบว่ามีการใช้อักขระที่ไม่ใช่ตัวอักษรภาษาอังกฤษ (Non-ASCII) 
+  <system:String x:Key="warning.asciipath">ที่อยู่ของโปรแกรม OpenUtau ของคุณคือ "{0}" ซึ่งตรวจพบว่ามีการใช้อักขระที่ไม่ใช่ตัวอักษรภาษาอังกฤษ (Non-ASCII) 
 ปัญหานี้อาจทำให้ตัวแปลงเสียง Resamplers ในรูปแบบ Exe ไม่สามารถทำงานได้ หรือคอมไพล์โปรแกรมแตก กรุณาย้ายไปไว้ที่โฟลเดอร์ภาษาอังกฤษ 100%</system:String>
   <system:String x:Key="warning.renderer">ไม่มีข้อมูลพารามิเตอร์การตั้งค่าสำหรับตัวเรนเดอร์เสียงนี้</system:String>
-  <system:String x:Key="warnings">Warnings</system:String>
-  <system:String x:Key="warnings.clear">Clear all</system:String>
-  <system:String x:Key="warnings.dismiss">Dismiss</system:String>
-  <system:String x:Key="warnings.singers.duplicate">Duplicate voicebank folder &quot;{0}&quot;</system:String>
-  <system:String x:Key="warnings.singers.duplicate.detail">Using: {1}
+
+  <!--<system:String x:Key="warnings">Warnings</system:String>-->
+  <!--<system:String x:Key="warnings.clear">Clear all</system:String>-->
+  <!--<system:String x:Key="warnings.dismiss">Dismiss</system:String>-->
+  <!--<system:String x:Key="warnings.singers.duplicate">Duplicate voicebank folder "{0}"</system:String>-->
+  <!--<system:String x:Key="warnings.singers.duplicate.detail">Using: {1}
 Ignored: {2}
-Rename the ignored folder to load it.</system:String>
+Rename the ignored folder to load it.</system:String>-->
 
   <system:String x:Key="welcome.new">สร้างใหม่</system:String>
   <system:String x:Key="welcome.new.description">เปิดหน้าต่างสร้างโปรเจกต์เพลงชิ้นใหม่ (Create a new project)</system:String>
@@ -1075,6 +1091,7 @@ Rename the ignored folder to load it.</system:String>
   <system:String x:Key="welcome.recent">งานล่าสุด</system:String>
   <system:String x:Key="welcome.start">เริ่มต้นทำงาน (Start)</system:String>
   <system:String x:Key="welcome.template">เทมเพลตที่บันทึกไว้</system:String>
+
   <system:String x:Key="yamleditor.default">ค่าเริ่มต้น: {0}</system:String>
   <system:String x:Key="yamleditor.discarded">{0} มีข้อผิดพลาด จึงไม่สามารถบันทึกได้ การเปลี่ยนแปลงของคุณจึงถูกยกเลิกทิ้ง</system:String>
   <system:String x:Key="yamleditor.errors">ข้อผิดพลาด: {0}, คำเตือน: {1}. OpenUtau ไม่สามารถโหลดไฟล์นี้ได้; กรุณาแก้ไขข้อผิดพลาดเพื่อบันทึก</system:String>
@@ -1090,7 +1107,7 @@ Rename the ignored folder to load it.</system:String>
   <system:String x:Key="yamleditor.type.number">ตัวเลข</system:String>
   <system:String x:Key="yamleditor.type.section">ส่วนของคีย์ (section of keys)</system:String>
   <system:String x:Key="yamleditor.type.text">ข้อความ</system:String>
-  <system:String x:Key="yamleditor.unknownkey">คีย์ที่ไม่รู้จัก &quot;{0}&quot;, OpenUtau จะเพิกเฉยต่อคีย์นี้ กรุณาตรวจสอบการสะกด</system:String>
+  <system:String x:Key="yamleditor.unknownkey">คีย์ที่ไม่รู้จัก "{0}", OpenUtau จะเพิกเฉยต่อคีย์นี้ กรุณาตรวจสอบการสะกด</system:String>
   <system:String x:Key="yamleditor.unsaved">ต้องการบันทึกการเปลี่ยนแปลงใน {0} หรือไม่?</system:String>
   <system:String x:Key="yamleditor.unsaved.caption">การเปลี่ยนแปลงที่ยังไม่ได้บันทึก</system:String>
   <system:String x:Key="yamleditor.unsaved.errors">{0} มีข้อผิดพลาด จึงไม่สามารถบันทึกได้ ต้องการทิ้งการเปลี่ยนแปลงของคุณหรือไม่?</system:String>
